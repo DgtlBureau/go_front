@@ -1,0 +1,268 @@
+
+
+/* Start:/team-page/style.css?16596368364358*/
+.variable-block {
+	height: 300px;
+}
+
+.variable {
+	width: 100%;
+	height: 100%;
+	padding: 0 20px;
+}
+
+.variable .slick-slider {
+	height: 100%;
+	padding-left: 13px;
+}
+
+.variable .slick-prev,
+.variable .slick-next {
+	z-index: 1 !important;
+	width: 50px !important;
+	height: 50px !important;
+	background: #fff !important;
+}
+
+.variable .slick-prev:before,
+.variable .slick-next:before {
+	font-size: 28px !important;
+	font-weight: 700 !important;
+	line-height: 1 !important;
+	opacity: 1 !important;
+	color: #000 !important;
+	-webkit-font-smoothing: antialiased !important;
+
+}
+
+
+.variable .slick-next {
+	right: 5px;
+}
+
+.slick-prev,
+.slick-next {
+	font-size: 0;
+	line-height: 0;
+	position: absolute;
+	top: 50%;
+	display: block;
+	width: 20px;
+	height: 20px;
+	padding: 0;
+	-webkit-transform: translate(0, -50%);
+	transform: translate(0, -50%);
+	cursor: pointer;
+	color: rgba(0, 0, 0, 0);
+	border: none;
+	outline: none;
+	background: rgba(0, 0, 0, 0);
+}
+
+.variable .slick-list {
+	position: relative !important;
+	display: block !important;
+	overflow: hidden !important;
+	margin-right: 0 !important;
+	margin-left: 0 !important;
+	padding: 0 !important;
+	height: 100%;
+}
+
+.variable .slick-list .slick-track {
+	height: 100%;
+}
+
+.slider_img {
+	margin: 0px 1.4% 0px 0px;
+	position: relative;
+}
+
+.slider_img img {
+	width: 100%;
+	height: 100%;
+}
+
+.achievements-block {
+	padding: 0 0px;
+	display: flex;
+}
+
+.achievements-block__achievements {
+	width: 50%;
+}
+
+.achievements-block__text-block {
+	width: calc(50% - 20px);
+	margin-right: 20px;
+}
+
+.achievements-block__text {
+	max-width: 550px;
+	font-size: 16px;
+}
+
+.achievements-block__item {
+	display: flex;
+	align-items: center;
+}
+
+.achievements-block__item-image {
+	margin-right: 10px;
+	min-width: 80px;
+}
+
+.achievements-block__item-text {
+	font-size: 16px;
+}
+
+.achievements-block__item-text span {
+	font-family: 'TT Octosquares';
+	font-weight: 600;
+	font-size: 20px;
+}
+
+
+
+@media screen and (max-width: 900px) {
+	.achievements-block {
+		flex-wrap: wrap;
+		/* width: 100%; */
+	}
+
+	.achievements-block__achievements {
+		margin-top: 15px;
+		width: 100%;
+	}
+
+	.achievements-block__text-block {
+		margin-right: 0;
+		width: 100%;
+	}
+
+}
+
+@media screen and (max-width: 768px) {
+	.achievements-block__item-image {
+		max-width: 55px;
+		min-width: 55px;
+	}
+
+	.achievements-block__item-image img {
+		width: 100%;
+	}
+
+	.achievements-block {
+		padding: 0 20px;
+	}
+
+	.achievements-block__item-text span {
+		font-size: 16px;
+	}
+
+}
+@media screen and (max-width: 375px) {
+	.achievements-block {
+		padding: 0 0;
+	}
+}
+/* End */
+
+
+/* Start:/team-page/style.css?16594593251520*/
+.variable-block {
+	height: 300px;
+}
+
+.variable {
+	width: 100%;
+	height: 100%;
+	padding: 0 20px;
+}
+
+.variable .slick-slider {
+	height: 100%;
+	padding-left: 13px;
+}
+
+next {
+	z-index: 1 !important;
+	width: 35px !important;
+	height: 35px !important;
+	background: #fff !important;
+}
+
+.variable .slick-prev:before,
+.variable .slick-next:before {
+	font-size: 28px !important;
+	font-weight: 700 !important;
+	line-height: 1 !important;
+	opacity: 1 !important;
+	color: #000 !important;
+	-webkit-font-smoothing: antialiased !important;
+
+}
+
+.variable .slick-prev,
+.variable .slick-next {
+	z-index: 1 !important;
+	width: 35px !important;
+	height: 35px !important;
+	background: #fff !important;
+}
+
+.slick-prev {
+	left: 5px;
+}
+
+.variable .slick-next {
+	right: 5px;
+}
+
+.slick-prev,
+.slick-next {
+	font-size: 0;
+	line-height: 0;
+	position: absolute;
+	top: 50%;
+	display: block;
+	width: 20px;
+	height: 20px;
+	padding: 0;
+	-webkit-transform: translate(0, -50%);
+	transform: translate(0, -50%);
+	cursor: pointer;
+	color: rgba(0, 0, 0, 0);
+	border: none;
+	outline: none;
+	background: rgba(0, 0, 0, 0);
+}
+
+.variable .slick-list {
+	position: relative !important;
+	display: block !important;
+	overflow: hidden !important;
+	margin-right: 0 !important;
+	margin-left: -20px !important;
+	padding: 0 !important;
+	height: 100%;
+	left: 20px;
+}
+
+.variable .slick-list .slick-track {
+	height: 100%;
+}
+
+.slider_img {
+	margin: 0px 1.4% 0px 0px;
+	position: relative;
+}
+
+.slider_img img {
+	width: 100%;
+	height: 100%;
+}
+
+/* End */
+/* /local/templates/new_ru/components/bitrix/news/team_page/bitrix/news.detail/.default/style.css?165963674829956 */
+/* /team-page/style.css?16596368364358 */

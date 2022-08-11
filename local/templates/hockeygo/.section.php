@@ -1,0 +1,3 @@
+<?
+$sSectionName="new_ru";
+?>

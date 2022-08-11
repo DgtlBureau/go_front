@@ -1,0 +1,345 @@
+@media screen and (max-width: 1366px){
+    .slider_img img {
+        width: 412px;
+    }
+}
+
+@media screen and (max-width: 1280px){
+    .slider_img img {
+        width: 383px;
+    }
+    .banner_property {
+        width: 190px;
+    }
+}
+
+@media (min-width: 1280px) and (max-width: 1366px) {
+    p.prog_text{
+        padding-right: 70px;
+    }
+    .champ_block {
+        position: relative;
+        left: -35px;
+    }
+    .swiper-slide img{
+        display: initial;
+        width: 91%;
+    }
+    .swiper-button-pre {
+        left: 5px;
+    }
+    .swiper-button-nex {
+        right: 5px;
+    }
+    .popup_img img {
+        width: 1010px;
+        height: 451px;
+    }
+    .popup{
+        left: 23%;
+        width: 85%;
+    }
+}
+
+@media (min-width: 375px) and (max-width: 1000px) {
+    .header{
+        display: none;
+    }
+    .hamburger-menu{
+        display: block;
+    }
+    .hamburger-menu {
+        background-color: #1A1919;
+        width: 100%;
+        height: 55px;
+        display: flex;
+    }
+    .hamburger-menu .logo {
+        width: 80%;
+        /* margin-left: 45px; */
+        padding-top: 6px;
+        text-align: center;
+    }
+    .hamburger-menu .language {
+        /* width: 18%; */
+        /* text-align: center; */
+        /* margin-top: -7px; */
+    }
+    #menu__toggle {
+        width: 0;
+        opacity: 0;
+    }
+    #menu__toggle:checked + .menu__btn > span {
+        transform: rotate(45deg);
+    }
+    #menu__toggle:checked + .menu__btn > span::before {
+        top: 0;
+        transform: rotate(0deg);
+    }
+    #menu__toggle:checked + .menu__btn > span::after {
+        top: 0;
+        transform: rotate(90deg);
+    }
+    #menu__toggle:checked ~ .menu__box {
+        left: 0 !important;
+    }
+    .menu__btn {
+        position: fixed;
+        top: 25px;
+        left: 20px;
+        width: 26px;
+        height: 26px;
+        cursor: pointer;
+        z-index: 5;
+    }
+    .menu__btn > span,
+    .menu__btn > span::before,
+    .menu__btn > span::after {
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 3px;
+        background-color: #fff;
+        transition-duration: .45s;
+    }
+    .menu__btn > span::before {
+        content: '';
+        top: -8px;
+    }
+    .menu__btn > span::after {
+        content: '';
+        top: 8px;
+    }
+    .menu__box {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 300px;
+        height: 100%;
+        margin: 0;
+        padding: 80px 0;
+        z-index: 1;
+        list-style: none;
+        background-color: #ECEFF1;
+        box-shadow: 2px 2px 6px rgba(0, 0, 0, .4);
+        transition-duration: .45s;
+    }
+    .menu__item {
+        display: block;
+        padding: 12px 24px;
+        font-size: 20px;
+        text-decoration: none;
+        transition-duration: .25s;
+    }
+    .menu__item:hover {
+        background-color: #CFD8DC;
+    }
+}
+
+@media screen and (device-width: 375px){
+    .banner_video {
+        height: 335px;
+    }
+    .bull_image {
+        height: 527px;
+        background-size: 386px;
+    }
+    .bull_image_orang {
+        height: 527px;
+        background-size: 386px;
+    }
+    .back_image {
+        height: 423px;
+    }
+    .blue_image {
+        height: 479px;
+    }
+    .player_img {
+        width: 431px;
+        top: 131px;
+        left: -53px;
+        text-align: left;
+    }
+    .player_img img {
+        width: 58%;
+    }
+    .player_desc {
+        top: 130px;
+    }
+    .banner_title {
+        width: 177px;
+        height: 34px;
+        transform: translateX(195px);
+        -webkit-transform: translateX(195px);
+        -moz-transform: translateX(195px);
+        -ms-transform: translateX(195px);
+        -o-transform: translateX(195px);
+    }
+    h1.h1 {
+        font-size: 20px;
+        line-height: 27px;
+        margin-left: 16px;
+    }
+    span.player_num {
+        font-size: 21px;
+    }
+    span.player_num_orag{
+        font-size: 21px;
+    }
+    span.player_num:before {
+        -webkit-text-stroke: 0.08em #000;
+    }
+    span.player_num_orag:before {
+        -webkit-text-stroke: 0.08em #000;
+    }
+    .property_block {
+        display: block;
+        margin-left: 213px;
+    }
+    .banner_property {
+        width: 212px;
+        height: 57px;
+    }
+    span.pos_name {
+        font-size: 12px;
+    }
+    .pos_value {
+        font-weight: 400;
+        font-size: 14px;
+    }
+    .achiev_block {
+        margin-top: 106px;
+    }
+    .stat_title .stat_h1 {
+        margin: 15px 20px 15px 10px;
+    }
+    .stat_h1 {
+        font-size: 29px;
+    }
+    .arrow {
+        display: none;
+    }
+    .number_items {
+        display: flex;
+        width: 95%;
+        -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        margin: auto;
+    }
+    .item {
+        width: 49%;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+        flex-wrap: nowrap;
+        border-bottom: 2px solid #000;
+        padding: 18px 0 18px 0;
+    }
+    .item:last-child {
+        border-right: 2px solid #000;
+    }
+    .item_orang {
+        width: 49%;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+        flex-wrap: nowrap;
+        border-bottom: 2px solid #000;
+        padding: 18px 0 18px 0;
+    }
+    .item_orang:last-child {
+        border-right: 2px solid #000;
+    }
+    .text {
+        width: 95px;
+        text-align: left;
+        display: inline-block;
+        font-size: 12px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    span.stat_num {
+        margin-left: 10px;
+        font-size: 26px;
+    }
+    span.stat_num_orang {
+        margin-left: 10px;
+        font-size: 26px;
+    }
+    .progress_block {
+        width: 100%;
+        display: block;
+    }
+    p.prog_text {
+        width: 95%;
+        margin-left: 10px;
+        padding-right: 0px;
+    }
+    .champ_block {
+        margin-top: 25px;
+        width: 97%;
+        margin-left: 10px;
+        display: flex;
+    }
+    img.champ_icon {
+        width: 50px;
+        height: 50px;
+        padding-right: 20px;
+    }
+    .slider_img img {
+        width: 275px;
+    }
+    .popup {
+        position: fixed;
+        top: 15%;
+        left: 51%;
+    }
+    .popup-close {
+        top: -40px;
+        right: 0px;
+    }
+    .popup_img {
+        width: 1077px;
+        height: 292px;
+    }
+    .popup_img img {
+        width: 100%;
+        height: 292px;
+    }
+    .swiper-button-nex, .swiper-button-pre{
+        width: 50px;
+        height: 50px;
+    }
+    .left_item {
+        justify-content: start;
+        border-right: none;
+    }
+    .left_item .nav_arrow img {
+        margin-left: 13px;
+    }
+    .left_item .nav_team_img img {
+        padding-left: 30px;
+    }
+    .team_name {
+        display: none;
+    }
+    .center_item {
+        border-right: none;
+    }
+    .center_item_orang {
+        border-right: none;
+    }
+    .right_item {
+        justify-content: start;
+    }
+    .right_item .nav_team_img img {
+        padding-left: 25px;
+        padding-right: 4px;
+    }
+    .right_item .nav_arrow img {
+        margin-left: 12px;
+    }
+}
