@@ -194,181 +194,41 @@
             </div>
             <div class="go-tournament__swiper-block">
                 <div class="go-tournament__swiper">
-                    <div class="go-tournament__staff-person">
+                    <?
+        	        $arSelect = ['ID', 'NAME', 'DETAIL_PAGE_URL', 'IBLOCK_ID', 'PREVIEW_PICTURE', 'PROPERTY_GAME', 'PROPERTY_GOLE', 'PROPERTY_ASSIST', 'PROPERTY_BEST', 'PROPERTY_NUMBER'];
+                    $arFilter = [
+                        'IBLOCK_ID'     => 18,
+                        'PROPERTY_BEST_VALUE' => 'Да',
+                    ];
+                    $best_players = CIBlockElement::GetList([], $arFilter, false, false, $arSelect);
+                    
+                    while($best_player = $best_players->GetNext()){?>
+                    <a class="go-tournament__staff-person" href="<?=$best_player['DETAIL_PAGE_URL']?>">
                         <div class="go-tournament__players-staff-person-background">
                             <div class="go-tournament__players-staff-person-image"><img
-                                        src="/local/templates/new_ru/img/goPerson.png" alt="personImageExample"></div>
+                                        src="<?=CFile::GetPath($best_player["PREVIEW_PICTURE"]);?>" alt="<?=$best_player["NAME"];?>"></div>
                         </div>
                         <div class="go-tournament__players-staff-person-progress">
                             <div class="go-tournament__players-staff-person-progress-stats">
                                 <div class="go-tournament__players-staff-person-progress-title">Голы</div><span
-                                        data-text="8" id="goals">8</span>
+                                        data-text="<?=$best_player["PROPERTY_GOLE_VALUE"];?>" id="goals"><?=$best_player["PROPERTY_GOLE_VALUE"];?></span>
                             </div>
                             <div class="go-tournament__players-staff-person-progress-stats">
                                 <div class="go-tournament__players-staff-person-progress-title">Ассисты</div><span
-                                        data-text="4" id="assists">4</span>
+                                        data-text="<?=$best_player["PROPERTY_ASSIST_VALUE"];?>" id="assists"><?=$best_player["PROPERTY_ASSIST_VALUE"];?></span>
                             </div>
                             <div class="go-tournament__players-staff-person-progress-stats">
-                                <div class="go-tournament__players-staff-person-progress-title">Броски</div><span
-                                        data-text="12" id="throws">12</span>
+                                <div class="go-tournament__players-staff-person-progress-title">Игры</div><span
+                                        data-text="<?=$best_player["PROPERTY_GAME_VALUE"];?>" id="throws"><?=$best_player["PROPERTY_GAME_VALUE"];?></span>
                             </div>
                         </div>
                         <div class="go-tournament__players-staff-person-txt-block">
-                            <div class="go-tournament__players-staff-person-name">Сергей<br>Калачев</div>
-                            <div class="go-tournament__players-staff-person-number"><span data-text="13">13</span>
+                            <div class="go-tournament__players-staff-person-name"><?=str_replace(' ', '<br>', $best_player["NAME"]);?></div>
+                            <div class="go-tournament__players-staff-person-number"><span data-text="<?=$best_player["PROPERTY_NUMBER_VALUE"];?>"><?=$best_player["PROPERTY_NUMBER_VALUE"];?></span>
                             </div>
                         </div>
-                    </div>
-                    <div class="go-tournament__staff-person">
-                        <div class="go-tournament__players-staff-person-background">
-                            <div class="go-tournament__players-staff-person-image"><img
-                                        src="/local/templates/new_ru/img/goPerson.png" alt="personImageExample"></div>
-                        </div>
-                        <div class="go-tournament__players-staff-person-progress">
-                            <div class="go-tournament__players-staff-person-progress-stats">
-                                <div class="go-tournament__players-staff-person-progress-title">Голы</div><span
-                                        data-text="8" id="goals">8</span>
-                            </div>
-                            <div class="go-tournament__players-staff-person-progress-stats">
-                                <div class="go-tournament__players-staff-person-progress-title">Ассисты</div><span
-                                        data-text="4" id="assists">4</span>
-                            </div>
-                            <div class="go-tournament__players-staff-person-progress-stats">
-                                <div class="go-tournament__players-staff-person-progress-title">Броски</div><span
-                                        data-text="12" id="throws">12</span>
-                            </div>
-                        </div>
-                        <div class="go-tournament__players-staff-person-txt-block">
-                            <div class="go-tournament__players-staff-person-name">Сергей<br>Калачев</div>
-                            <div class="go-tournament__players-staff-person-number"><span data-text="13">13</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="go-tournament__staff-person">
-                        <div class="go-tournament__players-staff-person-background">
-                            <div class="go-tournament__players-staff-person-image"><img
-                                        src="/local/templates/new_ru/img/goPerson.png" alt="personImageExample"></div>
-                        </div>
-                        <div class="go-tournament__players-staff-person-progress">
-                            <div class="go-tournament__players-staff-person-progress-stats">
-                                <div class="go-tournament__players-staff-person-progress-title">Голы</div><span
-                                        data-text="8" id="goals">8</span>
-                            </div>
-                            <div class="go-tournament__players-staff-person-progress-stats">
-                                <div class="go-tournament__players-staff-person-progress-title">Ассисты</div><span
-                                        data-text="4" id="assists">4</span>
-                            </div>
-                            <div class="go-tournament__players-staff-person-progress-stats">
-                                <div class="go-tournament__players-staff-person-progress-title">Броски</div><span
-                                        data-text="12" id="throws">12</span>
-                            </div>
-                        </div>
-                        <div class="go-tournament__players-staff-person-txt-block">
-                            <div class="go-tournament__players-staff-person-name">Сергей<br>Калачев</div>
-                            <div class="go-tournament__players-staff-person-number"><span data-text="13">13</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="go-tournament__staff-person">
-                        <div class="go-tournament__players-staff-person-background">
-                            <div class="go-tournament__players-staff-person-image"><img
-                                        src="/local/templates/new_ru/img/goPerson.png" alt="personImageExample"></div>
-                        </div>
-                        <div class="go-tournament__players-staff-person-progress">
-                            <div class="go-tournament__players-staff-person-progress-stats">
-                                <div class="go-tournament__players-staff-person-progress-title">Голы</div><span
-                                        data-text="8" id="goals">8</span>
-                            </div>
-                            <div class="go-tournament__players-staff-person-progress-stats">
-                                <div class="go-tournament__players-staff-person-progress-title">Ассисты</div><span
-                                        data-text="4" id="assists">4</span>
-                            </div>
-                            <div class="go-tournament__players-staff-person-progress-stats">
-                                <div class="go-tournament__players-staff-person-progress-title">Броски</div><span
-                                        data-text="12" id="throws">12</span>
-                            </div>
-                        </div>
-                        <div class="go-tournament__players-staff-person-txt-block">
-                            <div class="go-tournament__players-staff-person-name">Сергей<br>Калачев</div>
-                            <div class="go-tournament__players-staff-person-number"><span data-text="13">13</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="go-tournament__staff-person">
-                        <div class="go-tournament__players-staff-person-background">
-                            <div class="go-tournament__players-staff-person-image"><img
-                                        src="/local/templates/new_ru/img/goPerson.png" alt="personImageExample"></div>
-                        </div>
-                        <div class="go-tournament__players-staff-person-progress">
-                            <div class="go-tournament__players-staff-person-progress-stats">
-                                <div class="go-tournament__players-staff-person-progress-title">Голы</div><span
-                                        data-text="8" id="goals">8</span>
-                            </div>
-                            <div class="go-tournament__players-staff-person-progress-stats">
-                                <div class="go-tournament__players-staff-person-progress-title">Ассисты</div><span
-                                        data-text="4" id="assists">4</span>
-                            </div>
-                            <div class="go-tournament__players-staff-person-progress-stats">
-                                <div class="go-tournament__players-staff-person-progress-title">Броски</div><span
-                                        data-text="12" id="throws">12</span>
-                            </div>
-                        </div>
-                        <div class="go-tournament__players-staff-person-txt-block">
-                            <div class="go-tournament__players-staff-person-name">Сергей<br>Калачев</div>
-                            <div class="go-tournament__players-staff-person-number"><span data-text="13">13</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="go-tournament__staff-person">
-                        <div class="go-tournament__players-staff-person-background">
-                            <div class="go-tournament__players-staff-person-image"><img
-                                        src="/local/templates/new_ru/img/goPerson.png" alt="personImageExample"></div>
-                        </div>
-                        <div class="go-tournament__players-staff-person-progress">
-                            <div class="go-tournament__players-staff-person-progress-stats">
-                                <div class="go-tournament__players-staff-person-progress-title">Голы</div><span
-                                        data-text="8" id="goals">8</span>
-                            </div>
-                            <div class="go-tournament__players-staff-person-progress-stats">
-                                <div class="go-tournament__players-staff-person-progress-title">Ассисты</div><span
-                                        data-text="4" id="assists">4</span>
-                            </div>
-                            <div class="go-tournament__players-staff-person-progress-stats">
-                                <div class="go-tournament__players-staff-person-progress-title">Броски</div><span
-                                        data-text="12" id="throws">12</span>
-                            </div>
-                        </div>
-                        <div class="go-tournament__players-staff-person-txt-block">
-                            <div class="go-tournament__players-staff-person-name">Сергей<br>Калачев</div>
-                            <div class="go-tournament__players-staff-person-number"><span data-text="13">13</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="go-tournament__staff-person">
-                        <div class="go-tournament__players-staff-person-background">
-                            <div class="go-tournament__players-staff-person-image"><img
-                                        src="/local/templates/new_ru/img/goPerson.png" alt="personImageExample"></div>
-                        </div>
-                        <div class="go-tournament__players-staff-person-progress">
-                            <div class="go-tournament__players-staff-person-progress-stats">
-                                <div class="go-tournament__players-staff-person-progress-title">Голы</div><span
-                                        data-text="8" id="goals">8</span>
-                            </div>
-                            <div class="go-tournament__players-staff-person-progress-stats">
-                                <div class="go-tournament__players-staff-person-progress-title">Ассисты</div><span
-                                        data-text="4" id="assists">4</span>
-                            </div>
-                            <div class="go-tournament__players-staff-person-progress-stats">
-                                <div class="go-tournament__players-staff-person-progress-title">Броски</div><span
-                                        data-text="12" id="throws">12</span>
-                            </div>
-                        </div>
-                        <div class="go-tournament__players-staff-person-txt-block">
-                            <div class="go-tournament__players-staff-person-name">Сергей<br>Калачев</div>
-                            <div class="go-tournament__players-staff-person-number"><span data-text="13">13</span>
-                            </div>
-                        </div>
-                    </div>
+                    </a>
+                     <?}?> 
                 </div>
             </div>
             <div class="go-tournament__title-block">
