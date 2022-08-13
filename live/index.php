@@ -82,7 +82,7 @@ $APPLICATION->SetAdditionalCSS("/local/templates/new_ru/assets/WebMaster-GO-Goho
                     </div>
                 </div>
             </div>
-            <div class="translation__button-block"><a class="translation__button" href="">
+            <div class="translation__button-block"><a class="translation__button" target="_blank" href="https://www.youtube.com/watch?v=Eq6EV7exPc4">
                     <div class="translation__button-txt">Трансляция</div>
                     <div class="translation__button-image"><img src="/local/templates/new_ru/img/translation.png" alt="translation">
                     </div>
