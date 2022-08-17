@@ -4,7 +4,14 @@ $APPLICATION->SetTitle("Хоккейная команда Go");
 ?>
 
 
-<?
+<? 
+$res = CIBlockElement::GetByID(6);
+
+if($ar_res = $res->GetNextElement()) {
+    $ar_header_values = $ar_res->GetProperties();
+    $ar_header_fields = $ar_res->GetFields(); 
+} 
+                   
 $uri = $APPLICATION->GetCurUri();
 switch($uri) {
     case '/teams/team-go/tournament/':

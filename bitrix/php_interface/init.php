@@ -162,3 +162,4 @@ function onBeforeLocalRedirect(&$url, $skip_security_check, $bExternal)
       $url = $GLOBALS["APPLICATION"]->GetCurPageParam()."&ID=".CUSTOMELEMENT_ELEMENT_ID;
 
 }
+ 

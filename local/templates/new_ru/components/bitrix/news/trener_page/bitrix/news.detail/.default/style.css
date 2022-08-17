@@ -1,21 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
-div.news-detail
-{
+
+div.news-detail {
 	word-wrap: break-word;
 }
-div.news-detail img.detail_picture
-{
-	float:left;
-	margin:0 8px 6px 1px;
+
+div.news-detail img.detail_picture {
+	float: left;
+	margin: 0 8px 6px 1px;
 }
-.news-date-time
-{
-	color:#486DAA;
+
+.news-date-time {
+	color: #486DAA;
 }
-.container{
+
+.container {
 	max-width: 1920px;
 	margin: 0 auto;
 }
+
 .go-banner {
 	font-family: 'TT Octosquares';
 	margin-top: 110px;
@@ -26,11 +28,17 @@ div.news-detail img.detail_picture
 	background-position: 9% 0;
 	color: #fff
 }
-.back-bg__container{
+
+.blue-go-banner {
+	background: linear-gradient(180deg, #010453 0%, rgba(8, 9, 49, 0) 150.84%), url(/local/templates/new_ru/img/back.png) repeat-x;
+}
+
+.back-bg__container {
 	width: 100%;
 	background: -webkit-gradient(linear, left top, left bottom, from(#000000), color-stop(143.87%, rgba(0, 0, 0, 0))), url('/local/templates/new_ru/img/back.png');
 	background: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 143.87%), url('/local/templates/new_ru/img/back.png')
 }
+
 .go-banner__container {
 	display: -webkit-box;
 	display: -ms-flexbox;
@@ -54,8 +62,8 @@ div.news-detail img.detail_picture
 }
 
 .go-banner__image img {
-	max-width: 359px;
-	height: 500px;
+	max-width: 435px;
+	width: 100%;
 }
 
 .go-banner__info-block {
@@ -134,69 +142,83 @@ div.news-detail img.detail_picture
 }
 
 
-.go-trainer__content{
+.go-trainer__content {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	margin: 80px 0px 80px 0px;
 	padding: 0px 40px;
 }
-.go-trainer__biography{
+
+.go-trainer__biography {
 	width: 70%;
 }
-.go-trainer__achievements{
+
+.go-trainer__achievements {
 	width: 100%;
 }
-.achievements__block-title{
+
+.achievements__block-title {
 	display: flex;
 	justify-content: space-between;
 }
-.achievements__arrow{
+
+.achievements__arrow {
 	font-size: 83px;
 	font-weight: 600;
 	transform: rotate(-90deg);
 }
+
 .biography__title,
-.achievements__title{
+.achievements__title {
 	margin-bottom: 40px;
 }
-.season__data{
+
+.season__data {
 	text-transform: uppercase;
 	margin-bottom: 32px;
 }
-.season__item{
+
+.season__item {
 	display: grid;
-    grid-template-columns: 60px 1fr;
-    gap: 24px;
-    align-items: center;
+	grid-template-columns: 60px 1fr;
+	gap: 24px;
+	align-items: center;
 	margin-bottom: 32px;
 }
-.season__block-text{
+
+.season__block-text {
 	width: 50%;
 }
-.season__text{
+
+.season__text {
 	font-size: 20px;
 	color: #fff;
 	font-weight: 600;
 }
-.season__text span{
+
+.season__text span {
 	font-size: 16px;
 	color: #ccc;
 	font-weight: 400;
 }
-.biography__text{
+
+.biography__text {
 	font-weight: 500;
-    color: #ccc;
+	color: #ccc;
 }
-.back-nav_team{
+
+.back-nav_team {
 	background: #141414;
 	width: 100%;
 }
-a.all_team{
+
+a.all_team {
 	border-left: 1px solid #000;
 	border-right: 1px solid #000;
 
 }
-.center_item{
+
+.center_item {
 	display: grid;
 	align-items: center;
 	justify-content: center;
@@ -206,12 +228,14 @@ a.all_team{
 	font-weight: 500;
 	transition: .3s;
 	text-align: center;
-}	
-.nav_team{
+}
+
+.nav_team {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 }
-.nav_items{
+
+.nav_items {
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -219,46 +243,57 @@ a.all_team{
 	height: 80px;
 	transition: .3s;
 }
+
 .nav_items:hover,
-.center_item:hover{
+.center_item:hover {
 	background: #1a1919;
 	color: #fff;
 }
-.team_name{
+
+.team_name {
 	font-size: 20px;
 	font-weight: 500;
 }
-.nav_team_img{
+
+.nav_team_img {
 	width: 56px;
 	height: 56px;
 }
-.nav_team_img img{
+
+.nav_team_img img {
 	width: 100%;
 	height: 100%;
-	object-fit:contain;
+	object-fit: contain;
 }
+
 @media(max-width: 1366px) {
-	.season__block-text{
+	.season__block-text {
 		width: 70%;
 	}
-	.go-trainer__biography{
+
+	.go-trainer__biography {
 		width: 80%;
 	}
 }
-@media(max-width: 1280px){
-	.go-trainer__content{
+
+@media(max-width: 1280px) {
+	.go-trainer__content {
 		grid-template-columns: 1fr;
 	}
-	.go-trainer__biography{
+
+	.go-trainer__biography {
 		width: 100%;
 	}
-	.go-trainer__achievements{
+
+	.go-trainer__achievements {
 		width: 100%;
 	}
-	.team_name{
+
+	.team_name {
 		display: none;
 	}
 }
+
 @media(max-width: 950px) {
 
 	.go-banner__char-item {
@@ -274,6 +309,7 @@ a.all_team{
 		flex-wrap: wrap;
 		margin-top: 0
 	}
+
 	.go-banner__char-imstagram {
 		margin-top: 8px !important;
 		margin-bottom: 12px;
@@ -326,10 +362,6 @@ a.all_team{
 		padding-top: 45px
 	}
 
-	.go-banner__image img {
-		height: 400px
-	}
-
 	.go-banner__info-block {
 		padding-top: 45px
 	}
@@ -349,25 +381,31 @@ a.all_team{
 	.go-banner__char-imstagram {
 		margin-bottom: 12px;
 	}
-	.go-banner__title{
+
+	.go-banner__title {
 		font-size: 40px;
 		line-height: 40px;
 	}
+
 	.go-banner__char-imstagram a {
 		font-size: 16px !important
 	}
-	.go-trainer__content{
+
+	.go-trainer__content {
 		margin: 40px 0px;
 		padding: 0px 20px;
 	}
-	.achievements__arrow{
+
+	.achievements__arrow {
 		font-size: 50px;
 	}
-	.season__block-text{
+
+	.season__block-text {
 		width: 100%;
 	}
+
 	.biography__title,
-	.achievements__title{
+	.achievements__title {
 		margin-bottom: 20px;
 	}
 
@@ -376,7 +414,6 @@ a.all_team{
 @media(max-width: 600px) {
 	.go-banner__image img {
 		width: 208px;
-		height: 295px
 	}
 
 	.go-banner__info {
@@ -420,7 +457,8 @@ a.all_team{
 	.go-banner__info {
 		max-width: 170px
 	}
-	.go-trainer__content{
+
+	.go-trainer__content {
 		padding: 0px 0px;
 	}
 }
@@ -433,14 +471,17 @@ a.all_team{
 	.go-banner__info {
 		max-width: 135px
 	}
-	.nav_team_img{
+
+	.nav_team_img {
 		width: 45px;
 		height: 45px;
 	}
-	.nav_items{
+
+	.nav_items {
 		height: 60px;
 	}
-	.center_item{
+
+	.center_item {
 		height: 60px;
 		font-size: 14px;
 	}

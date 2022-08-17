@@ -13,41 +13,52 @@
 $this->setFrameMode(true);
 ?>
 <div class="gohockey-trainer">
-    <div class="go-banner">
-        <div class="back-bg__container">
+    <div class="<?if($arResult["PROPERTIES"]["TEAM"]["VALUE"] == 6):?>back-go-banner<?else:?>blue-go-banner<?endif;?>">
         <div class="container">
-        <div class="go-banner__container">
-            <div class="go-banner__image"><img src="<?=$arResult["DETAIL_PICTURE"]["SRC"];?>" alt="<?=$arResult["NAME"];?>"></div>
-            <div class="go-banner__info-block">
-                <div class="go-banner__info">
-                    <div class="go-banner__title"><?=$arResult["NAME"];?></div>
-                    <div class="go-banner__characteristics">
-                        <div class="go-banner__char-section">
-                            <div class="go-banner__char-item"><span class="go-banner__key"><?=$arResult["PROPERTIES"]["POSITION"]["NAME"];?></span>
-                                <div class="go-banner__meaning"><?=$arResult["PROPERTIES"]["POSITION"]["VALUE"];?></div>
-                            </div>
-                            <div class="go-banner__char-item"><span class="go-banner__key"><?=$arResult["PROPERTIES"]["KHVAT"]["NAME"];?></span>
-                                <div class="go-banner__meaning"><?=$arResult["PROPERTIES"]["KHVAT"]["VALUE"];?></div>
+            <div class="go-banner">
+                <div class="back-logo"></div>
+                <div class="go-banner__container">
+                    <div class="go-banner__image"><img src="<?=$arResult["DETAIL_PICTURE"]["SRC"];?>" alt="<?=$arResult["NAME"];?>"></div>
+                    <div class="go-banner__info-block">
+                        <div class="go-banner__info">
+                            <div class="go-banner__title"><?=$arResult["NAME"];?></div>
+                            <div class="go-banner__characteristics">
+                                <div class="go-banner__char-section">
+                                    <?if(!empty($arResult["PROPERTIES"]["DOL"]["VALUE"])) { ?>
+                                    <div class="go-banner__char-item"><span class="go-banner__key"><?=$arResult["PROPERTIES"]["DOL"]["NAME"];?></span>
+                                        <div class="go-banner__meaning"><?=$arResult["PROPERTIES"]["DOL"]["VALUE"];?></div>
+                                    </div>
+                                    <?}?>
+                                    <?if(!empty($arResult["PROPERTIES"]["CLUB"]["VALUE"])) { ?>
+                                    <div class="go-banner__char-item"><span class="go-banner__key"><?=$arResult["PROPERTIES"]["CLUB"]["NAME"];?></span>
+                                        <div class="go-banner__meaning"><?=$arResult["PROPERTIES"]["CLUB"]["VALUE"];?></div>
+                                    </div>
+                                    <?}?>
+                                </div>
+                                <div class="go-banner__char-section">
+                                    <?if(!empty($arResult["PROPERTIES"]["DATA"]["VALUE"])) { ?>
+                                    <div class="go-banner__char-item"><span class="go-banner__key"><?=$arResult["PROPERTIES"]["DATA"]["NAME"];?></span>
+                                        <div class="go-banner__meaning"><?=$arResult["PROPERTIES"]["DATA"]["VALUE"];?></div>
+                                    </div>
+                                    <?}?>
+                                    <?if(!empty($arResult["PROPERTIES"]["OBR"]["VALUE"])) { ?>
+                                    <div class="go-banner__char-item"><span class="go-banner__key"><?=$arResult["PROPERTIES"]["OBR"]["NAME"];?></span>
+                                        <div class="go-banner__meaning"><?=$arResult["PROPERTIES"]["OBR"]["VALUE"];?></div>
+                                    </div>
+                                    <?}?>
+                                </div>
+                                <?if(!empty($arResult["PROPERTIES"]["INST"]["VALUE"])) { ?>
+                                <div class="go-banner__char-imstagram"><img src="<?=SITE_TEMPLATE_PATH?>/img/instagram-link.svg" alt="banner_instagramm">
+                                    <a target="_blank" href="https://www.instagram.com/<?=$arResult["PROPERTIES"]["INST"]["VALUE"];?>"><?=$arResult["PROPERTIES"]["INST"]["VALUE"];?></a>
+                                </div>
+                                <?}?>
                             </div>
                         </div>
-                        <div class="go-banner__char-section">
-                            <div class="go-banner__char-item"><span class="go-banner__key"><?=$arResult["PROPERTIES"]["QUALIFICATION"]["NAME"];?></span>
-                                <div class="go-banner__meaning"><?=$arResult["PROPERTIES"]["QUALIFICATION"]["VALUE"];?></div>
-                            </div>
-                            <div class="go-banner__char-item"><span class="go-banner__key"><?=$arResult["PROPERTIES"]["POSITION"]["NAME"];?></span>
-                                <div class="go-banner__meaning"><?=$arResult["PROPERTIES"]["KHVAT"]["VALUE"];?></div>
-                            </div>
-                        </div>
-
-                        <div class="go-banner__char-imstagram"><img src="<?=SITE_TEMPLATE_PATH?>/img/instagram-link.svg"
-                                                                    alt="banner_instagramm"><a href="https://www.instagram.com/<?=$arResult["PROPERTIES"]["INST"]["VALUE"];?>"><?=$arResult["PROPERTIES"]["INST"]["VALUE"];?></a></div>
                     </div>
                 </div>
             </div>
         </div>
-        </div>
-        </div>
-    </div>
+    </div> 
 
     <div class="container">
     <div class="go-trainer__content">
