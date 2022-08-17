@@ -16,8 +16,10 @@ $this->setFrameMode(true);
 <div class="go-team__staff">
     <?foreach($arResult['ITEMS'] as $item):?>
         <? $player_name_arr = explode(' ', $item['NAME'],2);?>
-        <a href="<?=$item['DETAIL_PAGE_URL']?>" class="go-team__staff-person">
-            <div class="go-team__players-staff-person-image"><img src="<?=$item['PREVIEW_PICTURE']['SRC']?>"
+
+        <a href="<?=$item['DETAIL_PAGE_URL']?>" class="<?if($item["PROPERTIES"]["TEAM"]["VALUE"] == 6):?>go-team__staff-person<?else:?>go-team__staff-person_blue<?endif;?>">
+            <div class="go-team__players-staff-person-image">
+			<img src="<?=$item['PREVIEW_PICTURE']['SRC']?>"
                                                                   alt="<?=$item['NAME']?>"></div>
             <div class="go-team__players-staff-person-txt-block">
                 <div class="go-team__playerstaff-person-name-block">

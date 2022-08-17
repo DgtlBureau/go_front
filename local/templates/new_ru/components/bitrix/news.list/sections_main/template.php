@@ -11,18 +11,20 @@
 /** @var string $componentPath */
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
-?>
-<div class="category_block">
-	<?foreach($arResult["ITEMS"] as $arItem):?>
-		<a href="<?=$arItem["PROPERTIES"]["SRC"]["VALUE"]?>">
-			<div class="category_img">
-				<img src="<?=$arItem["PREVIEW_PICTURE"]["SRC"];?>" alt="">
-				<div class="category_text">
-					<?=$arItem["NAME"]?>
-				</div>
-			</div>
-		</a>
-	<?endforeach;?>
+?> 
+
+<div class="flex_container">
+    <div class="shop__gender-select gender-select">
+	   <?foreach($arResult["ITEMS"] as $arItem):?>
+            <a class="gender-select__item" href="<?=$arItem["PROPERTIES"]["SRC"]["VALUE"]?>">
+                <div class="gender-select__image scale">
+                    <img src="<?=$arItem["PREVIEW_PICTURE"]["SRC"];?>" alt="<?=$arItem["NAME"]?>">
+                </div>
+                <div class="gender-select__text"><?=$arItem["NAME"]?></div>
+                <div class="gender-select__bg-opaciti"></div>
+            </a> 
+	   <?endforeach;?>
+    </div>
 </div>
 
 <?

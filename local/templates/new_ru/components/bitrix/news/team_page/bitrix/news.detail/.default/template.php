@@ -12,13 +12,15 @@
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
 //echo '<pre>'; print_r($arResult); echo '</pre>';
-
-$APPLICATION->SetTitle("GO");
+ 
 
 $this->addExternalCss("/team-page/style.css");
 $this->addExternalJS("/team-page/index.js");
 ?>
-<div class="back-go-banner">
+
+ 
+<div class="<?if($arResult["PROPERTIES"]["TEAM"]["VALUE"] == 6):?>back-go-banner<?else:?>blue-go-banner<?endif;?>">
+
     <div class="container">
         <div class="go-banner">
             <div class="back-logo"></div>
@@ -29,79 +31,46 @@ $this->addExternalJS("/team-page/index.js");
                         <div class="go-banner__title"><?=$arResult["NAME"];?></div>
                         <div class="go-banner__characteristics">
                             <div class="go-banner__char-section">
+                                <?if(!empty($arResult["PROPERTIES"]["POSITION"]["VALUE"])) { ?>
                                 <div class="go-banner__char-item"><span class="go-banner__key"><?=$arResult["PROPERTIES"]["POSITION"]["NAME"];?></span>
                                     <div class="go-banner__meaning"><?=$arResult["PROPERTIES"]["POSITION"]["VALUE"];?></div>
                                 </div>
+                                <?}?>
+                                <?if(!empty($arResult["PROPERTIES"]["KHVAT"]["VALUE"])) { ?>
                                 <div class="go-banner__char-item"><span class="go-banner__key"><?=$arResult["PROPERTIES"]["KHVAT"]["NAME"];?></span>
                                     <div class="go-banner__meaning"><?=$arResult["PROPERTIES"]["KHVAT"]["VALUE"];?></div>
                                 </div>
+                                <?}?>
                             </div>
                             <div class="go-banner__char-section">
+                                <?if(!empty($arResult["PROPERTIES"]["QUALIFICATION"]["VALUE"])) { ?>
                                 <div class="go-banner__char-item"><span class="go-banner__key"><?=$arResult["PROPERTIES"]["QUALIFICATION"]["NAME"];?></span>
                                     <div class="go-banner__meaning"><?=$arResult["PROPERTIES"]["QUALIFICATION"]["VALUE"];?></div>
                                 </div>
-                                <div class="go-banner__char-item"><span class="go-banner__key"><?=$arResult["PROPERTIES"]["POSITION"]["NAME"];?></span>
-                                    <div class="go-banner__meaning"><?=$arResult["PROPERTIES"]["KHVAT"]["VALUE"];?></div>
+                                <?}?>
+                                <?if(!empty($arResult["PROPERTIES"]["HEIGHT"]["VALUE"])) { ?>
+                                <div class="go-banner__char-item"><span class="go-banner__key"><?=$arResult["PROPERTIES"]["HEIGHT"]["NAME"];?></span>
+                                    <div class="go-banner__meaning"><?=$arResult["PROPERTIES"]["HEIGHT"]["VALUE"];?></div>
                                 </div>
+                                <?}?>
                             </div>
-
-                            <div class="go-banner__char-imstagram"><img src="<?=SITE_TEMPLATE_PATH?>/img/instagram-link.svg"
-                                                                        alt="banner_instagramm"><a target="_blank" href="https://www.instagram.com/<?=$arResult["PROPERTIES"]["INST"]["VALUE"];?>"><?=$arResult["PROPERTIES"]["INST"]["VALUE"];?></a></div>
+                            <?if(!empty($arResult["PROPERTIES"]["INST"]["VALUE"])) { ?>
+                            <div class="go-banner__char-imstagram"><img src="<?=SITE_TEMPLATE_PATH?>/img/instagram-link.svg" alt="banner_instagramm">
+                                <a target="_blank" href="https://www.instagram.com/<?=$arResult["PROPERTIES"]["INST"]["VALUE"];?>"><?=$arResult["PROPERTIES"]["INST"]["VALUE"];?></a>
+                            </div>
+                            <?}?>
+							<?if(!empty($arResult["PROPERTIES"]["VK"]["VALUE"])) { ?>
+                            <div class="go-banner__char-imstagram"><img src="<?=SITE_TEMPLATE_PATH?>/img/vk-link.svg" alt="banner_instagramm">
+                                <a target="_blank" href="https://vk.com/<?=$arResult["PROPERTIES"]["VK"]["VALUE"];?>"><?=$arResult["PROPERTIES"]["VK"]["VALUE"];?></a>
+                            </div>
+                            <?}?>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<!--
-<div class="banner_video" style="display:none;">
-    <div class="bull_image">
-        <div class="back_image"></div>
-    </div>
-    <div class="banner_block">
-        <div class="player_img">
-            <img src="<?=$arResult["DETAIL_PICTURE"]["SRC"];?>" alt="<?=$arResult["NAME"];?>">
-        </div>
-        <div class="player_desc">
-            <div class="banner_title">
-                <h1 class="h1"><?=$arResult["NAME"];?>
-                </h1>
-            </div>
-            <div class="banner_desc">
-                <div class="property_block">
-                    <div class="banner_property">
-                        <span class="pos_name"><?=$arResult["PROPERTIES"]["POSITION"]["NAME"];?></span>
-                        <div class="pos_value"><?=$arResult["PROPERTIES"]["POSITION"]["VALUE"];?></div>
-                    </div>
-                    <div class="banner_property">
-                        <span class="pos_name"><?=$arResult["PROPERTIES"]["KHVAT"]["NAME"];?></span>
-                        <div class="pos_value"><?=$arResult["PROPERTIES"]["KHVAT"]["VALUE"];?></div>
-                    </div>
-                    <div class="banner_property">
-                        <span class="pos_name"><?=$arResult["PROPERTIES"]["QUALIFICATION"]["NAME"];?></span>
-                        <div class="pos_value"><?=$arResult["PROPERTIES"]["QUALIFICATION"]["VALUE"];?></div>
-                    </div>
-                </div>
-                <div class="property_block">
-                    <div class="banner_property">
-                        <span class="pos_name"><?=$arResult["PROPERTIES"]["HEIGHT"]["NAME"];?></span>
-                        <div class="pos_value"><?=$arResult["PROPERTIES"]["HEIGHT"]["VALUE"];?></div>
-                    </div>
-                    <div class="banner_property">
-                        <span class="pos_name"><?=$arResult["PROPERTIES"]["DATE"]["NAME"];?></span>
-                        <div class="pos_value"><?=$arResult["PROPERTIES"]["DATE"]["VALUE"];?></div>
-                    </div>
-                </div>
-                <div class="property_block">
-                    <img src="<?=SITE_TEMPLATE_PATH?>/img/instagram-link.svg" class="property_img_inst">
-                    <a href="//instagram.com/<?=$arResult["PROPERTIES"]["INST"]["VALUE"];?>" target="_blank" class="property_a_inst"><?=$arResult["PROPERTIES"]["INST"]["VALUE"];?></a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
--->
+</div> 
 <div class="container">
     <div class="achiev_block">
         <div class="stat_title">
@@ -130,10 +99,12 @@ $this->addExternalJS("/team-page/index.js");
                 </div>
             </div>
         </div> 
+        
+        <?if(!empty($arResult['DETAIL_TEXT']) || !empty($arResult['DOSTIZH']['SEASONS'])){?>
         <div class="stat_title">
             <h1 class="stat_h1">Достижения</h1>
         </div>
-
+       
         <div class="achievements-block">
             <div class="achievements-block__text-block">
                 <div class="achievements-block__text">
@@ -141,8 +112,7 @@ $this->addExternalJS("/team-page/index.js");
                 </div>
             </div>
             <div class="achievements-block__achievements">
-                <?foreach($arResult['DOSTIZH']['SEASONS'] as $keySeason => $arDOSTIZH):?>
-                <!--  <h4><?=$keySeason?></h4><br>--->
+                <?foreach($arResult['DOSTIZH']['SEASONS'] as $keySeason => $arDOSTIZH):?> 
                     <?foreach($arDOSTIZH as $arItemDOSTIZH):?>
                         <div class="achievements-block__item">
                             <div class="achievements-block__item-image"><img src="<?=CFile::GetPath($arItemDOSTIZH["PROPERTY_IMG_VALUE"])?>" alt="<?=$arItemDOSTIZH["NAME"];?> - <?=$arItemDOSTIZH["PLACE"];?>"></div>
@@ -160,8 +130,10 @@ $this->addExternalJS("/team-page/index.js");
                 <?endforeach;?>
             </div>
         </div>
+        <?}?>
     </div>
 </div>
+<?if(!empty($arResult["DISPLAY_PROPERTIES"]["GALARY"]["FILE_VALUE"])) {?>
 <div class="container">
     <div class="photo_block">
         <div class="stat_title">
@@ -175,23 +147,7 @@ $this->addExternalJS("/team-page/index.js");
                 </div>
                 <?endforeach;?>
             </div>
-        </div>
-        <!--
-        <div class="regular slider">
-            <?foreach($arResult["DISPLAY_PROPERTIES"]["SLIDER"]["FILE_VALUE"] as $arSlider):?>
-                <div class="slider_img popup-open">
-                    <img src="<?=$arSlider["SRC"];?>" alt="">
-                </div>
-            <?endforeach;?>
-        </div>
-        <div class="variable slider">
-            <?foreach($arResult["DISPLAY_PROPERTIES"]["GALARY"]["FILE_VALUE"] as $arSlider):?>
-                <div class="slider_img popup-open">
-                    <img src="<?=$arSlider["SRC"];?>" alt="">
-                </div>
-            <?endforeach;?>
-        </div>
-        -->
+        </div> 
         <div class="popup-fade">
             <div class="popup">
                 <a class="popup-close" href="#"><img src="<?=SITE_TEMPLATE_PATH?>/img/exit.png" alt="закрыть"></a>
@@ -202,6 +158,7 @@ $this->addExternalJS("/team-page/index.js");
         </div>
     </div>
 </div>
+<?}?>
 <div class="back-nav_items">
     <div class="container">
         <div class="nav_team">

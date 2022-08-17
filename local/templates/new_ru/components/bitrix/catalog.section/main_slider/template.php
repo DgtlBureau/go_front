@@ -21,7 +21,7 @@ use \Bitrix\Main\Localization\Loc;
  */
 
 $this->setFrameMode(true);
-$this->addExternalCss('/bitrix/css/main/bootstrap.css');
+//$this->addExternalCss('/bitrix/css/main/bootstrap.css');
 
 if (!empty($arResult['NAV_RESULT']))
 {
@@ -287,7 +287,7 @@ if ($showTopPager)
 								foreach ($rowItems as $item)
 								{
 									?>
-									<div class="product_item">
+									<div class="shop__swiper-item">
 										<?
 										$APPLICATION->IncludeComponent(
 											'bitrix:catalog.item',

@@ -1,202 +1,179 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
-$APPLICATION->SetTitle("");
-?>
+$APPLICATION->SetTitle("Избранное");
 
-<div class="fav_list">
-    <div class="fav_top">
-        <div class="arrow_back">←</div>
-        <div class="fav_title">Избранное</div>
+$APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH . '/assets/go_shop_build/ShopFavorite/main.css');
+$APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH . '/assets/go_shop_build/ShopFavorite/index.js');
+?> 
+
+<main class="shop">
+    <div class="container"><a class="go-back-bnt" href="#">
+            <div class="go-back-arrow">←</div>
+            <div class="go-back-txt">Избранное</div>
+        </a>
+        <div class="products__list">
+            <a class="products__item" href="#">
+                <div class="products__item-image scale">
+                    <div class="products__item-like">
+                        <img src="<?=SITE_TEMPLATE_PATH?>/img/like.svg" alt="like">
+                        <img class="like-active" src="<?=SITE_TEMPLATE_PATH?>/img/full_like.svg" alt="full_like">
+                    </div>
+                    <div class="products__item-sale">sale</div>
+                    <img src="<?=SITE_TEMPLATE_PATH?>/img/swiper_image_01.png" alt="swiper_image_01">
+                </div>
+                <div class="products__item-footer">
+                    <div class="products__item-txt">
+                        <div class="products__item-name">Футболка клуба GO!</div>
+                        <div class="products__item-price">2 500 ₽</div>
+                        <del class="products__item-old-price">2 500 ₽</del>
+                    </div>
+                    <div class="products__item-basket">
+                        <img src="<?=SITE_TEMPLATE_PATH?>/img/basket.svg" alt="basket">
+                    </div>
+                </div>
+            </a><a class="products__item" href="#">
+                <div class="products__item-image scale">
+                    <div class="products__item-like">
+                        <img src="<?=SITE_TEMPLATE_PATH?>/img/like.svg" alt="like">
+                        <img class="like-active" src="<?=SITE_TEMPLATE_PATH?>/img/full_like.svg" alt="full_like">
+                    </div>
+                    <div class="products__item-hit">ХИТ</div>
+                    <img src="<?=SITE_TEMPLATE_PATH?>/img/swiper_image_02.png" alt="swiper_image_02">
+                </div>
+                <div class="products__item-footer">
+                    <div class="products__item-txt">
+                        <div class="products__item-name">Футболка клуба GO!</div>
+                        <div class="products__item-price">2 500 ₽</div>
+                    </div>
+                    <div class="products__item-basket">
+                        <img src="<?=SITE_TEMPLATE_PATH?>/img/basket.svg" alt="basket">
+                    </div>
+                </div>
+            </a><a class="products__item" href="#">
+                <div class="products__item-image scale">
+                    <div class="products__item-like">
+                        <img src="<?=SITE_TEMPLATE_PATH?>/img/like.svg" alt="like">
+                        <img class="like-active" src="<?=SITE_TEMPLATE_PATH?>/img/full_like.svg" alt="full_like">
+                    </div>
+                    <div class="products__item-sale">sale</div>
+                    <div class="products__item-hit products__item-hit-twice">ХИТ</div>
+                    <img src="<?=SITE_TEMPLATE_PATH?>/img/swiper_image_03.png" alt="swiper_image_03">
+                </div>
+                <div class="products__item-footer">
+                    <div class="products__item-txt">
+                        <div class="products__item-name">Футболка клуба GO!</div>
+                        <div class="products__item-price">2 500 ₽</div>
+                    </div>
+                    <div class="products__item-basket">
+                        <img src="<?=SITE_TEMPLATE_PATH?>/img/basket.svg" alt="basket">
+                    </div>
+                </div>
+            </a><a class="products__item" href="#">
+                <div class="products__item-image scale">
+                    <div class="products__item-like">
+                        <img src="<?=SITE_TEMPLATE_PATH?>/img/like.svg" alt="like">
+                        <img class="like-active" src="<?=SITE_TEMPLATE_PATH?>/img/full_like.svg" alt="full_like">
+                    </div><img src="<?=SITE_TEMPLATE_PATH?>/img/swiper_image_01.png" alt="swiper_image_01">
+                </div>
+                <div class="products__item-footer">
+                    <div class="products__item-txt">
+                        <div class="products__item-name">Футболка клуба GO!</div>
+                        <div class="products__item-price">2 500 ₽</div>
+                        <del class="products__item-old-price">2 500 ₽</del>
+                    </div>
+                    <div class="products__item-basket">
+                        <img src="<?=SITE_TEMPLATE_PATH?>/img/basket.svg" alt="basket">
+                    </div>
+                </div>
+            </a><a class="products__item" href="#">
+                <div class="products__item-image scale">
+                    <div class="products__item-like">
+                        <img src="<?=SITE_TEMPLATE_PATH?>/img/like.svg" alt="like">
+                        <img class="like-active" src="<?=SITE_TEMPLATE_PATH?>/img/full_like.svg" alt="full_like">
+                    </div>
+                    <img src="<?=SITE_TEMPLATE_PATH?>/img/swiper_image_02.png" alt="swiper_image_02">
+                </div>
+                <div class="products__item-footer">
+                    <div class="products__item-txt">
+                        <div class="products__item-name">Футболка клуба GO!</div>
+                        <div class="products__item-price">2 500 ₽</div>
+                    </div>
+                    <div class="products__item-basket">
+                        <img src="<?=SITE_TEMPLATE_PATH?>/img/basket.svg" alt="basket">
+                    </div>
+                </div>
+            </a><a class="products__item" href="#">
+                <div class="products__item-image scale">
+                    <div class="products__item-like">
+                        <img src="<?=SITE_TEMPLATE_PATH?>/img/like.svg" alt="like">
+                        <img class="like-active" src="<?=SITE_TEMPLATE_PATH?>/img/full_like.svg" alt="full_like">
+                    </div>
+                    <img src="<?=SITE_TEMPLATE_PATH?>/img/swiper_image_03.png" alt="swiper_image_03">
+                </div>
+                <div class="products__item-footer">
+                    <div class="products__item-txt">
+                        <div class="products__item-name">Футболка клуба GO!</div>
+                        <div class="products__item-price">2 500 ₽</div>
+                    </div>
+                    <div class="products__item-basket">
+                        <img src="<?=SITE_TEMPLATE_PATH?>/img/basket.svg" alt="basket">
+                    </div>
+                </div>
+            </a><a class="products__item" href="#">
+                <div class="products__item-image scale">
+                    <div class="products__item-like">
+                        <img src="<?=SITE_TEMPLATE_PATH?>/img/like.svg" alt="like">
+                        <img class="like-active" src="<?=SITE_TEMPLATE_PATH?>/img/full_like.svg" alt="full_like">
+                    </div>
+                    <img src="<?=SITE_TEMPLATE_PATH?>/img/swiper_image_01.png" alt="swiper_image_01">
+                </div>
+                <div class="products__item-footer">
+                    <div class="products__item-txt">
+                        <div class="products__item-name">Футболка клуба GO!</div>
+                        <div class="products__item-price">2 500 ₽</div>
+                        <del class="products__item-old-price">2 500 ₽</del>
+                    </div>
+                    <div class="products__item-basket">
+                        <img src="<?=SITE_TEMPLATE_PATH?>/img/basket.svg" alt="basket">
+                    </div>
+                </div>
+            </a><a class="products__item" href="#">
+                <div class="products__item-image scale">
+                    <div class="products__item-like">
+                        <img src="<?=SITE_TEMPLATE_PATH?>/img/like.svg" alt="like">
+                        <img class="like-active" src="<?=SITE_TEMPLATE_PATH?>/img/full_like.svg" alt="full_like">
+                    </div>
+                    <img src="<?=SITE_TEMPLATE_PATH?>/img/swiper_image_02.png" alt="swiper_image_02">
+                </div>
+                <div class="products__item-footer">
+                    <div class="products__item-txt">
+                        <div class="products__item-name">Футболка клуба GO!</div>
+                        <div class="products__item-price">2 500 ₽</div>
+                    </div>
+                    <div class="products__item-basket">
+                        <img src="<?=SITE_TEMPLATE_PATH?>/img/basket.svg" alt="basket">
+                    </div>
+                </div>
+            </a><a class="products__item" href="#">
+                <div class="products__item-image scale">
+                    <div class="products__item-like">
+                        <img src="<?=SITE_TEMPLATE_PATH?>/img/like.svg" alt="like">
+                        <img class="like-active" src="<?=SITE_TEMPLATE_PATH?>/img/full_like.svg" alt="full_like">
+                    </div>
+                    <img src="<?=SITE_TEMPLATE_PATH?>/img/swiper_image_03.png" alt="swiper_image_03">
+                </div>
+                <div class="products__item-footer">
+                    <div class="products__item-txt">
+                        <div class="products__item-name">Футболка клуба GO!</div>
+                        <div class="products__item-price">2 500 ₽</div>
+                    </div>
+                    <div class="products__item-basket">
+                        <img src="<?=SITE_TEMPLATE_PATH?>/img/basket.svg" alt="basket">
+                    </div>
+                </div>
+            </a>
+        </div>
     </div>
-    <div class="fav_list_block">
-        <div class="product_item">
-            <div class="product_img">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="22" viewBox="0 0 24 22" fill="none">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M16.9672 1.74143e-05C15.3879 0 14.3699 0.186521 13.2029 0.752809C12.7708 0.962467 12.3655 1.21496 11.9891 1.50953C11.6271 1.23147 11.238 0.990574 10.8238 0.787484C9.63417 0.204162 8.56394 0 7.04132 0C2.96339 0 0 3.34972 0 7.70021C0 10.9857 1.84782 14.1594 5.28964 17.2283C7.09625 18.8392 9.4029 20.4333 11.0548 21.2814L12 21.7666L12.9452 21.2814C14.5971 20.4333 16.9038 18.8392 18.7104 17.2283C22.1522 14.1594 24 10.9857 24 7.70021C24 3.39577 21.0087 0.0166102 16.9672 1.74143e-05ZM21.8185 7.70028C21.8185 10.2743 20.2761 12.9234 17.2516 15.6202C15.6027 17.0904 13.4828 18.5598 12.0003 19.3306C10.5178 18.5598 8.39793 17.0904 6.74897 15.6202C3.72448 12.9234 2.18213 10.2743 2.18213 7.70028C2.18213 4.48586 4.23701 2.16309 7.04163 2.16309C8.25225 2.16309 8.99827 2.3054 9.85682 2.72638C10.364 2.97505 10.8122 3.3034 11.2002 3.71372L12.0029 4.56263L12.7983 3.70699C13.195 3.28023 13.6498 2.94441 14.1624 2.69565C14.9958 2.29124 15.6952 2.16309 16.9629 2.16309C19.7329 2.17448 21.8185 4.53047 21.8185 7.70028Z" fill="white"/>
-                </svg>
-                <div class="sale_text">
-                    <div class="hit">хит</div>
-                    <div class="sale">sale</div>
-                </div>
-                <img src="<?=SITE_TEMPLATE_PATH?>/img/product.png" alt="">
-            </div>
-            <div class="product_bottom">
-                <div class="product_desc">
-                    <div class="product_text">Футболка клуба GO!</div>
-                    <div class="price_block">
-                        <div class="product_price">2 500 ₽</div>
-                        <div class="product_price econom">2 500 ₽</div>
-                    </div>
-                </div>
-                <div class="product_basket">
-                    <svg width="26" class="basket" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M24.5556 0L25.8475 23.2558C25.9272 24.6895 24.8295 25.9163 23.3958 25.996C23.3237 25.9993 23.3237 25.9993 23.2515 26H2.6C1.16406 26 0 24.8359 0 23.4C0.000333719 23.3639 0.000500579 23.3459 0.00100097 23.3279C0.00150135 23.3098 0.00233526 23.2918 0.00400308 23.2558L1.29599 0H24.5556ZM3.75523 2.60008L2.59967 23.4001H23.2512L22.0957 2.60008H3.75523ZM9.02676 5.2002H6.42676V8.4502C6.42676 11.5711 9.44697 14.3002 12.9268 14.3002C16.4065 14.3002 19.4268 11.5711 19.4268 8.4502V5.2002H16.8268V8.4502C16.8268 10.0731 15.0261 11.7002 12.9268 11.7002C10.8274 11.7002 9.02676 10.0731 9.02676 8.4502V5.2002Z" fill="white"/>
-                    </svg>
-                </div>
-            </div>
-        </div>
-        <div class="product_item">
-            <div class="product_img">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="22" viewBox="0 0 24 22" fill="none">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M16.9672 1.74143e-05C15.3879 0 14.3699 0.186521 13.2029 0.752809C12.7708 0.962467 12.3655 1.21496 11.9891 1.50953C11.6271 1.23147 11.238 0.990574 10.8238 0.787484C9.63417 0.204162 8.56394 0 7.04132 0C2.96339 0 0 3.34972 0 7.70021C0 10.9857 1.84782 14.1594 5.28964 17.2283C7.09625 18.8392 9.4029 20.4333 11.0548 21.2814L12 21.7666L12.9452 21.2814C14.5971 20.4333 16.9038 18.8392 18.7104 17.2283C22.1522 14.1594 24 10.9857 24 7.70021C24 3.39577 21.0087 0.0166102 16.9672 1.74143e-05ZM21.8185 7.70028C21.8185 10.2743 20.2761 12.9234 17.2516 15.6202C15.6027 17.0904 13.4828 18.5598 12.0003 19.3306C10.5178 18.5598 8.39793 17.0904 6.74897 15.6202C3.72448 12.9234 2.18213 10.2743 2.18213 7.70028C2.18213 4.48586 4.23701 2.16309 7.04163 2.16309C8.25225 2.16309 8.99827 2.3054 9.85682 2.72638C10.364 2.97505 10.8122 3.3034 11.2002 3.71372L12.0029 4.56263L12.7983 3.70699C13.195 3.28023 13.6498 2.94441 14.1624 2.69565C14.9958 2.29124 15.6952 2.16309 16.9629 2.16309C19.7329 2.17448 21.8185 4.53047 21.8185 7.70028Z" fill="white"/>
-                </svg>
-                <div class="sale_text">
-                    <div class="hit">хит</div>
-                    <div class="sale">sale</div>
-                </div>
-                <img src="<?=SITE_TEMPLATE_PATH?>/img/product.png" alt="">
-            </div>
-            <div class="product_bottom">
-                <div class="product_desc">
-                    <div class="product_text">Футболка клуба GO!</div>
-                    <div class="price_block">
-                        <div class="product_price">2 500 ₽</div>
-                        <div class="product_price econom">2 500 ₽</div>
-                    </div>
-                </div>
-                <div class="product_basket">
-                    <svg width="26" class="basket" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M24.5556 0L25.8475 23.2558C25.9272 24.6895 24.8295 25.9163 23.3958 25.996C23.3237 25.9993 23.3237 25.9993 23.2515 26H2.6C1.16406 26 0 24.8359 0 23.4C0.000333719 23.3639 0.000500579 23.3459 0.00100097 23.3279C0.00150135 23.3098 0.00233526 23.2918 0.00400308 23.2558L1.29599 0H24.5556ZM3.75523 2.60008L2.59967 23.4001H23.2512L22.0957 2.60008H3.75523ZM9.02676 5.2002H6.42676V8.4502C6.42676 11.5711 9.44697 14.3002 12.9268 14.3002C16.4065 14.3002 19.4268 11.5711 19.4268 8.4502V5.2002H16.8268V8.4502C16.8268 10.0731 15.0261 11.7002 12.9268 11.7002C10.8274 11.7002 9.02676 10.0731 9.02676 8.4502V5.2002Z" fill="white"/>
-                    </svg>
-                </div>
-            </div>
-        </div>
-        <div class="product_item">
-            <div class="product_img">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="22" viewBox="0 0 24 22" fill="none">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M16.9672 1.74143e-05C15.3879 0 14.3699 0.186521 13.2029 0.752809C12.7708 0.962467 12.3655 1.21496 11.9891 1.50953C11.6271 1.23147 11.238 0.990574 10.8238 0.787484C9.63417 0.204162 8.56394 0 7.04132 0C2.96339 0 0 3.34972 0 7.70021C0 10.9857 1.84782 14.1594 5.28964 17.2283C7.09625 18.8392 9.4029 20.4333 11.0548 21.2814L12 21.7666L12.9452 21.2814C14.5971 20.4333 16.9038 18.8392 18.7104 17.2283C22.1522 14.1594 24 10.9857 24 7.70021C24 3.39577 21.0087 0.0166102 16.9672 1.74143e-05ZM21.8185 7.70028C21.8185 10.2743 20.2761 12.9234 17.2516 15.6202C15.6027 17.0904 13.4828 18.5598 12.0003 19.3306C10.5178 18.5598 8.39793 17.0904 6.74897 15.6202C3.72448 12.9234 2.18213 10.2743 2.18213 7.70028C2.18213 4.48586 4.23701 2.16309 7.04163 2.16309C8.25225 2.16309 8.99827 2.3054 9.85682 2.72638C10.364 2.97505 10.8122 3.3034 11.2002 3.71372L12.0029 4.56263L12.7983 3.70699C13.195 3.28023 13.6498 2.94441 14.1624 2.69565C14.9958 2.29124 15.6952 2.16309 16.9629 2.16309C19.7329 2.17448 21.8185 4.53047 21.8185 7.70028Z" fill="white"/>
-                </svg>
-                <div class="sale_text">
-                    <div class="hit">хит</div>
-                    <div class="sale">sale</div>
-                </div>
-                <img src="<?=SITE_TEMPLATE_PATH?>/img/product.png" alt="">
-            </div>
-            <div class="product_bottom">
-                <div class="product_desc">
-                    <div class="product_text">Футболка клуба GO!</div>
-                    <div class="price_block">
-                        <div class="product_price">2 500 ₽</div>
-                        <div class="product_price econom">2 500 ₽</div>
-                    </div>
-                </div>
-                <div class="product_basket">
-                    <svg width="26" class="basket" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M24.5556 0L25.8475 23.2558C25.9272 24.6895 24.8295 25.9163 23.3958 25.996C23.3237 25.9993 23.3237 25.9993 23.2515 26H2.6C1.16406 26 0 24.8359 0 23.4C0.000333719 23.3639 0.000500579 23.3459 0.00100097 23.3279C0.00150135 23.3098 0.00233526 23.2918 0.00400308 23.2558L1.29599 0H24.5556ZM3.75523 2.60008L2.59967 23.4001H23.2512L22.0957 2.60008H3.75523ZM9.02676 5.2002H6.42676V8.4502C6.42676 11.5711 9.44697 14.3002 12.9268 14.3002C16.4065 14.3002 19.4268 11.5711 19.4268 8.4502V5.2002H16.8268V8.4502C16.8268 10.0731 15.0261 11.7002 12.9268 11.7002C10.8274 11.7002 9.02676 10.0731 9.02676 8.4502V5.2002Z" fill="white"/>
-                    </svg>
-                </div>
-            </div>
-        </div>
-        <div class="product_item">
-            <div class="product_img">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="22" viewBox="0 0 24 22" fill="none">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M16.9672 1.74143e-05C15.3879 0 14.3699 0.186521 13.2029 0.752809C12.7708 0.962467 12.3655 1.21496 11.9891 1.50953C11.6271 1.23147 11.238 0.990574 10.8238 0.787484C9.63417 0.204162 8.56394 0 7.04132 0C2.96339 0 0 3.34972 0 7.70021C0 10.9857 1.84782 14.1594 5.28964 17.2283C7.09625 18.8392 9.4029 20.4333 11.0548 21.2814L12 21.7666L12.9452 21.2814C14.5971 20.4333 16.9038 18.8392 18.7104 17.2283C22.1522 14.1594 24 10.9857 24 7.70021C24 3.39577 21.0087 0.0166102 16.9672 1.74143e-05ZM21.8185 7.70028C21.8185 10.2743 20.2761 12.9234 17.2516 15.6202C15.6027 17.0904 13.4828 18.5598 12.0003 19.3306C10.5178 18.5598 8.39793 17.0904 6.74897 15.6202C3.72448 12.9234 2.18213 10.2743 2.18213 7.70028C2.18213 4.48586 4.23701 2.16309 7.04163 2.16309C8.25225 2.16309 8.99827 2.3054 9.85682 2.72638C10.364 2.97505 10.8122 3.3034 11.2002 3.71372L12.0029 4.56263L12.7983 3.70699C13.195 3.28023 13.6498 2.94441 14.1624 2.69565C14.9958 2.29124 15.6952 2.16309 16.9629 2.16309C19.7329 2.17448 21.8185 4.53047 21.8185 7.70028Z" fill="white"/>
-                </svg>
-                <svg class="fav_icon" xmlns="http://www.w3.org/2000/svg" width="24" height="22" viewBox="0 0 24 22" fill="none">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M13.2029 0.752809C14.3699 0.186521 15.3879 -1.66378e-06 16.9672 1.74143e-05C21.0087 0.0166102 24 3.39577 24 7.70021C24 10.9857 22.1522 14.1594 18.7104 17.2283C16.9038 18.8392 14.5971 20.4333 12.9452 21.2814L12 21.7666L11.0548 21.2814C9.4029 20.4333 7.09625 18.8392 5.28964 17.2283C1.84782 14.1594 0 10.9857 0 7.70021C0 3.34972 2.96339 0 7.04132 0C8.56394 0 9.63417 0.204162 10.8238 0.787484C11.238 0.990574 11.6271 1.23147 11.9891 1.50953C12.3655 1.21496 12.7708 0.962467 13.2029 0.752809Z" fill="white"/>
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M17.2516 15.6202C20.2761 12.9234 21.8185 10.2743 21.8185 7.70028C21.8185 4.53047 19.7329 2.17448 16.9629 2.16309C15.6952 2.16309 14.9958 2.29124 14.1624 2.69565C13.6498 2.94441 13.195 3.28023 12.7983 3.70699L12.0029 4.56263L11.2002 3.71372C10.8122 3.3034 10.364 2.97505 9.85682 2.72638C8.99827 2.3054 8.25225 2.16309 7.04163 2.16309C4.23701 2.16309 2.18213 4.48586 2.18213 7.70028C2.18213 10.2743 3.72448 12.9234 6.74898 15.6202C8.39793 17.0904 10.5178 18.5598 12.0003 19.3306C13.4828 18.5598 15.6027 17.0904 17.2516 15.6202Z" fill="white"/>
-                </svg>
-                <div class="sale_text">
-                    <div class="hit">хит</div>
-                    <div class="sale">sale</div>
-                </div>
-                <img src="<?=SITE_TEMPLATE_PATH?>/img/product.png" alt="">
-            </div>
-            <div class="product_bottom">
-                <div class="product_desc">
-                    <div class="product_text">Футболка клуба GO!</div>
-                    <div class="price_block">
-                        <div class="product_price">2 500 ₽</div>
-                        <div class="product_price econom">2 500 ₽</div>
-                    </div>
-                </div>
-                <div class="product_basket">
-                    <svg width="26" class="basket" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M24.5556 0L25.8475 23.2558C25.9272 24.6895 24.8295 25.9163 23.3958 25.996C23.3237 25.9993 23.3237 25.9993 23.2515 26H2.6C1.16406 26 0 24.8359 0 23.4C0.000333719 23.3639 0.000500579 23.3459 0.00100097 23.3279C0.00150135 23.3098 0.00233526 23.2918 0.00400308 23.2558L1.29599 0H24.5556ZM3.75523 2.60008L2.59967 23.4001H23.2512L22.0957 2.60008H3.75523ZM9.02676 5.2002H6.42676V8.4502C6.42676 11.5711 9.44697 14.3002 12.9268 14.3002C16.4065 14.3002 19.4268 11.5711 19.4268 8.4502V5.2002H16.8268V8.4502C16.8268 10.0731 15.0261 11.7002 12.9268 11.7002C10.8274 11.7002 9.02676 10.0731 9.02676 8.4502V5.2002Z" fill="white"/>
-                    </svg>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<style>
-.fav_list .product_desc {
-    width: 78%;
-}
-
-.fav_list {
-    padding: 110px 20px;
-}
-
-.fav_list_block{
-    display: flex;
-    width: 100%;
-    flex-direction: row;
-    -ms-flex-direction: row;
-    flex-direction: row;
-    -webkit-flex-wrap: wrap;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-
-.fav_top {
-    display: flex;
-}
-
-.fav_title{
-    font-weight: 700;
-    font-size: 42px;
-    line-height: 52px;
-    letter-spacing: 0.02em;
-    margin-bottom: 30px;
-}
-
-.arrow_back {
-    font-weight: 700;
-    font-size: 42px;
-    margin-right: 30px;
-    margin-left: 20px;
-    margin-top: -4px;
-}
-
-.product_item{
-    width:24%;
-}
-
-@media (max-width: 630px) {
-    .hit {
-        width: 43px;
-        font-size: 10px;
-    }
-    .sale {
-        margin-top: 22px;
-        width: 43px;
-        font-size: 10px;
-    }
-    .product_img svg {
-        width: 20px;
-    }
-    .arrow_back {
-        font-size: 30px;
-        margin-right: 15px;
-        margin-left: 0px;
-        margin-top: 5px;
-    }
-    .fav_title {
-        font-size: 24px;
-        margin-bottom: 12px;
-    }
-}
-
-@media (max-width: 580px){
-    .product_item {
-        width: 49%;
-    }
-}
-
-</style>
-
+</main>
 
 <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

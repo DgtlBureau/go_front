@@ -13,15 +13,7 @@ use Bitrix\Main\ModuleManager;
 
 ?>
 
-<div class="mobile shop_banner">
- <img src="/local/templates/new_ru/img/shop_banner.png" alt="">
 
-	<div class="banner_text">
-		<div class="banner_title">
-			 Новая коллекция GO
-		</div>
-	</div>
-</div>
 
 <?
 

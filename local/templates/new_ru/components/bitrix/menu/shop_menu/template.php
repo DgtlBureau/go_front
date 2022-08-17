@@ -1,22 +1,24 @@
 <?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+  
 
 <?if (!empty($arResult)):?>
-<div class="shop_menu">
- 	<nav class="shop_items">
-
-<?
-foreach($arResult as $arItem):
-	if($arParams["MAX_LEVEL"] == 1 && $arItem["DEPTH_LEVEL"] > 1) 
-		continue;
-?>
-	<?if($arItem["SELECTED"]):?>
-		<li class="shop_item"><a href="<?=$arItem["LINK"]?>" class="selected"><?=$arItem["TEXT"]?></a></li>
-	<?else:?>
-		<li class="shop_item"><a href="<?=$arItem["LINK"]?>"><?=$arItem["TEXT"]?></a></li>
-	<?endif?>
-	
-<?endforeach?>
-
-	</nav>
+<div class="shop__nav">
+    <div class="shop__nav-list shop__nav-list-top">
+        <?foreach($arResult as $arItem):?>
+        	<a class="shop__nav-item" href="<?=$arItem["LINK"]?>"><?=$arItem["TEXT"]?></a>
+        <?endforeach?> 
+    </div>
 </div>
 <?endif?>
+
+
+<?
+
+	/*  if( $USER->GetID() == 1 )
+	  {
+	  echo '<pre>';
+	  print_r($arResult);
+	  echo '</pre>';
+	  }
+*/
+?>

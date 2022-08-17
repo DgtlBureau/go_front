@@ -49,13 +49,19 @@ if ($obRes = $res->GetNextElement()) {
         <div class="footer_right_content_item">
           <h3 class="footer_right_content_item_h3">Контакты</h3>
           <div class="footer_link_content">
-            <a href="tel:88958964698" class="footer_link">+7 (895) 896 - 46 - 98</a>
-            <a href="mailto:go@gmail.ru" class="footer_link">go@gmail.ru</a>
+            <? 
+            $res = CIBlockElement::GetByID(73);
+            if($ar_res = $res->GetNextElement()) {
+                $ar_res = $ar_res->GetProperties(); 
+            ?>
+            <a href="tel:<?=$ar_res['TEL']['VALUE']?>" class="footer_link"><?=$ar_res['TEL']['VALUE']?></a>
+            <a href="mailto:<?=$ar_res['EMAIL']['VALUE']?>" class="footer_link"><?=$ar_res['EMAIL']['VALUE']?></a>
+            <?}?>
           </div>
-
+            
             <div class="footer_social_links">
                 <?
-                $res = CIBlockElement::GetList(Array("ID"=>"DESC"), Array("IBLOCK_ID"=> 8),);
+                $res = CIBlockElement::GetList(Array("ID"=>"DESC"), Array("IBLOCK_ID"=> 8));
                 while ($ob = $res->GetNextElement()){
                     $arProps = $ob->GetProperties(); // свойства элемента
                 ?>
@@ -88,7 +94,7 @@ if ($obRes = $res->GetNextElement()) {
       </div>
         <div class="footer_social_links">
             <?
-            $res = CIBlockElement::GetList(Array("ID"=>"DESC"), Array("IBLOCK_ID"=> 8),);
+            $res = CIBlockElement::GetList(Array("ID"=>"DESC"), Array("IBLOCK_ID"=> 8));
             while ($ob = $res->GetNextElement()){
                 $arProps = $ob->GetProperties(); // свойства элемента
                 ?>

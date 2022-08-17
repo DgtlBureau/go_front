@@ -64,7 +64,7 @@ $res = CIBlockElement::GetByID(73);
                             while ($ob = $res->GetNextElement()){
                                 $arProps = $ob->GetProperties(); // свойства элемента
                                 ?>
-                                <a href="<?=$arProps['SOCIAL_LINK']?>" target="_blank" class="contacts__social">
+                                <a href="<?=$arProps['SOCIAL_LINK']['VALUE']?>" target="_blank" class="contacts__social">
                                     <div class="contacts__social-image">
                                         <img src="<?= CFile::GetPath($arProps['IMG']['VALUE']) ?>" alt="<?=$arProps['NAME']?>" >
                                     </div>

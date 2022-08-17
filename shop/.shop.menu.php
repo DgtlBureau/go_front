@@ -9,28 +9,28 @@ $aMenuLinks = Array(
 	),
 	Array(
 		"джерси", 
-		"/shop/catalog/odezhda/", 
+		"/shop/catalog/dzhersi/", 
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
 		"Аксессуары", 
-		"/shop/catalog/odezhda/", 
+		"/shop/catalog/aksessuary/", 
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
-		"сувениры", 
-		"/shop/catalog/odezhda/", 
+		"Сувениры", 
+		"/shop/catalog/suveniry/", 
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
-		"новинки", 
-		"/shop/catalog/odezhda/", 
+		"Новинки", 
+		"/shop/catalog/novinki/", 
 		Array(), 
 		Array(), 
 		"" 

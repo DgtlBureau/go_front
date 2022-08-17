@@ -72,7 +72,7 @@ $arUrlRewrite=array (
     'PATH' => '/teams/team-go/index.php',
     'SORT' => 100,
   ),
-  7 => 
+  29 => 
   array (
     'CONDITION' => '#^/shop/catalog/#',
     'RULE' => '',
@@ -88,7 +88,7 @@ $arUrlRewrite=array (
     'PATH' => '/team-page/index.php',
     'SORT' => 100,
   ),
-  11 => 
+  30 => 
   array (
     'CONDITION' => '#^\\??(.*)#',
     'RULE' => '&$1',

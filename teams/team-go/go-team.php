@@ -1,3 +1,5 @@
+<?$arrFilter=array("PROPERTY_TEAM"=>6);?>
+
 <div class="go-team">
             <div class="back-go-team__info">
                 <div class="container">
@@ -87,6 +89,9 @@
                     </div>
                 </div>
             </div>
+            
+            
+            
             <div class="container">
             <div class="go-team__line-up">
                 <div class="go-team__staff-block">
@@ -184,6 +189,8 @@
                             "USE_SEARCH" => "N",
                             "USE_SHARE" => "N",
                             "COMPONENT_TEMPLATE" => "trener_page",
+                            "USE_FILTER" => "Y",
+                            "FILTER_NAME" => "arrFilter",
                             "SEF_URL_TEMPLATES" => array(
                                 "news" => "",
                                 "section" => "",
@@ -193,9 +200,6 @@
                         false
                     );?>
                 </div>
-                <?
-                $arrFilter=array("PROPERTY_TEAM"=>6);
-                ?>
                 <div class="go-team__staff-block">
                     <div class="go-team__staff-title">Игроки</div>
 
