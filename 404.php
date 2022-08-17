@@ -20,7 +20,7 @@ $APPLICATION->SetAdditionalCss("/local/templates/new_ru/assets/WebMaster-GO-Goho
                     <p>страница не найдена</p>
                 </div>
                 <div class="error-page__text">
-                    <p>Страница, на которую вы пытаетесь попасть,<span>не существует или была удалена.<br>Перейдите на
+                    <p>Страница, на которую вы пытаетесь попасть,<span>не существует или была удалена. <br>Перейдите на
                             <a href="#">Главную страницу</a></span></p>
                 </div>
             </div>
