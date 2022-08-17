@@ -135,17 +135,32 @@
             <div class="championship-course__top">
                 <div class="championship-course__title">Регулярный чемпионат</div>
                 <a href="/teams/team-go/tournament/playoff/" class="championship-course__stage">Плей-офф</a>
-                <div class="championship-course__select-block"><select class="championship-course__period">
-                        <option>СЕЗОН 21/22</option>
-                        <option>СЕЗОН 22/23</option>
-                    </select></div>
-                <div class="championship-course__select-block"><select class="championship-course__period">
+                <div class="championship-course__select-block">
+					<? //Выбор сезона получаем данные из инфоблока
+        	        $arSelect = ['ID', 'NAME'];
+                    $arFilter = [
+                        'IBLOCK_ID'     => 20,
+                        'ACTIVE'		=> 'Y',
+                    ];
+                    $sezons = CIBlockElement::GetList([], $arFilter, false, false, $arSelect);
+					?>
+					<select class="championship-course__period">
+						 <?while($sezon = $sezons->GetNext()){?>
+							<option value="<?=$sezon["ID"]?>"><?=$sezon["NAME"]?></option>
+						 <?}?>
+					</select>
+				</div>
+                <div class="championship-course__select-block">
+					<select class="championship-course__period">
                         <option>Регулярный чемпионат</option>
                         <option>Плей-офф</option>
-                    </select></div>
+                    </select>
+				</div>
             </div>
             <div class="championship-course__content">
-			<?$arrFilter=array("PROPERTY_TEAM"=>6);?>
+			<?
+			$SEZONSELECT = 68; // сюда записываем полученный ID из option
+			$SezonFilter=array("PROPERTY_SEZON"=>$SEZONSELECT);?>
                     <?$APPLICATION->IncludeComponent(
 	"bitrix:news.list", 
 	"regular_season", 
@@ -171,7 +186,7 @@
 			1 => "DATE_CREATE",
 			2 => "",
 		),
-		"FILTER_NAME" => "arrFilter",
+		"FILTER_NAME" => "SezonFilter",
 		"HIDE_LINK_WHEN_NO_DETAIL" => "N",
 		"IBLOCK_ID" => "24",
 		"IBLOCK_TYPE" => "team",
@@ -224,10 +239,12 @@
             <div class="go-tournament__swiper-block">
                 <div class="go-tournament__swiper">
                     <?
-        	        $arSelect = ['ID', 'NAME', 'DETAIL_PAGE_URL', 'IBLOCK_ID', 'PREVIEW_PICTURE', 'PROPERTY_GAME', 'PROPERTY_GOLE', 'PROPERTY_ASSIST', 'PROPERTY_BEST', 'PROPERTY_NUMBER'];
+        	        $arSelect = ['ID', 'NAME', 'DETAIL_PAGE_URL', 'IBLOCK_ID', 'PREVIEW_PICTURE', 'PROPERTY_GAME', 'PROPERTY_GOLE', 'PROPERTY_ASSIST', 'PROPERTY_BEST', 'PROPERTY_NUMBER', 'PROPERTY_TEAM'];
                     $arFilter = [
                         'IBLOCK_ID'     => 18,
                         'PROPERTY_BEST_VALUE' => 'Да',
+						'PROPERTY_TEAM' => 6,
+						
                     ];
                     $best_players = CIBlockElement::GetList([], $arFilter, false, false, $arSelect);
                     
@@ -235,7 +252,7 @@
                     <a class="go-tournament__staff-person" href="<?=$best_player['DETAIL_PAGE_URL']?>">
                         <div class="go-tournament__players-staff-person-background">
                             <div class="go-tournament__players-staff-person-image"><img
-                                        src="<?=CFile::GetPath($best_player["PREVIEW_PICTURE"]);?>" alt="<?=$best_player["NAME"];?>"></div>
+                                src="<?=CFile::GetPath($best_player["PREVIEW_PICTURE"]);?>" alt="<?=$best_player["NAME"];?>"></div>
                         </div>
                         <div class="go-tournament__players-staff-person-progress">
                             <div class="go-tournament__players-staff-person-progress-stats">
