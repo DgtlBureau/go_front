@@ -10,7 +10,7 @@ $APPLICATION->SetTitle("Страница не найдена");
 $APPLICATION->SetAdditionalCss("/local/templates/new_ru/assets/WebMaster-GO-Gohockey/Pages/404-page/main.1aaa0a68cc8729c67c81.css");
 
 ?>
-    <div class="error-page">
+    <div class="error-page"><!-- test -->
         <div class="error-page__container">
             <div class="error-page__404">
                 <div class="error-page__title">
