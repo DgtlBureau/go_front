@@ -1,3 +1,0 @@
-<?
-$sSectionName="social_links";
-?>

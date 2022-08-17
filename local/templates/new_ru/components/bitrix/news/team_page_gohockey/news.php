@@ -33,7 +33,10 @@ $this->setFrameMode(true);
 <br />
 <?endif?>
 <?if($arParams["USE_FILTER"]=="Y"):?>
-<?$APPLICATION->IncludeComponent(
+
+<?
+/*
+$APPLICATION->IncludeComponent(
 	"bitrix:catalog.filter",
 	"",
 	Array(
@@ -49,6 +52,7 @@ $this->setFrameMode(true);
 	),
 	$component
 );
+*/
 ?>
 <br />
 <?endif?>

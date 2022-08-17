@@ -9,8 +9,7 @@
                         <p>Команда</p>
                         <div class="go-tournament__team-name"><span data-text="GO" id="GO">GO</span></div>
                     </div>
-                    <div class="go-tournament__about-txt">Несколько лет назад мы решили популяризировать любительский хоккей
-                        и создать престижный дивизион с шикарным трофее</div>
+                    <div class="go-tournament__about-txt"><?=$ar_header_fields["DETAIL_TEXT"];?></div>
                     <div class="go-tournament__progress invisible">
                         <div class="go-tournament__progress-stats">
                             <div class="go-tournament__progress-victories">
@@ -27,23 +26,76 @@
                             </div>
                         </div>
                     </div>
-                    <div class="results">
-                        <div class="results__title">Достижения</div>
-                        <div class="results__block">
-                            <div class="results__image"><img src="/local/templates/new_ru/img/cup.png" alt="violetCup"></div>
-                            <div class="results__txt">
-                                <div class="results__competitions">Чемпионат ЛЕТО-2021</div>
-                                <div class="results__place">1 место</div>
-                            </div>
-                        </div>
-                        <div class="results__block">
-                            <div class="results__image"><img src="/local/templates/new_ru/img/cup.png" alt="violetCup"></div>
-                            <div class="results__txt">
-                                <div class="results__competitions">Чемпионат ЛЕТО-2021</div>
-                                <div class="results__place">1 место</div>
-                            </div>
-                        </div>
-                    </div>
+                    <?$arrFilter=array("PROPERTY_TEAM"=>6);?>
+                    <?$APPLICATION->IncludeComponent(
+                    	"bitrix:news.list", 
+                    	"header_team_results", 
+                    	array(
+                    		"ACTIVE_DATE_FORMAT" => "j F Y",
+                    		"ADD_SECTIONS_CHAIN" => "N",
+                    		"AJAX_MODE" => "N",
+                    		"AJAX_OPTION_ADDITIONAL" => "",
+                    		"AJAX_OPTION_HISTORY" => "N",
+                    		"AJAX_OPTION_JUMP" => "N",
+                    		"AJAX_OPTION_STYLE" => "Y",
+                    		"CACHE_FILTER" => "N",
+                    		"CACHE_GROUPS" => "N",
+                    		"CACHE_TIME" => "0",
+                    		"CACHE_TYPE" => "A",
+                    		"CHECK_DATES" => "Y",
+                    		"COMPONENT_TEMPLATE" => "header_team_results",
+                    		"DETAIL_URL" => "",
+                    		"DISPLAY_BOTTOM_PAGER" => "N",
+                    		"DISPLAY_TOP_PAGER" => "N",
+                    		"FIELD_CODE" => array(
+                    			0 => "DETAIL_PICTURE",
+                    			1 => "DATE_CREATE",
+                    			2 => "",
+                    		),
+                    		"FILTER_NAME" => "arrFilter",
+                    		"HIDE_LINK_WHEN_NO_DETAIL" => "N",
+                    		"IBLOCK_ID" => "19",
+                    		"IBLOCK_TYPE" => "team",
+                    		"INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
+                    		"INCLUDE_SUBSECTIONS" => "N",
+                    		"MESSAGE_404" => "",
+                    		"NEWS_COUNT" => "2",
+                    		"PAGER_BASE_LINK_ENABLE" => "N",
+                    		"PAGER_DESC_NUMBERING" => "N",
+                    		"PAGER_DESC_NUMBERING_CACHE_TIME" => "0",
+                    		"PAGER_SHOW_ALL" => "N",
+                    		"PAGER_SHOW_ALWAYS" => "N",
+                    		"PAGER_TEMPLATE" => ".default",
+                    		"PAGER_TITLE" => "Новости",
+                    		"PARENT_SECTION" => "",
+                    		"PARENT_SECTION_CODE" => "",
+                    		"PREVIEW_TRUNCATE_LEN" => "",
+                    		"PROPERTY_CODE" => array(
+                    			0 => "PLACE",
+                    			1 => "PLACE",
+                    			2 => "",
+                    		),
+                    		"SET_BROWSER_TITLE" => "N",
+                    		"SET_LAST_MODIFIED" => "N",
+                    		"SET_META_DESCRIPTION" => "Y",
+                    		"SET_META_KEYWORDS" => "Y",
+                    		"SET_STATUS_404" => "N",
+                    		"SET_TITLE" => "N",
+                    		"SHOW_404" => "N",
+                    		"SORT_BY1" => "SORT",
+                    		"SORT_BY2" => "SORT",
+                    		"SORT_ORDER1" => "DESC",
+                    		"SORT_ORDER2" => "ASC",
+                    		"STRICT_SECTION_CHECK" => "N",
+                    		"USE_FILTER" => "Y",
+                    		"DISPLAY_DATE" => "Y",
+                    		"DISPLAY_NAME" => "Y",
+                    		"DISPLAY_PICTURE" => "Y",
+                    		"DISPLAY_PREVIEW_TEXT" => "Y"
+                    	),
+                    	false
+                    );
+                    ?> 
                 </div>
                 <div class="go-tournament__progress">
                     <div class="go-tournament__progress-background" id="team-background-logo"></div>
@@ -93,98 +145,75 @@
                     </select></div>
             </div>
             <div class="championship-course__content">
-                <table class="championship-course__table">
-                    <tr>
-                        <th>№</th>
-                        <th>Команда</th>
-                        <th>И</th>
-                        <th>В</th>
-                        <th>Н</th>
-                        <th>П</th>
-                        <th>Ш</th>
-                        <th>О</th>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td><img src="/local/templates/new_ru/img/blackDragon.png" alt="blackDragon">Хорс Go</td>
-                        <td>21</td>
-                        <td>14</td>
-                        <td>3</td>
-                        <td>4</td>
-                        <td>99:44</td>
-                        <td>28</td>
-                    </tr>
-                    <tr class="championship-course__our-team">
-                        <td>2</td>
-                        <td><img src="/local/templates/new_ru/img/bull.png" alt="bull">Go</td>
-                        <td>21</td>
-                        <td>14</td>
-                        <td>3</td>
-                        <td>4</td>
-                        <td>102:44</td>
-                        <td>28</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td><img src="/local/templates/new_ru/img/panther.png" alt="panther">Полюс</td>
-                        <td>21</td>
-                        <td>14</td>
-                        <td>3</td>
-                        <td>4</td>
-                        <td>102:44</td>
-                        <td>28</td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td><img src="/local/templates/new_ru/img/panther.png" alt="panther">Полюс</td>
-                        <td>21</td>
-                        <td>14</td>
-                        <td>3</td>
-                        <td>4</td>
-                        <td>102:44</td>
-                        <td>28</td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td><img src="/local/templates/new_ru/img/panther.png" alt="panther">Полюс</td>
-                        <td>21</td>
-                        <td>14</td>
-                        <td>3</td>
-                        <td>4</td>
-                        <td>102:44</td>
-                        <td>28</td>
-                    </tr>
-                    <tr>
-                        <td>6</td>
-                        <td><img src="/local/templates/new_ru/img/panther.png" alt="panther">Полюс</td>
-                        <td>21</td>
-                        <td>14</td>
-                        <td>3</td>
-                        <td>4</td>
-                        <td>102:44</td>
-                        <td>28</td>
-                    </tr>
-                    <tr>
-                        <td>7</td>
-                        <td><img src="/local/templates/new_ru/img/panther.png" alt="panther">Полюс</td>
-                        <td>21</td>
-                        <td>14</td>
-                        <td>3</td>
-                        <td>4</td>
-                        <td>102:44</td>
-                        <td>28</td>
-                    </tr>
-                    <tr>
-                        <td>8</td>
-                        <td><img src="/local/templates/new_ru/img/panther.png" alt="panther">Полюс</td>
-                        <td>21</td>
-                        <td>14</td>
-                        <td>3</td>
-                        <td>4</td>
-                        <td>102:44</td>
-                        <td>28</td>
-                    </tr>
-                </table>
+			<?$arrFilter=array("PROPERTY_TEAM"=>6);?>
+                    <?$APPLICATION->IncludeComponent(
+	"bitrix:news.list", 
+	"regular_season", 
+	array(
+		"ACTIVE_DATE_FORMAT" => "j F Y",
+		"ADD_SECTIONS_CHAIN" => "N",
+		"AJAX_MODE" => "N",
+		"AJAX_OPTION_ADDITIONAL" => "",
+		"AJAX_OPTION_HISTORY" => "N",
+		"AJAX_OPTION_JUMP" => "N",
+		"AJAX_OPTION_STYLE" => "Y",
+		"CACHE_FILTER" => "N",
+		"CACHE_GROUPS" => "N",
+		"CACHE_TIME" => "0",
+		"CACHE_TYPE" => "A",
+		"CHECK_DATES" => "Y",
+		"COMPONENT_TEMPLATE" => "regular_season",
+		"DETAIL_URL" => "",
+		"DISPLAY_BOTTOM_PAGER" => "N",
+		"DISPLAY_TOP_PAGER" => "N",
+		"FIELD_CODE" => array(
+			0 => "DETAIL_PICTURE",
+			1 => "DATE_CREATE",
+			2 => "",
+		),
+		"FILTER_NAME" => "arrFilter",
+		"HIDE_LINK_WHEN_NO_DETAIL" => "N",
+		"IBLOCK_ID" => "24",
+		"IBLOCK_TYPE" => "team",
+		"INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
+		"INCLUDE_SUBSECTIONS" => "N",
+		"MESSAGE_404" => "",
+		"NEWS_COUNT" => "20",
+		"PAGER_BASE_LINK_ENABLE" => "N",
+		"PAGER_DESC_NUMBERING" => "N",
+		"PAGER_DESC_NUMBERING_CACHE_TIME" => "0",
+		"PAGER_SHOW_ALL" => "N",
+		"PAGER_SHOW_ALWAYS" => "N",
+		"PAGER_TEMPLATE" => ".default",
+		"PAGER_TITLE" => "Новости",
+		"PARENT_SECTION" => "",
+		"PARENT_SECTION_CODE" => "",
+		"PREVIEW_TRUNCATE_LEN" => "",
+		"PROPERTY_CODE" => array(
+			0 => "POINTS",
+			1 => "",
+		),
+		"SET_BROWSER_TITLE" => "N",
+		"SET_LAST_MODIFIED" => "N",
+		"SET_META_DESCRIPTION" => "Y",
+		"SET_META_KEYWORDS" => "Y",
+		"SET_STATUS_404" => "N",
+		"SET_TITLE" => "N",
+		"SHOW_404" => "N",
+		"SORT_BY1" => "PROPERTY_POINTS",
+		"SORT_BY2" => "NAME",
+		"SORT_ORDER1" => "DESC",
+		"SORT_ORDER2" => "DESC",
+		"STRICT_SECTION_CHECK" => "N",
+		"USE_FILTER" => "Y",
+		"DISPLAY_DATE" => "Y",
+		"DISPLAY_NAME" => "Y",
+		"DISPLAY_PICTURE" => "Y",
+		"DISPLAY_PREVIEW_TEXT" => "Y"
+	),
+	false
+);
+                    ?> 
             </div>
         </div>
         <div class="go-tournament__staff-block">

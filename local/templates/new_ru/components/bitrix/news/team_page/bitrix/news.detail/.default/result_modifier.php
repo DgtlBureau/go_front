@@ -6,7 +6,8 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 $arSelect = ['ID', 'NAME', 'IBLOCK_ID', 'PREVIEW_PICTURE', 'PROPERTY_IMG'];
 
 $arFilter = [
-    'IBLOCK_ID' => [19]
+    'IBLOCK_ID' => $arResult["PROPERTIES"]["DOS"]["LINK_IBLOCK_ID"],
+    'ID'        => $arResult["PROPERTIES"]["DOS"]["VALUE"],
 ];
 
 $res = CIBlockElement::GetList([], $arFilter, false, false, $arSelect);

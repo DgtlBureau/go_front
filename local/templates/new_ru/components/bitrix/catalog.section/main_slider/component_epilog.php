@@ -27,11 +27,11 @@ if (!empty($templateData['TEMPLATE_LIBRARY']))
 
 	if ($loadCurrency)
 	{
-		?>
+		/*?>
 		<script>
 			BX.Currency.setCurrencies(<?=$templateData['CURRENCIES']?>);
 		</script>
-		<?
+		<?*/
 	}
 }
 

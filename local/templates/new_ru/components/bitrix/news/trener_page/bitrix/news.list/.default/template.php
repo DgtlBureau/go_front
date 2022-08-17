@@ -18,7 +18,7 @@ $this->setFrameMode(true);
 	<div class="go-team__staff">
 		<?foreach($arResult["ITEMS"] as $arItem):?>
 			<a href="<?=$arItem['DETAIL_PAGE_URL']?>">
-				<div class="go-team__staff-person">
+				<div class="<?if($arItem["PROPERTIES"]["TEAM"]["VALUE"] == 6):?>go-team__staff-person<?else:?>go-team__staff-person_blue<?endif;?>">
 					<div class="go-team__coaching-staff-person-image">
 						<img src="<?=$arItem['PREVIEW_PICTURE']['SRC']?>" alt="<?=$arItem['NAME']?>">
 					</div>
