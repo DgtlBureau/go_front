@@ -12,17 +12,22 @@
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
 ?>
+ <div class="team">
 <? $i=1;?>
 <?foreach($arResult['ITEMS'] as $arItem):?>
-    <?php
-    $link = '/teams/team-go/';
+ <?
+			$this->AddEditAction($arItem['ID'], $arItem['EDIT_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_EDIT"));
+			$this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')));
+			?>   
+<?
+$link = '/teams/team-go/';
     if($arItem["PROPERTIES"]["TEAM_COLOR"]["VALUE"] ==  'red') {
         $link = '/teams/team-gohockey/';
     } else {
         $link = '/teams/team-go/';
     }
      ?>
-	<a href="<?=$link;?>" class="team_item <?=$arItem["PROPERTIES"]["TEAM_COLOR"]["VALUE"];?>">
+	<a href="<?=$link;?>" class="team_item <?=$arItem["PROPERTIES"]["TEAM_COLOR"]["VALUE"];?>" id="<?=$this->GetEditAreaId($arItem['ID']);?>">
 		<div class="team_item_logo">
 			  <img src="<?=$arItem["DISPLAY_PROPERTIES"]["PHOTO_TEAM"]["FILE_VALUE"]["SRC"];?>" alt="">
 		</div>
@@ -49,3 +54,4 @@ $this->setFrameMode(true);
 	</a>
 
 <?endforeach;?>
+</div>

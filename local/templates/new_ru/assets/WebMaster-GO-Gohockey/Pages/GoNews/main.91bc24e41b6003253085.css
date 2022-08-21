@@ -30,7 +30,6 @@ a:hover {
     width: 100%
 }
 
-/** comment **/
 .back-go-news__info {
     background: -webkit-gradient(linear, left top, left bottom, from(#000000), color-stop(143.87%, rgba(0, 0, 0, 0))), url(/local/templates/new_ru/img/back.png) repeat-x;
     background: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 143.87%), url(/local/templates/new_ru/img/back.png) repeat-x;
@@ -352,51 +351,6 @@ a:hover {
 .social-content-block__item:hover>img {
     transform: scale(1.05);
 }
-
-.results {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    max-width: 595px;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
-    justify-content: space-between
-}
-
-.results__title {
-    display: none
-}
-
-.results__block {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    width: 50%
-}
-
-.results__image {
-    margin-right: 15px;
-    height: 34px;
-    padding-top: 5px
-}
-
-.results__image img {
-    height: 100%
-}
-
-.results__txt {
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 20px;
-    letter-spacing: .02em;
-    color: #fff
-}
-
-.results__place {
-    line-height: 22px;
-    font-weight: 600
-}
-
 .back-go-news__info-nav {
     background: #141414;
     width: 100%;

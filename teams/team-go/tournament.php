@@ -1,4 +1,9 @@
-
+<?
+$PROPERTY_TEAM = 6;//ID Команды
+$GAMERS = 18;//Игроки
+$SEZONS = 20;//Сезоны
+$REG_SEASON = 24;//ID рег. чемпионата
+?>
 <div class="go-tournament">
     <div class="back-go-tournament__info">
         <div class="container">
@@ -11,105 +16,104 @@
                     </div>
                     <div class="go-tournament__about-txt"><?=$ar_header_fields["DETAIL_TEXT"];?></div>
                     <div class="go-tournament__progress invisible">
-                        <div class="go-tournament__progress-stats">
-                            <div class="go-tournament__progress-victories">
-                                <div class="go-tournament__progress-title">Побед</div><span data-text="13"
-                                                                                            id="victories-count">13</span>
-                            </div>
+						<div class="go-tournament__progress-stats">
+							<div class="go-tournament__progress-victories">
+								<div class="go-tournament__progress-title">Побед</div>
+								<span data-text="<?=$ar_header_values["WINS"]["VALUE"]?>" id="victories-count"><?=$ar_header_values["WINS"]["VALUE"]?></span>
+							</div>
                             <div class="go-tournament__progress-points">
-                                <div class="go-tournament__progress-title">Очков</div><span data-text="7"
-                                                                                            id="points-count">7</span>
+								<div class="go-tournament__progress-title">Очков</div>
+								<span data-text="<?=$ar_header_values["GLASSES"]["VALUE"]?>"  id="points-count"><?=$ar_header_values["GLASSES"]["VALUE"]?></span>
                             </div>
                             <div class="go-tournament__progress-place">
-                                <div class="go-tournament__progress-title">Место</div><span data-text="4"
-                                                                                            id="place">4</span>
+                            <div class="go-tournament__progress-title">Место</div>
+								<span data-text="<?=$ar_header_values["PLACE"]["VALUE"]?>" id="place"><?=$ar_header_values["PLACE"]["VALUE"]?></span>
                             </div>
                         </div>
                     </div>
-                    <?$arrFilter=array("PROPERTY_TEAM"=>6);?>
+                    <?$arrFilter=array("PROPERTY_TEAM"=>$PROPERTY_TEAM);?>
                     <?$APPLICATION->IncludeComponent(
-                    	"bitrix:news.list", 
-                    	"header_team_results", 
-                    	array(
-                    		"ACTIVE_DATE_FORMAT" => "j F Y",
-                    		"ADD_SECTIONS_CHAIN" => "N",
-                    		"AJAX_MODE" => "N",
-                    		"AJAX_OPTION_ADDITIONAL" => "",
-                    		"AJAX_OPTION_HISTORY" => "N",
-                    		"AJAX_OPTION_JUMP" => "N",
-                    		"AJAX_OPTION_STYLE" => "Y",
-                    		"CACHE_FILTER" => "N",
-                    		"CACHE_GROUPS" => "N",
-                    		"CACHE_TIME" => "0",
-                    		"CACHE_TYPE" => "A",
-                    		"CHECK_DATES" => "Y",
-                    		"COMPONENT_TEMPLATE" => "header_team_results",
-                    		"DETAIL_URL" => "",
-                    		"DISPLAY_BOTTOM_PAGER" => "N",
-                    		"DISPLAY_TOP_PAGER" => "N",
-                    		"FIELD_CODE" => array(
-                    			0 => "DETAIL_PICTURE",
-                    			1 => "DATE_CREATE",
-                    			2 => "",
-                    		),
-                    		"FILTER_NAME" => "arrFilter",
-                    		"HIDE_LINK_WHEN_NO_DETAIL" => "N",
-                    		"IBLOCK_ID" => "19",
-                    		"IBLOCK_TYPE" => "team",
-                    		"INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
-                    		"INCLUDE_SUBSECTIONS" => "N",
-                    		"MESSAGE_404" => "",
-                    		"NEWS_COUNT" => "2",
-                    		"PAGER_BASE_LINK_ENABLE" => "N",
-                    		"PAGER_DESC_NUMBERING" => "N",
-                    		"PAGER_DESC_NUMBERING_CACHE_TIME" => "0",
-                    		"PAGER_SHOW_ALL" => "N",
-                    		"PAGER_SHOW_ALWAYS" => "N",
-                    		"PAGER_TEMPLATE" => ".default",
-                    		"PAGER_TITLE" => "Новости",
-                    		"PARENT_SECTION" => "",
-                    		"PARENT_SECTION_CODE" => "",
-                    		"PREVIEW_TRUNCATE_LEN" => "",
-                    		"PROPERTY_CODE" => array(
-                    			0 => "PLACE",
-                    			1 => "PLACE",
-                    			2 => "",
-                    		),
-                    		"SET_BROWSER_TITLE" => "N",
-                    		"SET_LAST_MODIFIED" => "N",
-                    		"SET_META_DESCRIPTION" => "Y",
-                    		"SET_META_KEYWORDS" => "Y",
-                    		"SET_STATUS_404" => "N",
-                    		"SET_TITLE" => "N",
-                    		"SHOW_404" => "N",
-                    		"SORT_BY1" => "SORT",
-                    		"SORT_BY2" => "SORT",
-                    		"SORT_ORDER1" => "DESC",
-                    		"SORT_ORDER2" => "ASC",
-                    		"STRICT_SECTION_CHECK" => "N",
-                    		"USE_FILTER" => "Y",
-                    		"DISPLAY_DATE" => "Y",
-                    		"DISPLAY_NAME" => "Y",
-                    		"DISPLAY_PICTURE" => "Y",
-                    		"DISPLAY_PREVIEW_TEXT" => "Y"
-                    	),
-                    	false
-                    );
+	"bitrix:news.list", 
+	"header_team_results", 
+	array(
+		"ACTIVE_DATE_FORMAT" => "j F Y",
+		"ADD_SECTIONS_CHAIN" => "N",
+		"AJAX_MODE" => "N",
+		"AJAX_OPTION_ADDITIONAL" => "",
+		"AJAX_OPTION_HISTORY" => "N",
+		"AJAX_OPTION_JUMP" => "N",
+		"AJAX_OPTION_STYLE" => "Y",
+		"CACHE_FILTER" => "N",
+		"CACHE_GROUPS" => "N",
+		"CACHE_TIME" => "0",
+		"CACHE_TYPE" => "A",
+		"CHECK_DATES" => "Y",
+		"COMPONENT_TEMPLATE" => "header_team_results",
+		"DETAIL_URL" => "",
+		"DISPLAY_BOTTOM_PAGER" => "N",
+		"DISPLAY_TOP_PAGER" => "N",
+		"FIELD_CODE" => array(
+			0 => "DETAIL_PICTURE",
+			1 => "DATE_CREATE",
+			2 => "",
+		),
+		"FILTER_NAME" => "arrFilter",
+		"HIDE_LINK_WHEN_NO_DETAIL" => "N",
+		"IBLOCK_ID" => "19",
+		"IBLOCK_TYPE" => "team",
+		"INCLUDE_IBLOCK_INTO_CHAIN" => "N",
+		"INCLUDE_SUBSECTIONS" => "N",
+		"MESSAGE_404" => "",
+		"NEWS_COUNT" => "1",
+		"PAGER_BASE_LINK_ENABLE" => "N",
+		"PAGER_DESC_NUMBERING" => "N",
+		"PAGER_DESC_NUMBERING_CACHE_TIME" => "0",
+		"PAGER_SHOW_ALL" => "N",
+		"PAGER_SHOW_ALWAYS" => "N",
+		"PAGER_TEMPLATE" => ".default",
+		"PAGER_TITLE" => "Новости",
+		"PARENT_SECTION" => "",
+		"PARENT_SECTION_CODE" => "",
+		"PREVIEW_TRUNCATE_LEN" => "",
+		"PROPERTY_CODE" => array(
+			0 => "PLACE",
+			1 => "",
+		),
+		"SET_BROWSER_TITLE" => "N",
+		"SET_LAST_MODIFIED" => "N",
+		"SET_META_DESCRIPTION" => "N",
+		"SET_META_KEYWORDS" => "N",
+		"SET_STATUS_404" => "N",
+		"SET_TITLE" => "N",
+		"SHOW_404" => "N",
+		"SORT_BY1" => "SORT",
+		"SORT_BY2" => "SORT",
+		"SORT_ORDER1" => "DESC",
+		"SORT_ORDER2" => "ASC",
+		"STRICT_SECTION_CHECK" => "N",
+		"USE_FILTER" => "Y",
+		"DISPLAY_DATE" => "Y",
+		"DISPLAY_NAME" => "Y",
+		"DISPLAY_PICTURE" => "Y",
+		"DISPLAY_PREVIEW_TEXT" => "Y"
+	),
+	false
+);
                     ?> 
                 </div>
                 <div class="go-tournament__progress">
                     <div class="go-tournament__progress-background" id="team-background-logo"></div>
                     <div class="go-tournament__progress-stats">
                         <div class="go-tournament__progress-victories">
-                            <div class="go-tournament__progress-title">Побед</div><span data-text="13"
-                                                                                        id="victories-count">13</span>
+                            <div class="go-tournament__progress-title">Побед</div>
+							<span data-text="<?=$ar_header_values["WINS"]["VALUE"]?>" id="victories-count"><?=$ar_header_values["WINS"]["VALUE"]?></span>
                         </div>
                         <div class="go-tournament__progress-points">
-                            <div class="go-tournament__progress-title">Очков</div><span data-text="7"
-                                                                                        id="points-count">7</span>
+                            <div class="go-tournament__progress-title">Очков</div>
+							<span data-text="<?=$ar_header_values["GLASSES"]["VALUE"]?>" id="points-count"><?=$ar_header_values["GLASSES"]["VALUE"]?></span>
                         </div>
                         <div class="go-tournament__progress-place">
-                            <div class="go-tournament__progress-title">Место</div><span data-text="4" id="place">4</span>
+                            <div class="go-tournament__progress-title">Место</div><span data-text="<?=$ar_header_values["PLACE"]["VALUE"]?>" id="place"><?=$ar_header_values["PLACE"]["VALUE"]?></span>
                         </div>
                     </div>
                 </div>
@@ -139,7 +143,7 @@
 					<? //Выбор сезона получаем данные из инфоблока
         	        $arSelect = ['ID', 'NAME'];
                     $arFilter = [
-                        'IBLOCK_ID'     => 20,
+                        'IBLOCK_ID'     => $SEZONS,
                         'ACTIVE'		=> 'Y',
                     ];
                     $sezons = CIBlockElement::GetList([], $arFilter, false, false, $arSelect);
@@ -188,7 +192,7 @@
 		),
 		"FILTER_NAME" => "SezonFilter",
 		"HIDE_LINK_WHEN_NO_DETAIL" => "N",
-		"IBLOCK_ID" => "24",
+		"IBLOCK_ID" => $REG_SEASON,
 		"IBLOCK_TYPE" => "team",
 		"INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
 		"INCLUDE_SUBSECTIONS" => "N",
@@ -241,9 +245,9 @@
                     <?
         	        $arSelect = ['ID', 'NAME', 'DETAIL_PAGE_URL', 'IBLOCK_ID', 'PREVIEW_PICTURE', 'PROPERTY_GAME', 'PROPERTY_GOLE', 'PROPERTY_ASSIST', 'PROPERTY_BEST', 'PROPERTY_NUMBER', 'PROPERTY_TEAM'];
                     $arFilter = [
-                        'IBLOCK_ID'     => 18,
+                        'IBLOCK_ID'     => $GAMERS,
                         'PROPERTY_BEST_VALUE' => 'Да',
-						'PROPERTY_TEAM' => 6,
+						'PROPERTY_TEAM' => $PROPERTY_TEAM,
 						
                     ];
                     $best_players = CIBlockElement::GetList([], $arFilter, false, false, $arSelect);
@@ -281,242 +285,80 @@
                 <div class="go-tournament__title">Матчи</div>
                 <div class="go-tournament__arrow">↖</div>
             </div>
-            <div class="go-tournament__swiper-block">
-                <div class="go-tournament__swiper">
-                    <div class="match">
-                        <div class="match__block" id="next-match__block">
-                            <div class="match__date-and-area">
-                                <div class="match__date">10 сентября, 18:00</div>
-                                <div class="match__area">Апиа арена</div>
-                            </div>
-                            <div class="match__versus">
-                                <div class="match__first-team">
-                                    <div class="match__first-team-logo"><img src="/local/templates/new_ru/img/bull.png"
-                                                                             alt="bull"></div>
-                                    <div class="match__first-team-name" id="GO-first">GO</div>
-                                </div>
-                                <div class="match__score">
-                                    <div class="match__first-team-score">5</div>
-                                    <div class="match__score-between">:</div>
-                                    <div class="match__second-team-score">0</div>
-                                </div>
-                                <div class="match__second-team">
-                                    <div class="match__second-team-logo"><img src="/local/templates/new_ru/img/blackDragon.png"
-                                                                              alt="blackDragon"></div>
-                                    <div class="match__second-team-name">Black<br>Dragon</div>
-                                </div>
-                            </div>
-                            <a href="" class="match__button">
-                                <div class="match__button-txt">Обзор матча</div>
-                                <div class="match__translation"></div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="match">
-                        <div class="match__block" id="next-match__block">
-                            <div class="match__date-and-area">
-                                <div class="match__date">10 сентября, 18:00</div>
-                                <div class="match__area">Апиа арена</div>
-                            </div>
-                            <div class="match__versus">
-                                <div class="match__first-team">
-                                    <div class="match__first-team-logo"><img src="/local/templates/new_ru/img/bull.png"
-                                                                             alt="bull"></div>
-                                    <div class="match__first-team-name" id="GO-first">GO</div>
-                                </div>
-                                <div class="match__score">
-                                    <div class="match__first-team-score">-</div>
-                                    <div class="match__score-between">:</div>
-                                    <div class="match__second-team-score">-</div>
-                                </div>
-                                <div class="match__second-team">
-                                    <div class="match__second-team-logo"><img src="/local/templates/new_ru/img/blackDragon.png"
-                                                                              alt="blackDragon"></div>
-                                    <div class="match__second-team-name">Black<br>Dragon</div>
-                                </div>
-                            </div>
-                            <a href="" class="match__button">
-                                <div class="match__button-txt">Обзор матча</div>
-                                <div class="match__translation"></div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="match">
-                        <div class="match__block" id="next-match__block">
-                            <div class="match__date-and-area">
-                                <div class="match__date">10 сентября, 18:00</div>
-                                <div class="match__area">Апиа арена</div>
-                            </div>
-                            <div class="match__versus">
-                                <div class="match__first-team">
-                                    <div class="match__first-team-logo"><img src="/local/templates/new_ru/img/bull.png"
-                                                                             alt="bull"></div>
-                                    <div class="match__first-team-name" id="GO-first">GO</div>
-                                </div>
-                                <div class="match__score">
-                                    <div class="match__first-team-score">5</div>
-                                    <div class="match__score-between">:</div>
-                                    <div class="match__second-team-score">0</div>
-                                </div>
-                                <div class="match__second-team">
-                                    <div class="match__second-team-logo"><img src="/local/templates/new_ru/img/blackDragon.png"
-                                                                              alt="blackDragon"></div>
-                                    <div class="match__second-team-name">Black<br>Dragon</div>
-                                </div>
-                            </div>
-                            <a href="" class="match__button">
-                                <div class="match__button-txt">Обзор матча</div>
-                                <div class="match__translation"></div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="match">
-                        <div class="match__block" id="next-match__block">
-                            <div class="match__date-and-area">
-                                <div class="match__date">10 сентября, 18:00</div>
-                                <div class="match__area">Апиа арена</div>
-                            </div>
-                            <div class="match__versus">
-                                <div class="match__first-team">
-                                    <div class="match__first-team-logo"><img src="/local/templates/new_ru/img/bull.png"
-                                                                             alt="bull"></div>
-                                    <div class="match__first-team-name" id="GO-first">GO</div>
-                                </div>
-                                <div class="match__score">
-                                    <div class="match__first-team-score">-</div>
-                                    <div class="match__score-between">:</div>
-                                    <div class="match__second-team-score">-</div>
-                                </div>
-                                <div class="match__second-team">
-                                    <div class="match__second-team-logo"><img src="/local/templates/new_ru/img/blackDragon.png"
-                                                                              alt="blackDragon"></div>
-                                    <div class="match__second-team-name">Black<br>Dragon</div>
-                                </div>
-                            </div>
-                            <a href="" class="match__button">
-                                <div class="match__button-txt">Обзор матча</div>
-                                <div class="match__translation"></div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="match">
-                        <div class="match__block" id="next-match__block">
-                            <div class="match__date-and-area">
-                                <div class="match__date">10 сентября, 18:00</div>
-                                <div class="match__area">Апиа арена</div>
-                            </div>
-                            <div class="match__versus">
-                                <div class="match__first-team">
-                                    <div class="match__first-team-logo"><img src="/local/templates/new_ru/img/bull.png"
-                                                                             alt="bull"></div>
-                                    <div class="match__first-team-name" id="GO-first">GO</div>
-                                </div>
-                                <div class="match__score">
-                                    <div class="match__first-team-score">-</div>
-                                    <div class="match__score-between">:</div>
-                                    <div class="match__second-team-score">-</div>
-                                </div>
-                                <div class="match__second-team">
-                                    <div class="match__second-team-logo"><img src="/local/templates/new_ru/img/blackDragon.png"
-                                                                              alt="blackDragon"></div>
-                                    <div class="match__second-team-name">Black<br>Dragon</div>
-                                </div>
-                            </div>
-                            <a href="" class="match__button">
-                                <div class="match__button-txt">Обзор матча</div>
-                                <div class="match__translation"></div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="match">
-                        <div class="match__block" id="next-match__block">
-                            <div class="match__date-and-area">
-                                <div class="match__date">10 сентября, 18:00</div>
-                                <div class="match__area">Апиа арена</div>
-                            </div>
-                            <div class="match__versus">
-                                <div class="match__first-team">
-                                    <div class="match__first-team-logo"><img src="/local/templates/new_ru/img/bull.png"
-                                                                             alt="bull"></div>
-                                    <div class="match__first-team-name" id="GO-first">GO</div>
-                                </div>
-                                <div class="match__score">
-                                    <div class="match__first-team-score">-</div>
-                                    <div class="match__score-between">:</div>
-                                    <div class="match__second-team-score">-</div>
-                                </div>
-                                <div class="match__second-team">
-                                    <div class="match__second-team-logo"><img src="/local/templates/new_ru/img/blackDragon.png"
-                                                                              alt="blackDragon"></div>
-                                    <div class="match__second-team-name">Black<br>Dragon</div>
-                                </div>
-                            </div>
-                            <a class="match__button">
-                                <div class="match__button-txt">Обзор матча</div>
-                                <div class="match__translation"></div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="match">
-                        <div class="match__block" id="next-match__block">
-                            <div class="match__date-and-area">
-                                <div class="match__date">10 сентября, 18:00</div>
-                                <div class="match__area">Апиа арена</div>
-                            </div>
-                            <div class="match__versus">
-                                <div class="match__first-team">
-                                    <div class="match__first-team-logo"><img src="/local/templates/new_ru/img/bull.png"
-                                                                             alt="bull"></div>
-                                    <div class="match__first-team-name" id="GO-first">GO</div>
-                                </div>
-                                <div class="match__score">
-                                    <div class="match__first-team-score">-</div>
-                                    <div class="match__score-between">:</div>
-                                    <div class="match__second-team-score">-</div>
-                                </div>
-                                <div class="match__second-team">
-                                    <div class="match__second-team-logo"><img src="/local/templates/new_ru/img/blackDragon.png"
-                                                                              alt="blackDragon"></div>
-                                    <div class="match__second-team-name">Black<br>Dragon</div>
-                                </div>
-                            </div>
-                            <a href="" class="match__button">
-                                <div class="match__button-txt">Обзор матча</div>
-                                <div class="match__translation"></div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="match">
-                        <div class="match__block" id="next-match__block">
-                            <div class="match__date-and-area">
-                                <div class="match__date">10 сентября, 18:00</div>
-                                <div class="match__area">Апиа арена</div>
-                            </div>
-                            <div class="match__versus">
-                                <div class="match__first-team">
-                                    <div class="match__first-team-logo"><img src="/local/templates/new_ru/img/bull.png"
-                                                                             alt="bull"></div>
-                                    <div class="match__first-team-name" id="GO-first">GO</div>
-                                </div>
-                                <div class="match__score">
-                                    <div class="match__first-team-score">-</div>
-                                    <div class="match__score-between">:</div>
-                                    <div class="match__second-team-score">-</div>
-                                </div>
-                                <div class="match__second-team">
-                                    <div class="match__second-team-logo"><img src="/local/templates/new_ru/img/blackDragon.png"
-                                                                              alt="blackDragon"></div>
-                                    <div class="match__second-team-name">Black<br>Dragon</div>
-                                </div>
-                            </div>
-                            <a href="" class="match__button">
-                                <div class="match__button-txt">Обзор матча</div>
-                                <div class="match__translation"></div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+				<?
+				$GLOBALS['math_turnit'] = array("PROPERTY_TEAM"=>$PROPERTY_TEAM);
+				$APPLICATION->IncludeComponent(
+	"bitrix:news.list", 
+	"match_turnir", 
+	array(
+		"ACTIVE_DATE_FORMAT" => "d.m.Y",
+		"ADD_SECTIONS_CHAIN" => "N",
+		"AJAX_MODE" => "N",
+		"AJAX_OPTION_ADDITIONAL" => "",
+		"AJAX_OPTION_HISTORY" => "N",
+		"AJAX_OPTION_JUMP" => "N",
+		"AJAX_OPTION_STYLE" => "Y",
+		"CACHE_FILTER" => "N",
+		"CACHE_GROUPS" => "Y",
+		"CACHE_TIME" => "0",
+		"CACHE_TYPE" => "A",
+		"CHECK_DATES" => "Y",
+		"COMPONENT_TEMPLATE" => "match_turnir",
+		"DETAIL_URL" => "",
+		"DISPLAY_BOTTOM_PAGER" => "N",
+		"DISPLAY_TOP_PAGER" => "N",
+		"FIELD_CODE" => array(
+			0 => "NAME",
+			1 => "PREVIEW_TEXT",
+			2 => "PREVIEW_PICTURE",
+			3 => "DATE_ACTIVE_FROM",
+			4 => "",
+		),
+		"FILTER_NAME" => 'math_turnit',
+		"HIDE_LINK_WHEN_NO_DETAIL" => "N",
+		"IBLOCK_ID" => "3",
+		"IBLOCK_TYPE" => "team",
+		"INCLUDE_IBLOCK_INTO_CHAIN" => "N",
+		"INCLUDE_SUBSECTIONS" => "Y",
+		"MESSAGE_404" => "",
+		"NEWS_COUNT" => "999",
+		"PAGER_BASE_LINK_ENABLE" => "N",
+		"PAGER_DESC_NUMBERING" => "N",
+		"PAGER_DESC_NUMBERING_CACHE_TIME" => "0",
+		"PAGER_SHOW_ALL" => "N",
+		"PAGER_SHOW_ALWAYS" => "N",
+		"PAGER_TEMPLATE" => ".default",
+		"PAGER_TITLE" => "",
+		"PARENT_SECTION" => "",
+		"PARENT_SECTION_CODE" => "",
+		"PREVIEW_TRUNCATE_LEN" => "",
+		"PROPERTY_CODE" => array(
+			0 => "MATCH_DATE",
+			1 => "BTN_MATCH",
+			2 => "MATCH_PLACE",
+			3 => "TITLE_TEAM_1",
+			4 => "TITLE_TEAM_2",
+			5 => "COUNT_TEAM_1",
+			6 => "COUNT_TEAM_2",
+			7 => "PROP_0",
+			8 => "PHOTO_TEAM",
+			9 => "",
+		),
+		"SET_BROWSER_TITLE" => "N",
+		"SET_LAST_MODIFIED" => "N",
+		"SET_META_DESCRIPTION" => "N",
+		"SET_META_KEYWORDS" => "N",
+		"SET_STATUS_404" => "N",
+		"SET_TITLE" => "N",
+		"SHOW_404" => "N",
+		"SORT_BY1" => "SORT",
+		"SORT_BY2" => "SORT",
+		"SORT_ORDER1" => "ASC",
+		"SORT_ORDER2" => "ASC",
+		"STRICT_SECTION_CHECK" => "N"
+	),
+	false
+);?>
         </div>
     </div>
 </div>

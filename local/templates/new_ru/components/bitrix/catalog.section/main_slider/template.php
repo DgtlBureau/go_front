@@ -166,15 +166,6 @@ if ($showTopPager)
 	</div>
 	<?
 }
-
-//if (!isset($arParams['HIDE_SECTION_DESCRIPTION']) || $arParams['HIDE_SECTION_DESCRIPTION'] !== 'Y')
-//{
-	?>
-	<!-- <div class="bx-section-desc bx-<?=$arParams['TEMPLATE_THEME']?>">
-		<p class="bx-section-desc-post"><?=$arResult['DESCRIPTION'] ?? ''?></p>
-	</div> -->
-	<?
-//}
 ?>
 
 <!-- <div class="catalog-section bx-<?=$arParams['TEMPLATE_THEME']?>" data-entity="<?=$containerName?>"> -->

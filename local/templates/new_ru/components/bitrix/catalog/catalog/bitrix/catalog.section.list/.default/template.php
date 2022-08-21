@@ -224,12 +224,18 @@ if (0 < $arResult["SECTIONS_COUNT"])
 ?></div>
 
 <?
-
-	//  if( $USER->GetID() == 1 )
-	//  {
-	//  echo '<pre>';
-	//  print_r($arResult);
-	//  echo '</pre>';
-	//  }
+//
+//	  if( $USER->GetID() == 1 )
+//	  {
+//	  echo '<pre>';
+//	  print_r($arResult);
+//	  echo '</pre>';
+//	  }
 
 ?>
+
+<style>
+    .bx_sitemap {
+        display: none;
+    }
+</style>

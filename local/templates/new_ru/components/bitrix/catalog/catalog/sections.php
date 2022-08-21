@@ -12,6 +12,9 @@
 /** @var string $componentPath */
 /** @var CBitrixComponent $component */
 
+include($_SERVER["DOCUMENT_ROOT"]."/".$this->GetFolder()."/section.php");
+
+/*
 $this->setFrameMode(true);
 $this->addExternalCss("/bitrix/css/main/bootstrap.css");
 

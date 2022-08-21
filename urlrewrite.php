@@ -72,7 +72,15 @@ $arUrlRewrite=array (
     'PATH' => '/teams/team-go/index.php',
     'SORT' => 100,
   ),
-  29 => 
+  37 => 
+  array (
+    'CONDITION' => '#^/trainer-page/#',
+    'RULE' => '',
+    'ID' => 'bitrix:news',
+    'PATH' => '/teams/team-go/go-team.php',
+    'SORT' => 100,
+  ),
+  38 => 
   array (
     'CONDITION' => '#^/shop/catalog/#',
     'RULE' => '',
@@ -88,20 +96,20 @@ $arUrlRewrite=array (
     'PATH' => '/team-page/index.php',
     'SORT' => 100,
   ),
-  30 => 
-  array (
-    'CONDITION' => '#^\\??(.*)#',
-    'RULE' => '&$1',
-    'ID' => 'bitrix:catalog.section',
-    'PATH' => '/shop/index.php',
-    'SORT' => 100,
-  ),
   1 => 
   array (
     'CONDITION' => '#^/rest/#',
     'RULE' => '',
     'ID' => NULL,
     'PATH' => '/bitrix/services/rest/index.php',
+    'SORT' => 100,
+  ),
+  36 => 
+  array (
+    'CONDITION' => '#^/live/#',
+    'RULE' => '',
+    'ID' => 'bitrix:news',
+    'PATH' => '/live/index.php',
     'SORT' => 100,
   ),
 );

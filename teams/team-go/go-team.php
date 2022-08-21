@@ -1,4 +1,6 @@
-<?$arrFilter=array("PROPERTY_TEAM"=>6);?>
+<?
+$arrFilter=array("PROPERTY_TEAM"=>6);//ID Команды
+?>
 
 <div class="go-team">
             <div class="back-go-team__info">
@@ -10,46 +12,48 @@
                                 <p>Команда</p>
                                 <div class="go-team__team-name"><span data-text="GO" id="GO">GO</span></div>
                             </div>
-                            <div class="go-team__about-txt">Несколько лет назад мы решили популяризировать любительский хоккей и
-                                создать престижный дивизион с шикарным трофее</div>
+                            <div class="go-team__about-txt">
+								<?=$ar_header_fields["~PREVIEW_TEXT"];?>
+							</div>
                             <div class="go-team__progress invisible">
                                 <div class="go-team__progress-stats">
                                     <div class="go-team__progress-victories">
-                                        <div class="go-team__progress-title">Побед</div><span data-text="13"
-                                                                                            id="victories-count">13</span>
+                                        <div class="go-team__progress-title">Побед</div>
+										<span data-text="<?=$ar_header_values["WINS"]["VALUE"]?>" id="victories-count"><?=$ar_header_values["WINS"]["VALUE"]?></span>
                                     </div>
                                     <div class="go-team__progress-points">
-                                        <div class="go-team__progress-title">Очков</div><span data-text="7"
-                                                                                            id="points-count">7</span>
+                                        <div class="go-team__progress-title">Очков</div>
+										<span data-text="<?=$ar_header_values["GLASSES"]["VALUE"]?>"  id="points-count"><?=$ar_header_values["GLASSES"]["VALUE"]?></span>
                                     </div>
                                     <div class="go-team__progress-place">
-                                        <div class="go-team__progress-title">Место</div><span data-text="4" id="place">4</span>
+                                        <div class="go-team__progress-title">Место</div>
+										<span data-text="<?=$ar_header_values["PLACE"]["VALUE"]?>" id="place"><?=$ar_header_values["PLACE"]["VALUE"]?></span>
                                     </div>
                                 </div>
-                            </div>
+                            </div>					
                             <div class="next-match">
                                 <div class="next-match__title">Ближайший матч</div>
                                 <div class="next-match__block" id="next-match__block">
                                     <div class="next-match__date-and-area">
-                                        <div class="next-match__date">10 сентября, 18:00</div>
-                                        <div class="next-match__area">Апиа арена</div>
+                                        <div class="next-match__date"><?=$mach_header_values["MATCH_DATE"]["VALUE"]?></div>
+                                        <div class="next-match__area"><?=$mach_header_values["MATCH_PLACE"]["VALUE"]?></div>
                                     </div>
                                     <div class="next-match__versus">
                                         <div class="next-match__first-team">
-                                            <div class="next-match__first-team-name" id="GO-first">GO</div>
-                                            <div class="next-match__first-team-logo"><img src="/local/templates/new_ru/img/bull.png"
-                                                                                        alt="bull"></div>
-                                            <div class="next-match__first-team-name" id="GO-second">GO</div>
+                                            <div class="next-match__first-team-name" id="GO-first"><?=$mach_header_values["TITLE_TEAM_1"]["VALUE"]?></div>
+                                            <div class="next-match__first-team-logo">
+											<img src="<?=CFile::GetPath($mach_header_values["LOGO_1"]["VALUE"]);?>" alt="<?=$mach_header_values["TITLE_TEAM_1"]["VALUE"]?>"></div>
+                                            <div class="next-match__first-team-name" id="GO-second"><?=$mach_header_values["TITLE_TEAM_1"]["VALUE"]?></div>
                                         </div>
                                         <div class="next-match__score">
-                                            <div class="next-match__first-team-score">-</div>
+                                            <div class="next-match__first-team-score"><?=$mach_header_values["COUNT_TEAM_1"]["VALUE"]?></div>
                                             <div class="next-match__score-between">:</div>
-                                            <div class="next-match__second-team-score">-</div>
+                                            <div class="next-match__second-team-score"><?=$mach_header_values["COUNT_TEAM_2"]["VALUE"]?></div>
                                         </div>
                                         <div class="next-match__second-team">
-                                            <div class="next-match__second-team-logo"><img src="/local/templates/new_ru/img/blackDragon.png"
-                                                                                        alt="blackDragon"></div>
-                                            <div class="next-match__second-team-name">Black Dragon</div>
+                                            <div class="next-match__second-team-logo">
+											<img src="<?=CFile::GetPath($mach_header_values["LOGO_1"]["VALUE"]);?>" alt="<?=$mach_header_values["TITLE_TEAM_2"]["VALUE"]?>"></div>
+                                            <div class="next-match__second-team-name"><?=$mach_header_values["TITLE_TEAM_2"]["VALUE"]?></div>
                                         </div>
                                     </div>
                                 </div>
@@ -59,14 +63,16 @@
                             <div class="go-team__progress-background" id="team-background-logo"></div>
                             <div class="go-team__progress-stats">
                                 <div class="go-team__progress-victories">
-                                    <div class="go-team__progress-title">Побед</div><span data-text="13"
-                                                                                        id="victories-count">13</span>
+                                    <div class="go-team__progress-title">Побед</div>
+									<span data-text="<?=$ar_header_values["WINS"]["VALUE"]?>" id="victories-count"><?=$ar_header_values["WINS"]["VALUE"]?></span>
                                 </div>
                                 <div class="go-team__progress-points">
-                                    <div class="go-team__progress-title">Очков</div><span data-text="7" id="points-count">7</span>
+                                    <div class="go-team__progress-title">Очков</div>
+									<span data-text="<?=$ar_header_values["GLASSES"]["VALUE"]?>" id="points-count"><?=$ar_header_values["GLASSES"]["VALUE"]?></span>
                                 </div>
                                 <div class="go-team__progress-place">
-                                    <div class="go-team__progress-title">Место</div><span data-text="4" id="place">4</span>
+                                    <div class="go-team__progress-title">Место</div>
+									<span data-text="<?=$ar_header_values["PLACE"]["VALUE"]?>" id="place"><?=$ar_header_values["PLACE"]["VALUE"]?></span>
                                 </div>
                             </div>
                         </div>
@@ -202,7 +208,6 @@
                 </div>
                 <div class="go-team__staff-block">
                     <div class="go-team__staff-title">Игроки</div>
-
                     <?$APPLICATION->IncludeComponent(
                         "bitrix:news",
                         "team_page",

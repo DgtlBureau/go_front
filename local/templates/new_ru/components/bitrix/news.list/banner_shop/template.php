@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 /** @var array $arParams */
 /** @var array $arResult */
 /** @global CMain $APPLICATION */
@@ -16,19 +16,21 @@ $this->setFrameMode(true);
 <div class="shop__banner-swiper-block">
     <div class="shop__switcher">
         <div class="shop__switcher-dots">
-        <?foreach ($arResult['ITEMS'] as $key => $arItems):?>
-            <div class="shop__switcher-dot <?= ($key == 0) ? ' shop__switcher-dot--active' : '';?>"></div>
-        <?endforeach;?>
+            <? foreach ($arResult['ITEMS'] as $key => $arItems): ?>
+                <div class="shop__switcher-dot <?= ($key == 0) ? ' shop__switcher-dot--active' : ''; ?>"></div>
+            <? endforeach; ?>
         </div>
     </div>
     <div class="shop__banner-swiper">
-    <?foreach ($arResult['ITEMS'] as $arItems):?>
-        <div class="shop__banner-item" style="background: url(<?=$arItems['PREVIEW_PICTURE']['SRC'];?>) no-repeat;">
-            <div class="shop__banner-title-block">
-                <div class="shop__banner-title"><?=$arItems['NAME'];?></div>
-                <div class="shop__banner-arrow">&#8601;</div>
+        <? foreach ($arResult['ITEMS'] as $arItems): ?>
+            <div class="shop__banner-item"
+                 style="background: url(<?= $arItems['PREVIEW_PICTURE']['SRC']; ?>) no-repeat; background-size: 100%;">
+                <div class="shop__banner-title-block">
+                    <div class="shop__banner-title"><?= $arItems['NAME']; ?></div>
+                    <div class="shop__banner-arrow">&#8601;</div>
+                </div>
             </div>
-        </div>
-	<?endforeach;?>
+        <? endforeach; ?>
     </div>
 </div>
+

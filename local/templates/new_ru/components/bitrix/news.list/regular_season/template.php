@@ -30,7 +30,7 @@ $i = 0;
 	$this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')));
 	$i++;
 	?>
-	<tr <?if($arItem['NAME'] == 'Go'):?>class="championship-course__our-team"<?endif;?> id="<?=$this->GetEditAreaId($arItem['ID']);?>">
+	<tr <?if($arItem['NAME'] == 'Go'):?>class="championship-course__our-team"<?endif;?> <?if($arItem['NAME'] == 'Gohockey'):?>class="championship-course__our-team-orange"<?endif;?>id="<?=$this->GetEditAreaId($arItem['ID']);?>">
         <td><?=$i;?></td>
         <td><img src="<?=$arItem["PREVIEW_PICTURE"]["SRC"]?>" alt="<?=$arItem["NAME"]?>"><?=$arItem["NAME"]?></td>
         <td><?=$arItem["PROPERTIES"]["GAME"]["VALUE"]?></td>

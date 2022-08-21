@@ -26,7 +26,7 @@ $this->setFrameMode(true);
                     <div class="go-team__players-staff-person-name"><?=$player_name_arr[0]?></div>
                     <div class="go-team__players-staff-person-name"><?=$player_name_arr[1]?></div>
                 </div>
-                <div class="go-team__players-staff-person-number"><span data-text="<?=$item['PROPERTIES']['NUMBER']['VALUE']?>"><?=$item['PROPERTIES']['NUMBER']['VALUE']?></span></div>
+                <div class="<?if($item["PROPERTIES"]["TEAM"]["VALUE"] == 6):?>go-team__players-staff-person-number<?else:?>go-team__players-staff-person-number_orange<?endif;?>"><span data-text="<?=$item['PROPERTIES']['NUMBER']['VALUE']?>"><?=$item['PROPERTIES']['NUMBER']['VALUE']?></span></div>
             </div>
         </a>
     <?endforeach?>

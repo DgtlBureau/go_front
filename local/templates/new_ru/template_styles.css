@@ -5183,3 +5183,7 @@ img.shop_content_right_top_img:first-child {
 .shop_content_right_bottom_btn {
 	border: none;
 }
+
+main.shop > div {
+	width: 100%;
+}

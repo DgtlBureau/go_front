@@ -3,280 +3,111 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Обзор матча");
 $APPLICATION->SetAdditionalCSS("/local/templates/new_ru/assets/WebMaster-GO-Gohockey/Pages/Translation/main.0573316345959f0888c8.css");
 ?>
-
-    <div class="translation">
-        <div class="translation__banner">
-            <div class="translation__info">
-                <div class="translation__date-and-place-block info-element">
-                    <div class="translation__date">31 марта 18:00,</div>
-                    <div class="translation__place">Апиа арена</div>
-                </div>
-                <div class="translation__stage info-element">1/4 финала</div>
-                <div class="translation__division info-element">Дивизион: Теоретик</div>
-            </div>
-            <div class="translation__result-block">
-                <div class="translation__team">
-                    <div class="translation__team-name">GO</div>
-                    <div class="translation__team-logo"><img src="/local/templates/new_ru/img/bull.png" alt="bull"></div>
-                </div>
-                <div class="translation__current-score">1</div>
-                <div class="translation__current-score-mobile translation__inviz">
-                    <div class="translation__current-score translation__inviz">2</div>
-                    <div class="translation__current-score-separator translation__inviz">:</div>
-                    <div class="translation__current-score translation__inviz">2</div>
-                </div>
-                <div class="translation__scores-block">
-                    <div class="translation__periods-block">
-                        <div class="translation__period">
-                            <div class="translation__scores-block-txt">1</div>
-                        </div>
-                        <div class="translation__period">
-                            <div class="translation__scores-block-txt">2</div>
-                        </div>
-                        <div class="translation__period">
-                            <div class="translation__scores-block-txt">3</div>
-                        </div>
-                    </div>
-                    <div class="translation__points-block">
-                        <div class="translation__points">
-                            <div class="translation__scores-block-txt">1:0</div>
-                        </div>
-                        <div class="translation__points">
-                            <div class="translation__scores-block-txt">-:-</div>
-                        </div>
-                        <div class="translation__points">
-                            <div class="translation__scores-block-txt">-:-</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="translation__current-score">0</div>
-                <div class="translation__team reverse">
-                    <div class="translation__team-name">Black Dragon</div>
-                    <div class="translation__team-logo"><img src="/local/templates/new_ru/img/blackDragon2.png" alt="blackDragon">
-                    </div>
-                </div>
-            </div>
-            <div class="translation__scores-block-mobile">
-                <div class="translation__scores-block">
-                    <div class="translation__periods-block">
-                        <div class="translation__period">
-                            <div class="translation__scores-block-txt">1</div>
-                        </div>
-                        <div class="translation__period">
-                            <div class="translation__scores-block-txt">2</div>
-                        </div>
-                        <div class="translation__period">
-                            <div class="translation__scores-block-txt">3</div>
-                        </div>
-                    </div>
-                    <div class="translation__points-block">
-                        <div class="translation__points">
-                            <div class="translation__scores-block-txt">1:0</div>
-                        </div>
-                        <div class="translation__points">
-                            <div class="translation__scores-block-txt">-:-</div>
-                        </div>
-                        <div class="translation__points">
-                            <div class="translation__scores-block-txt">-:-</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="translation__button-block"><a class="translation__button" target="_blank" href="https://www.youtube.com/watch?v=Eq6EV7exPc4">
-                    <div class="translation__button-txt">Трансляция</div>
-                    <div class="translation__button-image"><img src="/local/templates/new_ru/img/translation.png" alt="translation">
-                    </div>
-                </a></div>
-        </div>
-        <div class="match-progress-block">
-            <div class="match-progress">
-                <div class="match-progress__title">Ход игры</div>
-                <div class="match-progress__subtitle">Период</div>
-                <div class="match-progress__period">
-                    <div class="match-progress__period-number-block">
-                        <div class="match-progress__vertical-border"></div>
-                        <div class="match-progress__period-number">1</div>
-                        <div class="match-progress__vertical-border"></div>
-                    </div>
-                    <div class="match-progress__period-content">
-                        <div class="match-progress__horizontal-border"></div>
-                        <div class="match-progress__event-block">
-                            <div class="match-progress__event">
-                                <div class="match-progress__event-name">Выход на площадку</div>
-                                <div class="match-progress__player-name">Розенберг Никита 34</div>
-                            </div>
-                            <div class="match-progress__event black">
-                                <div class="match-progress__event-name black">Проигрыш в вбрасывании</div>
-                                <div class="match-progress__player-name black">Розенберг Никита 34</div>
-                            </div>
-                            <div class="match-progress__event">
-                                <div class="match-progress__event-name">Бросок по воротам</div>
-                                <div class="match-progress__player-name">Розенберг Никита 34</div>
-                            </div>
-                            <div class="match-progress__event">
-                                <div class="match-progress__event-name">Победа в врасывании</div>
-                                <div class="match-progress__player-name">Розенберг Никита 34</div>
-                            </div>
-                            <div class="match-progress__event">
-                                <div class="match-progress__event-name">Отражен бросок</div>
-                                <div class="match-progress__player-name">Розенберг Никита 34</div>
-                            </div>
-                        </div>
-                        <div class="match-progress__time-block">
-                            <div class="match-progress__time">22:22</div>
-                            <div class="match-progress__time">22:22</div>
-                            <div class="match-progress__time">22:22</div>
-                            <div class="match-progress__time">22:22</div>
-                            <div class="match-progress__time">22:22</div>
-                        </div>
-                        <div class="match-progress__event-block">
-                            <div class="match-progress__event">
-                                <div class="match-progress__event-name">Проигрыш в вбрасывании</div>
-                                <div class="match-progress__player-name">Розенберг Никита 34</div>
-                            </div>
-                            <div class="match-progress__event">
-                                <div class="match-progress__event-name">Выход на площадку</div>
-                                <div class="match-progress__player-name">Розенберг Никита 34</div>
-                            </div>
-                            <div class="match-progress__event">
-                                <div class="match-progress__event-name">Отражен бросок</div>
-                                <div class="match-progress__player-name">Розенберг Никита 34</div>
-                            </div>
-                            <div class="match-progress__event">
-                                <div class="match-progress__event-name">Победа в врасывании</div>
-                                <div class="match-progress__player-name">Розенберг Никита 34</div>
-                            </div>
-                            <div class="match-progress__event black">
-                                <div class="match-progress__event-name black">Бросок по воротам</div>
-                                <div class="match-progress__player-name black">Розенберг Никита 34</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="match-progress__period">
-                    <div class="match-progress__period-number-block">
-                        <div class="match-progress__vertical-border"></div>
-                        <div class="match-progress__period-number">2</div>
-                        <div class="match-progress__vertical-border"></div>
-                    </div>
-                    <div class="match-progress__period-content">
-                        <div class="match-progress__horizontal-border"></div>
-                        <div class="match-progress__event-block">
-                            <div class="match-progress__event">
-                                <div class="match-progress__event-name">Выход на площадку</div>
-                                <div class="match-progress__player-name">Розенберг Никита 34</div>
-                            </div>
-                            <div class="match-progress__event black">
-                                <div class="match-progress__event-name black">Проигрыш в вбрасывании</div>
-                                <div class="match-progress__player-name black">Розенберг Никита 34</div>
-                            </div>
-                            <div class="match-progress__event">
-                                <div class="match-progress__event-name">Бросок по воротам</div>
-                                <div class="match-progress__player-name">Розенберг Никита 34</div>
-                            </div>
-                            <div class="match-progress__event">
-                                <div class="match-progress__event-name">Победа в врасывании</div>
-                                <div class="match-progress__player-name">Розенберг Никита 34</div>
-                            </div>
-                            <div class="match-progress__event">
-                                <div class="match-progress__event-name">Отражен бросок</div>
-                                <div class="match-progress__player-name">Розенберг Никита 34</div>
-                            </div>
-                        </div>
-                        <div class="match-progress__time-block">
-                            <div class="match-progress__time">22:22</div>
-                            <div class="match-progress__time">22:22</div>
-                            <div class="match-progress__time">22:22</div>
-                            <div class="match-progress__time">22:22</div>
-                            <div class="match-progress__time">22:22</div>
-                        </div>
-                        <div class="match-progress__event-block">
-                            <div class="match-progress__event">
-                                <div class="match-progress__event-name">Проигрыш в вбрасывании</div>
-                                <div class="match-progress__player-name">Розенберг Никита 34</div>
-                            </div>
-                            <div class="match-progress__event">
-                                <div class="match-progress__event-name">Выход на площадку</div>
-                                <div class="match-progress__player-name">Розенберг Никита 34</div>
-                            </div>
-                            <div class="match-progress__event">
-                                <div class="match-progress__event-name">Отражен бросок</div>
-                                <div class="match-progress__player-name">Розенберг Никита 34</div>
-                            </div>
-                            <div class="match-progress__event">
-                                <div class="match-progress__event-name">Победа в врасывании</div>
-                                <div class="match-progress__player-name">Розенберг Никита 34</div>
-                            </div>
-                            <div class="match-progress__event black">
-                                <div class="match-progress__event-name black">Бросок по воротам</div>
-                                <div class="match-progress__player-name black">Розенберг Никита 34</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="match-progress__period">
-                    <div class="match-progress__period-number-block">
-                        <div class="match-progress__vertical-border"></div>
-                        <div class="match-progress__period-number">3</div>
-                        <div class="match-progress__vertical-border"></div>
-                    </div>
-                    <div class="match-progress__period-content">
-                        <div class="match-progress__horizontal-border"></div>
-                        <div class="match-progress__event-block">
-                            <div class="match-progress__event">
-                                <div class="match-progress__event-name">Выход на площадку</div>
-                                <div class="match-progress__player-name">Розенберг Никита 34</div>
-                            </div>
-                            <div class="match-progress__event black">
-                                <div class="match-progress__event-name black">Проигрыш в вбрасывании</div>
-                                <div class="match-progress__player-name black">Розенберг Никита 34</div>
-                            </div>
-                            <div class="match-progress__event">
-                                <div class="match-progress__event-name">Бросок по воротам</div>
-                                <div class="match-progress__player-name">Розенберг Никита 34</div>
-                            </div>
-                            <div class="match-progress__event">
-                                <div class="match-progress__event-name">Победа в врасывании</div>
-                                <div class="match-progress__player-name">Розенберг Никита 34</div>
-                            </div>
-                            <div class="match-progress__event">
-                                <div class="match-progress__event-name">Отражен бросок</div>
-                                <div class="match-progress__player-name">Розенберг Никита 34</div>
-                            </div>
-                        </div>
-                        <div class="match-progress__time-block">
-                            <div class="match-progress__time">22:22</div>
-                            <div class="match-progress__time">22:22</div>
-                            <div class="match-progress__time">22:22</div>
-                            <div class="match-progress__time">22:22</div>
-                            <div class="match-progress__time">22:22</div>
-                        </div>
-                        <div class="match-progress__event-block">
-                            <div class="match-progress__event">
-                                <div class="match-progress__event-name">Проигрыш в вбрасывании</div>
-                                <div class="match-progress__player-name">Розенберг Никита 34</div>
-                            </div>
-                            <div class="match-progress__event">
-                                <div class="match-progress__event-name">Выход на площадку</div>
-                                <div class="match-progress__player-name">Розенберг Никита 34</div>
-                            </div>
-                            <div class="match-progress__event">
-                                <div class="match-progress__event-name">Отражен бросок</div>
-                                <div class="match-progress__player-name">Розенберг Никита 34</div>
-                            </div>
-                            <div class="match-progress__event">
-                                <div class="match-progress__event-name">Победа в врасывании</div>
-                                <div class="match-progress__player-name">Розенберг Никита 34</div>
-                            </div>
-                            <div class="match-progress__event black">
-                                <div class="match-progress__event-name black">Бросок по воротам</div>
-                                <div class="match-progress__player-name black">Розенберг Никита 34</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?$APPLICATION->IncludeComponent(
+	"bitrix:news", 
+	"live", 
+	array(
+		"ADD_ELEMENT_CHAIN" => "N",
+		"ADD_SECTIONS_CHAIN" => "N",
+		"AJAX_MODE" => "N",
+		"AJAX_OPTION_ADDITIONAL" => "",
+		"AJAX_OPTION_HISTORY" => "N",
+		"AJAX_OPTION_JUMP" => "N",
+		"AJAX_OPTION_STYLE" => "Y",
+		"BROWSER_TITLE" => "-",
+		"CACHE_FILTER" => "N",
+		"CACHE_GROUPS" => "Y",
+		"CACHE_TIME" => "36000000",
+		"CACHE_TYPE" => "A",
+		"CHECK_DATES" => "Y",
+		"DETAIL_ACTIVE_DATE_FORMAT" => "d.m.Y",
+		"DETAIL_DISPLAY_BOTTOM_PAGER" => "Y",
+		"DETAIL_DISPLAY_TOP_PAGER" => "N",
+		"DETAIL_FIELD_CODE" => array(
+			0 => "",
+			1 => "",
+		),
+		"DETAIL_PAGER_SHOW_ALL" => "N",
+		"DETAIL_PAGER_TEMPLATE" => "",
+		"DETAIL_PAGER_TITLE" => "Страница",
+		"DETAIL_PROPERTY_CODE" => array(
+			0 => "TEAM",
+			1 => "MATCH_DATE",
+			2 => "DIVISION",
+			3 => "BTN_MATCH",
+			4 => "MATCH_PLACE",
+			5 => "TITLE_TEAM_1",
+			6 => "TITLE_TEAM_2",
+			7 => "SOB",
+			8 => "COUNT_TEAM_1",
+			9 => "COUNT_TEAM_2",
+			10 => "PUCK_1",
+			11 => "PUCK_2",
+			12 => "PUCK_3",
+			13 => "ETAP",
+			14 => "LOGO_1",
+			15 => "LOGO_2",
+			16 => "",
+		),
+		"DETAIL_SET_CANONICAL_URL" => "N",
+		"DISPLAY_BOTTOM_PAGER" => "N",
+		"DISPLAY_DATE" => "N",
+		"DISPLAY_NAME" => "Y",
+		"DISPLAY_PICTURE" => "Y",
+		"DISPLAY_PREVIEW_TEXT" => "Y",
+		"DISPLAY_TOP_PAGER" => "N",
+		"HIDE_LINK_WHEN_NO_DETAIL" => "N",
+		"IBLOCK_ID" => "3",
+		"IBLOCK_TYPE" => "team",
+		"INCLUDE_IBLOCK_INTO_CHAIN" => "N",
+		"LIST_ACTIVE_DATE_FORMAT" => "d.m.Y",
+		"LIST_FIELD_CODE" => array(
+			0 => "",
+			1 => "",
+		),
+		"LIST_PROPERTY_CODE" => array(
+			0 => "",
+			1 => "",
+		),
+		"MESSAGE_404" => "",
+		"META_DESCRIPTION" => "-",
+		"META_KEYWORDS" => "-",
+		"NEWS_COUNT" => "20",
+		"PAGER_BASE_LINK_ENABLE" => "N",
+		"PAGER_DESC_NUMBERING" => "N",
+		"PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
+		"PAGER_SHOW_ALL" => "N",
+		"PAGER_SHOW_ALWAYS" => "N",
+		"PAGER_TEMPLATE" => ".default",
+		"PAGER_TITLE" => "Новости",
+		"PREVIEW_TRUNCATE_LEN" => "",
+		"SEF_MODE" => "Y",
+		"SET_LAST_MODIFIED" => "N",
+		"SET_STATUS_404" => "Y",
+		"SET_TITLE" => "Y",
+		"SHOW_404" => "Y",
+		"SORT_BY1" => "ACTIVE_FROM",
+		"SORT_BY2" => "SORT",
+		"SORT_ORDER1" => "DESC",
+		"SORT_ORDER2" => "ASC",
+		"STRICT_SECTION_CHECK" => "N",
+		"USE_CATEGORIES" => "N",
+		"USE_FILTER" => "N",
+		"USE_PERMISSIONS" => "N",
+		"USE_RATING" => "N",
+		"USE_REVIEW" => "N",
+		"USE_RSS" => "N",
+		"USE_SEARCH" => "N",
+		"USE_SHARE" => "N",
+		"COMPONENT_TEMPLATE" => "live",
+		"SEF_FOLDER" => "/live/",
+		"FILE_404" => "",
+		"SEF_URL_TEMPLATES" => array(
+			"news" => "index.php",
+			"section" => "",
+			"detail" => "#ELEMENT_ID#/",
+		)
+	),
+	false
+);?>
+ <br><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

@@ -674,7 +674,7 @@ $themeClass = isset($arParams['TEMPLATE_THEME']) ? ' bx-'.$arParams['TEMPLATE_TH
 					<?php //endregion?>
 				</div>
 
-				<?if($arResult['PROPERTIES']['JERCY']['VALUE_XML_ID'] == 'Y'):?>
+                <? if (!empty($arResult['PROPERTIES']['TEAM']['VALUE'])): ?>
 						<div class="print_block">
 							<div class="title_small">Добавить печать</div>
 							<div class="jercy_select">

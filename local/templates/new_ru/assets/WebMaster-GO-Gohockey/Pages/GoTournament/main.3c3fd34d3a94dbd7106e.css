@@ -41,6 +41,32 @@
     padding-top: 40px
 }
 
+.go-tournament__team-name.orange span {
+    position: relative;
+    color: #FF4C01;
+    -webkit-text-stroke: .16em #FF4C01;
+    -webkit-text-stroke-width: 10px;
+    font-size: 60px;
+    font-weight: 800
+}
+
+.go-tournament__team-name.orange span::before {
+    content: attr(data-text);
+    position: absolute;
+    -webkit-text-stroke: .02em #020553;
+    -webkit-text-stroke-width: 0px;
+    z-index: 2
+}
+
+.go-tournament__team-name.orange span::after {
+    content: attr(data-text);
+    position: absolute;
+    -webkit-text-stroke: .02em #020553;
+    -webkit-text-stroke-width: 6px;
+    right: 0;
+    z-index: 1
+}
+
 .go-tournament__about-title {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -272,17 +298,16 @@
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    width: 50%
+    align-items: center;
 }
 
 .results__image {
     margin-right: 15px;
-    height: 34px;
-    padding-top: 5px
+    width: 70px;
 }
 
 .results__image img {
-    height: 100%
+    width: 100%
 }
 
 .results__txt {
@@ -309,6 +334,49 @@
     display: flex;
     width: 100%;
     margin-top: -5px
+}
+
+.go-tournament__nav-item-orange {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    height: 80px;
+    background: #141414;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 28px;
+    text-align: center;
+    letter-spacing: .02em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, .6);
+    border-right: 1px solid #000;
+    width: 66.3333333333%;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none
+}
+
+.go-tournament__nav-item-orange:nth-child(2) {
+    border-bottom: 4px solid #FF4C01;
+    color: #fff;
+    height: 76px;
+    font-weight: 600
+}
+
+.go-tournament__nav-item-orange p:nth-child(2) {
+    display: none
+}
+
+.go-tournament__nav-item-orange:last-child {
+    border-right: none
 }
 
 .go-tournament__nav-item {
@@ -417,6 +485,20 @@
     background: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 65.87%), url(/local/templates/new_ru/img/back.png) no-repeat;
     background-size: cover;
     margin-right: 20px
+}
+
+.go-tournament__players-staff-person-background_blue {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    height: 285px;
+    background: linear-gradient(180deg, #010453 0%, rgba(8, 9, 49, 0) 150.84%), url(/local/templates/new_ru/img/bull.png) no-repeat;
+    background-size: 335px;
+    background-position: center;
+    padding-top: 30px
 }
 
 .go-tournament__players-staff-person-background {
@@ -542,6 +624,50 @@
 .go-tournament__players-staff-person-name {
     width: 244px
 }
+
+.go-tournament__players-staff-person-number_orange {
+    width: 80px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    background: #FF4C01;
+    height: 80px
+}
+
+.go-tournament__players-staff-person-number_orange span {
+    position: relative;
+    color: #020553;
+    -webkit-text-stroke: .16em #020553;
+    -webkit-text-stroke-width: 4px;
+    font-size: 42px;
+    line-height: 42px;
+    font-weight: 800
+}
+
+.go-tournament__players-staff-person-number_orange span::before {
+    content: attr(data-text);
+    position: absolute;
+    -webkit-text-stroke: .02em #FF4C01;
+    -webkit-text-stroke-width: 1px;
+    z-index: 2
+}
+
+.go-tournament__players-staff-person-number_orange span::after {
+    content: attr(data-text);
+    position: absolute;
+    -webkit-text-stroke: .02em #020553;
+    -webkit-text-stroke-width: 4px;
+    right: 0;
+    z-index: 1
+}
+
+
 
 .go-tournament__players-staff-person-number {
     width: 80px;
@@ -669,6 +795,10 @@
 
 .championship-course__table tr {
     height: 60px
+}
+
+.championship-course__our-team-orange {
+    background: #FF4C01 !important
 }
 
 .championship-course__our-team {
@@ -1023,6 +1153,19 @@
         max-width: 510px
     }
 
+    .go-tournament__nav-item-orange {
+        font-size: 16px;
+        line-height: 22px
+    }
+
+    .go-tournament__nav-item-orange p:nth-child(1) {
+        display: none
+    }
+
+    .go-tournament__nav-item-orange p:nth-child(2) {
+        display: block
+    }
+
     .go-tournament__nav-item {
         font-size: 16px;
         line-height: 22px
@@ -1114,6 +1257,10 @@
         width: 520px
     }
 
+    .go-tournament__players-staff-person-background_blue {
+        background-size: 330px;
+    }
+
     .go-tournament__players-staff-person-background {
         background-size: 330px;
     }
@@ -1132,6 +1279,10 @@
 
     .back-go-tournament__info-nav>.container {
         padding: 0 0;
+    }
+
+    .go-tournament__nav-item-orange {
+        font-size: 14px;
     }
 
     .go-tournament__nav-item {

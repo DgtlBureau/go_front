@@ -4,14 +4,20 @@ $APPLICATION->SetTitle("Хоккейная команда Go");
 ?>
 
 
-<? 
-$res = CIBlockElement::GetByID(6);
+<? //надо добавить выборку по листу и сортировкой по ID
+$res = CIBlockElement::GetByID(48);
 
 if($ar_res = $res->GetNextElement()) {
     $ar_header_values = $ar_res->GetProperties();
     $ar_header_fields = $ar_res->GetFields(); 
 } 
-                   
+if(!empty($ar_header_values["MATCH"]["VALUE"])){
+	$mres = CIBlockElement::GetByID($ar_header_values["MATCH"]["VALUE"]);
+	if($ar_res = $mres->GetNextElement()) {
+		$mach_header_values = $ar_res->GetProperties();
+		$mach_header_fields = $ar_res->GetFields(); 
+	}
+}	
 $uri = $APPLICATION->GetCurUri();
 switch($uri) {
     case '/teams/team-go/tournament/':
@@ -23,7 +29,8 @@ switch($uri) {
         include 'playoff.php';
         break;
     case '/teams/team-go/news/':
-        //$APPLICATION->SetAdditionalCSS("/local/templates/new_ru/assets/WebMaster-GO-Gohockey/Pages/GohockeyTrainer/main.91bc24e41b6003253085.css");
+        //$APPLICATION->SetAdditionalCSS("/local/templates/new_ru/assets/HOCKEY/GoNews/main.91bc24e41b6003253085.css");
+		$APPLICATION->SetAdditionalCSS("/local/templates/new_ru/assets/WebMaster-GO-Gohockey/Pages/GoNews/main.91bc24e41b6003253085.css");
         include 'news.php';
         break;
     case '/teams/team-go/':

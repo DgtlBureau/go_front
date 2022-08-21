@@ -11,10 +11,11 @@
 /** @var string $componentPath */
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
-?> 
+?>
 
 <div class="flex_container">
     <div class="shop__gender-select gender-select">
+
 	   <?foreach($arResult["ITEMS"] as $arItem):?>
             <a class="gender-select__item" href="<?=$arItem["PROPERTIES"]["SRC"]["VALUE"]?>">
                 <div class="gender-select__image scale">

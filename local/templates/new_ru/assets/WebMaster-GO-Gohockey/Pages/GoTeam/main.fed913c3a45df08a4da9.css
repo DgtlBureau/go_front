@@ -91,6 +91,22 @@ a:hover {
     display: none
 }
 
+.go-team__about-title .orange span {
+    color: #FF4C01;
+    -webkit-text-stroke: .16em #FF4C01;
+    -webkit-text-stroke-width: 10px;
+}
+
+.go-team__about-title .orange span::before {
+    -webkit-text-stroke: .02em #020553;
+    -webkit-text-stroke-width: 0px;
+}
+
+.go-team__about-title .orange span::after {
+    -webkit-text-stroke: .02em #020553;
+    -webkit-text-stroke-width: 6px;
+}
+
 .go-team__about-title span {
     position: relative;
     color: #d19ff9;
@@ -293,6 +309,14 @@ a:hover {
     margin-bottom: 10px
 }
 
+.next-match-orange__block {
+    background: #141414;
+    border: 2px solid #FF4C01;
+    width: 350px;
+    padding: 0 40px
+}
+
+
 .next-match__block {
     background: #141414;
     border: 2px solid #d19ff9;
@@ -413,6 +437,33 @@ a:hover {
     width: 100%;
 }
 
+.go-team__nav-item-orange {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    height: 80px;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 28px;
+    text-align: center;
+    letter-spacing: .02em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, .6);
+    border-right: 1px solid #000;
+    width: 66.3333333333%;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none
+}
+
 .go-team__nav-item {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -440,11 +491,23 @@ a:hover {
     user-select: none
 }
 
-.go-team__nav-item:first-child {
-    border-bottom: 4px solid #d19ff9;
+.go-team__nav-item-orange:first-child {
+    border-bottom: 4px solid #FF4C01;
     color: #fff;
     height: 76px;
     font-weight: 600
+}
+
+.go-team__nav-item-orange p:nth-child(2) {
+    display: none
+}
+
+.go-team__nav-item-orange:last-child {
+    border-right: none
+}
+
+.go-team__nav-item:last-child {
+    border-right: none
 }
 
 .go-team__nav-item p:nth-child(2) {
@@ -475,13 +538,20 @@ a:hover {
 
 .go-team__staff {
     display: grid;
-    grid-template-columns: repeat(auto-fill, 325px);
+    grid-template-columns: repeat(auto-fill, minmax(325px, 1fr));
     gap: 20px;
+}
+
+.go-team__staff-person_blue {
+    width: 100%;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    background: linear-gradient(180deg, #010453 0%, rgba(8, 9, 49, 0) 150.84%), url(/local/templates/new_ru/img/back.png) repeat-x;
 }
 
 .go-team__staff-person {
     width: 100%;
-    max-width: 325px;
     height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;
@@ -552,6 +622,48 @@ a:hover {
 
 .go-team__players-staff-person-name {
     width: 100%;
+}
+
+.go-team__players-staff-person-number_orange {
+    width: 80px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    background: #FF4C01;
+    height: 80px
+}
+
+.go-team__players-staff-person-number_orange span {
+    position: relative;
+    color: #020553;
+    -webkit-text-stroke: .16em #020553;
+    -webkit-text-stroke-width: 10px;
+    font-size: 42px;
+    line-height: 42px;
+    font-weight: 800
+}
+
+.go-team__players-staff-person-number_orange span::before {
+    content: attr(data-text);
+    position: absolute;
+    -webkit-text-stroke: .02em #000;
+    -webkit-text-stroke-width: 1px;
+    z-index: 2
+}
+
+.go-team__players-staff-person-number_orange span::after {
+    content: attr(data-text);
+    position: absolute;
+    -webkit-text-stroke: .02em #FF4C01;
+    -webkit-text-stroke-width: 4px;
+    right: 0;
+    z-index: 1
 }
 
 .go-team__players-staff-person-number {
@@ -661,6 +773,19 @@ a:hover {
         max-width: 510px
     }
 
+    .go-team__nav-item-orange {
+        font-size: 16px;
+        line-height: 22px
+    }
+
+    .go-team__nav-item-orange p:nth-child(1) {
+        display: none
+    }
+
+    .go-team__nav-item-orange p:nth-child(2) {
+        display: block
+    }
+
     .go-team__nav-item {
         font-size: 16px;
         line-height: 22px
@@ -690,6 +815,10 @@ a:hover {
         grid-template-columns: 1fr;
     }
 
+    .go-team__staff-person_blue {
+        max-width: 100%;
+    }
+
     .go-team__staff-person {
         max-width: 100%;
     }
@@ -709,12 +838,6 @@ a:hover {
         justify-content: space-between;
     }
 
-    .go-team__staff {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 20px;
-    }
-
     .go-team__info {
         justify-content: center;
     }
@@ -725,9 +848,6 @@ a:hover {
 }
 
 @media(max-width: 600px) {
-    .go-team__staff {
-        grid-template-columns: 1fr;
-    }
 
     .go-team__staff-block {
         margin-top: 40px;
@@ -741,6 +861,16 @@ a:hover {
 @media(max-width: 500px) {
     .go-team__progress {
         min-width: 100%;
+    }
+
+    .go-team__staff {
+        grid-template-columns: 1fr;
+    }
+
+    .next-match-orange__block {
+        width: 100%;
+        height: auto;
+        padding: 15px 0px
     }
 
     .next-match__block {
@@ -807,6 +937,14 @@ a:hover {
 
     .go-team__line-up {
         padding: 40px 0px
+    }
+
+    .go-team__nav-item-orange p:nth-child(1) {
+        display: none
+    }
+
+    .go-team__nav-item-orange p:nth-child(2) {
+        display: block
     }
 
     .go-team__nav-item p:nth-child(1) {

@@ -14,7 +14,13 @@ $this->setFrameMode(true);
 
 ?>
 
+                    <div class="block-with-matchs__swiper">
 <?foreach($arResult['ITEMS'] as $arItem):?>
+<?
+			$this->AddEditAction($arItem['ID'], $arItem['EDIT_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_EDIT"));
+			$this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')));
+			?>
+			
 	<?if($arItem["PROPERTIES"]["BTN_MATCH"]["VALUE"] == 'Трансляция'):?>
                 <div class="match live">
 	<?else:?>
@@ -58,66 +64,30 @@ $this->setFrameMode(true);
 								</div>
 							</div>
 						</div>
-	                   <?if($arItem["PROPERTIES"]["BTN_MATCH"]["VALUE"] == 'Трансляция'):?>
-                        <a class="match__button live" href="/live/">
+	                  <?if($arItem["PROPERTIES"]["BTN_MATCH"]["VALUE"] != 'Превью матча'):?>
+                        <a class="match__button live" href="<?=$arItem["DETAIL_PAGE_URL"]?>">
 						<div class="match__button-txt">
-							Трансляция
+							<?=$arItem["PROPERTIES"]["BTN_MATCH"]["VALUE"];?>
 						</div>
-						<div class="match__translation">
-							<img alt="translation" src="/local/templates/new_ru/img/translation.png">
-						</div> 
+							 <?if($arItem["PROPERTIES"]["BTN_MATCH"]["VALUE"] == 'Трансляция'):?>
+								<div class="match__translation">
+									<img alt="translation" src="/local/templates/new_ru/img/translation.png">
+								</div> 
+							<?endif;?>
+							<?if($arItem["PROPERTIES"]["BTN_MATCH"]["VALUE"] == 'Обзор матча'):?>
+								<div class="match__button-txt-arrow">→</div>
+							<?endif;?>
                         </a>
                         <?else:?>
                             <div class="match__button">
     							<div class="match__button-txt">
     								 Превью матча
     							</div>
-    							<div class="match__button-txt-arrow">
-    								→
-    							</div>
+    							<div class="match__button-txt-arrow">→</div>
     						</div>
                         <?endif;?>
 					</div>
 				</div>
 <?endforeach;?>
-
-<?foreach($arResult['ITEMS'] as $arItem):?>
-<!-- <div class="swiper-slide"> --
-	<div class="match-item">
-		<p class="match-item__time">
-			<?=$arItem["PROPERTIES"]["MATCH_DATE"]["VALUE"];?>
-		</p>
-		<span class="match-item__location">
-			<?=$arItem["PROPERTIES"]["MATCH_PLACE"]["VALUE"];?>
-		</span>
-		<div class="match-item__teamvs">
-			<div class="match-item-teamvs">
-				<div class="match-item-teamvs__team">
-					<img src="<?=$arItem["DISPLAY_PROPERTIES"]["LOGO_1"]["FILE_VALUE"]["SRC"];?>" alt="">
-					<p>
-						<?=$arItem["PROPERTIES"]["TITLE_TEAM_1"]["VALUE"];?>
-					</p>
-				</div>
-				<div class="match-item-teamvs__vs">
-					<h3>
-						<?=$arItem["PROPERTIES"]["COUNT_TEAM_1"]["VALUE"];?> : <?=$arItem["PROPERTIES"]["COUNT_TEAM_2"]["VALUE"];?>
-					</h3>
-				</div>
-				<div class="match-item-teamvs__team">
-					<img src="<?=$arItem["DISPLAY_PROPERTIES"]["LOGO_2"]["FILE_VALUE"]["SRC"];?>" alt="">
-					<p>
-						<?=$arItem["PROPERTIES"]["TITLE_TEAM_2"]["VALUE"];?>
-					</p>
-				</div>
-			</div>
-		</div>
-		<button type="button" class="btn_primary full-width btn" name="button">
-			<?if($arItem["PROPERTIES"]["BTN_MATCH"]["VALUE"] == 'Трансляция'):?>
-				<?=$arItem["PROPERTIES"]["BTN_MATCH"]["VALUE"];?><span alt="" class="match_team_live"></span>
-			<?else:?>
-				<?=$arItem["PROPERTIES"]["BTN_MATCH"]["VALUE"];?><span alt="" class="match_team">→</span>
-			<?endif;?>
-		</button>
 	</div>
--- </div> -->
-<?endforeach;?>
+				

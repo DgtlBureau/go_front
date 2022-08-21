@@ -11,9 +11,6 @@
 /** @var string $componentPath */
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
-
-$this->addExternalCss("/local/templates/new_ru/components/bitrix/news.list/news/main.3514e3b381bb9968f169.css");
-//$this->addExternalCss("/local/templates/new_ru/assets/HOCKEY/GoNews/main.91bc24e41b6003253085.css");
 if(!empty($_GET['modalnews'])) {
     $curr_modal = $_GET['modalnews'];
 }
@@ -49,8 +46,11 @@ $url = 'https://go-family.ru/'
     <div class="main-news__swiper">
         <? $i = 0; ?>
         <?foreach($arResult['ITEMS'] as $arItem):?>
-        <? $i++; ?>
-        <div class="main-news__item popup-open" modal-index="<?=$i?>"><img src="<?=$arItem["DETAIL_PICTURE"]["SRC"];?>" alt="<?=$arItem["NAME"];?>">
+        <?
+		$this->AddEditAction($arItem['ID'], $arItem['EDIT_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_EDIT"));
+		$this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')));
+		$i++; ?>
+        <div class="main-news__item popup-open" modal-index="<?=$i?>"><img src="<?=$arItem["DETAIL_PICTURE"]["SRC"];?>" alt="<?=$arItem["NAME"];?>" id="<?=$this->GetEditAreaId($arItem['ID']);?>">
             <p class="main-news__text"><?=$arItem["NAME"];?><br><span><?=strtolower(FormatDate("d F Y", MakeTimeStamp($arItem["DATE_CREATE"])));?></span></p>
         </div>
         <?endforeach;?>
@@ -74,7 +74,7 @@ $url = 'https://go-family.ru/'
 
             <div class="go-news__modal-block">
                 <div class="go-news__modal">
-                    <div class="go-news__modal-banner">
+                    <div class="go-news__modal-banner" >
                     <img src="<?=$arItem["DETAIL_PICTURE"]["SRC"];?>" alt="<?=$arItem["NAME"];?>">
 
                         <button class="go-news__modal-banner-share">

@@ -1,5 +1,5 @@
-<?$APPLICATION->SetAdditionalCSS("/local/templates/new_ru/assets/HOCKEY/GoNews/main.91bc24e41b6003253085.css");?>
-
+<?//$APPLICATION->SetAdditionalCSS("/local/templates/new_ru/assets/HOCKEY/GoNews/main.91bc24e41b6003253085.css");?>
+<?$arrFilter=array("PROPERTY_TEAM"=>7);//ID Команды?>
 <div class="go-news">
     <div class="blue-go-news__info">
         <div class="container">
@@ -8,25 +8,31 @@
                     <div class="go-news__about-title">
                         <p>Хоккейная команда</p>
                         <p>Команда</p>
-                        <div class="go-news__team-name"><span data-text="GO" id="GO">GO</span></div>
+                         <div class="go-team__team-name orange"><span data-text="Gohockey" id="GO">Gohockey</span></div>
                     </div>
                     <div class="go-news__about-txt"><?=$ar_header_fields["DETAIL_TEXT"];?></div>
                     <div class="go-news__progress invisible">
                         <div class="go-news__progress-stats">
                             <div class="go-news__progress-victories">
-                                <div class="go-news__progress-title"><?=$ar_header_values['TEAM_POSITION']['NAME']?></div><span data-text="<?=$ar_header_values['TEAM_POSITION']['VALUE']?>"
-                                                                                    id="victories-count"><?=$ar_header_values['TEAM_POSITION']['VALUE']?></span>
+                                <div class="go-news__progress-title">Побед</div>
+								<span data-text="<?=$ar_header_values["WINS"]["VALUE"]?>"id="victories-count">
+									<?=$ar_header_values["WINS"]["VALUE"]?>
+								</span>
                             </div>
                             <div class="go-news__progress-points">
-                                <div class="go-news__progress-title"><?=$ar_header_values['TEAM_POINT']['NAME']?></div><span data-text="<?=$ar_header_values['TEAM_POINT']['VALUE']?>"
-                                                                                    id="points-count"><?=$ar_header_values['TEAM_POINT']['VALUE']?></span>
+                                <div class="go-news__progress-title">Очков</div>
+								<span data-text="<?=$ar_header_values["GLASSES"]["VALUE"]?>"id="points-count">
+									<?=$ar_header_values["GLASSES"]["VALUE"]?>
+								</span>
                             </div>
                             <div class="go-news__progress-place">
-                                <div class="go-news__progress-title"><?=$ar_header_values['TEAM_WIN']['NAME']?></div><span data-text="<?=$ar_header_values['TEAM_WIN']['VALUE']?>" id="place"><?=$ar_header_values['TEAM_WIN']['VALUE']?></span>
+                                <div class="go-news__progress-title">Место</div>
+								<span data-text="<?=$ar_header_values["PLACE"]["VALUE"]?>" id="place">
+									<?=$ar_header_values["PLACE"]["VALUE"]?>
+								</span>
                             </div>
                         </div>
                     </div>
-                    <?$arrFilter=array("PROPERTY_TEAM"=>7);?>
                     <?$APPLICATION->IncludeComponent(
 	"bitrix:news.list", 
 	"header_team_results", 
@@ -56,10 +62,10 @@
 		"HIDE_LINK_WHEN_NO_DETAIL" => "N",
 		"IBLOCK_ID" => "19",
 		"IBLOCK_TYPE" => "team",
-		"INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
+		"INCLUDE_IBLOCK_INTO_CHAIN" => "N",
 		"INCLUDE_SUBSECTIONS" => "N",
 		"MESSAGE_404" => "",
-		"NEWS_COUNT" => "2",
+		"NEWS_COUNT" => "1",
 		"PAGER_BASE_LINK_ENABLE" => "N",
 		"PAGER_DESC_NUMBERING" => "N",
 		"PAGER_DESC_NUMBERING_CACHE_TIME" => "0",
@@ -72,13 +78,12 @@
 		"PREVIEW_TRUNCATE_LEN" => "",
 		"PROPERTY_CODE" => array(
 			0 => "PLACE",
-			1 => "PLACE",
-			2 => "",
+			1 => "",
 		),
 		"SET_BROWSER_TITLE" => "N",
 		"SET_LAST_MODIFIED" => "N",
-		"SET_META_DESCRIPTION" => "Y",
-		"SET_META_KEYWORDS" => "Y",
+		"SET_META_DESCRIPTION" => "N",
+		"SET_META_KEYWORDS" => "N",
 		"SET_STATUS_404" => "N",
 		"SET_TITLE" => "N",
 		"SHOW_404" => "N",
@@ -95,23 +100,36 @@
 	),
 	false
 );
-?> 
+					?> 
                 </div>
-                
-                <div class="go-news__progress">
+                 <div class="go-news__progress">
                     <div class="go-news__progress-background" id="team-background-logo"></div>
                     <div class="go-news__progress-stats">
-                         <div class="go-news__progress-victories">
-                                <div class="go-news__progress-title"><?=$ar_header_values['TEAM_POSITION']['NAME']?></div><span data-text="<?=$ar_header_values['TEAM_POSITION']['VALUE']?>"
-                                                                                    id="victories-count"><?=$ar_header_values['TEAM_POSITION']['VALUE']?></span>
+							<div class="go-news__progress-victories">
+                                <div class="go-news__progress-title">
+									Побед
+								</div>
+								<span data-text="<?=$ar_header_values["WINS"]["VALUE"]?>" id="victories-count">
+									<?=$ar_header_values["WINS"]["VALUE"]?>
+								</span>
                             </div>
                             <div class="go-news__progress-points">
-                                <div class="go-news__progress-title"><?=$ar_header_values['TEAM_POINT']['NAME']?></div><span data-text="<?=$ar_header_values['TEAM_POINT']['VALUE']?>"
-                                                                                    id="points-count"><?=$ar_header_values['TEAM_POINT']['VALUE']?></span>
+                                <div class="go-news__progress-title">
+									Очков
+								</div>
+								<span data-text="<?=$ar_header_values["GLASSES"]["VALUE"]?>" id="points-count">
+									<?=$ar_header_values["GLASSES"]["VALUE"]?>
+								</span>
                             </div>
                             <div class="go-news__progress-place">
-                                <div class="go-news__progress-title"><?=$ar_header_values['TEAM_WIN']['NAME']?></div><span data-text="<?=$ar_header_values['TEAM_WIN']['VALUE']?>" id="place"><?=$ar_header_values['TEAM_WIN']['VALUE']?></span>
+                                <div class="go-news__progress-title">
+									Место
+								</div>
+								<span data-text="<?=$ar_header_values["PLACE"]["VALUE"]?>" id="place">
+									<?=$ar_header_values["PLACE"]["VALUE"]?>
+								</span>
                             </div>
+						
                     </div>
                 </div>
             </div>
