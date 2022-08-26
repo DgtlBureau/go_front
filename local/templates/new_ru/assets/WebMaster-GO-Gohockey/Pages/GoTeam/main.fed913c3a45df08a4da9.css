@@ -151,12 +151,20 @@ a:hover {
     padding-left: 10px
 }
 
+.go-team__progress-background.orange {
+    background: url(/local/templates/new_ru/img/bull_orang.png) no-repeat;
+    background-size: 278px;
+    height: 278px;
+    width: 100%;
+    background-position-x: center;
+}
+
 .go-team__progress-background {
     background: url(/local/templates/new_ru/img/bull.png) no-repeat;
     background-size: 278px;
     height: 278px;
     width: 100%;
-    background-position-x: center
+    background-position-x: center;
 }
 
 .go-team__progress-stats {
@@ -317,6 +325,13 @@ a:hover {
 }
 
 
+.next-match__block.orange {
+    background: #141414;
+    border: 2px solid #FF4C01;
+    width: 350px;
+    padding: 0 40px
+}
+
 .next-match__block {
     background: #141414;
     border: 2px solid #d19ff9;
@@ -378,7 +393,7 @@ a:hover {
 }
 
 .next-match__first-team-logo {
-    height: 53px
+    width: 53px
 }
 
 .next-match__first-team-logo img {
@@ -386,7 +401,7 @@ a:hover {
 }
 
 .next-match__second-team-logo {
-    height: 53px
+    width: 53px
 }
 
 .next-match__second-team-logo img {
@@ -489,6 +504,10 @@ a:hover {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none
+}
+
+.go-team__nav-item.go {
+    border-bottom: 4px solid #d19ff9;
 }
 
 .go-team__nav-item-orange:first-child {
@@ -743,6 +762,15 @@ a:hover {
         min-width: 0
     }
 
+    .go {
+        width: 66.3333333333% !important;
+        text-align: center;
+        padding: 0px 0px !important;
+        text-decoration: none;
+        margin-bottom: 0px !important;
+        background: transparent !important;
+    }
+
     .go-team-go {
         padding-top: 30px
     }
@@ -774,7 +802,7 @@ a:hover {
     }
 
     .go-team__nav-item-orange {
-        font-size: 16px;
+        font-size: 14px;
         line-height: 22px
     }
 
@@ -787,7 +815,7 @@ a:hover {
     }
 
     .go-team__nav-item {
-        font-size: 16px;
+        font-size: 14px;
         line-height: 22px
     }
 
@@ -873,6 +901,12 @@ a:hover {
         padding: 15px 0px
     }
 
+    .next-match__block.orange {
+        width: 100%;
+        height: auto;
+        padding: 15px 0px
+    }
+
     .next-match__block {
         width: 100%;
         height: auto;
@@ -895,7 +929,13 @@ a:hover {
     .next-match__first-team-name,
     .next-match__first-team-logo {
         text-align: center;
-        margin-right: 0
+        margin-right: 0;
+        width: 100%;
+        height: 53px;
+    }
+
+    .next-match__versus {
+        margin-bottom: 0;
     }
 
     .next-match__first-team,
@@ -906,7 +946,9 @@ a:hover {
     .next-match__second-team-logo,
     .next-match__second-team-name {
         text-align: center;
-        margin-left: 0
+        margin-left: 0;
+        width: 100%;
+        height: 53px;
     }
 
     .next-match__date-and-area {

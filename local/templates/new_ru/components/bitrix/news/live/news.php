@@ -12,8 +12,11 @@
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
 ?>
-<br><br><br><br>
-<?$APPLICATION->IncludeComponent(
+<?
+header("Location: /");
+die();
+?>
+<?/*$APPLICATION->IncludeComponent(
 	"bitrix:news.list",
 	"",
 	Array(
@@ -65,4 +68,4 @@ $this->setFrameMode(true);
 		"CHECK_DATES" => $arParams["CHECK_DATES"],
 	),
 	$component
-);?>
+);*/?>

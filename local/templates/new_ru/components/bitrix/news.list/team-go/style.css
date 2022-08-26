@@ -573,7 +573,7 @@
     display: none
 }
 
-@media(max-width: 1139px) {
+@media (max-width: 1139px) {
     .go-team__about-title {
         -ms-flex-wrap: wrap;
         flex-wrap: wrap
@@ -588,7 +588,7 @@
     }
 }
 
-@media(max-width: 940px) {
+@media (max-width: 940px) {
     .go-team__about {
         margin-right: 2%
     }
@@ -599,7 +599,7 @@
     }
 }
 
-@media(max-width: 800px) {
+@media (max-width: 800px) {
     .go-team__about-title {
         min-width: 0
     }
@@ -648,7 +648,7 @@
     }
 }
 
-@media(max-width: 500px) {
+@media (max-width: 500px) {
     .next-match__block {
         width: 335px;
         height: 120px;
@@ -792,3 +792,4 @@
         -webkit-text-stroke-width: 5px
     }
 }
+

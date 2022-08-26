@@ -722,7 +722,7 @@ input {
 }
 
 .catalog__filters-form {
-    margin: 45px 0 0 0;
+    margin: 20px 0 0 0;
     padding: 28px;
     min-width: 325px;
     background: #141414
@@ -742,7 +742,7 @@ input {
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column;
-    row-gap: 32px
+    row-gap: 20px
 }
 
 .catalog__filters_subtitle {
@@ -1991,7 +1991,7 @@ a.ui-button:active,
 }
 
 .products__item-new{
-    background: #cd0000;
+    background: grey;
 }
 
 /*# sourceMappingURL=main.css.map*/

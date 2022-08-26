@@ -1,11 +1,7 @@
 .results {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
+    display: grid;
     max-width: 595px;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
-    justify-content: space-between
+    justify-content: space-between;
 }
 
 .results__title {
@@ -13,16 +9,12 @@
 }
 
 .results__block {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
+    display: grid;
+    grid-template-columns: minmax(50px, 10%) 1fr;
     align-items: center;
+    gap: 16px;
 }
 
-.results__image {
-    margin-right: 15px;
-    width: 70px;
-}
 
 .results__image img {
     height: 100%
@@ -39,4 +31,13 @@
 .results__place {
     line-height: 22px;
     font-weight: 600
+}
+
+.go-news__progress-background.orange,
+.go-tournament__progress-background.orange {
+    background: url(/local/templates/new_ru/img/bull_orang.png) no-repeat;
+    background-size: 278px;
+    height: 278px;
+    width: 100%;
+    background-position-x: center;
 }

@@ -1,0 +1,1470 @@
+@font-face {
+  font-family: "Montserrat";
+  src: url(/css/fonts/Montserrat-Regular.ttf);
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "TT Octosquares";
+  src: url(/css/fonts/TTOctosquares-Regular.ttf);
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "TT Octosquares";
+  src: url(/css/fonts/TTOctosquares-Medium.ttf);
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "TT Octosquares";
+  src: url(/css/fonts/TTOctosquares-Bold.ttf);
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "TT Octosquares";
+  src: url(/css/fonts/TTOctosquares-Black.ttf);
+  font-weight: 800;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+
+  --text-opacity-color-80: rgba(255, 255, 255, 0.8);
+
+  --background-141414-color: #141414;
+}
+
+body {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  font-family: "TT Octosquares";
+  background-color: #010101;
+  color: #ffffff;
+
+  z-index: 0;
+}
+
+.container {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+  max-width: 1920px;
+  padding-left: 40px;
+  padding-right: 40px;
+
+  margin: 0 auto;
+}
+
+.flexColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.headerFight {
+  position: relative;
+
+  width: 100%;
+  height: 682px;
+}
+
+.backgroundWrapper {
+  position: absolute;
+
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
+  z-index: 1;
+}
+
+.headerBackground {
+  width: 100%;
+  height: 110%;
+  object-fit: cover;
+}
+
+@media screen and (max-width: 1024px) {
+  .headerBackground {
+    width: unset;
+  }
+}
+
+.defaultButton {
+  font-family: "TT Octosquares";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 60px;
+  max-width: 284px;
+  width: 60%;
+
+  background: #7efafc;
+  border: none;
+  cursor: pointer;
+
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 28px;
+
+  text-align: center;
+  letter-spacing: 0.02em;
+
+  color: #010101;
+}
+
+.headerContent a {
+  text-decoration: none;
+}
+
+.headerContent {
+  padding-bottom: 53px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  z-index: 2;
+}
+
+.headerContent h1 {
+  margin-bottom: 20px;
+  font-size: 72px;
+  line-height: 82px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  max-width: 600px;
+}
+
+@media screen and (max-width: 750px) {
+  .headerContent h1 {
+    max-width: 100%;
+    font-size: 45px;
+    line-height: 50px;
+  }
+
+  .headerContent {
+    padding-bottom: 100px;
+  }
+
+  .defaultButton {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .headerButtonWrapper {
+    justify-content: center !important;
+  }
+
+  .container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+.title {
+  position: relative;
+  font-weight: 600;
+  font-size: 72px;
+  line-height: 82px;
+
+  letter-spacing: 0.02em;
+
+  color: #ffffff;
+}
+
+@media screen and (max-width: 1024px) {
+  .title {
+    font-size: 52px;
+    line-height: 62px;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .title {
+    font-size: 42px;
+    line-height: 52px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .title {
+    font-size: 28px;
+    line-height: 48px;
+  }
+}
+
+.headerParagraph {
+  max-width: 633px;
+  margin-bottom: 20px;
+
+  font-family: "Montserrat";
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 25px;
+  letter-spacing: 0.02em;
+
+  color: var(--text-opacity-color-80);
+}
+
+@media screen and (max-width: 750px) {
+  .headerParagraph {
+    display: none;
+  }
+}
+
+.headerButtonWrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 40px;
+}
+
+@media screen and (max-width: 750px) {
+  .headerButtonWrapper .arrowBlock {
+    display: none;
+  }
+}
+
+.captionWrapperTrainers {
+  width: 100%;
+  margin-bottom: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.arrowBlock {
+  width: 10%;
+  max-width: 80px;
+  min-width: 20px;
+  height: auto;
+}
+
+@media screen and (max-width: 1375px) {
+  .arrowBlock {
+    width: 7%;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .arrowBlock {
+    width: 5%;
+  }
+}
+
+.hall {
+  position: relative;
+  padding-top: 80px;
+}
+
+.topBackgroundHall {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 300px;
+  background-color: #232323;
+  background: linear-gradient(180deg,
+      #000000 47.17%,
+      rgba(0, 0, 0, 0.494693) 88.72%,
+      rgba(0, 0, 0, 0) 129.4%),
+    url(/local/templates/new_ru/assets/go-fight/css/images/background_5.png);
+  transform: rotate(180deg);
+}
+
+.hallContent {
+  margin-top: 40px;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 74px;
+  align-items: center;
+}
+
+@media screen and (max-width: 1375px) {
+  .hallContent {
+    margin-top: 20px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .hallContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .hallImageListWrapper {
+    position: relative !important;
+  }
+
+  .mainImageHall {
+    display: none;
+  }
+
+  .hallContentInfo {
+    padding-top: 0 !important;
+  }
+}
+
+.previewHall {
+  position: relative;
+
+  display: flex;
+  width: 100%;
+}
+
+.mainImageHall {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.hallImageListWrapper {
+  width: 100%;
+  position: absolute;
+  bottom: 13px;
+}
+
+.hallImageItem {
+  margin: 0 6px;
+}
+
+.hallRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5%;
+}
+
+@media screen and (max-width: 750px) {
+  .hallRow {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+.hallContentInfo {
+  width: 100%;
+  padding: 40px 0;
+}
+
+.hallContentLabel {
+  margin-bottom: 29px;
+
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 38px;
+
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.hallContentInfoParagraph {
+  max-width: 450px;
+  margin-bottom: 51px;
+
+  font-family: "Montserrat";
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 25px;
+
+  letter-spacing: 0.02em;
+
+  color: var(--text-opacity-color-80);
+  opacity: 0.8;
+}
+
+.hallRow h4 {
+  margin-bottom: 20px;
+
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 28px;
+  letter-spacing: 0.02em;
+}
+
+.hallRowContent {
+  align-items: flex-start;
+}
+
+.hallRowWrapper {
+  gap: 68px;
+}
+
+.hallRow span {
+  max-width: 300px;
+  margin-bottom: 4px;
+
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0.02em;
+
+  color: var(--text-opacity-color-80);
+}
+
+.socialNetworks {
+  display: flex;
+  flex-direction: row;
+  gap: 1px;
+}
+
+.socialNetworksWrapper {
+  position: relative;
+
+  width: 50px;
+  height: 50px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--background-141414-color);
+
+  cursor: pointer;
+
+  opacity: 0.8;
+}
+
+.socialNetworksWrapper img {
+  width: 24px;
+  height: 24px;
+}
+
+.socialNetworksWrapper:hover {
+  opacity: 1;
+}
+
+@media screen and (max-width: 750px) {
+  .socialNetworks {
+    width: 100%;
+  }
+
+  .socialNetworksWrapper {
+    height: 60px;
+    width: 100%;
+  }
+
+  .socialNetworksWrapper img {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.trainers {
+  position: relative;
+
+  margin-top: 79px;
+  margin-bottom: 32px;
+}
+
+.slick-arrow {
+  z-index: 1 !important;
+  width: 50px !important;
+  height: 50px !important;
+  background: #fff !important;
+}
+
+.slick-arrow::before {
+  font-family: "TT Octosquares" !important;
+  font-size: 28px !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+  opacity: 1 !important;
+  color: #000 !important;
+}
+
+.trainerCard {
+  display: flex;
+  flex-direction: column;
+  margin: 0 10px;
+
+  cursor: pointer;
+}
+
+.trainerImageWrapper {
+  width: 100%;
+  height: 355px;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+
+  background: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 143.87%),
+    url(/local/templates/new_ru/assets/go-fight/css/images/background_3.png);
+}
+
+.trainerName {
+  width: 100%;
+  height: 80px;
+  margin-top: 1px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #232323;
+
+  font-weight: 800;
+  font-size: 24px;
+  line-height: 29px;
+  letter-spacing: 0.02em;
+}
+
+.trainerImageWrapper img {
+  max-height: 70%;
+  height: auto;
+  max-width: 100%;
+}
+
+@media screen and (max-width: 750px) {
+  .trainers {
+    margin-top: 0;
+  }
+}
+
+.subscriptions {
+  position: relative;
+
+  margin-top: 80px;
+}
+
+.subscriptions .arrow {
+  top: 0;
+  bottom: unset !important;
+}
+
+.captionWrapperSubscriptions {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 72px;
+}
+
+.subscriptionsList {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+
+  gap: 20px;
+}
+
+@media screen and (max-width: 1024px) {
+  .subscriptionsList {
+    grid-template-columns: repeat(auto-fill, minmax(325px, 1fr));
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .subscriptions {
+    margin-top: 0;
+  }
+
+  .captionWrapperSubscriptions {
+    margin-bottom: 20px;
+  }
+
+  .subscriptionsList {
+    grid-template-columns: 1fr;
+  }
+}
+
+.subscriptionsItem {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  background: var(--background-141414-color);
+
+  font-family: "TT Octosquares";
+  font-style: normal;
+  font-weight: 400;
+}
+
+.subscriptionsItem h3 {
+  margin-top: 36px;
+  max-width: 280px;
+
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 32px;
+
+  text-align: center;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.subscriptionsItem h3 span {
+  color: #7efafc !important;
+}
+
+.subscriptionsItem h4 {
+  margin-top: 44px;
+  margin-bottom: 4px;
+
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 28px;
+
+  text-align: center;
+  letter-spacing: 0.02em;
+
+  color: #ffffff;
+}
+
+.subscriptionsItemInclude {
+  margin-top: 12px;
+
+  font-size: 16px;
+  line-height: 20px;
+
+  text-align: center;
+  letter-spacing: 0.02em;
+
+  color: #ffffff;
+}
+
+.priceSubscription {
+  margin-top: 61px;
+
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 42px;
+
+  text-align: center;
+  letter-spacing: 0.02em;
+
+  color: #ffffff;
+}
+
+.subscriptionsItem .defaultButton {
+  width: 70%;
+  margin-top: 28px;
+  margin-bottom: 44px;
+}
+
+@media screen and (max-width: 750px) {
+  .subscriptionsItem .defaultButton {
+    width: 90%;
+  }
+}
+
+.workout {
+  position: relative;
+  margin: 126px 0;
+}
+
+.slick-prev {
+  left: -10px !important;
+}
+
+.slick-next {
+  right: -10px !important;
+}
+
+.captionWrapperWorkout {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 44px;
+}
+
+.workoutList {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+}
+
+@media screen and (max-width: 1024px) {
+  .workoutList {
+    grid-template-columns: repeat(auto-fill, minmax(325px, 1fr));
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .workoutList {
+    grid-template-columns: 1fr;
+  }
+
+  .workout {
+    margin-top: 48px;
+    margin-bottom: 40px;
+  }
+}
+
+.workoutItem {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  background: var(--background-141414-color);
+
+  font-family: "TT Octosquares";
+  font-style: normal;
+  font-weight: 400;
+}
+
+.workoutItem h3 {
+  margin-top: 40px;
+  max-width: 259px;
+
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 32px;
+
+  text-align: center;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.workoutItem h3 span {
+  color: #7efafc !important;
+}
+
+.workoutPrice {
+  margin-top: 44px;
+
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 42px;
+
+  text-align: center;
+  letter-spacing: 0.02em;
+
+  color: #ffffff;
+}
+
+.workoutItem .defaultButton {
+  width: 70%;
+  margin-top: 36px;
+  margin-bottom: 40px;
+}
+
+@media screen and (max-width: 1024px) {
+  .workoutItem .defaultButton {
+    width: 90%;
+  }
+}
+
+.feedback {
+  position: relative;
+
+  width: 100%;
+  height: 862px;
+}
+
+.feedbackFormWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 2;
+}
+
+.feedbackFormWrapper h2 {
+  margin-bottom: 19px;
+
+  font-weight: 600;
+  font-size: 42px;
+  line-height: 52px;
+
+  text-align: center;
+  letter-spacing: 0.02em;
+}
+
+.feedbackForm {
+  width: 100%;
+  max-width: 525px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  background: var(--background-141414-color);
+}
+
+@media screen and (max-width: 750px) {
+  .feedbackForm {
+    background: transparent;
+  }
+}
+
+.feedbackForm h3 {
+  margin-top: 32px;
+  margin-bottom: 12px;
+
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: 0.02em;
+
+  color: #ffffff;
+}
+
+.feedbackForm .defaultButton {
+  margin-top: 36px;
+  margin-bottom: 52px;
+}
+
+.feedbackFormInput {
+  width: 80%;
+  height: 56px;
+  padding: 16px 18px;
+  margin-top: 12px;
+
+  border: none;
+  outline: none;
+
+  background: #232323;
+  color: white;
+
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0.02em;
+}
+
+@media screen and (max-width: 750px) {
+  .feedbackFormInput {
+    width: 100%;
+  }
+}
+
+.feedbackFormArea {
+  height: 123px;
+  resize: none;
+}
+
+.modalWrapper {
+  position: fixed;
+
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+
+  display: none;
+
+  z-index: 10;
+}
+
+.modalWrapper::before {
+  content: "";
+
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+
+  background: #010101;
+  opacity: 0.8;
+}
+
+.isOpenModal {
+  display: block !important;
+}
+
+.disableScroll {
+  overflow: hidden;
+}
+
+.closeIcon {
+  position: absolute;
+  top: 64px;
+  right: 48px;
+
+  cursor: pointer;
+}
+
+.modalTrainerContainer {
+  max-width: 860px;
+  width: 100%;
+  max-height: 90%;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  overflow-y: auto;
+
+  background: var(--background-141414-color);
+}
+
+.modalTrainerContainer .defaultButton {
+  margin-top: 10px;
+  margin-bottom: 37px;
+
+  font-size: 16px;
+  line-height: 20px;
+
+  max-width: 297px;
+}
+
+.modalWrapper .container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.trainerAvatarWrapper {
+  width: 100%;
+  height: 427px;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+
+  background: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 143.87%),
+    url(/local/templates/new_ru/assets/go-fight/css/images/background_4.png);
+  background-size: cover;
+}
+
+.modalTrainerAvatar {
+  height: 85%;
+}
+
+.modalTrainerInfo {
+  width: 90%;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.modalTrainerInfoName {
+  margin-top: 38px;
+
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 29px;
+
+  letter-spacing: 0.02em;
+}
+
+.modalTrainerInfoName span {
+  margin-left: 12px;
+
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0.02em;
+}
+
+pre {
+  max-width: 539px;
+  margin-top: 23px;
+
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 25px;
+  letter-spacing: 0.02em;
+
+  color: var(--text-opacity-color-80);
+
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
+}
+
+.modalTrainerContainerWrapper {
+  max-height: 90%;
+  display: flex;
+}
+
+@media screen and (max-width: 750px) {
+  .modalTrainerContainer {
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    background: #232323;
+  }
+
+  .modalTrainerContainer .defaultButton {
+    margin-top: 0;
+    margin-bottom: 0;
+    max-width: 100% !important;
+  }
+
+  .trainerAvatarWrapper {
+    height: 200px !important;
+  }
+
+  .modalTrainerInfoName {
+    display: grid;
+    grid-template-columns: 1fr;
+
+    font-size: 28px;
+  }
+
+  .modalTrainerInfoName span {
+    margin-left: 0;
+    margin-top: 8px;
+  }
+
+  .modalTrainerInfo pre {
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .modalTrainerContainerWrapper .closeIcon {
+    width: 16px;
+    top: unset;
+    right: unset;
+    padding-bottom: 20px;
+    position: relative;
+    display: block;
+  }
+
+  .modalTrainerContainerWrapper {
+    flex-direction: column;
+    align-items: flex-end;
+    max-height: 90%;
+  }
+}
+
+.containerModal {
+  max-height: 90%;
+}
+
+.modalWorkoutContainer {
+  max-width: 566px;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  background: var(--background-141414-color);
+}
+
+.modalWorkoutContainer .defaultButton {
+  margin-top: 10px;
+  margin-bottom: 37px;
+
+  font-size: 16px;
+  line-height: 20px;
+
+  max-width: 297px;
+}
+
+.signUpWorkoutFormWrapper {
+  overflow-y: auto;
+}
+
+.modalWorkoutForm {
+  width: 100%;
+  max-width: 525px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  background: #141414;
+}
+
+.modalWorkoutForm h3 {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: 0.02em;
+
+  color: #ffffff;
+}
+
+.modalWorkoutForm .defaultButton {
+  margin-top: 28px;
+  margin-bottom: 100px;
+}
+
+.modalWorkoutFormInput {
+  width: 80%;
+  height: 56px;
+  padding: 16px 18px;
+  margin-top: 12px;
+
+  border: none;
+  outline: none;
+
+  background: #232323;
+  color: white;
+
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0.02em;
+}
+
+.modalWorkoutFormArea {
+  height: 123px;
+  resize: none;
+}
+
+.modalWorkoutFormHeader {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 70px;
+  margin-bottom: 26px;
+}
+
+@media screen and (max-width: 750px) {
+  .modalWorkoutContainer {
+    background: #232323;
+  }
+
+  .modalWorkoutFormInput {
+    background: #141414;
+  }
+
+  .modalWorkoutFormArea {
+    background: #141414;
+  }
+
+  .modalWorkoutForm {
+    background: transparent;
+  }
+
+  .modalWorkoutFormHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .closeIconContainer {
+    display: block !important;
+  }
+
+  .modalWorkoutFormHeader {
+    margin-top: 20px;
+    margin-bottom: 8px;
+  }
+
+  .modalWorkoutFormHeader h3 {
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  .modalWrapper,
+  .closeIcon {
+    display: none;
+  }
+
+  .modalWorkoutFormInput {
+    width: 100%;
+  }
+
+  .modalWorkoutForm .defaultButton {
+    margin-bottom: 28px;
+  }
+}
+
+.modalWorkoutConfirmContainer {
+  max-width: 566px;
+  width: 100%;
+  padding: 20px;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  background: var(--background-141414-color);
+}
+
+.modalWorkoutConfirmContainer h3 {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: 0.02em;
+}
+
+.modalWorkoutConfirmText {
+  max-width: 332px;
+  margin-top: 23px;
+  margin-bottom: 46px;
+
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  text-align: center;
+  letter-spacing: 0.02em;
+}
+
+.headerModalWorkoutConfirm {
+  width: 100%;
+  margin-top: 50px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media screen and (max-width: 750px) {
+  .modalWorkoutConfirmContainer {
+    background: #232323;
+    align-items: flex-start;
+  }
+
+  .headerModalWorkoutConfirm {
+    margin-top: 0;
+    justify-content: space-between;
+  }
+
+  .headerModalWorkoutConfirm .closeIconContainer {
+    display: block !important;
+  }
+
+  .modalWorkoutConfirmText {
+    width: 100%;
+    text-align: start;
+    margin-top: 16px;
+    margin-bottom: 0;
+  }
+}
+
+.modalSelectSubscriptionContainer {
+  max-width: 528px;
+  width: 100%;
+  padding: 36px;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  background: var(--background-141414-color);
+}
+
+.modalSelectSubscriptionContainer .closeIconContainer {
+  display: block;
+}
+
+.closeIconContainer {
+  width: 16px;
+  height: auto;
+  cursor: pointer;
+  margin-left: 15px;
+  display: none;
+}
+
+.modalSelectSubscriptionHeader {
+  width: 100%;
+  margin-bottom: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.modalSelectSubscriptionHeader span {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 28px;
+  letter-spacing: 0.02em;
+}
+
+.modalSelectSubscriptionContent {
+  width: 100%;
+  display: grid;
+  gap: 24px;
+  grid-template-columns: 1fr auto 1fr;
+  margin-bottom: 40px;
+}
+
+@media screen and (max-width: 750px) {
+  .modalSelectSubscriptionContainer {
+    padding: 20px;
+    background: #232323;
+  }
+
+  .modalSelectSubscriptionContent {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+
+  .buttonSectionSubscriptionModal {
+    display: grid;
+    grid-template-columns: 1fr !important;
+  }
+
+  .buttonSectionSubscriptionModal button {
+    height: 48px;
+    max-width: unset !important;
+  }
+
+  .subscriptionModalPrice {
+    display: none !important;
+  }
+}
+
+.subscriptionModalDescription {
+  max-width: 227px;
+  display: flex;
+  justify-content: flex-start;
+
+  font-family: "TT Octosquares";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: 0.02em;
+}
+
+.subscriptionModalPrice {
+  display: flex;
+  justify-content: flex-end;
+
+  font-family: "TT Octosquares";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: 0.02em;
+}
+
+.buttonSectionSubscriptionModal {
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+.buttonSectionSubscriptionModal .defaultButton {
+  width: 100%;
+  max-width: 222px;
+  font-size: 16px;
+  line-height: 20px;
+  font-family: "TT Octosquares";
+}
+
+.alternativeButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 60px;
+  width: 100%;
+  max-width: 222px;
+  font-family: "TT Octosquares";
+  background: transparent;
+  border: 1px solid #7efafc;
+  cursor: pointer;
+
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+
+  text-align: center;
+  letter-spacing: 0.02em;
+
+  color: #ffffff;
+}
+
+.modalSuccessBuyContainer {
+  max-width: 528px;
+  width: 100%;
+  padding: 36px;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  background: var(--background-141414-color);
+}
+
+@media screen and (max-width: 750px) {
+  .modalSuccessBuyContainer {
+    padding: 20px;
+  }
+}
+
+.modalSuccessBuyContainer h3 {
+  margin-bottom: 20px;
+
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 29px;
+  letter-spacing: 0.02em;
+}
+
+.modalSuccessBuyNumber {
+  margin-bottom: 16px;
+
+  font-family: "TT Octosquares";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0.02em;
+}
+
+.modalSuccessBuyText {
+  margin-bottom: 33px;
+  max-width: 420px;
+
+  text-align: center;
+
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  text-align: center;
+  letter-spacing: 0.02em;
+}
+
+.modalSuccessBuyButton {
+  margin-bottom: 16px;
+  width: 90%;
+  max-width: 222px;
+  height: 48px;
+  border: none;
+
+  font-family: "TT Octosquares";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0.02em;
+
+  color: #010101;
+
+  background: white;
+
+  cursor: pointer;
+}

@@ -68,6 +68,40 @@ a:hover {
     padding-top: 40px
 }
 
+.go-team__team-name {
+    width: 100%;
+    max-width: 400px;
+    margin-top: auto;
+    position: relative;
+    right: 50px;
+}
+
+.go-team__team-name.orange span {
+    position: relative;
+    color: #FF4C01;
+    -webkit-text-stroke: .16em #FF4C01;
+    -webkit-text-stroke-width: 10px;
+    font-size: 60px;
+    font-weight: 800
+}
+
+.go-team__team-name.orange span::before {
+    content: attr(data-text);
+    position: absolute;
+    -webkit-text-stroke: .02em #020553;
+    -webkit-text-stroke-width: 0px;
+    z-index: 2
+}
+
+.go-team__team-name.orange span::after {
+    content: attr(data-text);
+    position: absolute;
+    -webkit-text-stroke: .02em #020553;
+    -webkit-text-stroke-width: 6px;
+    right: 0;
+    z-index: 1
+}
+
 .go-news__about-title {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -351,6 +385,7 @@ a:hover {
 .social-content-block__item:hover>img {
     transform: scale(1.05);
 }
+
 .back-go-news__info-nav {
     background: #141414;
     width: 100%;
@@ -390,6 +425,10 @@ a:hover {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none
+}
+
+.go-news__nav-item.orange {
+    border-bottom: 4px solid #FF4C01 !important;
 }
 
 .go-news__nav-item:nth-child(3) {
@@ -598,10 +637,10 @@ a:hover {
 }
 
 .go-news__modal-block {
-    width: 65%;
-    height: 75%;
+    width: 100%;
+    max-width: 750px;
     background: #141414;
-    padding: 40px 20px 40px 40px
+    padding: 40px 20px 40px 40px;
 }
 
 .go-news__modal {
@@ -652,47 +691,6 @@ a:hover {
     position: relative
 }
 
-.go-news__modal-banner-share-links {
-    width: 40px;
-    height: -webkit-fit-content;
-    height: -moz-fit-content;
-    height: fit-content;
-    overflow: hidden;
-    position: absolute;
-    top: 41px;
-    display: none
-}
-
-.go-news__modal-banner-share-link {
-    background: #232323;
-    width: 40px;
-    height: 40px;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    margin-bottom: 1px
-}
-
-.go-news__modal-banner-txt-block {
-    max-width: -webkit-fit-content;
-    max-width: -moz-fit-content;
-    max-width: fit-content;
-    height: 100%;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-line-pack: end;
-    align-content: flex-end;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    padding: 0 10px 0px 40px
-}
 
 .go-news__modal-banner-title {
     font-style: normal;
@@ -715,23 +713,6 @@ a:hover {
     width: 100%
 }
 
-.go-news__modal-banner-date {
-    font-style: normal;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 25px;
-    letter-spacing: .02em;
-    color: rgba(255, 255, 255, .6);
-    margin-right: 15px
-}
-
-.go-news__modal-banner-hash {
-    background-color: #d19ff9;
-    padding: 6px 10px;
-    color: #000;
-    font-size: 16px;
-    line-height: 20px
-}
 
 .go-news__modal-txt {
     font-family: "Montserrat";
@@ -824,6 +805,10 @@ a:hover {
     .go-news__about-title {
         -ms-flex-wrap: wrap;
         flex-wrap: wrap
+    }
+
+    .go-team__team-name {
+        right: 0;
     }
 
     .go-news__info {
@@ -977,7 +962,7 @@ a:hover {
     }
 
     .go-news__info {
-        padding-top: 30px;
+        padding-top: 50px;
         padding-bottom: 20px
     }
 
@@ -992,8 +977,13 @@ a:hover {
         max-width: 510px
     }
 
+    .go-news__nav-item.orange {
+        font-size: 14px;
+        line-height: 22px
+    }
+
     .go-news__nav-item {
-        font-size: 16px;
+        font-size: 14px;
         line-height: 22px
     }
 
@@ -1087,8 +1077,6 @@ a:hover {
     }
 }
 
-@media(max-width: 650px) {}
-
 @media(max-width: 550px) {
     .go-news__text {
         font-size: 20px;
@@ -1123,6 +1111,15 @@ a:hover {
     .news-info__title,
     .post-info__title {
         font-size: 16px;
+    }
+
+    .go-team__team-name.orange span {
+        font-size: 20px;
+        right: 0;
+    }
+
+    .go-team__team-name {
+        width: auto;
     }
 
     .news-info__date {

@@ -26,6 +26,9 @@ if (stripos($uri, 'shop')) {
     <link rel="stylesheet" href="<?= SITE_TEMPLATE_PATH ?>/fonts/stylesheet.css">
     <link rel="stylesheet" href="<?= SITE_TEMPLATE_PATH ?>/assets/WebMaster-GO-Gohockey/Pages/Modals/main.e402885c257297da1e95.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.7/jquery.inputmask.min.js"
+    integrity="sha512-jTgBq4+dMYh73dquskmUFEgMY5mptcbqSw2rmhOZZSJjZbD2wMt0H5nhqWtleVkyBEjmzid5nyERPSNBafG4GQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title><?$APPLICATION -> ShowTitle();?></title>
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -115,6 +118,7 @@ if (stripos($uri, 'shop')) {
             </a>
         </div>
         <li><a class="menu__item" href="/shop/">Магазин</a></li>
+        <li><a class="menu__item" href="/go-fight/">Бокс</a></li>
         <li><a class="menu__item" href="/contact/">Контакты</a></li>
         <div style="
                         bottom: 80px;

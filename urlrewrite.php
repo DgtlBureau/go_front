@@ -72,14 +72,6 @@ $arUrlRewrite=array (
     'PATH' => '/teams/team-go/index.php',
     'SORT' => 100,
   ),
-  37 => 
-  array (
-    'CONDITION' => '#^/trainer-page/#',
-    'RULE' => '',
-    'ID' => 'bitrix:news',
-    'PATH' => '/teams/team-go/go-team.php',
-    'SORT' => 100,
-  ),
   38 => 
   array (
     'CONDITION' => '#^/shop/catalog/#',

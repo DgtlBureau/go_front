@@ -1,6 +1,6 @@
 <?
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
-
+$TEAM = 6;
 // ========================================= вывод свойств привязанного элемента
 
 $arSelect = ['ID', 'NAME', 'IBLOCK_ID', 'PREVIEW_PICTURE', 'PROPERTY_IMG'];
@@ -16,28 +16,66 @@ while($ob = $res->Fetch()){
     $arResult['DOSTIZH'][$ob['IBLOCK_ID']][$ob['ID']] = $ob;
 }
 
+$id = $arResult["ID"];
 $arFilter = Array(
     "IBLOCK_ID"=>$arParams['IBLOCK_ID'],
-    ">ID"=>$arParams['ID'],
+    ">ID"=>$id,
+	"PROPERTY_TEAM"=>$TEAM,
 );
-
-$res = CIBlockElement::GetList(Array("ID"=>"ASC"), $arFilter,false, false,  Array("ID", "PREVIEW_PICTURE", "CODE", "NAME"));
+$res = CIBlockElement::GetList(Array("ID"=>"ASC"), $arFilter,false, false,  Array("ID", "PREVIEW_PICTURE", "CODE", "ID", "NAME"));
 if ($obRes = $res->GetNextElement()) {
     $ar_fields = $obRes->GetFields();
     $pr_pic = CFile::GetFileArray($ar_fields["PREVIEW_PICTURE"]);
     $arResult['NEXT_ELEMENT']['IMG'] = CFile::GetFileArray($ar_fields["PREVIEW_PICTURE"]);
     $arResult['NEXT_ELEMENT']['CODE'] = $ar_fields['CODE'];
     $arResult['NEXT_ELEMENT']['NAME'] = $ar_fields['NAME'];
+	$arResult['NEXT_ELEMENT']['ID'] = $ar_fields['ID'];
 }
-$res = CIBlockElement::GetList(Array("ID"=>"DESC"), $arFilter,false, false,  Array("ID", "PREVIEW_PICTURE", "CODE", "NAME"));
+if(empty($arResult['NEXT_ELEMENT']['ID'])){//если первый элемент
+	$arFilter = Array(
+		"IBLOCK_ID"=>$arParams['IBLOCK_ID'],
+		"PROPERTY_TEAM"=>$TEAM,
+	);
+	$res = CIBlockElement::GetList(Array("ID"=>"ASC"), $arFilter,false, false,  Array("ID", "PREVIEW_PICTURE", "CODE", "ID", "NAME"));
+	if ($obRes = $res->GetNextElement()) {
+		$ar_fields = $obRes->GetFields();
+		$pr_pic = CFile::GetFileArray($ar_fields["PREVIEW_PICTURE"]);
+		$arResult['NEXT_ELEMENT']['IMG'] = CFile::GetFileArray($ar_fields["PREVIEW_PICTURE"]);
+		$arResult['NEXT_ELEMENT']['CODE'] = $ar_fields['CODE'];
+		$arResult['NEXT_ELEMENT']['NAME'] = $ar_fields['NAME'];
+		$arResult['NEXT_ELEMENT']['ID'] = $ar_fields['ID'];
+	}
+}
+$arFilter = Array(
+    "IBLOCK_ID"=>$arParams['IBLOCK_ID'],
+    "<ID"=>$id,
+	"PROPERTY_TEAM"=>$TEAM,
+);
+$res = CIBlockElement::GetList(Array("ID"=>"DESC"), $arFilter,false, false,  Array("ID", "PREVIEW_PICTURE", "CODE", "ID", "NAME"));
 if ($obRes = $res->GetNextElement()) {
     $ar_fields = $obRes->GetFields();
-    $pr_pic = CFile::GetFileArray($ar_fields["PREVIEW_PICTURE"]);
+	$pr_pic = CFile::GetFileArray($ar_fields["PREVIEW_PICTURE"]);
     $arResult['PREV_ELEMENT']['IMG'] = CFile::GetFileArray($ar_fields["PREVIEW_PICTURE"]);
     $arResult['PREV_ELEMENT']['CODE'] = $ar_fields['CODE'];
     $arResult['PREV_ELEMENT']['NAME'] = $ar_fields['NAME'];
+	$arResult['PREV_ELEMENT']['ID'] = $ar_fields['ID'];
 }
-
+if(empty($arResult['PREV_ELEMENT']['ID'])){//если первый элемент
+	$arFilter = Array(
+		"IBLOCK_ID"=>$arParams['IBLOCK_ID'],
+		"PROPERTY_TEAM"=>$TEAM,
+	);
+	$res = CIBlockElement::GetList(Array("ID"=>"DESC"), $arFilter,false, false,  Array("ID", "PREVIEW_PICTURE", "CODE", "ID", "NAME"));
+	if ($obRes = $res->GetNextElement()) {
+		$ar_fields = $obRes->GetFields();
+		$pr_pic = CFile::GetFileArray($ar_fields["PREVIEW_PICTURE"]);
+		$arResult['PREV_ELEMENT']['IMG'] = CFile::GetFileArray($ar_fields["PREVIEW_PICTURE"]);
+		$arResult['PREV_ELEMENT']['CODE'] = $ar_fields['CODE'];
+		$arResult['PREV_ELEMENT']['NAME'] = $ar_fields['NAME'];
+		$arResult['PREV_ELEMENT']['ID'] = $ar_fields['ID'];
+	}
+}
+	
 foreach($arResult["DOSTIZH"][19] as $arDOSTIZH) {
             $arFilter = Array("IBLOCK_ID"=>19, "ID"=>$arDOSTIZH["ID"]);
             $res_dostizh = CIBlockElement::GetList(Array(), $arFilter); // с помощью метода CIBlockElement::GetList вытаскиваем все значения из нужного элемента

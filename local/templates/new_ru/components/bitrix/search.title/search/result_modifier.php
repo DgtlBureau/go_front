@@ -14,6 +14,7 @@ $arCatalogs = false;
 
 $arResult["ELEMENTS"] = array();
 $arResult["SEARCH"] = array();
+
 foreach($arResult["CATEGORIES"] as $category_id => $arCategory)
 {
 	foreach($arCategory["ITEMS"] as $i => $arItem)
@@ -53,6 +54,30 @@ foreach($arResult["CATEGORIES"] as $category_id => $arCategory)
 	}
 }
 
+foreach($arResult["SEARCH"] as $i=>$arItem)
+{
+    switch($arItem["MODULE_ID"])
+    {
+        case "iblock":
+            if(array_key_exists($arItem["ITEM_ID"], $arResult["ELEMENTS"]))
+            {
+                $arElement = &$arResult["ELEMENTS"][$arItem["ITEM_ID"]];
+
+                if ($arParams["SHOW_PREVIEW"] == "Y")
+                {
+                    if ($arElement["PREVIEW_PICTURE"] > 0)
+                        $arElement["PICTURE"] = CFile::ResizeImageGet($arElement["PREVIEW_PICTURE"], array("width"=>$PREVIEW_WIDTH, "height"=>$PREVIEW_HEIGHT), BX_RESIZE_IMAGE_PROPORTIONAL, true);
+                    elseif ($arElement["DETAIL_PICTURE"] > 0)
+                        $arElement["PICTURE"] = CFile::ResizeImageGet($arElement["DETAIL_PICTURE"], array("width"=>$PREVIEW_WIDTH, "height"=>$PREVIEW_HEIGHT), BX_RESIZE_IMAGE_PROPORTIONAL, true);
+                }
+            }
+            break;
+    }
+
+    $arResult["SEARCH"][$i]["ICON"] = true;
+}
+
+// по названию
 if (!empty($arResult["ELEMENTS"]) && CModule::IncludeModule("iblock"))
 {
 	$arConvertParams = array();
@@ -89,11 +114,17 @@ if (!empty($arResult["ELEMENTS"]) && CModule::IncludeModule("iblock"))
 		$arResult["PRICES"] = array();
 
 	$arSelect = array(
-		"ID",
-		"IBLOCK_ID",
-		"PREVIEW_TEXT",
-		"PREVIEW_PICTURE",
-		"DETAIL_PICTURE",
+        "ID",
+        'NAME',
+        "IBLOCK_ID",
+        'ELEMENT_CODE',
+        'SECTION_CODE',
+        "PREVIEW_TEXT",
+        "PREVIEW_PICTURE",
+        "DETAIL_PICTURE",
+        "DETAIL_PAGE_URL",
+        "ACTIVE_FROM",
+        "PROPERTY_ARTICLE",
 	);
 	$arFilter = array(
 		"IBLOCK_LID" => SITE_ID,
@@ -113,7 +144,7 @@ if (!empty($arResult["ELEMENTS"]) && CModule::IncludeModule("iblock"))
 	$arFilter["=ID"] = $arResult["ELEMENTS"];
 	$arResult["ELEMENTS"] = array();
 	$rsElements = CIBlockElement::GetList(array(), $arFilter, false, false, $arSelect);
-	while($arElement = $rsElements->Fetch())
+	while($arElement = $rsElements->GetNext())
 	{
 		$arElement["PRICES"] = array();
 		if ($arElement["CATALOG_TYPE"] != \Bitrix\Catalog\ProductTable::TYPE_SKU || $useCatalogTab)
@@ -121,29 +152,103 @@ if (!empty($arResult["ELEMENTS"]) && CModule::IncludeModule("iblock"))
 		if($arParams["PREVIEW_TRUNCATE_LEN"] > 0)
 			$arElement["PREVIEW_TEXT"] = $obParser->html_cut($arElement["PREVIEW_TEXT"], $arParams["PREVIEW_TRUNCATE_LEN"]);
 
+        if ($arParams["SHOW_PREVIEW"] == "Y")
+        {
+            if ($arElement["PREVIEW_PICTURE"] > 0)
+                $arElement["PICTURE"] = CFile::ResizeImageGet($arElement["PREVIEW_PICTURE"], array("width"=>$PREVIEW_WIDTH, "height"=>$PREVIEW_HEIGHT), BX_RESIZE_IMAGE_PROPORTIONAL, true);
+            elseif ($arElement["DETAIL_PICTURE"] > 0)
+                $arElement["PICTURE"] = CFile::ResizeImageGet($arElement["DETAIL_PICTURE"], array("width"=>$PREVIEW_WIDTH, "height"=>$PREVIEW_HEIGHT), BX_RESIZE_IMAGE_PROPORTIONAL, true);
+        }
+
+
 		$arResult["ELEMENTS"][$arElement["ID"]] = $arElement;
 	}
 }
 
-foreach($arResult["SEARCH"] as $i=>$arItem)
-{
-	switch($arItem["MODULE_ID"])
-	{
-		case "iblock":
-			if(array_key_exists($arItem["ITEM_ID"], $arResult["ELEMENTS"]))
-			{
-				$arElement = &$arResult["ELEMENTS"][$arItem["ITEM_ID"]];
+// по артиклу
+if (!$arResult["SEARCH"] && is_numeric($arResult['query'])) {
 
-				if ($arParams["SHOW_PREVIEW"] == "Y")
-				{
-					if ($arElement["PREVIEW_PICTURE"] > 0)
-						$arElement["PICTURE"] = CFile::ResizeImageGet($arElement["PREVIEW_PICTURE"], array("width"=>$PREVIEW_WIDTH, "height"=>$PREVIEW_HEIGHT), BX_RESIZE_IMAGE_PROPORTIONAL, true);
-					elseif ($arElement["DETAIL_PICTURE"] > 0)
-						$arElement["PICTURE"] = CFile::ResizeImageGet($arElement["DETAIL_PICTURE"], array("width"=>$PREVIEW_WIDTH, "height"=>$PREVIEW_HEIGHT), BX_RESIZE_IMAGE_PROPORTIONAL, true);
-				}
-			}
-			break;
-	}
+    $arConvertParams = array();
+    if ('Y' == $arParams['CONVERT_CURRENCY'])
+    {
+        if (!CModule::IncludeModule('currency'))
+        {
+            $arParams['CONVERT_CURRENCY'] = 'N';
+            $arParams['CURRENCY_ID'] = '';
+        }
+        else
+        {
+            $arCurrencyInfo = CCurrency::GetByID($arParams['CURRENCY_ID']);
+            if (!(is_array($arCurrencyInfo) && !empty($arCurrencyInfo)))
+            {
+                $arParams['CONVERT_CURRENCY'] = 'N';
+                $arParams['CURRENCY_ID'] = '';
+            }
+            else
+            {
+                $arParams['CURRENCY_ID'] = $arCurrencyInfo['CURRENCY'];
+                $arConvertParams['CURRENCY_ID'] = $arCurrencyInfo['CURRENCY'];
+            }
+        }
+    }
 
-	$arResult["SEARCH"][$i]["ICON"] = true;
+    $useCatalogTab = (string)\Bitrix\Main\Config\Option::get('catalog', 'show_catalog_tab_with_offers') == 'Y';
+
+    $obParser = new CTextParser;
+
+    if (is_array($arParams["PRICE_CODE"]))
+        $arResult["PRICES"] = CIBlockPriceTools::GetCatalogPrices(0, $arParams["PRICE_CODE"]);
+    else
+        $arResult["PRICES"] = array();
+
+    CModule::IncludeModule("iblock");
+
+    $arSelect = array(
+        "ID",
+        'NAME',
+        "IBLOCK_ID",
+        'ELEMENT_CODE',
+        'SECTION_CODE',
+        "PREVIEW_TEXT",
+        "PREVIEW_PICTURE",
+        "DETAIL_PICTURE",
+        "DETAIL_PAGE_URL",
+        "ACTIVE_FROM",
+        "PROPERTY_ARTICLE",
+    );
+    $arFilter = [
+        'IBLOCK_ID' => 12,
+        'ACTIVE' => 'Y',
+        'PROPERTY_ARTICLE' => $arResult['query']
+    ];
+
+
+    foreach($arResult["PRICES"] as $value)
+    {
+        if (!$value['CAN_VIEW'] && !$value['CAN_BUY'])
+            continue;
+        $arSelect[] = $value["SELECT"];
+        $arFilter["CATALOG_SHOP_QUANTITY_".$value["ID"]] = 1;
+    }
+
+    $rsElements = CIBlockElement::GetList(array(), $arFilter, false, false, $arSelect);
+    while($arElement = $rsElements->GetNext())
+    {
+        $arElement["PRICES"] = array();
+        if ($arElement["CATALOG_TYPE"] != \Bitrix\Catalog\ProductTable::TYPE_SKU || $useCatalogTab)
+            $arElement["PRICES"] = CIBlockPriceTools::GetItemPrices($arElement["IBLOCK_ID"], $arResult["PRICES"], $arElement, $arParams['PRICE_VAT_INCLUDE'], $arConvertParams);
+
+
+        if ($arParams["SHOW_PREVIEW"] == "Y")
+        {
+            if ($arElement["PREVIEW_PICTURE"] > 0)
+                $arElement["PICTURE"] = CFile::ResizeImageGet($arElement["PREVIEW_PICTURE"], array("width"=>$PREVIEW_WIDTH, "height"=>$PREVIEW_HEIGHT), BX_RESIZE_IMAGE_PROPORTIONAL, true);
+            elseif ($arElement["DETAIL_PICTURE"] > 0)
+                $arElement["PICTURE"] = CFile::ResizeImageGet($arElement["DETAIL_PICTURE"], array("width"=>$PREVIEW_WIDTH, "height"=>$PREVIEW_HEIGHT), BX_RESIZE_IMAGE_PROPORTIONAL, true);
+        }
+
+        $arResult["ELEMENTS"][$arElement['ID']] = $arElement;
+    }
 }
+
+//\Bitrix\Main\Diag\Debug::writeToFile($arResult, '$arResult', 'denis.log');

@@ -25,35 +25,35 @@ use \Bitrix\Main\Localization\Loc;
  */
 
 $resize_image = CFile::ResizeImageGet($item["PREVIEW_PICTURE"]['ID'],
-    array("width" => 440, "height" => 490),
+    array("width" => 465, "height" => 520),
     BX_RESIZE_IMAGE_EXACT, false);
 ?>
-    <a class="products__item" href="<?= $item['DETAIL_PAGE_URL'] ?>">
-
-        <div href="<?= $item['DETAIL_PAGE_URL'] ?>" class="shop__swiper-item-image scale">
-            <div class="shop__swiper-item-like">
-                <img src="<?= SITE_TEMPLATE_PATH ?>/img/like.svg" alt="like">
-                <img class="like-active hide" src="<?= SITE_TEMPLATE_PATH ?>/img/full_like.svg" alt="full_like">
-            </div>
+    <div class="shop__swiper-item-image scale">
+        <div class="shop__swiper-item-like">
+            <img src="<?= SITE_TEMPLATE_PATH ?>/img/like.svg" alt="like">
+            <img class="like-active hide" src="<?= SITE_TEMPLATE_PATH ?>/img/full_like.svg" alt="full_like">
+        </div>
+        <a href="<?= $item['DETAIL_PAGE_URL'] ?>">
+            <img src="<?= $resize_image["src"] ?>" alt="<?= $imgTitle ?>">
+        </a>
+    </div>
+    <div class="shop__swiper-item-footer">
+        <div class="shop__swiper-item-txt">
             <a href="<?= $item['DETAIL_PAGE_URL'] ?>">
-                <img src="<?= $resize_image["src"] ?>" alt="<?= $imgTitle ?>">
+                <div class="shop__swiper-item-name"><?= $item['NAME'] ?></div>
+                <div class="shop__swiper-item-price"><?= $item['PRICES']['BASE']['PRINT_VALUE_VAT'] ?>
+                    <? if ($item['PROPERTIES']['OLD_PRICE']['VALUE'] > 0): ?>
+                        <del class="shop__swiper-item-old-price"><?= $item['PROPERTIES']['OLD_PRICE']['VALUE'] . ' ₽' ?></del>
+                    <? endif; ?>
+                </div>
             </a>
         </div>
-        <div class="shop__swiper-item-footer">
-            <div class="shop__swiper-item-txt">
-                <div class="shop__swiper-item-name"><?= $item['NAME'] ?></div>
-                <div class="shop__swiper-item-price"><?= $item['PRICES']['BASE']['PRINT_VALUE_VAT'] ?></div>
-                <? if ($item['PROPERTIES']['OLD_PRICE']['VALUE'] > 0): ?>
-                    <del class="shop__swiper-item-old-price">2 500 ₽</del>
-                <? endif; ?>
-            </div>
-            <div class="shop__swiper-item-basket" href="#">
+        <div class="shop__swiper-item-basket">
+            <a href="<?= $item['DETAIL_PAGE_URL'] ?>">
                 <img src="<?= SITE_TEMPLATE_PATH ?>/img/basket.svg" alt="basket">
-            </div>
+            </a>
         </div>
-    </a>
-
-
+    </div>
 <?
 
 // if( $USER->GetID() == 1  && $item['ID'] == 64)
@@ -64,6 +64,4 @@ $resize_image = CFile::ResizeImageGet($item["PREVIEW_PICTURE"]['ID'],
 //
 //     die();
 // }
-
-
 ?>

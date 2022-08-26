@@ -2,7 +2,7 @@
 $aMenuLinks = Array(
 	Array(
 		"Команда", 
-		"",
+		"", 
 		Array(), 
 		Array(), 
 		"" 
@@ -10,6 +10,13 @@ $aMenuLinks = Array(
 	Array(
 		"Магазин", 
 		"/shop/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Бокс", 
+		"/go-fight/", 
 		Array(), 
 		Array(), 
 		"" 

@@ -65,3 +65,12 @@
         grid-template-columns: 1fr;
     }
 }
+
+.go-news__modal-banner-hash {
+    background-color: #d19ff9;
+    padding: 6px 10px;
+    color: #000;
+    font-size: 16px;
+    line-height: 20px;
+    margin-right: 8px;
+}

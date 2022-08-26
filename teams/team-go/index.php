@@ -18,7 +18,9 @@ if(!empty($ar_header_values["MATCH"]["VALUE"])){
 		$mach_header_fields = $ar_res->GetFields(); 
 	}
 }	
-$uri = $APPLICATION->GetCurUri();
+//$uri = $APPLICATION->GetCurUri();
+$uri = $APPLICATION->GetCurDir();
+
 switch($uri) {
     case '/teams/team-go/tournament/':
         $APPLICATION->SetAdditionalCSS("/local/templates/new_ru/assets/WebMaster-GO-Gohockey/Pages/GoTournament/main.3c3fd34d3a94dbd7106e.css");

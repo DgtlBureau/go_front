@@ -12,7 +12,8 @@ use Bitrix\Main\Localization\Loc;
 	if (!empty($arParams['EMPTY_BASKET_HINT_PATH']))
 	{
 		?>
-		<div class="bx-sbb-empty-cart-desc">
+        <div class="bx-sbb-empty-cart-desc">Но это легко исправить :)</div>
+        <div class="bx-sbb-empty-cart-desc">
 			<?=Loc::getMessage(
 				'SBB_EMPTY_BASKET_HINT',
 				[

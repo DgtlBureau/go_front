@@ -211,7 +211,6 @@ if (empty($arResult['ERROR_MESSAGE']))
 		</div>
 
 		<div class="basket_product">
-			<div class="">
 				<div class="basket-items-list-wrapper basket-items-list-wrapper-height-fixed basket-items-list-wrapper-light<?=$displayModeClass?>"
 					id="basket-items-list-wrapper">
 					<div class="basket-items-list-header" data-entity="basket-items-list-header">
@@ -249,7 +248,6 @@ if (empty($arResult['ERROR_MESSAGE']))
 						</div>
 					</div>
 				</div>
-			</div>
 		</div>
 
 		<?
@@ -343,3 +341,26 @@ else
 }
 ?>
 </div>
+
+
+<div class="product-delete__modal hide" id="product-delete__modal">
+    <div class="product-delete__content">
+        <div class="product-delete__title-block">
+            <div class="product-delete__title">Удалить товар</div>
+            <div class="product-delete__close-btn">x</div>
+        </div>
+        <div class="product-delete__info">
+            Вы действительно хотите удалить выбранные товары?
+        </div>
+        <div class="product-delete__btn-block">
+            <div class="product-delete__btn delete-confirm">
+                <div class="product-delete__btn-txt">Удалить</div>
+            </div>
+            <div class="product-delete__btn delete-cancel">
+                <div class="product-delete__btn-txt">Отменить</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

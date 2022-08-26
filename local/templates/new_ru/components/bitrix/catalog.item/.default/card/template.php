@@ -29,7 +29,6 @@ $resize_image = CFile::ResizeImageGet($item["PREVIEW_PICTURE"]['ID'],
 //echo '<pre>';
 //print_r($item['PROPERTIES']['HIT']);
 //echo '<pre>';
-//die();
 ?>
 
     <a class="products__item" href="<?= $item['DETAIL_PAGE_URL'] ?>">
@@ -62,12 +61,18 @@ $resize_image = CFile::ResizeImageGet($item["PREVIEW_PICTURE"]['ID'],
                 <div class="products__item-name"><?= $item['NAME'] ?></div>
                 <div class="products__item-price">
                     <?
+
+
                     if (empty($arResult['ITEM']['OFFERS'])) {
                         foreach ($item["ITEM_PRICES"] as $key => $price) {
                             echo $price["PRINT_RATIO_BASE_PRICE"];
                         }
                     } else {
-                        echo $arResult['ITEM']['OFFERS'][0]['PRICES']['BASE']['PRINT_VALUE'];
+//                        echo '<pre>';
+//                        print_r($arResult['ITEM']['OFFERS']);
+//                        echo '<pre>';
+
+                        echo $arResult['ITEM']['OFFERS'][0]['ITEM_PRICES'][0]['PRINT_RATIO_BASE_PRICE'];
                     }
                     ?>
                 </div>

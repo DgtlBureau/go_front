@@ -9,17 +9,37 @@ $component = $this->getComponent();
 $arParams = $component->applyTemplateModifications();
 
 
-// список игроков для печати
 if (!empty($arResult['PROPERTIES']['TEAM']['VALUE'])):
+
+    // get id property by code
     $iterator = \Bitrix\Iblock\PropertyTable::query()
         ->setFilter([
-            ['IBLOCK.CODE' => 'players', 'CODE' => ['TEAM', 'NUMBER']],
+            ['IBLOCK.CODE' => ['players', 'teams'], 'CODE' => ['TEAM', 'NUMBER', 'TEAM_COLOR']],
         ])
         ->setSelect(['ID', 'CODE'])
         ->exec();
     while ($arCode = $iterator->fetch())
         $mapCode[$arCode['CODE']] = $arCode['ID'];
 
+
+    // цвета команды
+    $iterator = \Bitrix\Iblock\PropertyEnumerationTable::query()
+        ->setFilter([
+            'PROPERTY.CODE' => 'TEAM_COLOR',
+        ])
+        ->setSelect(['XML_ID', 'VALUE', 'ID'])
+        ->exec();
+    while ($color = $iterator->fetch())
+        $mapColor[$color['ID']] = $color['XML_ID'];
+
+    $colorValue = \Bitrix\Iblock\ElementPropertyTable::query()
+        ->setFilter(['IBLOCK_ELEMENT_ID' => $arResult['PROPERTIES']['TEAM']['VALUE'], 'IBLOCK_PROPERTY_ID' => $mapCode['TEAM_COLOR']])
+        ->setSelect(['VALUE'])
+        ->fetch()['VALUE'];
+
+    $arResult['TEAM_COLOR'] = $mapColor[$colorValue];
+
+    // список игроков для печати
     $iterator = \Bitrix\Iblock\ElementTable::query()
         ->registerRuntimeField(
             '',
@@ -55,14 +75,15 @@ if (!empty($arResult['PROPERTIES']['TEAM']['VALUE'])):
         ->setOrder(['NAME' => 'ASC'])
         ->exec();
 
-    while ($player = $iterator->fetch()){
+    while ($player = $iterator->fetch()) {
         $temp = explode(' ', $player['FIO']);
 
-        $player['NAME'] =  trim($temp[0]);
-        $player['LAST_NAME'] =  trim($temp[1]);
-
+        $player['NAME'] = trim($temp[0]);
+        $player['LAST_NAME'] = trim($temp[1]);
         $arResult['PLAYERS'][] = $player;
+
+//    echo '<pre>';
+//    print_r($arResult);
+//    echo '</pre>';
     }
-
-
 endif;

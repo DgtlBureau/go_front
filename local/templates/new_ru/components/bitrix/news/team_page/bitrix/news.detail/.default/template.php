@@ -12,23 +12,29 @@
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
 //echo '<pre>'; print_r($arResult); echo '</pre>';
- 
 
-$this->addExternalCss("/team-page/style.css");
-$this->addExternalJS("/team-page/index.js");
+//$this->addExternalCss("/teams/team-go/players/style.css");
+$TEAM = 6;
 ?>
-
- 
-<div class="<?if($arResult["PROPERTIES"]["TEAM"]["VALUE"] == 6):?>back-go-banner<?else:?>blue-go-banner<?endif;?>">
+<div class="<?if($TEAM == 6):?>back-go-banner<?else:?>blue-go-banner<?endif;?>">
 
     <div class="container">
         <div class="go-banner">
             <div class="back-logo"></div>
             <div class="go-banner__container">
-                <div class="go-banner__image"><img src="<?=$arResult["DETAIL_PICTURE"]["SRC"];?>" alt="<?=$arResult["NAME"];?>"></div>
+                <div class="go-banner__image">
+					<?$renderImage = CFile::ResizeImageGet($arResult["DETAIL_PICTURE"], array('width'=>435, 'height'=>490), BX_RESIZE_IMAGE_PROPORTIONAL, true);?>
+					<img src="<?=$renderImage["src"]?>" alt="<?=$arResult["NAME"];?>">
+				</div>
                 <div class="go-banner__info-block">
                     <div class="go-banner__info">
-                        <div class="go-banner__title"><?=$arResult["NAME"];?></div>
+                        <div class="go-banner__title"><?=$arResult["NAME"];?>
+						<?// Номер игрока ?>
+							<?if(!empty($arResult["PROPERTIES"]["NUMBER"]["VALUE"])):?>
+								<div style="float:right;"><?=$arResult["PROPERTIES"]["NUMBER"]["VALUE"];?></div>
+							<?endif;?>
+						</div>
+						<?//Параметры игрока ?>
                         <div class="go-banner__characteristics">
                             <div class="go-banner__char-section">
                                 <?if(!empty($arResult["PROPERTIES"]["POSITION"]["VALUE"])) { ?>
@@ -41,16 +47,21 @@ $this->addExternalJS("/team-page/index.js");
                                     <div class="go-banner__meaning"><?=$arResult["PROPERTIES"]["KHVAT"]["VALUE"];?></div>
                                 </div>
                                 <?}?>
-                            </div>
-                            <div class="go-banner__char-section">
-                                <?if(!empty($arResult["PROPERTIES"]["QUALIFICATION"]["VALUE"])) { ?>
+								<?if(!empty($arResult["PROPERTIES"]["QUALIFICATION"]["VALUE"])) { ?>
                                 <div class="go-banner__char-item"><span class="go-banner__key"><?=$arResult["PROPERTIES"]["QUALIFICATION"]["NAME"];?></span>
                                     <div class="go-banner__meaning"><?=$arResult["PROPERTIES"]["QUALIFICATION"]["VALUE"];?></div>
                                 </div>
                                 <?}?>
+                            </div>
+                            <div class="go-banner__char-section">
                                 <?if(!empty($arResult["PROPERTIES"]["HEIGHT"]["VALUE"])) { ?>
                                 <div class="go-banner__char-item"><span class="go-banner__key"><?=$arResult["PROPERTIES"]["HEIGHT"]["NAME"];?></span>
                                     <div class="go-banner__meaning"><?=$arResult["PROPERTIES"]["HEIGHT"]["VALUE"];?></div>
+                                </div>
+                                <?}?>
+								<?if(!empty($arResult["PROPERTIES"]["DATE"]["VALUE"])) { ?>
+                                <div class="go-banner__char-item"><span class="go-banner__key"><?=$arResult["PROPERTIES"]["DATE"]["NAME"];?></span>
+                                    <div class="go-banner__meaning"><?=$arResult["PROPERTIES"]["DATE"]["VALUE"];?></div>
                                 </div>
                                 <?}?>
                             </div>
@@ -104,13 +115,13 @@ $this->addExternalJS("/team-page/index.js");
         <div class="stat_title">
             <h1 class="stat_h1">Достижения</h1>
         </div>
-       
         <div class="achievements-block">
             <div class="achievements-block__text-block">
                 <div class="achievements-block__text">
                     <?=$arResult['DETAIL_TEXT']?>
                 </div>
             </div>
+			<?// Достижения должны выводится по 2 в строчку?>
             <div class="achievements-block__achievements">
                 <?foreach($arResult['DOSTIZH']['SEASONS'] as $keySeason => $arDOSTIZH):?> 
                     <?foreach($arDOSTIZH as $arItemDOSTIZH):?>
@@ -142,6 +153,7 @@ $this->addExternalJS("/team-page/index.js");
         <div class="variable-block">
             <div class="variable">
                 <?foreach($arResult["DISPLAY_PROPERTIES"]["GALARY"]["FILE_VALUE"] as $arSlider):?>
+				<?//$renderSlider = CFile::ResizeImageGet($arSlider, array('width'=>424, 'height'=>300), BX_RESIZE_IMAGE_EXACT, true);?>
                 <div class="slider_img popup-open">
                     <img src="<?=$arSlider["SRC"];?>" alt="слайд">
                 </div>
@@ -151,7 +163,7 @@ $this->addExternalJS("/team-page/index.js");
         <div class="popup-fade">
             <div class="popup">
                 <a class="popup-close" href="#"><img src="<?=SITE_TEMPLATE_PATH?>/img/exit.png" alt="закрыть"></a>
-                <div class="popup-img">
+                <div class="popup-img" style="text-align:center;">
 
                 </div>
             </div>		
@@ -163,7 +175,7 @@ $this->addExternalJS("/team-page/index.js");
     <div class="container">
         <div class="nav_team">
             <div class="nav_items">
-                    <a class="left_item" href="/team-page/<?=$arResult['PREV_ELEMENT']['CODE']?>/">
+                    <a class="left_item" href="/teams/team-go/players/?ELEMENT_ID=<?=$arResult['PREV_ELEMENT']['ID']?>">
                         <div class="nav_arrow"><img src="<?=SITE_TEMPLATE_PATH?>/img/larrow.png" alt="назад"></div>
                         <div class="nav_team_img"><img src="<?=$arResult['PREV_ELEMENT']['IMG']['SRC'];?>" alt="<?=$arResult['PREV_ELEMENT']['NAME'];?>"></div>
                         <div class="team_name"><?=$arResult['PREV_ELEMENT']['NAME']?></div>
@@ -171,7 +183,7 @@ $this->addExternalJS("/team-page/index.js");
                 <div class="center_item">
                     <a href="/teams/team-go/">все игроки</a>
                 </div>
-                    <a class="right_item" href="/team-page/<?=$arResult['NEXT_ELEMENT']['CODE']?>/">
+                    <a class="right_item" href="/teams/team-go/players/?ELEMENT_ID=<?=$arResult['NEXT_ELEMENT']['ID']?>">
                         <div class="team_name"><?=$arResult['NEXT_ELEMENT']['NAME']?></div>
                         <div class="nav_team_img"><img src="<?=$arResult['NEXT_ELEMENT']['IMG']['SRC']?>" alt="<?=$arResult['NEXT_ELEMENT']['NAME']?>"></div>
                         <div class="nav_arrow"><img src="<?=SITE_TEMPLATE_PATH?>/img/rarrow.png" alt="дальше"></div>
@@ -182,24 +194,13 @@ $this->addExternalJS("/team-page/index.js");
 </div>
 
 
-<style>
-	.go-team__info {
-    	display: none;
-	}
 
-	.go-team__info-nav {
-		display: none;
-	}
-	.go-team__line-up {
-		padding: 0;
-	}
-</style>
 
 <? 
 	if( $USER->GetID() == 1 )
 	{
 		echo '<pre>';
-		print_r($arResult);
+		//print_r($arResult['PREV_ELEMENT']);
 		echo '</pre>';
 	}
 ?>

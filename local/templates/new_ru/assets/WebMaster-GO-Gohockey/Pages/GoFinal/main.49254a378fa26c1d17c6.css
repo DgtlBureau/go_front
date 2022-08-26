@@ -33,12 +33,20 @@ a:hover {
 .go-final {
     width: 100%
 }
-.back-go-final__info{
+
+.back-go-final__info {
     background: -webkit-gradient(linear, left top, left bottom, from(#000000), color-stop(143.87%, rgba(0, 0, 0, 0))), url(/local/templates/new_ru/img/back.png) repeat-x;
     background: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 143.87%), url(/local/templates/new_ru/img/back.png) repeat-x;
     background-size: cover;
     width: 100%;
 }
+
+.blue-go-final__info {
+    background: linear-gradient(180deg, #010453 0%, rgba(8, 9, 49, 0) 150.84%), url(/local/templates/new_ru/img/back.png) repeat-x;
+    background-size: cover;
+    width: 100%;
+}
+
 .go-final__info {
     height: -webkit-fit-content;
     height: -moz-fit-content;
@@ -280,9 +288,43 @@ a:hover {
 }
 
 
-.back-go-final__info-nav{
+.back-go-final__info-nav {
     background: #141414;
     width: 100%;
+}
+
+.go-team__team-name {
+    width: 100%;
+    max-width: 400px;
+    margin-top: auto;
+    position: relative;
+    right: 50px;
+}
+
+.go-team__team-name.orange span {
+    position: relative;
+    color: #FF4C01;
+    -webkit-text-stroke: .16em #FF4C01;
+    -webkit-text-stroke-width: 10px;
+    font-size: 60px;
+    font-weight: 800
+}
+
+.go-team__team-name.orange span::before {
+    content: attr(data-text);
+    position: absolute;
+    -webkit-text-stroke: .02em #020553;
+    -webkit-text-stroke-width: 0px;
+    z-index: 2
+}
+
+.go-team__team-name.orange span::after {
+    content: attr(data-text);
+    position: absolute;
+    -webkit-text-stroke: .02em #020553;
+    -webkit-text-stroke-width: 6px;
+    right: 0;
+    z-index: 1
 }
 
 .go-final__info-nav {
@@ -319,6 +361,10 @@ a:hover {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none
+}
+
+.go-final__nav-item.orange {
+    border-bottom: 4px solid #FF4C01 !important;
 }
 
 .go-final__nav-item:nth-child(2) {
@@ -467,19 +513,10 @@ a:hover {
 }
 
 .go-final-bracket__quarter-result {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
+    display: grid;
     align-items: center;
-    max-width: 205px;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
     margin-right: 10px;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center
+    justify-content: center;
 }
 
 .go-final-bracket__game {
@@ -542,9 +579,13 @@ a:hover {
     align-items: center
 }
 
-.go-final-bracket__score_winner {
-    background: #d19ff9 !important
-}
+/*.go-final-bracket__score_winner.orange {*/
+/*    background: #FF4C01;*/
+/*}*/
+
+/*.go-final-bracket__score_winner {*/
+/*    background: #d19ff9;*/
+/*}*/
 
 .go-final-bracket__score_winner .go-final-bracket__score-txt {
     color: #010101 !important
@@ -722,11 +763,12 @@ a:hover {
     line-height: 28px;
     font-weight: 600px;
     text-align: center;
+    width: 200px;
     letter-spacing: .02em;
     margin: 40px auto 15px auto;
     height: -webkit-fit-content;
     height: -moz-fit-content;
-    height: fit-content
+    height: fit-content;
 }
 
 .semi-match-block {
@@ -739,7 +781,8 @@ a:hover {
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
     margin-top: 0 !important;
-    margin-right: 10px
+    margin-right: 10px;
+    width: min-content;
 }
 
 .championship-course__top {
@@ -793,7 +836,7 @@ a:hover {
     -ms-flex-align: center;
     align-items: center;
     border: #141414;
-    width: 192px;
+    width: 210px;
     height: 60px;
     font-weight: 400;
     font-size: 16px;
@@ -1107,7 +1150,7 @@ a:hover {
     display: none
 }
 
-@media(max-width: 1439px) {
+@media(max-width: 1700px) {
     .go-final-bracket__score {
         width: 30px;
         height: 50px
@@ -1152,22 +1195,7 @@ a:hover {
     }
 }
 
-@media(max-width: 1139px) {
-    .go-final__about-title {
-        -ms-flex-wrap: wrap;
-        flex-wrap: wrap
-    }
-
-    .go-final__info {
-        padding-bottom: 55px
-    }
-
-    .go-final__team-name {
-        right: 0
-    }
-}
-
-@media(max-width: 1140px) {
+@media(max-width: 1300px) {
     .go-final-bracket {
         padding: 0
     }
@@ -1342,6 +1370,25 @@ a:hover {
     }
 }
 
+@media(max-width: 1139px) {
+    .go-final__about-title {
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap
+    }
+
+    .go-final__info {
+        padding-bottom: 55px
+    }
+
+    .go-final__team-name {
+        right: 0
+    }
+
+    .go-team__team-name {
+        right: 0;
+    }
+}
+
 @media(max-width: 1049px) {
     .results__block {
         width: 100%
@@ -1461,7 +1508,8 @@ a:hover {
         -webkit-transform: rotate(-225deg);
         transform: rotate(-225deg)
     }
-    .championship-course__period{
+
+    .championship-course__period {
         font-size: 14px;
     }
 }
@@ -1472,13 +1520,13 @@ a:hover {
         flex-wrap: wrap
     }
 
-    .go-final__title-block{
+    .go-final__title-block {
         font-size: 29px;
         margin-top: 40px;
         margin-bottom: 20px;
     }
 
-    .go-final__arrow{
+    .go-final__arrow {
         font-size: 42px;
         line-height: 68px;
     }
@@ -1508,9 +1556,11 @@ a:hover {
     .go-final__staff-person {
         margin-right: 0;
     }
-	.go-final__swiper {
+
+    .go-final__swiper {
         width: 100%;
     }
+
     .match__block {
         margin-right: 0
     }
@@ -1521,10 +1571,25 @@ a:hover {
         -ms-flex-wrap: wrap;
         flex-wrap: wrap
     }
-    .go-final__progress{
+
+    .go-team__team-name.orange span {
+        font-size: 20px;
+    }
+
+    .go-team__team-name {
+        width: auto;
+    }
+
+    .go-final__info {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .go-final__progress {
         max-width: 100%;
         min-width: auto;
     }
+
     .go-final-bracket__mobile-result {
         padding: 0 0px
     }
@@ -1665,17 +1730,21 @@ a:hover {
         height: 100%
     }
 }
-@media screen and (max-width: 400px){
-    .back-go-final__info-nav>.container{
+
+@media screen and (max-width: 400px) {
+    .back-go-final__info-nav>.container {
         padding: 0 0;
     }
-    .go-final__nav-item{
+
+    .go-final__nav-item {
         font-size: 14px;
     }
-    .go-final-bracket__dividing-line{
+
+    .go-final-bracket__dividing-line {
         margin: 0px 5px;
     }
 }
+
 @font-face {
     font-family: generalFont;
     src: url(assets/cea1e8e8a45b9be98eac.ttf) format("truetype")
@@ -1958,4 +2027,3 @@ a:hover {
 }
 
 /*# sourceMappingURL=main.49254a378fa26c1d17c6.css.map*/
-

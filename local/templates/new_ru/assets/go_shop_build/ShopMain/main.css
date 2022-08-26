@@ -741,6 +741,7 @@ a:hover {
 
 .gender-select {
     max-width: 1920px;
+    width: 100%;
     margin-top: 55px;
     display: -webkit-box;
     display: -ms-flexbox;

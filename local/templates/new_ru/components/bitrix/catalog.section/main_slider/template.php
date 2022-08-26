@@ -189,7 +189,14 @@ if ($showTopPager)
 			$rowItems = array_splice($arResult['ITEMS'], 0, $rowData['COUNT']);
 			?>
 			<!-- <div class="row <?=$rowData['CLASS']?>" data-entity="items-row"> -->
+
+
+
+
 				<?
+
+
+
 				switch ($rowData['VARIANT'])
 				{
 					case 0:

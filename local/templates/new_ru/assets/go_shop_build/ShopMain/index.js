@@ -20,7 +20,7 @@ $('document').ready(function () {
                 {
                     breakpoint: 2460,
                     settings: {
-                        slidesToShow: 3,
+                        slidesToShow: 4,
                         slidesToScroll: 1,
                         infinite: false,
                         dots: true,

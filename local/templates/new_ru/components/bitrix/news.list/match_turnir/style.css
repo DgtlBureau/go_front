@@ -1,4 +1,3 @@
-
 .match__block {
     background: #141414;
     padding: 30px 40px;
@@ -26,11 +25,9 @@
 
 .match__versus {
     width: 100%;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
     justify-content: space-between;
     margin-bottom: 20px;
     font-weight: 600;
@@ -39,10 +36,7 @@
     text-align: right;
     letter-spacing: .02em;
     color: #fff;
-    -webkit-box-align: baseline;
-    -ms-flex-align: baseline;
-    align-items: baseline;
-    margin-top: 25px
+    margin-top: 25px;
 }
 
 .match__first-team {
@@ -81,19 +75,16 @@
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
     align-items: center;
-    width: 15%;
-    -ms-flex-pack: distribute;
-    justify-content: space-around;
+    width: 100%;
+    justify-content: center;
     font-style: normal;
     font-weight: 800;
-    font-size: 32px;
+    font-size: 26px;
     line-height: 42px;
     text-align: center;
     letter-spacing: .02em;
-    color: #fff
+    color: #fff;
 }
 
 .match__second-team {
@@ -109,8 +100,12 @@
     flex-direction: column
 }
 
-.match__second-team-name {
-    text-align: center
+.match__second-team-name,
+.match__first-team-name {
+    text-align: center;
+    font-size: 12px;
+    text-transform: lowercase;
+    white-space: nowrap;
 }
 
 .match__button {
@@ -127,8 +122,8 @@
     align-items: center;
     height: 48px;
     margin-top: 35px
-    
 }
+
 .match__button-txt {
     color: #000;
     text-align: center;
@@ -138,6 +133,7 @@
     letter-spacing: .02em;
     padding-bottom: 6px
 }
+
 .match__button-txt-arrow {
     position: absolute;
     color: #000;
@@ -177,19 +173,19 @@
 #match .block-with-matchs {
     padding: 40px 10px 40px 40px;
     -webkit-box-pack: start;
-        -ms-flex-pack: start;
-            justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
 }
 
 #match .block-with-matchs .block-with-matchs__title-block {
     margin-top: 0 !important
 }
 
-@media(max-width: 800px) {
+@media (max-width: 800px) {
     .block-with-matchs__arrow {
         -webkit-transform: rotate(-225deg);
         -ms-transform: rotate(-225deg);
-            transform: rotate(-225deg)
+        transform: rotate(-225deg)
     }
 
     .block-with-matchs__title-block {
@@ -212,32 +208,58 @@
 }
 
 @media (max-width: 768px) {
-    #match .block-with-matchs{
+    #match .block-with-matchs {
         padding: 40px 0px 40px 40px;
     }
 }
 
-@media(max-width: 700px) {
+@media (max-width: 700px) {
     .go-semi-final__swiper button {
         display: none !important
     }
-    .block-with-matchs__swiper-block{
+
+    .block-with-matchs__swiper-block {
         width: 100%;
     }
-    #match .block-with-matchs{
+
+    #match .block-with-matchs {
         padding: 40px 0px 40px 10px;
     }
 }
-@media(max-width: 609px) {
+
+@media (max-width: 609px) {
     .main-news__item {
         margin: 0
     }
-    #match .block-with-matchs{
+
+    .match__block {
+        margin-right: 0px;
+    }
+
+    #match .block-with-matchs {
         padding: 40px 0px 20px 10px;
     }
 }
-@media(max-width: 400px) {
-    #match .block-with-matchs{
+
+@media (max-width: 400px) {
+    #match .block-with-matchs {
         padding: 40px 0px 0px 10px;
     }
+}
+
+@media (max-width: 500px) {
+    .match__block {
+        padding: 20px 20px;
+        margin-right: 0px;
+    }
+}
+
+.go-final__progress-background.orange,
+.go-news__progress-background.orange,
+.go-tournament__progress-background.orange {
+    background: url(/local/templates/new_ru/img/bull_orang.png) no-repeat;
+    background-size: 278px;
+    height: 278px;
+    width: 100%;
+    background-position-x: center;
 }

@@ -175,9 +175,11 @@ if (!empty($arParams['LABEL_PROP_POSITION'])) {
                 </div>
                 <div class="product-added__txt">
                     <div class="product-added__name"><?= $name ?></div>
-                    <div class="product-added__article">
-                        Артикул: <?= $arResult['PROPERTIES']['ARTICLE']['VALUE'] ?></div>
-                    <div class="product-added__size">Размер: S</div>
+                    <? if (!empty($arResult['PROPERTIES']['ARTICLE']['VALUE'])) : ?>
+                        <div class="product-added__article">
+                            Артикул: <?= $arResult['PROPERTIES']['ARTICLE']['VALUE'] ?></div>
+                        <div class="product-added__size"></div>
+                    <? endif; ?>
                 </div>
                 <div class="product-added__price-block">
                     <div class="product-added__price"><?= $price['PRINT_RATIO_PRICE'] ?></div>
@@ -193,10 +195,10 @@ if (!empty($arParams['LABEL_PROP_POSITION'])) {
             </div>
         </div>
     </div>
-    <a class="go-back-bnt" href="/shop/catalog/">
-        <div class="go-back-arrow">←</div>
-        <div class="go-back-txt">В каталог</div>
-    </a>
+    <!--    <a class="go-back-bnt" href="/shop/catalog/">-->
+    <!--        <div class="go-back-arrow">←</div>-->
+    <!--        <div class="go-back-txt">В каталог</div>-->
+    <!--    </a>-->
 
     <div class="shop__card-products card-products" id="<?= $itemIds['ID'] ?>" itemscope
          itemtype="http://schema.org/Product">
@@ -204,7 +206,7 @@ if (!empty($arParams['LABEL_PROP_POSITION'])) {
             <div class="slider-for">
                 <? foreach ($actualItem['MORE_PHOTO'] as $key => $photo): ?>
                     <div class="card-products__gallery-image <?= ($key == 0) ? 'main_image' : '' ?>">
-                        <?= ($key == 0) ? '<span class="custom_label_preview"></span>' : '' ?>
+                        <?= ($key == 0) ? '<span class="custom_label_preview" style="color: ' . $arResult['TEAM_COLOR'] . '"></span>' : '' ?>
                         <img src="<?= $photo['SRC'] ?>">
                     </div>
                 <? endforeach ?>
@@ -250,42 +252,49 @@ if (!empty($arParams['LABEL_PROP_POSITION'])) {
                                             'VALUES_COUNT' => $skuProperty['VALUES_COUNT']
                                         );
 
+//                                        echo '<pre>';
+//                                        print_r($arResult['PLAYERS']);
+//                                        echo '</pre>';
 
                                         ?>
                                         <div class="card-products__size-selection-block"
                                              data-entity="sku-line-block">
                                             <div class="card-products__size-selection-title">
-                                                <?= ($skuProperty['CODE'] == 'SIZE') ? 'Выберите размер' : htmlspecialcharsEx($skuProperty['NAME']) ?></div>
-                                            <?php
-                                            foreach ($skuProperty['VALUES'] as &$value) {
-                                                $value['NAME'] = htmlspecialcharsbx($value['NAME']);
+                                                <?= ($skuProperty['CODE'] == 'SIZE') ? 'Выберите размер' : htmlspecialcharsEx($skuProperty['NAME']) ?>
+                                            </div>
+                                            <div class="card-products__size-selection">
+                                                <?php
+                                                foreach ($skuProperty['VALUES'] as &$value) {
+                                                    $value['NAME'] = htmlspecialcharsbx($value['NAME']);
 
-                                                if ($skuProperty['SHOW_MODE'] === 'PICT') {
-                                                    ?>
-                                                    <div class="product-item-scu-item-text-container"
-                                                         title="<?= $value['NAME'] ?>"
-                                                         data-treevalue="<?= $propertyId ?>_<?= $value['ID'] ?>"
-                                                         data-onevalue="<?= $value['ID'] ?>">
-                                                        <div class="product-item-scu-item-color-block">
-                                                            <div class="product-item-scu-item-color"
-                                                                 title="<?= $value['NAME'] ?>"
-                                                                 style="background-image: url('<?= $value['PICT']['SRC'] ?>');">
+                                                    if ($skuProperty['SHOW_MODE'] === 'PICT') {
+
+                                                        ?>
+                                                        <div class="product-item-scu-item-text-container"
+                                                             title="<?= $value['NAME'] ?>"
+                                                             data-treevalue="<?= $propertyId ?>_<?= $value['ID'] ?>"
+                                                             data-onevalue="<?= $value['ID'] ?>">
+                                                            <div class="product-item-scu-item-color-block">
+                                                                <div class="product-item-scu-item-color"
+                                                                     title="<?= $value['NAME'] ?>"
+                                                                     style="background-image: url('<?= $value['PICT']['SRC'] ?>');">
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <?php
-                                                } else {
-                                                    ?>
-                                                    <div class="product-item-scu-item-text-container"
-                                                         title="<?= $value['NAME'] ?>"
-                                                         data-treevalue="<?= $propertyId ?>_<?= $value['ID'] ?>"
-                                                         data-onevalue="<?= $value['ID'] ?>">
-                                                        <div class="card-products__size-selection-item"><?= $value['NAME'] ?></div>
-                                                    </div>
-                                                    <?php
+                                                        <?php
+                                                    } else {
+                                                        ?>
+                                                        <div class="product-item-scu-item-text-container card-products__size-selection-item"
+                                                             title="<?= $value['NAME'] ?>"
+                                                             data-treevalue="<?= $propertyId ?>_<?= $value['ID'] ?>"
+                                                             data-onevalue="<?= $value['ID'] ?>">
+                                                            <?= $value['NAME'] ?>
+                                                        </div>
+                                                        <?php
+                                                    }
                                                 }
-                                            }
-                                            ?>
+                                                ?>
+                                            </div>
                                         </div>
                                         <?php
                                     }
@@ -300,7 +309,7 @@ if (!empty($arParams['LABEL_PROP_POSITION'])) {
                             if (!empty($arResult['DISPLAY_PROPERTIES']) || $arResult['SHOW_OFFERS_PROPS']) {
                                 ?>
 
-                                <div class="product-item-detail-info-container" >
+                                <div class="product-item-detail-info-container">
                                     <?php
                                     if (!empty($arResult['DISPLAY_PROPERTIES'])) {
                                         ?>
@@ -350,20 +359,22 @@ if (!empty($arParams['LABEL_PROP_POSITION'])) {
                                 <option>Ваша подпись</option>
                                 <? foreach ($arResult['PLAYERS'] as $PLAYER): ?>
                                     <option data-number="<?= $PLAYER['NUMBER'] ?>"
-                                            data-surname="<?= $PLAYER['LAST_NAME'] ?>">
+                                            data-surname="<?= $PLAYER['LAST_NAME'] ?>"
+                                            data-color="<?= $PLAYER['COLOR'] ?>">
                                         <?= $PLAYER['FIO'] . ' #' . $PLAYER['NUMBER'] ?>
                                     </option>
                                 <? endforeach; ?>
                             </select></div>
-                        <div class="card-products__inputs custom_label">
+                        <div class="card-products__inputs custom_label"
+                             data-team-color="<?= $arResult['TEAM_COLOR'] ?>">
                             <div class="card-products__inputs-item surname">
                                 <input class="card-products__input surname_input" placeholder="Фамилия">
-                                <input type="hidden" class="surname_input" name="surname">
+                                <input type="hidden" class="surname_input" name="PROPS[JERCY_TEXT]">
 
                             </div>
                             <div class="card-products__inputs-item number">
                                 <input class="card-products__input number_input" placeholder="Номер">
-                                <input type="hidden" class="number_input" name="number">
+                                <input type="hidden" class="number_input" name="PROPS[JERCY_NUMBER]">
                             </div>
                         </div>
                     </div>
@@ -1149,124 +1160,130 @@ if (!empty($arParams['LABEL_PROP_POSITION'])) {
             </div>
         </div>
         <!--Small Card-->
-        <div class="product-item-detail-short-card-fixed hidden-xs" id="<?= $itemIds['SMALL_CARD_PANEL_ID'] ?>">
-            <div class="product-item-detail-short-card-content-container">
-                <table>
-                    <tr>
-                        <td rowspan="2" class="product-item-detail-short-card-image">
-                            <img src="" data-entity="panel-picture">
-                        </td>
-                        <td class="product-item-detail-short-title-container" data-entity="panel-title">
-                            <span class="product-item-detail-short-title-text"><?= $name ?></span>
-                        </td>
-                        <td rowspan="2" class="product-item-detail-short-card-price">
-                            <?php
-                            if ($arParams['SHOW_OLD_PRICE'] === 'Y') {
+        <?
+        /*
+                ?>
+                <div class="product-item-detail-short-card-fixed hidden-xs" id="<?= $itemIds['SMALL_CARD_PANEL_ID'] ?>">
+                    <div class="product-item-detail-short-card-content-container">
+                        <table>
+                            <tr>
+                                <td rowspan="2" class="product-item-detail-short-card-image">
+                                    <img src="" data-entity="panel-picture">
+                                </td>
+                                <td class="product-item-detail-short-title-container" data-entity="panel-title">
+                                    <span class="product-item-detail-short-title-text"><?= $name ?></span>
+                                </td>
+                                <td rowspan="2" class="product-item-detail-short-card-price">
+                                    <?php
+                                    if ($arParams['SHOW_OLD_PRICE'] === 'Y') {
+                                        ?>
+                                        <div class="product-item-detail-price-old"
+                                             style="display: <?= ($showDiscount ? '' : 'none') ?>;"
+                                             data-entity="panel-old-price">
+                                            <?= ($showDiscount ? $price['PRINT_RATIO_BASE_PRICE'] : '') ?>
+                                        </div>
+                                        <?php
+                                    }
+                                    ?>
+                                    <div class="product-item-detail-price-current" data-entity="panel-price">
+                                        <?= $price['PRINT_RATIO_PRICE'] ?>
+                                    </div>
+                                </td>
+                                <?php
+                                if ($showAddBtn) {
+                                    ?>
+                                    <td rowspan="2" class="product-item-detail-short-card-btn"
+                                        style="display: <?= ($actualItem['CAN_BUY'] ? '' : 'none') ?>;"
+                                        data-entity="panel-add-button">
+                                        <a class="btn <?= $showButtonClassName ?> product-item-detail-buy-button"
+                                           id="<?= $itemIds['ADD_BASKET_LINK'] ?>"
+                                           href="javascript:void(0);">
+                                            <span><?= $arParams['MESS_BTN_ADD_TO_BASKET'] ?></span>
+                                        </a>
+                                    </td>
+                                    <?php
+                                }
+
+                                if ($showBuyBtn) {
+                                    ?>
+                                    <td rowspan="2" class="product-item-detail-short-card-btn"
+                                        style="display: <?= ($actualItem['CAN_BUY'] ? '' : 'none') ?>;"
+                                        data-entity="panel-buy-button">
+                                        <a class="btn <?= $buyButtonClassName ?> product-item-detail-buy-button"
+                                           id="<?= $itemIds['BUY_LINK'] ?>"
+                                           href="javascript:void(0);">
+                                            <span><?= $arParams['MESS_BTN_BUY'] ?></span>
+                                        </a>
+                                    </td>
+                                    <?php
+                                }
                                 ?>
-                                <div class="product-item-detail-price-old"
-                                     style="display: <?= ($showDiscount ? '' : 'none') ?>;"
-                                     data-entity="panel-old-price">
-                                    <?= ($showDiscount ? $price['PRINT_RATIO_BASE_PRICE'] : '') ?>
-                                </div>
+                                <td rowspan="2" class="product-item-detail-short-card-btn"
+                                    style="display: <?= (!$actualItem['CAN_BUY'] ? '' : 'none') ?>;"
+                                    data-entity="panel-not-available-button">
+                                    <a class="btn btn-link product-item-detail-buy-button" href="javascript:void(0)"
+                                       rel="nofollow">
+                                        <?= $arParams['MESS_NOT_AVAILABLE'] ?>
+                                    </a>
+                                </td>
+                            </tr>
+                            <?php
+                            if ($haveOffers) {
+                                ?>
+                                <tr>
+                                    <td>
+                                        <div class="product-item-selected-scu-container" data-entity="panel-sku-container">
+                                            <?php
+                                            $i = 0;
+
+                                            foreach ($arResult['SKU_PROPS'] as $skuProperty) {
+                                                if (!isset($arResult['OFFERS_PROP'][$skuProperty['CODE']])) {
+                                                    continue;
+                                                }
+
+                                                $propertyId = $skuProperty['ID'];
+
+                                                foreach ($skuProperty['VALUES'] as $value) {
+                                                    $value['NAME'] = htmlspecialcharsbx($value['NAME']);
+                                                    if ($skuProperty['SHOW_MODE'] === 'PICT') {
+                                                        ?>
+                                                        <div class="product-item-selected-scu product-item-selected-scu-color selected"
+                                                             title="<?= $value['NAME'] ?>"
+                                                             style="background-image: url('<?= $value['PICT']['SRC'] ?>'); display: none;"
+                                                             data-sku-line="<?= $i ?>"
+                                                             data-treevalue="<?= $propertyId ?>_<?= $value['ID'] ?>"
+                                                             data-onevalue="<?= $value['ID'] ?>">
+                                                        </div>
+                                                        <?php
+                                                    } else {
+                                                        ?>
+                                                        <div class="product-item-selected-scu product-item-selected-scu-text selected"
+                                                             title="<?= $value['NAME'] ?>"
+                                                             style="display: none;"
+                                                             data-sku-line="<?= $i ?>"
+                                                             data-treevalue="<?= $propertyId ?>_<?= $value['ID'] ?>"
+                                                             data-onevalue="<?= $value['ID'] ?>">
+                                                            <?= $value['NAME'] ?>
+                                                        </div>
+                                                        <?php
+                                                    }
+                                                }
+
+                                                $i++;
+                                            }
+                                            ?>
+                                        </div>
+                                    </td>
+                                </tr>
                                 <?php
                             }
                             ?>
-                            <div class="product-item-detail-price-current" data-entity="panel-price">
-                                <?= $price['PRINT_RATIO_PRICE'] ?>
-                            </div>
-                        </td>
-                        <?php
-                        if ($showAddBtn) {
-                            ?>
-                            <td rowspan="2" class="product-item-detail-short-card-btn"
-                                style="display: <?= ($actualItem['CAN_BUY'] ? '' : 'none') ?>;"
-                                data-entity="panel-add-button">
-                                <a class="btn <?= $showButtonClassName ?> product-item-detail-buy-button"
-                                   id="<?= $itemIds['ADD_BASKET_LINK'] ?>"
-                                   href="javascript:void(0);">
-                                    <span><?= $arParams['MESS_BTN_ADD_TO_BASKET'] ?></span>
-                                </a>
-                            </td>
-                            <?php
-                        }
-
-                        if ($showBuyBtn) {
-                            ?>
-                            <td rowspan="2" class="product-item-detail-short-card-btn"
-                                style="display: <?= ($actualItem['CAN_BUY'] ? '' : 'none') ?>;"
-                                data-entity="panel-buy-button">
-                                <a class="btn <?= $buyButtonClassName ?> product-item-detail-buy-button"
-                                   id="<?= $itemIds['BUY_LINK'] ?>"
-                                   href="javascript:void(0);">
-                                    <span><?= $arParams['MESS_BTN_BUY'] ?></span>
-                                </a>
-                            </td>
-                            <?php
-                        }
-                        ?>
-                        <td rowspan="2" class="product-item-detail-short-card-btn"
-                            style="display: <?= (!$actualItem['CAN_BUY'] ? '' : 'none') ?>;"
-                            data-entity="panel-not-available-button">
-                            <a class="btn btn-link product-item-detail-buy-button" href="javascript:void(0)"
-                               rel="nofollow">
-                                <?= $arParams['MESS_NOT_AVAILABLE'] ?>
-                            </a>
-                        </td>
-                    </tr>
-                    <?php
-                    if ($haveOffers) {
-                        ?>
-                        <tr>
-                            <td>
-                                <div class="product-item-selected-scu-container" data-entity="panel-sku-container">
-                                    <?php
-                                    $i = 0;
-
-                                    foreach ($arResult['SKU_PROPS'] as $skuProperty) {
-                                        if (!isset($arResult['OFFERS_PROP'][$skuProperty['CODE']])) {
-                                            continue;
-                                        }
-
-                                        $propertyId = $skuProperty['ID'];
-
-                                        foreach ($skuProperty['VALUES'] as $value) {
-                                            $value['NAME'] = htmlspecialcharsbx($value['NAME']);
-                                            if ($skuProperty['SHOW_MODE'] === 'PICT') {
-                                                ?>
-                                                <div class="product-item-selected-scu product-item-selected-scu-color selected"
-                                                     title="<?= $value['NAME'] ?>"
-                                                     style="background-image: url('<?= $value['PICT']['SRC'] ?>'); display: none;"
-                                                     data-sku-line="<?= $i ?>"
-                                                     data-treevalue="<?= $propertyId ?>_<?= $value['ID'] ?>"
-                                                     data-onevalue="<?= $value['ID'] ?>">
-                                                </div>
-                                                <?php
-                                            } else {
-                                                ?>
-                                                <div class="product-item-selected-scu product-item-selected-scu-text selected"
-                                                     title="<?= $value['NAME'] ?>"
-                                                     style="display: none;"
-                                                     data-sku-line="<?= $i ?>"
-                                                     data-treevalue="<?= $propertyId ?>_<?= $value['ID'] ?>"
-                                                     data-onevalue="<?= $value['ID'] ?>">
-                                                    <?= $value['NAME'] ?>
-                                                </div>
-                                                <?php
-                                            }
-                                        }
-
-                                        $i++;
-                                    }
-                                    ?>
-                                </div>
-                            </td>
-                        </tr>
-                        <?php
-                    }
-                    ?>
-                </table>
-            </div>
-        </div>
+                        </table>
+                    </div>
+                </div>
+                <?
+                */
+        ?>
         <!--Top tabs-->
 
 
@@ -1409,6 +1426,7 @@ if ($haveOffers) {
     $templateData['OFFER_CODES'] = $offerCodes;
     unset($jsOffer, $strAllProps, $strMainProps, $strPriceRanges, $strPriceRangesRatio, $useRatio);
 
+
     $jsParams = array(
         'CONFIG' => array(
             'USE_CATALOG' => $arResult['CATALOG'],
@@ -1461,8 +1479,10 @@ if ($haveOffers) {
             'QUANTITY' => $arParams['PRODUCT_QUANTITY_VARIABLE'],
             'BASKET_URL' => $arParams['BASKET_URL'],
             'SKU_PROPS' => $arResult['OFFERS_PROP_CODES'],
-            'ADD_URL_TEMPLATE' => $arResult['~ADD_URL_TEMPLATE'],
-            'BUY_URL_TEMPLATE' => $arResult['~BUY_URL_TEMPLATE']
+//            'ADD_URL_TEMPLATE' => $arResult['~ADD_URL_TEMPLATE'],
+//            'BUY_URL_TEMPLATE' => $arResult['~BUY_URL_TEMPLATE']
+            'ADD_URL_TEMPLATE' => $arParams['BASKET_URL'] . 'ajax.php',
+            'BUY_URL_TEMPLATE' => $arParams['BASKET_URL'] . 'ajax.php',
         ),
         'OFFERS' => $arResult['JS_OFFERS'],
         'OFFER_SELECTED' => $arResult['OFFERS_SELECTED'],
@@ -1597,8 +1617,10 @@ if ($haveOffers) {
             'PROPS' => $arParams['PRODUCT_PROPS_VARIABLE'],
             'EMPTY_PROPS' => $emptyProductProperties,
             'BASKET_URL' => $arParams['BASKET_URL'],
-            'ADD_URL_TEMPLATE' => $arResult['~ADD_URL_TEMPLATE'],
-            'BUY_URL_TEMPLATE' => $arResult['~BUY_URL_TEMPLATE']
+//            'ADD_URL_TEMPLATE' => $arResult['~ADD_URL_TEMPLATE'],
+//            'BUY_URL_TEMPLATE' => $arResult['~BUY_URL_TEMPLATE']
+            'ADD_URL_TEMPLATE' => $arParams['BASKET_URL'] . 'ajax.php',
+            'BUY_URL_TEMPLATE' => $arParams['BASKET_URL'] . 'ajax.php',
         )
     );
     unset($emptyProductProperties);

@@ -120,7 +120,8 @@ a:hover {
     -ms-flex-align: center;
     align-items: center;
     margin-right: 30px;
-    width: 330px
+    width: 330px;
+    gap: 12px;
 }
 
 .translation__team:last-child {
@@ -310,10 +311,6 @@ a:hover {
     flex-direction: row-reverse
 }
 
-.info-element {
-    width: 33.3333333333%
-}
-
 .translation__inviz {
     display: none
 }
@@ -338,6 +335,7 @@ a:hover {
         padding-left: 20px;
         padding-right: 20px
     }
+
 }
 
 @media(max-width: 850px) {
@@ -422,7 +420,9 @@ a:hover {
         line-height: 26px;
         -webkit-box-pack: center;
         -ms-flex-pack: center;
-        justify-content: center
+        justify-content: center;
+        display: grid;
+        text-align: center;
     }
 
     .info-element {
@@ -513,7 +513,8 @@ a:hover {
 
 .match-progress {
     max-width: 900px;
-    width: 100%
+    width: 100%;
+    margin: 40px 0px;
 }
 
 .match-progress__title {
@@ -690,9 +691,11 @@ a:hover {
         font-size: 12px;
         line-height: 17px
     }
-    .match-progress__time-block{
+
+    .match-progress__time-block {
         margin: 0px 15px;
     }
+
     .match-progress__event-block:nth-child(2) .match-progress__event {
         padding: 10px 10px 10px 5px
     }

@@ -102,15 +102,14 @@ if ($isFilter || $isSidebar): ?>
 </div>
 
 <div class="catalog__products products">
-    <a class="go-back-bnt" href="#">
-        <div class="go-back-arrow">←</div>
-        <div class="go-back-txt">В магазин</div>
-    </a>
+    <!--    <a class="go-back-bnt" href="#">-->
+    <!--        <div class="go-back-arrow">←</div>-->
+    <!--        <div class="go-back-txt">В магазин</div>-->
+    <!--    </a>-->
 
 
     <div class="catalog__title-block">
         <div class="catalog__title">Товары</div>
-
         <? $APPLICATION->IncludeComponent(
             "bitrix:search.title",
             "search",
@@ -138,59 +137,13 @@ if ($isFilter || $isSidebar): ?>
                 "USE_LANGUAGE_GUESS" => "Y"
             )
         ); ?>
-
-
-
-        <?
-        /*
-        ?>
-
-        <div class="search_block">
-            <div class="search_desc">
-                <? $APPLICATION->IncludeComponent(
-                    "bitrix:search.title",
-                    "search",
-                    array(
-                        "CATEGORY_0" => array(0 => "iblock_shop",),
-                        "CATEGORY_0_TITLE" => "ALL",
-                        "CATEGORY_0_iblock_shop" => array(0 => "12",),
-                        "CHECK_DATES" => "Y",
-                        "COMPONENT_TEMPLATE" => "search",
-                        "CONTAINER_ID" => "title-search",
-                        "CONVERT_CURRENCY" => "N",
-                        "INPUT_ID" => "title-search-input",
-                        "NUM_CATEGORIES" => "1",
-                        "ORDER" => "date",
-                        "PAGE" => "#SITE_DIR#search/index.php",
-                        "PREVIEW_HEIGHT" => "75",
-                        "PREVIEW_TRUNCATE_LEN" => "",
-                        "PREVIEW_WIDTH" => "75",
-                        "PRICE_CODE" => array(0 => "BASE",),
-                        "PRICE_VAT_INCLUDE" => "Y",
-                        "SHOW_INPUT" => "Y",
-                        "SHOW_OTHERS" => "N",
-                        "SHOW_PREVIEW" => "Y",
-                        "TOP_COUNT" => "5",
-                        "USE_LANGUAGE_GUESS" => "Y"
-                    )
-                ); ?>
-            </div>
-            <!-- <input type="text" placeholder="Поиск" class="search"> -->
-            <svg class="popup-open-search" xmlns="http://www.w3.org/2000/svg"
-                 xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px"
-                 viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
-				<path d="M356.475,304.386c20.888-31.028,33.092-68.363,33.092-108.497c0-107.404-87.38-194.784-194.784-194.784    S0,88.485,0,195.888s87.38,194.784,194.784,194.784c40.926,0,78.935-12.698,110.319-34.345l155.242,154.568L512,459.24    L356.475,304.386z M194.784,335.963c-77.067,0-139.768-62.7-139.768-139.768c0-77.067,62.7-139.767,139.768-139.767    s139.768,62.7,139.768,139.768S271.851,335.963,194.784,335.963z"
-                      fill="#fff"/>
-			</svg>
-        </div>
-
-
-        <?
-        */
-        ?>
     </div>
 
 
+    <?
+    // mobile filter
+    /*
+    ?>
     <ul class="catalog__filters-mobail-nav-list">
         <li class="catalog__filters-mobail-item" id="gender-filter">
             Раздел
@@ -217,6 +170,9 @@ if ($isFilter || $isSidebar): ?>
             <div class="catalog__filters-mobail-item-close hide">x</div>
         </li>
     </ul>
+    <?
+    */
+    ?>
 
     <div class="product_top">
 
@@ -519,7 +475,8 @@ if ($isFilter || $isSidebar): ?>
                 'USE_COMPARE_LIST' => 'Y',
                 'BACKGROUND_IMAGE' => (isset($arParams['SECTION_BACKGROUND_IMAGE']) ? $arParams['SECTION_BACKGROUND_IMAGE'] : ''),
                 'COMPATIBLE_MODE' => (isset($arParams['COMPATIBLE_MODE']) ? $arParams['COMPATIBLE_MODE'] : ''),
-                'DISABLE_INIT_JS_IN_COMPONENT' => (isset($arParams['DISABLE_INIT_JS_IN_COMPONENT']) ? $arParams['DISABLE_INIT_JS_IN_COMPONENT'] : '')
+                'DISABLE_INIT_JS_IN_COMPONENT' => (isset($arParams['DISABLE_INIT_JS_IN_COMPONENT']) ? $arParams['DISABLE_INIT_JS_IN_COMPONENT'] : ''),
+                "SHOW_ALL_WO_SECTION" => "Y",
             ),
             $component
         );
@@ -647,7 +604,8 @@ if ($isFilter || $isSidebar): ?>
                             'COMPARE_NAME' => $arParams['COMPARE_NAME'],
                             'USE_COMPARE_LIST' => 'Y',
                             'BACKGROUND_IMAGE' => '',
-                            'DISABLE_INIT_JS_IN_COMPONENT' => (isset($arParams['DISABLE_INIT_JS_IN_COMPONENT']) ? $arParams['DISABLE_INIT_JS_IN_COMPONENT'] : '')
+                            'DISABLE_INIT_JS_IN_COMPONENT' => (isset($arParams['DISABLE_INIT_JS_IN_COMPONENT']) ? $arParams['DISABLE_INIT_JS_IN_COMPONENT'] : ''),
+                            "SHOW_ALL_WO_SECTION" => "Y",
                         ),
                         $component
                     );

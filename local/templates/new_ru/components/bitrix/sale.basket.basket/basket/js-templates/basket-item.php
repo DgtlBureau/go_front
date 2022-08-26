@@ -122,7 +122,7 @@ if (!empty($arParams['LABEL_PROP_POSITION']))
 							{{#DETAIL_PAGE_URL}}
 								<a href="{{DETAIL_PAGE_URL}}" class="basket-item-info-name-link">
 							{{/DETAIL_PAGE_URL}}
-	
+
 							<span class="name" data-entity="basket-item-name">{{NAME}}</span>
 
 							{{#DETAIL_PAGE_URL}}
@@ -440,7 +440,7 @@ if (!empty($arParams['LABEL_PROP_POSITION']))
 				?>
 				<td class="basket-items-list-item-remove">
 					<div class="basket-item-block-actions">
-						<span class="basket-item-actions-remove" data-entity="basket-item-delete"></span>
+						<span class="basket-item-actions-remove"  data-id="{{ID}}"></span>
 						{{#SHOW_LOADING}}
 							<div class="basket-items-list-item-overlay"></div>
 						{{/SHOW_LOADING}}

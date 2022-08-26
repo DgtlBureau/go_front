@@ -34,76 +34,77 @@
                         </div>
                     </div>
                     <?$APPLICATION->IncludeComponent(
-	"bitrix:news.list", 
-	"header_team_results", 
-	array(
-		"ACTIVE_DATE_FORMAT" => "j F Y",
-		"ADD_SECTIONS_CHAIN" => "N",
-		"AJAX_MODE" => "N",
-		"AJAX_OPTION_ADDITIONAL" => "",
-		"AJAX_OPTION_HISTORY" => "N",
-		"AJAX_OPTION_JUMP" => "N",
-		"AJAX_OPTION_STYLE" => "Y",
-		"CACHE_FILTER" => "N",
-		"CACHE_GROUPS" => "N",
-		"CACHE_TIME" => "0",
-		"CACHE_TYPE" => "A",
-		"CHECK_DATES" => "Y",
-		"COMPONENT_TEMPLATE" => "header_team_results",
-		"DETAIL_URL" => "",
-		"DISPLAY_BOTTOM_PAGER" => "N",
-		"DISPLAY_TOP_PAGER" => "N",
-		"FIELD_CODE" => array(
-			0 => "DETAIL_PICTURE",
-			1 => "DATE_CREATE",
-			2 => "",
-		),
-		"FILTER_NAME" => "arrFilter",
-		"HIDE_LINK_WHEN_NO_DETAIL" => "N",
-		"IBLOCK_ID" => "19",
-		"IBLOCK_TYPE" => "team",
-		"INCLUDE_IBLOCK_INTO_CHAIN" => "N",
-		"INCLUDE_SUBSECTIONS" => "N",
-		"MESSAGE_404" => "",
-		"NEWS_COUNT" => "1",
-		"PAGER_BASE_LINK_ENABLE" => "N",
-		"PAGER_DESC_NUMBERING" => "N",
-		"PAGER_DESC_NUMBERING_CACHE_TIME" => "0",
-		"PAGER_SHOW_ALL" => "N",
-		"PAGER_SHOW_ALWAYS" => "N",
-		"PAGER_TEMPLATE" => ".default",
-		"PAGER_TITLE" => "Новости",
-		"PARENT_SECTION" => "",
-		"PARENT_SECTION_CODE" => "",
-		"PREVIEW_TRUNCATE_LEN" => "",
-		"PROPERTY_CODE" => array(
-			0 => "PLACE",
-			1 => "",
-		),
-		"SET_BROWSER_TITLE" => "N",
-		"SET_LAST_MODIFIED" => "N",
-		"SET_META_DESCRIPTION" => "N",
-		"SET_META_KEYWORDS" => "N",
-		"SET_STATUS_404" => "N",
-		"SET_TITLE" => "N",
-		"SHOW_404" => "N",
-		"SORT_BY1" => "SORT",
-		"SORT_BY2" => "SORT",
-		"SORT_ORDER1" => "DESC",
-		"SORT_ORDER2" => "ASC",
-		"STRICT_SECTION_CHECK" => "N",
-		"USE_FILTER" => "Y",
-		"DISPLAY_DATE" => "Y",
-		"DISPLAY_NAME" => "Y",
-		"DISPLAY_PICTURE" => "Y",
-		"DISPLAY_PREVIEW_TEXT" => "Y"
-	),
-	false
-);
+						"bitrix:news.list", 
+						"header_team_results", 
+						array(
+							"ACTIVE_DATE_FORMAT" => "j F Y",
+							"ADD_SECTIONS_CHAIN" => "N",
+							"AJAX_MODE" => "N",
+							"AJAX_OPTION_ADDITIONAL" => "",
+							"AJAX_OPTION_HISTORY" => "N",
+							"AJAX_OPTION_JUMP" => "N",
+							"AJAX_OPTION_STYLE" => "Y",
+							"CACHE_FILTER" => "N",
+							"CACHE_GROUPS" => "N",
+							"CACHE_TIME" => "0",
+							"CACHE_TYPE" => "A",
+							"CHECK_DATES" => "Y",
+							"COMPONENT_TEMPLATE" => "header_team_results",
+							"DETAIL_URL" => "",
+							"DISPLAY_BOTTOM_PAGER" => "N",
+							"DISPLAY_TOP_PAGER" => "N",
+							"FIELD_CODE" => array(
+								0 => "DETAIL_PICTURE",
+								1 => "DATE_CREATE",
+								2 => "",
+							),
+							"FILTER_NAME" => "arrFilter",
+							"HIDE_LINK_WHEN_NO_DETAIL" => "N",
+							"IBLOCK_ID" => "19",
+							"IBLOCK_TYPE" => "team",
+							"INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
+							"INCLUDE_SUBSECTIONS" => "N",
+							"MESSAGE_404" => "",
+							"NEWS_COUNT" => "2",
+							"PAGER_BASE_LINK_ENABLE" => "N",
+							"PAGER_DESC_NUMBERING" => "N",
+							"PAGER_DESC_NUMBERING_CACHE_TIME" => "0",
+							"PAGER_SHOW_ALL" => "N",
+							"PAGER_SHOW_ALWAYS" => "N",
+							"PAGER_TEMPLATE" => ".default",
+							"PAGER_TITLE" => "Новости",
+							"PARENT_SECTION" => "",
+							"PARENT_SECTION_CODE" => "",
+							"PREVIEW_TRUNCATE_LEN" => "",
+							"PROPERTY_CODE" => array(
+								0 => "PLACE",
+								1 => "PLACE",
+								2 => "",
+							),
+							"SET_BROWSER_TITLE" => "N",
+							"SET_LAST_MODIFIED" => "N",
+							"SET_META_DESCRIPTION" => "Y",
+							"SET_META_KEYWORDS" => "Y",
+							"SET_STATUS_404" => "N",
+							"SET_TITLE" => "N",
+							"SHOW_404" => "N",
+							"SORT_BY1" => "SORT",
+							"SORT_BY2" => "SORT",
+							"SORT_ORDER1" => "DESC",
+							"SORT_ORDER2" => "ASC",
+							"STRICT_SECTION_CHECK" => "N",
+							"USE_FILTER" => "Y",
+							"DISPLAY_DATE" => "Y",
+							"DISPLAY_NAME" => "Y",
+							"DISPLAY_PICTURE" => "Y",
+							"DISPLAY_PREVIEW_TEXT" => "Y"
+						),
+						false
+					);
 					?> 
                 </div>
                  <div class="go-news__progress">
-                    <div class="go-news__progress-background" id="team-background-logo"></div>
+                    <div class="go-news__progress-background orange" id="team-background-logo"></div>
                     <div class="go-news__progress-stats">
 							<div class="go-news__progress-victories">
                                 <div class="go-news__progress-title">
@@ -144,7 +145,7 @@
                     <p>Состав</p>
                 </a>
                 <a href="/teams/team-gohockey/tournament/" class="go-news__nav-item">Турниры</a>
-                <a class="go-news__nav-item" href="/teams/team-gohockey/news/">Новости</a>
+                <a class="go-news__nav-item orange" href="/teams/team-gohockey/news/">Новости</a>
             </div>
         </div>
     </div>
@@ -350,3 +351,9 @@
         </div>
     </div>
 </div>
+
+<style>
+    .go-news__modal-banner-hash {
+        background-color: #FF4C01;
+    }
+</style>

@@ -1,6 +1,5 @@
 @import url(https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap);
 
-
 .block-with-matchs {
     width: calc(100% - 80px);
     display: -webkit-box;
@@ -41,7 +40,7 @@
     color: #fff;
     -webkit-transform: rotate(-90deg);
     -ms-transform: rotate(-90deg);
-        transform: rotate(-90deg);
+    transform: rotate(-90deg);
     width: -webkit-fit-content;
     width: -moz-fit-content;
     width: fit-content;
@@ -126,11 +125,9 @@
 
 .match__versus {
     width: 100%;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
     justify-content: space-between;
     margin-bottom: 20px;
     font-weight: 600;
@@ -139,9 +136,6 @@
     text-align: right;
     letter-spacing: .02em;
     color: #fff;
-    -webkit-box-align: baseline;
-    -ms-flex-align: baseline;
-    align-items: baseline;
     margin-top: 25px
 }
 
@@ -181,15 +175,12 @@
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
     align-items: center;
-    width: 15%;
-    -ms-flex-pack: distribute;
-    justify-content: space-around;
+    width: 100%;
+    justify-content: center;
     font-style: normal;
     font-weight: 800;
-    font-size: 32px;
+    font-size: 26px;
     line-height: 42px;
     text-align: center;
     letter-spacing: .02em;
@@ -206,11 +197,16 @@
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
-    flex-direction: column
+    flex-direction: column;
+    gap: 6px;
 }
 
-.match__second-team-name {
-    text-align: center
+.match__second-team-name,
+.match__first-team-name {
+    text-align: center;
+    font-size: 12px;
+    text-transform: lowercase;
+    white-space: nowrap;
 }
 
 .match__button {
@@ -227,7 +223,6 @@
     align-items: center;
     height: 48px;
     margin-top: 35px
-    
 }
 
 .match__button-txt {
@@ -279,8 +274,8 @@
 #match .block-with-matchs {
     padding: 40px 10px 40px 40px;
     -webkit-box-pack: start;
-        -ms-flex-pack: start;
-            justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
 }
 
 #match .block-with-matchs .block-with-matchs__title-block {
@@ -291,7 +286,7 @@
     .block-with-matchs__arrow {
         -webkit-transform: rotate(-225deg);
         -ms-transform: rotate(-225deg);
-            transform: rotate(-225deg)
+        transform: rotate(-225deg)
     }
 
     .block-with-matchs__title-block {
@@ -314,8 +309,12 @@
 }
 
 @media (max-width: 768px) {
-    #match .block-with-matchs{
+    #match .block-with-matchs {
         padding: 40px 0px 40px 40px;
+    }
+
+    .match__block {
+        padding: 30px 20px;
     }
 }
 
@@ -323,26 +322,32 @@
     .go-semi-final__swiper button {
         display: none !important
     }
-    .block-with-matchs__swiper-block{
+
+    .block-with-matchs__swiper-block {
         width: 100%;
     }
-    #match .block-with-matchs{
+
+    #match .block-with-matchs {
         padding: 40px 0px 40px 10px;
     }
 }
+
 @media(max-width: 609px) {
     .main-news__item {
         margin: 0
     }
-    #match .block-with-matchs{
+
+    #match .block-with-matchs {
         padding: 40px 0px 20px 10px;
     }
 }
+
 @media(max-width: 400px) {
-    #match .block-with-matchs{
+    #match .block-with-matchs {
         padding: 40px 0px 0px 10px;
     }
 }
+
 @font-face {
     font-family: generalFont;
     src: url(/local/templates/new_ru/components/bitrix/news.list/match/assets/cea1e8e8a45b9be98eac.ttf) format("truetype")
@@ -480,7 +485,7 @@
     padding: 0;
     -webkit-transform: translate(0, -50%);
     -ms-transform: translate(0, -50%);
-        transform: translate(0, -50%);
+    transform: translate(0, -50%);
     cursor: pointer;
     color: rgba(0, 0, 0, 0);
     border: none;
@@ -842,7 +847,7 @@
     padding: 0;
     -webkit-transform: translate(0, -50%);
     -ms-transform: translate(0, -50%);
-        transform: translate(0, -50%);
+    transform: translate(0, -50%);
     cursor: pointer;
     color: rgba(0, 0, 0, 0);
     border: none;
