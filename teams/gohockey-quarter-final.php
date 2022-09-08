@@ -7,8 +7,8 @@ $APPLICATION->SetTitle("Gohockey-Quarter-Final");
             <div class="gohockey-quarter-final__about-title">
                 <p>Хоккейная команда</p>
                 <p>Команда</p>
-                <div class="gohockey-quarter-final__team-name"><span data-text="Gohockey"
-                        id="Gohockey">Gohockey</span></div>
+                <div class="gohockey-quarter-final__team-name"><span data-text="<?=$GLOBALS['SITE_SETTINGS']['gohockey']['LOGO_TEXT']?>"
+                        id="Gohockey"><?=$GLOBALS['SITE_SETTINGS']['gohockey']['LOGO_TEXT']?></span></div>
             </div>
             <div class="gohockey-quarter-final__about-txt">Несколько лет назад мы решили популяризировать
                 любительский хоккей и создать престижный дивизион с шикарным трофее</div>
@@ -220,7 +220,7 @@ $APPLICATION->SetTitle("Gohockey-Quarter-Final");
                                         <div class="gohockey-quarter-final-bracket__team-info flex-start">
                                             <div class="gohockey-quarter-final-bracket__team-logo"><img
                                                     src="/local/templates/new_ru/img/bull_orang.png" alt="bullOrange"></div>
-                                            <div class="gohockey-quarter-final-bracket__team-name txt-left">GO</div>
+                                            <div class="gohockey-quarter-final-bracket__team-name txt-left"><?=$GLOBALS['SITE_SETTINGS']['go']['LOGO_TEXT']?></div>
                                         </div>
                                     </div>
                                     <div class="gohockey-quarter-final-bracket__team">
@@ -233,7 +233,7 @@ $APPLICATION->SetTitle("Gohockey-Quarter-Final");
                                         <div class="gohockey-quarter-final-bracket__team-info flex-start">
                                             <div class="gohockey-quarter-final-bracket__team-logo"><img
                                                     src="/local/templates/new_ru/img/bull_orang.png" alt="bullOrange"></div>
-                                            <div class="gohockey-quarter-final-bracket__team-name txt-left">GO</div>
+                                            <div class="gohockey-quarter-final-bracket__team-name txt-left"><?=$GLOBALS['SITE_SETTINGS']['go']['LOGO_TEXT']?></div>
                                         </div>
                                     </div>
                                 </div>
@@ -249,7 +249,7 @@ $APPLICATION->SetTitle("Gohockey-Quarter-Final");
                                         <div class="gohockey-quarter-final-bracket__team-info flex-start">
                                             <div class="gohockey-quarter-final-bracket__team-logo"><img
                                                     src="/local/templates/new_ru/img/bull_orang.png" alt="bullOrange"></div>
-                                            <div class="gohockey-quarter-final-bracket__team-name txt-left">GO</div>
+                                            <div class="gohockey-quarter-final-bracket__team-name txt-left"><?=$GLOBALS['SITE_SETTINGS']['go']['LOGO_TEXT']?></div>
                                         </div>
                                     </div>
                                     <div class="gohockey-quarter-final-bracket__team">
@@ -262,7 +262,7 @@ $APPLICATION->SetTitle("Gohockey-Quarter-Final");
                                         <div class="gohockey-quarter-final-bracket__team-info flex-start">
                                             <div class="gohockey-quarter-final-bracket__team-logo"><img
                                                     src="/local/templates/new_ru/img/bull_orang.png" alt="bullOrange"></div>
-                                            <div class="gohockey-quarter-final-bracket__team-name txt-left">GO</div>
+                                            <div class="gohockey-quarter-final-bracket__team-name txt-left"><?=$GLOBALS['SITE_SETTINGS']['go']['LOGO_TEXT']?></div>
                                         </div>
                                     </div>
                                 </div>
@@ -512,7 +512,7 @@ $APPLICATION->SetTitle("Gohockey-Quarter-Final");
                                 <div class="match__first-team">
                                     <div class="match__first-team-logo"><img src="/local/templates/new_ru/img/bull_orang.png"
                                             alt="bullOrange"></div>
-                                    <div class="match__first-team-name" id="GO-first">GO</div>
+                                    <div class="match__first-team-name" id="GO-first"><?=$GLOBALS['SITE_SETTINGS']['go']['LOGO_TEXT']?></div>
                                 </div>
                                 <div class="match__score">
                                     <div class="match__first-team-score">5</div>
@@ -542,7 +542,7 @@ $APPLICATION->SetTitle("Gohockey-Quarter-Final");
                                 <div class="match__first-team">
                                     <div class="match__first-team-logo"><img src="/local/templates/new_ru/img/bull_orang.png"
                                             alt="bullOrange"></div>
-                                    <div class="match__first-team-name" id="GO-first">GO</div>
+                                    <div class="match__first-team-name" id="GO-first"><?=$GLOBALS['SITE_SETTINGS']['go']['LOGO_TEXT']?></div>
                                 </div>
                                 <div class="match__score">
                                     <div class="match__first-team-score">-</div>
@@ -572,7 +572,7 @@ $APPLICATION->SetTitle("Gohockey-Quarter-Final");
                                 <div class="match__first-team">
                                     <div class="match__first-team-logo"><img src="/local/templates/new_ru/img/bull_orang.png"
                                             alt="bullOrange"></div>
-                                    <div class="match__first-team-name" id="GO-first">GO</div>
+                                    <div class="match__first-team-name" id="GO-first"><?=$GLOBALS['SITE_SETTINGS']['go']['LOGO_TEXT']?></div>
                                 </div>
                                 <div class="match__score">
                                     <div class="match__first-team-score">5</div>
@@ -602,7 +602,7 @@ $APPLICATION->SetTitle("Gohockey-Quarter-Final");
                                 <div class="match__first-team">
                                     <div class="match__first-team-logo"><img src="/local/templates/new_ru/img/bull_orang.png"
                                             alt="bullOrange"></div>
-                                    <div class="match__first-team-name" id="GO-first">GO</div>
+                                    <div class="match__first-team-name" id="GO-first"><?=$GLOBALS['SITE_SETTINGS']['go']['LOGO_TEXT']?></div>
                                 </div>
                                 <div class="match__score">
                                     <div class="match__first-team-score">-</div>
@@ -632,7 +632,7 @@ $APPLICATION->SetTitle("Gohockey-Quarter-Final");
                                 <div class="match__first-team">
                                     <div class="match__first-team-logo"><img src="/local/templates/new_ru/img/bull_orang.png"
                                             alt="bullOrange"></div>
-                                    <div class="match__first-team-name" id="GO-first">GO</div>
+                                    <div class="match__first-team-name" id="GO-first"><?=$GLOBALS['SITE_SETTINGS']['go']['LOGO_TEXT']?></div>
                                 </div>
                                 <div class="match__score">
                                     <div class="match__first-team-score">-</div>
@@ -662,7 +662,7 @@ $APPLICATION->SetTitle("Gohockey-Quarter-Final");
                                 <div class="match__first-team">
                                     <div class="match__first-team-logo"><img src="/local/templates/new_ru/img/bull_orang.png"
                                             alt="bullOrange"></div>
-                                    <div class="match__first-team-name" id="GO-first">GO</div>
+                                    <div class="match__first-team-name" id="GO-first"><?=$GLOBALS['SITE_SETTINGS']['go']['LOGO_TEXT']?></div>
                                 </div>
                                 <div class="match__score">
                                     <div class="match__first-team-score">-</div>
@@ -692,7 +692,7 @@ $APPLICATION->SetTitle("Gohockey-Quarter-Final");
                                 <div class="match__first-team">
                                     <div class="match__first-team-logo"><img src="/local/templates/new_ru/img/bull_orang.png"
                                             alt="bullOrange"></div>
-                                    <div class="match__first-team-name" id="GO-first">GO</div>
+                                    <div class="match__first-team-name" id="GO-first"><?=$GLOBALS['SITE_SETTINGS']['go']['LOGO_TEXT']?></div>
                                 </div>
                                 <div class="match__score">
                                     <div class="match__first-team-score">-</div>
@@ -722,7 +722,7 @@ $APPLICATION->SetTitle("Gohockey-Quarter-Final");
                                 <div class="match__first-team">
                                     <div class="match__first-team-logo"><img src="/local/templates/new_ru/img/bull_orang.png"
                                             alt="bullOrange"></div>
-                                    <div class="match__first-team-name" id="GO-first">GO</div>
+                                    <div class="match__first-team-name" id="GO-first"><?=$GLOBALS['SITE_SETTINGS']['go']['LOGO_TEXT']?></div>
                                 </div>
                                 <div class="match__score">
                                     <div class="match__first-team-score">-</div>

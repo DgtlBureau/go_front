@@ -68,6 +68,9 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
             this.initializePrimaryFields();
 
             this.result = parameters.result || {};
+
+            console.log('init', this.result.ORDER_PROP)
+
             this.prepareLocations(parameters.locations);
             this.params = parameters.params || {};
             this.signedParamsString = parameters.signedParamsString || '';
@@ -151,6 +154,8 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
          * Send ajax request with order data and executes callback by action
          */
         sendRequest: function (action, actionData) {
+            console.log('sendRequest', action, actionData)
+
             var form;
 
             if (!this.startLoader())
@@ -278,6 +283,8 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
          * Refreshes order via json data from ajax request
          */
         refreshOrder: function (result) {
+            console.log('refreshOrder', result)
+
             if (result.error) {
                 this.showError(this.mainErrorsNode, result.error);
                 this.animateScrollTo(this.mainErrorsNode, 800, 20);
@@ -358,6 +365,10 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
         },
 
         handleNotRedirected: function () {
+
+            console.log('handleNotRedirected')
+
+
             this.endLoader();
             this.disallowOrderSave();
         },
@@ -572,12 +583,18 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
             if (!node)
                 return;
 
-            node.appendChild(
-                BX.create('DIV', {props: {className: 'alert alert-danger'}, style: {display: 'none'}})
-            );
+            // node.appendChild(
+            //     BX.create('DIV', {props: {className: 'alert alert-danger'}, style: {display: 'none'}})
+            // );
         },
 
         showError: function (node, msg, border) {
+
+            console.log('showError', node, msg)
+
+            // BX.addClass(node, 'error-input');
+
+
             if (BX.type.isArray(msg))
                 msg = msg.join('<br>');
 
@@ -608,7 +625,7 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 
                 // ERROR
                 // if (!!border)
-                //     BX.addClass(node, 'bx-step-error');
+                //     BX.addClass(node, 'error-input');
             }
         },
 
@@ -633,6 +650,9 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
                 blockErrors = errors[k];
                 switch (k.toUpperCase()) {
                     case 'MAIN':
+                        console.log('showError - MAIN', blockErrors);
+
+
                         this.showError(this.mainErrorsNode, blockErrors);
                         this.animateScrollTo(this.mainErrorsNode, 800, 20);
                         scroll = false;
@@ -647,24 +667,36 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
                         break;
                     case 'REGION':
                         if (showAll || this.regionBlockNode.getAttribute('data-visited') === 'true') {
+                            console.log('showError - REGION', blockErrors);
+
+
                             this.showError(this.regionBlockNode, blockErrors, true);
                             this.showError(this.regionHiddenBlockNode, blockErrors);
                         }
                         break;
                     case 'DELIVERY':
                         if (showAll || this.deliveryBlockNode.getAttribute('data-visited') === 'true') {
+
+                            console.log('showError - DELIVERY', blockErrors);
+
                             this.showError(this.deliveryBlockNode, blockErrors, true);
                             this.showError(this.deliveryHiddenBlockNode, blockErrors);
                         }
                         break;
                     case 'PAY_SYSTEM':
                         if (showAll || this.paySystemBlockNode.getAttribute('data-visited') === 'true') {
+
+                            console.log('showError - PAY_SYSTEM', blockErrors);
+
                             this.showError(this.paySystemBlockNode, blockErrors, true);
                             this.showError(this.paySystemHiddenBlockNode, blockErrors);
                         }
                         break;
                     case 'PROPERTY':
                         if (showAll || this.propsBlockNode.getAttribute('data-visited') === 'true') {
+
+                            console.log('showError - PROPERTY', blockErrors);
+
                             this.showError(this.propsBlockNode, blockErrors, true);
                             this.showError(this.propsHiddenBlockNode, blockErrors);
                         }
@@ -712,59 +744,59 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
         },
 
         // OFF
-        checkNotifications: function () {
-            var informer = this.mainErrorsNode.querySelector('[data-type="informer"]'),
-                success, sections, className, text, scrollTop, informerPos;
-
-            if (informer) {
-                if (this.firstLoad && this.result.IS_AUTHORIZED && typeof this.result.LAST_ORDER_DATA.FAIL === 'undefined') {
-                    sections = this.orderBlockNode.querySelectorAll('.bx-soa-section.bx-active');
-                    success = sections.length && sections[sections.length - 1].getAttribute('data-visited') == 'true';
-                    className = success ? 'success' : 'warning';
-                    text = (success ? this.params.MESS_SUCCESS_PRELOAD_TEXT : this.params.MESS_FAIL_PRELOAD_TEXT).split('#ORDER_BUTTON#').join(this.params.MESS_ORDER);
-
-                    informer.appendChild(
-                        BX.create('DIV', {
-                            props: {className: 'row'},
-                            children: [
-                                BX.create('DIV', {
-                                    props: {className: 'col-xs-12'},
-                                    style: {position: 'relative', paddingLeft: '48px'},
-                                    children: [
-                                        BX.create('DIV', {props: {className: 'icon-' + className}}),
-                                        BX.create('DIV', {html: text})
-                                    ]
-                                })
-                            ]
-                        })
-                    );
-                    BX.addClass(informer, 'alert alert-' + className);
-                    informer.style.display = '';
-                } else if (BX.hasClass(informer, 'alert')) {
-                    scrollTop = BX.GetWindowScrollPos().scrollTop;
-                    informerPos = BX.pos(informer);
-
-                    new BX.easing({
-                        duration: 300,
-                        start: {opacity: 100},
-                        finish: {opacity: 0},
-                        transition: BX.easing.transitions.linear,
-                        step: function (state) {
-                            informer.style.opacity = state.opacity / 100;
-                        },
-                        complete: function () {
-                            if (scrollTop > informerPos.top)
-                                window.scrollBy(0, -(informerPos.height + 20));
-
-                            informer.style.display = 'none';
-                            BX.cleanNode(informer);
-                            informer.removeAttribute('class');
-                            informer.removeAttribute('style');
-                        }
-                    }).animate();
-                }
-            }
-        },
+        // checkNotifications: function () {
+        //     var informer = this.mainErrorsNode.querySelector('[data-type="informer"]'),
+        //         success, sections, className, text, scrollTop, informerPos;
+        //
+        //     if (informer) {
+        //         if (this.firstLoad && this.result.IS_AUTHORIZED && typeof this.result.LAST_ORDER_DATA.FAIL === 'undefined') {
+        //             sections = this.orderBlockNode.querySelectorAll('.bx-soa-section.bx-active');
+        //             success = sections.length && sections[sections.length - 1].getAttribute('data-visited') == 'true';
+        //             className = success ? 'success' : 'warning';
+        //             text = (success ? this.params.MESS_SUCCESS_PRELOAD_TEXT : this.params.MESS_FAIL_PRELOAD_TEXT).split('#ORDER_BUTTON#').join(this.params.MESS_ORDER);
+        //
+        //             informer.appendChild(
+        //                 BX.create('DIV', {
+        //                     props: {className: 'row'},
+        //                     children: [
+        //                         BX.create('DIV', {
+        //                             props: {className: 'col-xs-12'},
+        //                             style: {position: 'relative', paddingLeft: '48px'},
+        //                             children: [
+        //                                 BX.create('DIV', {props: {className: 'icon-' + className}}),
+        //                                 BX.create('DIV', {html: text})
+        //                             ]
+        //                         })
+        //                     ]
+        //                 })
+        //             );
+        //             BX.addClass(informer, 'alert alert-' + className);
+        //             informer.style.display = '';
+        //         } else if (BX.hasClass(informer, 'alert')) {
+        //             scrollTop = BX.GetWindowScrollPos().scrollTop;
+        //             informerPos = BX.pos(informer);
+        //
+        //             new BX.easing({
+        //                 duration: 300,
+        //                 start: {opacity: 100},
+        //                 finish: {opacity: 0},
+        //                 transition: BX.easing.transitions.linear,
+        //                 step: function (state) {
+        //                     informer.style.opacity = state.opacity / 100;
+        //                 },
+        //                 complete: function () {
+        //                     if (scrollTop > informerPos.top)
+        //                         window.scrollBy(0, -(informerPos.height + 20));
+        //
+        //                     informer.style.display = 'none';
+        //                     BX.cleanNode(informer);
+        //                     informer.removeAttribute('class');
+        //                     informer.removeAttribute('style');
+        //                 }
+        //             }).animate();
+        //         }
+        //     }
+        // },
 
         /**
          * Returns status of preloaded data from back-end for certain block
@@ -849,7 +881,6 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
             }
 
             if (currentDelivery && currentDelivery.CALCULATE_ERRORS) {
-                alert(warningString);
 
                 warningString = '<strong>' + this.params.MESS_DELIVERY_CALC_ERROR_TITLE + '</strong>';
                 if (this.params.MESS_DELIVERY_CALC_ERROR_TEXT.length)
@@ -1118,6 +1149,8 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
         },
 
         showPickUpItemsPage: function (page) {
+            console.log('showPickUpItemsPage', page)
+
             this.getCurrentPageItems('pickUp', page);
             this.editPickUpList(false);
         },
@@ -1405,6 +1438,10 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
         },
 
         initPickUpPagination: function () {
+
+            console.log('initPickUpPagination');
+
+
             var usePickUpPagination = false,
                 usePickUp = false,
                 stores, i = 0,
@@ -1547,11 +1584,11 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
                 }
             }
 
-            if (this.firstLoad && this.result.IS_AUTHORIZED && typeof this.result.LAST_ORDER_DATA.FAIL === 'undefined') {
-                this.showActualBlock();
-            } else if (!this.result.SHOW_AUTH) {
-                this.changeVisibleContent();
-            }
+            // if (this.firstLoad && this.result.IS_AUTHORIZED && typeof this.result.LAST_ORDER_DATA.FAIL === 'undefined') {
+            //     this.showActualBlock();
+            // } else if (!this.result.SHOW_AUTH) {
+            //     this.changeVisibleContent();
+            // }
 
             // this.checkNotifications();
 
@@ -1585,8 +1622,14 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
          * Order saving action with validation. Doesn't send request while have errors
          */
         clickOrderSaveAction: function (event) {
+
+            console.log('clickOrderSaveAction', this.isValidForm())
+
             if (this.isValidForm()) {
                 this.allowOrderSave();
+
+                console.log('isValidForm - true')
+
 
                 if (this.params.USER_CONSENT === 'Y' && BX.UserConsent) {
                     BX.onCustomEvent('bx-soa-order-save', []);
@@ -1971,30 +2014,31 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
         /**
          * Checks each active block from top to bottom for errors (showing first block with errors or last block)
          */
+        // OFF
         showActualBlock: function () {
-            var allSections = this.orderBlockNode.querySelectorAll('.bx-soa-section.bx-active'),
-                i = 0;
-
-            while (allSections[i]) {
-                if (allSections[i].id === this.regionBlockNode.id)
-                    this.isValidRegionBlock();
-
-                if (allSections[i].id === this.propsBlockNode.id)
-                    this.isValidPropertiesBlock();
-
-                if (!this.checkBlockErrors(allSections[i]) || !this.checkPreload(allSections[i])) {
-                    if (this.activeSectionId !== allSections[i].id) {
-                        BX(this.activeSectionId) /*&& this.fade(BX(this.activeSectionId))*/;
-                        this.show(allSections[i]);
-                    }
-
-                    break;
-                }
-
-                BX.addClass(allSections[i], 'bx-step-completed');
-                allSections[i].setAttribute('data-visited', 'true');
-                i++;
-            }
+            // var allSections = this.orderBlockNode.querySelectorAll('.bx-soa-section.bx-active'),
+            //     i = 0;
+            //
+            // while (allSections[i]) {
+            //     if (allSections[i].id === this.regionBlockNode.id)
+            //         this.isValidRegionBlock();
+            //
+            //     if (allSections[i].id === this.propsBlockNode.id)
+            //         this.isValidPropertiesBlock();
+            //
+            //     if (!this.checkBlockErrors(allSections[i]) || !this.checkPreload(allSections[i])) {
+            //         if (this.activeSectionId !== allSections[i].id) {
+            //             BX(this.activeSectionId) /*&& this.fade(BX(this.activeSectionId))*/;
+            //             this.show(allSections[i]);
+            //         }
+            //
+            //         break;
+            //     }
+            //
+            //     BX.addClass(allSections[i], 'bx-step-completed');
+            //     allSections[i].setAttribute('data-visited', 'true');
+            //     i++;
+            // }
         },
 
         /**
@@ -2133,36 +2177,37 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
         /**
          * Showing/hiding blocks content if user authorized/unauthorized
          */
-        changeVisibleContent: function () {
-            var sections = this.orderBlockNode.querySelectorAll('.bx-soa-section.bx-active'),
-                i, state;
-
-            var orderDataLoaded = !!this.result.IS_AUTHORIZED && this.params.USE_PRELOAD === 'Y' && this.result.LAST_ORDER_DATA.FAIL !== true,
-                skipFlag = true;
-
-            for (i = 0; i < sections.length; i++) {
-                state = this.firstLoad && orderDataLoaded;
-                state = state || this.shouldBeSectionVisible(sections, i);
-
-                // this.changeVisibleSection(sections[i], state);
-
-                if (this.firstLoad && skipFlag) {
-                    if (state && sections[i + 1] && this.checkBlockErrors(sections[i]) && (
-                        (orderDataLoaded && this.checkPreload(sections[i]))
-                        || (!orderDataLoaded && this.shouldSkipSection(sections[i])))) {
-                        // this.fade(sections[i]);
-                        // this.markSectionAsCompleted(sections[i]);
-                        this.show(sections[i + 1]);
-                    } else {
-                        skipFlag = false;
-                    }
-                }
-            }
-
-            if ((!this.result.IS_AUTHORIZED || typeof this.result.LAST_ORDER_DATA.FAIL !== 'undefined') && this.params.SHOW_ORDER_BUTTON === 'final_step') {
-                this.switchOrderSaveButtons(this.shouldBeSectionVisible(sections, sections.length - 1));
-            }
-        },
+        // OFF
+        // changeVisibleContent: function () {
+        //     var sections = this.orderBlockNode.querySelectorAll('.bx-soa-section.bx-active'),
+        //         i, state;
+        //
+        //     var orderDataLoaded = !!this.result.IS_AUTHORIZED && this.params.USE_PRELOAD === 'Y' && this.result.LAST_ORDER_DATA.FAIL !== true,
+        //         skipFlag = true;
+        //
+        //     for (i = 0; i < sections.length; i++) {
+        //         state = this.firstLoad && orderDataLoaded;
+        //         state = state || this.shouldBeSectionVisible(sections, i);
+        //
+        //         // this.changeVisibleSection(sections[i], state);
+        //
+        //         if (this.firstLoad && skipFlag) {
+        //             if (state && sections[i + 1] && this.checkBlockErrors(sections[i]) && (
+        //                 (orderDataLoaded && this.checkPreload(sections[i]))
+        //                 || (!orderDataLoaded && this.shouldSkipSection(sections[i])))) {
+        //                 // this.fade(sections[i]);
+        //                 // this.markSectionAsCompleted(sections[i]);
+        //                 this.show(sections[i + 1]);
+        //             } else {
+        //                 skipFlag = false;
+        //             }
+        //         }
+        //     }
+        //
+        //     if ((!this.result.IS_AUTHORIZED || typeof this.result.LAST_ORDER_DATA.FAIL !== 'undefined') && this.params.SHOW_ORDER_BUTTON === 'final_step') {
+        //         this.switchOrderSaveButtons(this.shouldBeSectionVisible(sections, sections.length - 1));
+        //     }
+        // },
 
         changeVisibleSection: function (section, state) {
             var titleNode, content, editStep;
@@ -4793,144 +4838,147 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
             this.sendRequest();
         },
 
+        // замена
+
         editDeliveryBlock: function (active) {
             if (!this.deliveryBlockNode || !this.deliveryHiddenBlockNode || !this.result.DELIVERY)
                 return;
 
-            this.editActiveDeliveryBlock();
+            if (active)
+                this.editActiveDeliveryBlock(true);
+            else
+                this.editFadeDeliveryBlock();
 
             this.checkPickUpShow();
 
             this.initialized.delivery = true;
         },
 
-        editActiveDeliveryBlock: function () {
-            var deliveryContent = BX('delivery-content-block');
+        editActiveDeliveryBlock: function (activeNodeMode) {
+            var node = activeNodeMode ? this.deliveryBlockNode : this.deliveryHiddenBlockNode,
+                deliveryContent, deliveryNode;
 
-            BX.cleanNode(deliveryContent);
+            if (this.initialized.delivery) {
+                BX.remove(BX.lastChild(node));
+                node.appendChild(BX.firstChild(this.deliveryHiddenBlockNode));
+            } else {
+                deliveryContent = node.querySelector('.bx-soa-section-content');
+                if (!deliveryContent) {
+                    deliveryContent = this.getNewContainer();
+                    node.appendChild(deliveryContent);
+                } else
+                    BX.cleanNode(deliveryContent);
 
-            this.getErrorContainer(deliveryContent);
-            this.editDeliveryItems(deliveryContent);
+                this.getErrorContainer(deliveryContent);
 
-            if (this.params.SHOW_COUPONS_DELIVERY == 'Y')
-                this.editCoupons(deliveryContent);
+                this.editDeliveryItems(deliveryContent);
+                this.editDeliveryInfo(deliveryContent);
 
-            this.getBlockFooter(deliveryContent);
-        },
+                if (this.params.SHOW_COUPONS_DELIVERY == 'Y')
+                    this.editCoupons(deliveryContent);
 
-        editDeliveryItems: function (deliveryContent) {
-            var deliveryItemNode, k;
-
-            for (k = 0; k < this.deliveryPagination.currentPage.length; k++) {
-                deliveryItemNode = this.createDeliveryItem(this.deliveryPagination.currentPage[k]);
-                deliveryContent.appendChild(deliveryItemNode);
+                this.getBlockFooter(deliveryContent);
             }
         },
 
-        // OFF - доп. информация о типе доставки
-        // editDeliveryInfo: function (deliveryNode) {
-        //     if (!this.result.DELIVERY)
-        //         return;
-        //
-        //     var deliveryInfoContainer = BX.create('DIV', {props: {className: 'col-sm-5 bx-soa-pp-desc-container'}}),
-        //         currentDelivery, logotype, name, logoNode,
-        //         subTitle, label, title, price, period,
-        //         clear, infoList, extraServices, extraServicesNode;
-        //
-        //     BX.cleanNode(deliveryInfoContainer);
-        //     currentDelivery = this.getSelectedDelivery();
-        //
-        //     logoNode = BX.create('DIV', {props: {className: 'bx-soa-pp-company-image'}});
-        //     logotype = this.getImageSources(currentDelivery, 'LOGOTIP');
-        //     if (logotype && logotype.src_2x) {
-        //         logoNode.setAttribute('style',
-        //             'background-image: url("' + logotype.src_1x + '");' +
-        //             'background-image: -webkit-image-set(url("' + logotype.src_1x + '") 1x, url("' + logotype.src_2x + '") 2x)'
-        //         );
-        //     } else {
-        //         logotype = logotype && logotype.src_1x || this.defaultDeliveryLogo;
-        //         logoNode.setAttribute('style', 'background-image: url("' + logotype + '");');
-        //     }
-        //
-        //     name = this.params.SHOW_DELIVERY_PARENT_NAMES != 'N' ? currentDelivery.NAME : currentDelivery.OWN_NAME;
-        //
-        //     if (this.params.SHOW_DELIVERY_INFO_NAME == 'Y')
-        //         subTitle = BX.create('DIV', {props: {className: 'bx-soa-pp-company-subTitle'}, text: name});
-        //
-        //     label = BX.create('DIV', {
-        //         props: {className: 'bx-soa-pp-company-logo'},
-        //         children: [
-        //             BX.create('DIV', {
-        //                 props: {className: 'bx-soa-pp-company-graf-container'},
-        //                 children: [logoNode]
-        //             })
-        //         ]
-        //     });
-        //     title = BX.create('DIV', {
-        //         props: {className: 'bx-soa-pp-company-block'},
-        //         children: [
-        //             BX.create('DIV', {props: {className: 'bx-soa-pp-company-desc'}, html: currentDelivery.DESCRIPTION}),
-        //             currentDelivery.CALCULATE_DESCRIPTION
-        //                 ? BX.create('DIV', {
-        //                     props: {className: 'bx-soa-pp-company-desc'},
-        //                     html: currentDelivery.CALCULATE_DESCRIPTION
-        //                 })
-        //                 : null
-        //         ]
-        //     });
-        //
-        //     if (currentDelivery.PRICE >= 0) {
-        //         price = BX.create('LI', {
-        //             children: [
-        //                 BX.create('DIV', {
-        //                     props: {className: 'bx-soa-pp-list-termin'},
-        //                     html: this.params.MESS_PRICE + ':'
-        //                 }),
-        //                 BX.create('DIV', {
-        //                     props: {className: 'bx-soa-pp-list-description'},
-        //                     children: this.getDeliveryPriceNodes(currentDelivery)
-        //                 })
-        //             ]
-        //         });
-        //     }
-        //
-        //     if (currentDelivery.PERIOD_TEXT && currentDelivery.PERIOD_TEXT.length) {
-        //         period = BX.create('LI', {
-        //             children: [
-        //                 BX.create('DIV', {
-        //                     props: {className: 'bx-soa-pp-list-termin'},
-        //                     html: this.params.MESS_PERIOD + ':'
-        //                 }),
-        //                 BX.create('DIV', {
-        //                     props: {className: 'bx-soa-pp-list-description'},
-        //                     html: currentDelivery.PERIOD_TEXT
-        //                 })
-        //             ]
-        //         });
-        //     }
-        //
-        //     clear = BX.create('DIV', {style: {clear: 'both'}});
-        //     infoList = BX.create('UL', {props: {className: 'bx-soa-pp-list'}, children: [price, period]});
-        //     extraServices = this.getDeliveryExtraServices(currentDelivery);
-        //
-        //     if (extraServices.length) {
-        //         extraServicesNode = BX.create('DIV', {
-        //             props: {className: 'bx-soa-pp-company-block'},
-        //             children: extraServices
-        //         });
-        //     }
-        //
-        //     deliveryInfoContainer.appendChild(
-        //         BX.create('DIV', {
-        //             props: {className: 'bx-soa-pp-company'},
-        //             children: [subTitle, label, title, clear, extraServicesNode, infoList]
-        //         })
-        //     );
-        //     deliveryNode.appendChild(deliveryInfoContainer);
-        //
-        //     if (this.params.DELIVERY_NO_AJAX != 'Y')
-        //         this.deliveryCachedInfo[currentDelivery.ID] = currentDelivery;
-        // },
+        editDeliveryItems: function (deliveryNode) {
+            if (!this.result.DELIVERY || this.result.DELIVERY.length <= 0)
+                return;
+
+            var
+                // deliveryItemsContainer = BX.create('DIV', {props: {className: 'col-sm-7 bx-soa-pp-item-container'}}),
+                deliveryItemNode, k;
+
+            for (k = 0; k < this.deliveryPagination.currentPage.length; k++) {
+                deliveryItemNode = this.createDeliveryItem(this.deliveryPagination.currentPage[k]);
+                deliveryNode.appendChild(deliveryItemNode);
+            }
+
+            if (this.deliveryPagination.show)
+                this.showPagination('delivery', deliveryItemsContainer);
+
+            // deliveryNode.appendChild(deliveryItemsContainer);
+        },
+
+        editDeliveryInfo: function (deliveryNode) {
+            if (!this.result.DELIVERY)
+                return;
+
+
+            var deliveryInfoContainer,
+                currentDelivery, name,
+                subTitle, title, price, period,
+                clear, infoList, extraServices;
+
+            BX.cleanNode(deliveryInfoContainer);
+            currentDelivery = this.getSelectedDelivery();
+
+
+            name = this.params.SHOW_DELIVERY_PARENT_NAMES != 'N' ? currentDelivery.NAME : currentDelivery.OWN_NAME;
+            // console.log(currentDelivery);
+            // BX('title-delivery-block').innerHTML = 'Способ доставки - ' + currentDelivery.NAME;
+
+            // описание доставки
+            // if (this.params.SHOW_DELIVERY_INFO_NAME == 'Y') {
+            //     subTitle = BX.create('DIV', {props: {className: 'bx-soa-pp-company-subTitle'}, text: name});
+            // }
+
+            title = BX.create('DIV', {
+                props: {className: 'bx-soa-pp-company-block'},
+                children: [
+                    BX.create('DIV', {props: {className: 'bx-soa-pp-company-desc'}, html: currentDelivery.DESCRIPTION}),
+                ]
+            });
+
+            if (currentDelivery.PRICE >= 0) {
+                // стоимость доставки
+                // price = BX.create('LI', {
+                //     children: [
+                //         BX.create('DIV', {
+                //             props: {className: 'bx-soa-pp-list-termin'},
+                //             html: this.params.MESS_PRICE + ':'
+                //         }),
+                //         BX.create('DIV', {
+                //             props: {className: 'bx-soa-pp-list-description'},
+                //             children: this.getDeliveryPriceNodes(currentDelivery)
+                //         })
+                //     ]
+                // });
+            }
+
+            if (currentDelivery.PERIOD_TEXT && currentDelivery.PERIOD_TEXT.length) {
+                // срок доставки
+                // period = BX.create('LI', {
+                //     children: [
+                //         BX.create('DIV', {
+                //             props: {className: 'bx-soa-pp-list-termin'},
+                //             html: this.params.MESS_PERIOD + ':'
+                //         }),
+                //         BX.create('DIV', {
+                //             props: {className: 'bx-soa-pp-list-description'},
+                //             html: currentDelivery.PERIOD_TEXT
+                //         })
+                //     ]
+                // });
+            }
+
+            clear = BX.create('DIV', {style: {clear: 'both'}});
+            infoList = BX.create('UL', {props: {className: 'bx-soa-pp-list'}, children: [price, period]});
+            extraServices = this.getDeliveryExtraServices(currentDelivery);
+
+
+            deliveryInfoContainer = BX.create('DIV', {
+                props: {className: 'bx-soa-pp-company'},
+                children: [ clear, extraServices, infoList]
+            });
+
+
+            deliveryNode.appendChild(deliveryInfoContainer);
+            deliveryNode.appendChild(title);
+
+            if (this.params.DELIVERY_NO_AJAX != 'Y')
+                this.deliveryCachedInfo[currentDelivery.ID] = currentDelivery;
+        },
 
         getDeliveryPriceNodes: function (delivery) {
             var priceNodesArray;
@@ -5012,113 +5060,110 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
             return extraServices;
         },
 
+        editFadeDeliveryBlock: function () {
+            var deliveryContent = this.deliveryBlockNode.querySelector('.bx-soa-section-content'), newContent;
+
+            if (this.initialized.delivery) {
+                this.deliveryHiddenBlockNode.appendChild(deliveryContent);
+            } else {
+                this.editActiveDeliveryBlock(false);
+                BX.remove(BX.lastChild(this.deliveryBlockNode));
+            }
+
+            newContent = this.getNewContainer(true);
+            this.deliveryBlockNode.appendChild(newContent);
+
+            this.editFadeDeliveryContent(newContent);
+
+            if (this.params.SHOW_COUPONS_DELIVERY == 'Y')
+                this.editCouponsFade(newContent);
+        },
 
         createDeliveryItem: function (item) {
 
+            var checked = item.CHECKED == 'Y',
+                deliveryId = parseInt(item.ID);
 
-            var deliveryId = parseInt(item.ID);
-            var checked = false;
+            var inputNode = BX.create('INPUT', {
+                props: {
+                    id: 'ID_DELIVERY_ID_' + deliveryId,
+                    name: 'DELIVERY_ID',
+                    type: 'checkbox',
+                    className: 'delivery radio-btn',
+                    value: deliveryId,
+                    checked: checked
+                }
+            });
 
-            if (item.CHECKED == 'Y') {
-                checked = 'checked';
-                console.error(item.CALCULATE_ERRORS);
+            var labelNode = BX.create('LABEL', {
+                props: {for: 'ID_DELIVERY_ID_' + deliveryId},
+            })
+
+            var title = BX.create('DIV', {
+                props: {className: 'bx-soa-pp-company-smalltitle'},
+                text: this.params.SHOW_DELIVERY_PARENT_NAMES != 'N' ? item.NAME : item.OWN_NAME
+            });
+
+            var labelNodes = [inputNode, labelNode, title],
+                deliveryCached = this.deliveryCachedInfo[deliveryId],
+                logotype, label, itemNode, logoNode;
+
+            var divNode = BX.create('DIV', {
+                props: {
+                    className: 'order__radio-txt'
+                },
+                children: labelNodes
+            });
+
+
+            // logoNode = BX.create('DIV', {props: {className: 'bx-soa-pp-company-image'}});
+            // logotype = this.getImageSources(item, 'LOGOTIP');
+            // if (logotype && logotype.src_2x) {
+            //     logoNode.setAttribute('style',
+            //         'background-image: url("' + logotype.src_1x + '");' +
+            //         'background-image: -webkit-image-set(url("' + logotype.src_1x + '") 1x, url("' + logotype.src_2x + '") 2x)'
+            //     );
+            // } else {
+            //     logotype = logotype && logotype.src_1x || this.defaultDeliveryLogo;
+            //     logoNode.setAttribute('style', 'background-image: url("' + logotype + '");');
+            // }
+            // labelNodes.push(logoNode);
+
+            if (item.PRICE >= 0 || typeof item.DELIVERY_DISCOUNT_PRICE !== 'undefined') {
+                // labelNodes.push(
+                //     BX.create('DIV', {
+                //         props: {className: 'bx-soa-pp-delivery-cost'},
+                //         html: typeof item.DELIVERY_DISCOUNT_PRICE !== 'undefined'
+                //             ? item.DELIVERY_DISCOUNT_PRICE_FORMATED
+                //             : item.PRICE_FORMATED
+                //     })
+                // );
+            } else if (deliveryCached && (deliveryCached.PRICE >= 0 || typeof deliveryCached.DELIVERY_DISCOUNT_PRICE !== 'undefined')) {
+                // labelNodes.push(
+                //     BX.create('DIV', {
+                //         props: {className: 'bx-soa-pp-delivery-cost'},
+                //         html: typeof deliveryCached.DELIVERY_DISCOUNT_PRICE !== 'undefined'
+                //             ? deliveryCached.DELIVERY_DISCOUNT_PRICE_FORMATED
+                //             : deliveryCached.PRICE_FORMATED
+                //     })
+                // );
             }
 
 
-            var inputNode = BX.create('input', {
-                    props: {
-                        id: 'ID_DELIVERY_ID_' + deliveryId,
-                        name: 'DELIVERY_ID',
-                        type: 'radio',
-                        className: 'delivery radio-btn',
-                        value: deliveryId,
-                        checked: checked,
-
-                    }
-                }),
-                labelNode = BX.create('LABEL', {
-                    props: {
-                        id: 'test1_' + deliveryId,
-                        name: 'DELIVERY_ID',
-                        className: 'test1'
-                    },
-                }),
-                textNode =
-                    BX.create('DIV', {
-                        props: {
-                            className: 'order__radio-txt'
-                        },
-                        html: item.NAME,
-                        children: [
-                            BX.create('DIV', {
-                                props: {
-                                    className: 'order__radio-name'
-                                },
-                                html: item.NAME,
-
-                            }),
-                            BX.create('DIV', {
-                                props: {
-                                    className: 'order__radio-price'
-                                },
-                                html: item.DESCRIPTION,
-                            })
-                        ],
-                    }),
-
-                deliveryCached = this.deliveryCachedInfo[deliveryId],
-                logotype, label, title, itemNode, logoNode;
+            label = BX.create('DIV', {
+                props: {
+                    className: 'order__radio-item'
+                },
+                children: labelNodes
+            });
 
 
             itemNode = BX.create('DIV', {
-                props: {className: 'order__radio-item'},
-                children: [inputNode, labelNode, textNode],
+                props: {className: 'bx-soa-pp-company'},
+                children: [label],
                 events: {click: BX.proxy(this.selectDelivery, this)}
-            })
-
-
-            // if (item.PRICE >= 0 || typeof item.DELIVERY_DISCOUNT_PRICE !== 'undefined') {
-            //     labelNodes.push(
-            //         BX.create('DIV', {
-            //             props: {className: 'order__radio-item'},
-            //             html: typeof item.DELIVERY_DISCOUNT_PRICE !== 'undefined'
-            //                 ? item.DELIVERY_DISCOUNT_PRICE_FORMATED
-            //                 : item.PRICE_FORMATED
-            //         })
-            //     );
-            // } else if (deliveryCached && (deliveryCached.PRICE >= 0 || typeof deliveryCached.DELIVERY_DISCOUNT_PRICE !== 'undefined')) {
-            //     labelNodes.push(
-            //         BX.create('DIV', {
-            //             props: {className: 'bx-soa-pp-delivery-cost'},
-            //             html: typeof deliveryCached.DELIVERY_DISCOUNT_PRICE !== 'undefined'
-            //                 ? deliveryCached.DELIVERY_DISCOUNT_PRICE_FORMATED
-            //                 : deliveryCached.PRICE_FORMATED
-            //         })
-            //     );
-            // }
-
-            // label = BX.create('DIV', {
-            //     props: {
-            //         className: 'bx-soa-pp-company-graf-container'
-            //             + (item.CALCULATE_ERRORS || deliveryCached && deliveryCached.CALCULATE_ERRORS ? ' bx-bd-waring' : '')
-            //     },
-            //     children: labelNodes
-            // });
-
-            // if (this.params.SHOW_DELIVERY_LIST_NAMES == 'Y')
-            // {
-            // 	title = BX.create('DIV', {
-            // 		props: {className: 'bx-soa-pp-company-smalltitle'},
-            // 		text: this.params.SHOW_DELIVERY_PARENT_NAMES != 'N' ? item.NAME : item.OWN_NAME
-            // 	});
-            // }
-
-            // itemNode = BX.create('DIV', {
-            //     props: {className: 'order__radio-item'},
-            //     children: [label, title],
-            //     events: {click: BX.proxy(this.selectDelivery, this)}
-            // });
-            // checked && BX.addClass(itemNode, 'bx-selected');
+            });
+            checked && BX.addClass(itemNode, 'bx-selected');
 
             if (checked && this.result.LAST_ORDER_DATA.PICK_UP)
                 this.lastSelectedDelivery = deliveryId;
@@ -5185,49 +5230,41 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
         },
 
         selectDelivery: function (event) {
-
-            console.log('!! selectDelivery event !!', event)
-
             if (!this.orderBlockNode)
                 return;
 
             var target = event.target || event.srcElement,
-                targetParent = BX.findParent(target, {className: 'order__radio-item'}),
-                input;
+                actionSection = BX.hasClass(target, 'bx-soa-pp-company') ? target : BX.findParent(target, {className: 'bx-soa-pp-company'}),
+                selectedSection = this.deliveryBlockNode.querySelector('.bx-soa-pp-company.bx-selected'),
+                actionInput, selectedInput;
 
-            console.log('!! selectDelivery target !!', target)
+            if (BX.hasClass(actionSection, 'bx-selected'))
+                return BX.PreventDefault(event);
 
-
-
-            // if (BX.hasClass(actionSection, 'bx-selected'))
-            //     return BX.PreventDefault(event);
-
-            if (targetParent) {
-                input = targetParent.querySelector('input[type=radio]');
-                // BX.addClass(targetParent, 'bx-selected');
-                input.checked = true;
+            if (actionSection) {
+                actionInput = actionSection.querySelector('input[type=checkbox]');
+                BX.addClass(actionSection, 'bx-selected');
+                actionInput.checked = true;
             }
-            // if (selectedSection) {
-            //     selectedInput = selectedSection.querySelector('input[type=radio]');
-            //     BX.removeClass(selectedSection, 'bx-selected');
-            //     selectedInput.checked = false;
-            // }
+            if (selectedSection) {
+                selectedInput = selectedSection.querySelector('input[type=checkbox]');
+                BX.removeClass(selectedSection, 'bx-selected');
+                selectedInput.checked = false;
+            }
 
             this.sendRequest();
         },
 
         getSelectedDelivery: function () {
-
-
-            var deliveryCheckbox = this.deliveryBlockNode.querySelector('input[type=radio][name=DELIVERY_ID]:checked'),
+            var deliveryCheckbox = this.deliveryBlockNode.querySelector('input[type=checkbox][name=DELIVERY_ID]:checked'),
                 currentDelivery = false,
                 deliveryId, i;
 
-            // if (!deliveryCheckbox)
-            //     deliveryCheckbox = this.deliveryHiddenBlockNode.querySelector('input[type=radio][name=DELIVERY_ID]:checked');
-            //
-            // if (!deliveryCheckbox)
-            //     deliveryCheckbox = this.deliveryHiddenBlockNode.querySelector('input[type=hidden][name=DELIVERY_ID]');
+            if (!deliveryCheckbox)
+                deliveryCheckbox = this.deliveryHiddenBlockNode.querySelector('input[type=checkbox][name=DELIVERY_ID]:checked');
+
+            if (!deliveryCheckbox)
+                deliveryCheckbox = this.deliveryHiddenBlockNode.querySelector('input[type=hidden][name=DELIVERY_ID]');
 
             if (deliveryCheckbox) {
                 deliveryId = deliveryCheckbox.value;
@@ -5248,7 +5285,8 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
                 return;
 
             this.pickUpBlockNode.style.display = '';
-            this.pickUpBlockNode.querySelector('h2.bx-soa-section-title').innerHTML = BX.util.htmlspecialchars(deliveryName);
+            this.pickUpBlockNode.querySelector('h2.bx-soa-section-title').innerHTML =
+                '<span class="bx-soa-section-title-count"></span>' + BX.util.htmlspecialchars(deliveryName);
 
             if (BX.hasClass(this.pickUpBlockNode, 'bx-active'))
                 return;
@@ -5351,6 +5389,8 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
         },
 
         editFadePickUpContent: function (pickUpContainer) {
+
+
             var selectedPickUp = this.getSelectedPickUp(), html = '', logotype, imgSrc;
 
             if (selectedPickUp) {
@@ -5590,6 +5630,8 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
                 }
             } else
                 found = true;
+
+            console.log('editPickUpList', selectedDelivery)
 
             for (i = 0; i < this.pickUpPagination.currentPage.length; i++) {
                 currentStore = this.pickUpPagination.currentPage[i];
@@ -5876,22 +5918,27 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
             return deliveries.concat(problemDeliveries);
         },
 
-        editPropsBlock: function () {
+        editPropsBlock: function (active) {
             if (!this.propsBlockNode || !this.propsHiddenBlockNode || !this.result.ORDER_PROP)
                 return;
 
-            this.editActivePropsBlock(true);
+            if (active)
+                this.editActivePropsBlock(true);
+            else
+                this.editFadePropsBlock();
 
             this.initialized.props = true;
         },
+
+        // конец замена
 
         editActivePropsBlock: function (activeNodeMode) {
             var node = activeNodeMode ? this.propsBlockNode : this.propsHiddenBlockNode,
                 propsContent, propsNode, selectedDelivery, showPropMap = false, i, validationErrors;
 
             if (this.initialized.props) {
-                // BX.remove(BX.lastChild(node));
-                // node.appendChild(BX.firstChild(this.propsHiddenBlockNode));
+                BX.remove(BX.lastChild(node));
+                node.appendChild(BX.firstChild(this.propsHiddenBlockNode));
                 this.maps && setTimeout(BX.proxy(this.maps.propsMapFocusWaiter, this.maps), 200);
             } else {
                 BX.cleanNode(this.profileNode);
@@ -5913,8 +5960,8 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
                 }
 
                 this.editPropsItems();
-                showPropMap && this.editPropsMap(propsContent);
 
+                showPropMap && this.editPropsMap(propsContent);
                 this.getBlockFooter(propsContent);
 
                 // if (this.propsBlockNode.getAttribute('data-visited') === 'true') {
@@ -5982,8 +6029,10 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 
             if (this.propsBlockNode.getAttribute('data-visited') === 'true') {
                 validPropsErrors = this.isValidPropertiesBlock();
-                if (validPropsErrors.length)
+                if (validPropsErrors.length) {
+
                     this.showError(this.propsBlockNode, validPropsErrors);
+                }
             }
 
             BX.bind(node.querySelector('.alert.alert-danger'), 'click', BX.proxy(this.showByClick, this));
@@ -6003,10 +6052,22 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
                 propsIterator = group.getIterator();
                 while (property = propsIterator()) {
 
-                    if (property.getSettings().USER_PROPS === 'Y')
+
+                    let arrProfileProps = ['NAME', 'SECONDNAME', 'PHONE', 'EMAIL'];
+
+                    if (arrProfileProps.includes(property.getSettings().CODE))
                         this.getPropertyRowNode(property, this.profileNode, false);
-                    else
+                    else {
+                        console.log('property', property.getSettings())
+
+                        // if (property.getSettings().TYPE == 'LOCATION')
+                        //     continue;
+
+
                         this.getPropertyRowNode(property, this.otherNode, false);
+                        // this.getPropertyRowNode(property, this.regionBlockNode, false);
+
+                    }
                 }
             }
 
@@ -6016,12 +6077,18 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
         getPropertyRowNode: function (property, propsItemsContainer, disabled) {
             var propsItemNode = BX.create('DIV', {
                 attrs: {'data-property-id-row': property.getId()},
-                props: {className: 'order__inputs-item"'},
+                props: {className: 'order__inputs-item'},
                 // html: textHtml
             });
 
-            if (property.getSettings().USER_PROPS != 'Y')
-                BX.addClass(propsItemNode, 'input');
+            let arLongFields = ['IPOLSDEK_STORE'];
+
+            if (arLongFields.includes(property.getSettings().CODE))
+                BX.addClass(propsItemNode, 'long-input');
+            else {
+                if (propsItemsContainer == this.otherNode)
+                    BX.addClass(propsItemNode, 'input');
+            }
 
 
             var textHtml = '',
@@ -6064,6 +6131,10 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
         },
 
         insertLocationProperty: function (property, propsItemNode, disabled) {
+
+            propsItemNode.className = 'order__input';
+
+
             var propRow, propNodes, locationString, currentLocation, insertedLoc, propContainer, i, k, values = [];
 
             if (property.getId() in this.locations) {
@@ -6078,16 +6149,15 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
                     }
                     propsItemNode.innerHTML += values.join('<br>');
                 } else {
-                    propContainer = BX.create('DIV', {props: {className: 'soa-property-container'}});
                     propRow = this.locations[property.getId()];
                     for (i = 0; i < propRow.length; i++) {
                         currentLocation = propRow[i] ? propRow[i].output : {};
                         insertedLoc = BX.create('DIV', {props: {className: 'bx-soa-loc'}, html: currentLocation.HTML});
+                        insertedLoc.innerHTML = currentLocation.HTML;
 
-                        if (property.isMultiple())
-                            insertedLoc.style.marginBottom = this.locationsTemplate == 'search' ? '5px' : '20px';
 
-                        propContainer.appendChild(insertedLoc);
+                        // this.otherNode
+                        propsItemNode.appendChild(insertedLoc);
 
                         for (k in currentLocation.SCRIPT) {
                             if (currentLocation.SCRIPT.hasOwnProperty(k))
@@ -6096,7 +6166,7 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
                     }
 
                     if (property.isMultiple()) {
-                        propContainer.appendChild(
+                        propsItemNode.appendChild(
                             BX.create('DIV', {
                                 attrs: {'data-prop-id': property.getId()},
                                 props: {className: 'btn btn-sm btn-default'},
@@ -6108,7 +6178,7 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
                         );
                     }
 
-                    propsItemNode.appendChild(propContainer);
+                    // propsItemNode.appendChild(propContainer);
                 }
             }
         },
@@ -6563,24 +6633,32 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
                 BX.addClass(this.propsBlockNode, 'bx-step-error');
             }
 
+
             return !(regionErrors.length + propsErrors.length);
         },
 
         isValidRegionBlock: function () {
+
+            console.log('isValidRegionBlock')
+
+
             if (!this.options.propertyValidation)
                 return [];
 
-            var regionProps = this.orderBlockNode.querySelectorAll('.bx-soa-location-input-container[data-property-id-row]'),
+            var regionProps = this.otherNode.querySelectorAll('.order__input[data-property-id-row]'),
                 regionErrors = [],
                 id, arProperty, data, i;
 
-            for (i = 0; i < regionProps.length; i++) {
-                id = regionProps[i].getAttribute('data-property-id-row');
-                arProperty = this.validation.properties[id];
-                data = this.getValidationData(arProperty, regionProps[i]);
+            // for (i = 0; i < regionProps.length; i++) {
+            //     id = regionProps[i].getAttribute('data-property-id-row');
+            //     arProperty = this.validation.properties[id];
+            //     data = this.getValidationData(arProperty, regionProps[i]);
+            //
+            //     regionErrors = regionErrors.concat(this.isValidProperty(data, true));
+            // }
 
-                regionErrors = regionErrors.concat(this.isValidProperty(data, true));
-            }
+            console.log('isValidRegionBlock', regionErrors)
+            regionErrors = [];
 
             return regionErrors;
         },
@@ -6678,6 +6756,7 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
                     }, this);
 
                     inputs = propContainer.querySelectorAll('input.bx-ui-sls-fake[type=text]');
+
                     if (inputs.length) {
                         data.inputs = inputs;
                         data.action = 'keyup';
@@ -6815,16 +6894,17 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
         },
 
         showValidationResult: function (inputs, errors) {
+            console.log('showValidationResult', inputs, errors)
+
             if (!inputs || !inputs.length || !errors)
                 return;
 
             var input0 = BX.type.isElementNode(inputs[0]) ? inputs[0] : inputs[0][0],
-                formGroup = BX.findParent(input0, {tagName: 'DIV', className: 'form-group'}),
-                label = formGroup.querySelector('label'),
+                parentDiv = BX.findParent(input0, {tagName: 'DIV', className: 'order__input'}),
                 tooltipId, inputDiv, i;
 
-            if (label)
-                tooltipId = label.getAttribute('for');
+            if (!parentDiv)
+                parentDiv = BX.findParent(input0, {tagName: 'DIV', className: 'order__inputs-item'});
 
             for (i = 0; i < inputs.length; i++) {
                 inputDiv = BX.findParent(inputs[i], {tagName: 'DIV', className: 'form-group'});
@@ -6835,7 +6915,7 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
             }
 
             if (errors.length)
-                this.showErrorTooltip(tooltipId, label, errors.join('<br>'));
+                this.showErrorTooltip(tooltipId, inputDiv, errors.join('<br>'));
             else
                 this.closeErrorTooltip(tooltipId);
         },

@@ -88,3 +88,56 @@
 .row::before {
 	display: initial;
 }
+
+@media(max-width: 490px) {
+	.catalog__serch-form:first-child {
+		display: none
+	}
+
+	.catalog__serch-form input {
+		margin-top: 30px;
+		width: 100%;
+		height: 56px;
+		font-size: 18px;
+		padding: 15px 40px 15px 15px
+	}
+
+	.catalog__serch-mobail {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex
+	}
+
+	.catalog__filters-mobail-nav-list {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		width: 100%;
+		max-width: 450px;
+		margin: 20px 0;
+		font-size: 14px;
+		overflow-x: auto
+	}
+
+	.catalog__filters-mobail-item {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-pack: center;
+		-ms-flex-pack: center;
+		justify-content: center
+	}
+
+	.catalog__filters-mobail-item-close {
+		font-size: 15px;
+		line-height: 100%;
+		color: #010101;
+		margin-left: 3px;
+		padding-top: 2px
+	}
+
+	.catalog__filters-mobail-item--active {
+		color: #010101;
+		background: #fff
+	}
+}

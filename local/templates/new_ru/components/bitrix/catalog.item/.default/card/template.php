@@ -31,11 +31,11 @@ $resize_image = CFile::ResizeImageGet($item["PREVIEW_PICTURE"]['ID'],
 //echo '<pre>';
 ?>
 
-    <a class="products__item" href="<?= $item['DETAIL_PAGE_URL'] ?>">
+    <div class="products__item"  data-item-id="<?= $item['ID'] ?>">
         <div class="products__item-image scale">
             <div class="products__item-like">
                 <img src="<?= SITE_TEMPLATE_PATH ?>/img/like.svg" alt="like">
-                <img class="like-active hide" src="<?= SITE_TEMPLATE_PATH ?>/img/full_like.svg" alt="full_like">
+                <img class="like-active <?= (in_array($item['ID'], $arResult['FAVORITES']) ? '' : 'hide')?>" src="<?= SITE_TEMPLATE_PATH ?>/img/full_like.svg" alt="full_like">
             </div>
             <?
             if (!empty($item['PROPERTIES']['HIT']['VALUE_XML_ID'])):
@@ -54,34 +54,41 @@ $resize_image = CFile::ResizeImageGet($item["PREVIEW_PICTURE"]['ID'],
                 endforeach;
             endif;
             ?>
-            <img src="<?= $resize_image["src"] ?>">
+            <a href="<?= $item['DETAIL_PAGE_URL'] ?>">
+                <img src="<?= $resize_image["src"] ?>">
+            </a>
         </div>
         <div class="products__item-footer">
-            <div class="products__item-txt">
-                <div class="products__item-name"><?= $item['NAME'] ?></div>
-                <div class="products__item-price">
-                    <?
+            <a href="<?= $item['DETAIL_PAGE_URL'] ?>">
+                <div class="products__item-txt">
+                    <div class="products__item-name"><?= $item['NAME'] ?></div>
+                    <div class="products__item-price">
+                        <?
 
 
-                    if (empty($arResult['ITEM']['OFFERS'])) {
-                        foreach ($item["ITEM_PRICES"] as $key => $price) {
-                            echo $price["PRINT_RATIO_BASE_PRICE"];
-                        }
-                    } else {
+                        if (empty($arResult['ITEM']['OFFERS'])) {
+                            foreach ($item["ITEM_PRICES"] as $key => $price) {
+                                echo $price["PRINT_RATIO_BASE_PRICE"];
+                            }
+                        } else {
 //                        echo '<pre>';
 //                        print_r($arResult['ITEM']['OFFERS']);
 //                        echo '<pre>';
 
-                        echo $arResult['ITEM']['OFFERS'][0]['ITEM_PRICES'][0]['PRINT_RATIO_BASE_PRICE'];
-                    }
-                    ?>
+                            echo $arResult['ITEM']['OFFERS'][0]['ITEM_PRICES'][0]['PRINT_RATIO_BASE_PRICE'];
+                        }
+                        ?>
+                    </div>
                 </div>
-            </div>
+            </a>
+
             <div class="products__item-basket">
-                <img src="<?= SITE_TEMPLATE_PATH ?>/img/basket.svg" alt="basket">
+                <a href="<?= $item['DETAIL_PAGE_URL'] ?>">
+                    <img src="<?= SITE_TEMPLATE_PATH ?>/img/basket.svg" alt="basket">
+                </a>
             </div>
         </div>
-    </a>
+    </div>
 
 <?php
 /*
@@ -206,7 +213,7 @@ $resize_image = CFile::ResizeImageGet($item["PREVIEW_PICTURE"]['ID'],
 					} else{
 					echo $arResult['ITEM']['OFFERS'][0]['PRICES']['BASE']['PRINT_VALUE'];
 					}
-					
+
 				?></div>
 				<div class="product_price econom"><?=$item["DISPLAY_PROPERTIES"]["OLD_PRICE"]["DISPLAY_VALUE"]?> ₽</div>
 			</div>
@@ -218,7 +225,7 @@ $resize_image = CFile::ResizeImageGet($item["PREVIEW_PICTURE"]['ID'],
 				</svg>
 			</div>
 		</a>
-		
+
 	</div>
 </div>
 

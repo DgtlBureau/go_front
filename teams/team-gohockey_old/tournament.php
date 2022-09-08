@@ -5,7 +5,7 @@
             <div class="gohockey-tournament__about-title">
                 <p>Хоккейная команда</p>
                 <p>Команда</p>
-                <div class="gohockey-tournament__team-name"><span data-text="Gohockey" id="Gohockey">Gohockey</span></div>
+                <div class="gohockey-tournament__team-name"><span data-text="<?=$GLOBALS['SITE_SETTINGS']['gohockey']['LOGO_TEXT']?>" id="Gohockey"><?=$GLOBALS['SITE_SETTINGS']['gohockey']['LOGO_TEXT']?></span></div>
             </div>
             <div class="gohockey-tournament__about-txt">Несколько лет назад мы решили популяризировать любительский хоккей
                 и создать престижный дивизион с шикарным трофее</div>
@@ -115,7 +115,7 @@
                     </tr>
                     <tr class="championship-course__our-team">
                         <td>2</td>
-                        <td><img src="/local/templates/new_ru/img/bull.png" alt="bull">Go</td>
+                        <td><img src="/local/templates/new_ru/img/bull.png" alt="bull"><?=$GLOBALS['SITE_SETTINGS']['go']['LOGO_TEXT']?></td>
                         <td>21</td>
                         <td>14</td>
                         <td>3</td>
@@ -386,7 +386,7 @@
                                 <div class="match__first-team">
                                     <div class="match__first-team-logo"><img src="/local/templates/new_ru/img/bull.png"
                                                                              alt="bull"></div>
-                                    <div class="match__first-team-name" id="gohockey-first">GO</div>
+                                    <div class="match__first-team-name" id="gohockey-first"><?=$GLOBALS['SITE_SETTINGS']['go']['LOGO_TEXT']?></div>
                                 </div>
                                 <div class="match__score">
                                     <div class="match__first-team-score">5</div>
@@ -416,7 +416,7 @@
                                 <div class="match__first-team">
                                     <div class="match__first-team-logo"><img src="/local/templates/new_ru/img/bull.png"
                                                                              alt="bull"></div>
-                                    <div class="match__first-team-name" id="gohockey-first">GO</div>
+                                    <div class="match__first-team-name" id="gohockey-first"><?=$GLOBALS['SITE_SETTINGS']['go']['LOGO_TEXT']?></div>
                                 </div>
                                 <div class="match__score">
                                     <div class="match__first-team-score">-</div>
@@ -446,7 +446,7 @@
                                 <div class="match__first-team">
                                     <div class="match__first-team-logo"><img src="/local/templates/new_ru/img/bull.png"
                                                                              alt="bull"></div>
-                                    <div class="match__first-team-name" id="gohockey-first">GO</div>
+                                    <div class="match__first-team-name" id="gohockey-first"><?=$GLOBALS['SITE_SETTINGS']['go']['LOGO_TEXT']?></div>
                                 </div>
                                 <div class="match__score">
                                     <div class="match__first-team-score">5</div>
@@ -476,7 +476,7 @@
                                 <div class="match__first-team">
                                     <div class="match__first-team-logo"><img src="/local/templates/new_ru/img/bull.png"
                                                                              alt="bull"></div>
-                                    <div class="match__first-team-name" id="gohockey-first">GO</div>
+                                    <div class="match__first-team-name" id="gohockey-first"><?=$GLOBALS['SITE_SETTINGS']['go']['LOGO_TEXT']?></div>
                                 </div>
                                 <div class="match__score">
                                     <div class="match__first-team-score">-</div>
@@ -506,7 +506,7 @@
                                 <div class="match__first-team">
                                     <div class="match__first-team-logo"><img src="/local/templates/new_ru/img/bull.png"
                                                                              alt="bull"></div>
-                                    <div class="match__first-team-name" id="gohockey-first">GO</div>
+                                    <div class="match__first-team-name" id="gohockey-first"><?=$GLOBALS['SITE_SETTINGS']['go']['LOGO_TEXT']?></div>
                                 </div>
                                 <div class="match__score">
                                     <div class="match__first-team-score">-</div>
@@ -536,7 +536,7 @@
                                 <div class="match__first-team">
                                     <div class="match__first-team-logo"><img src="/local/templates/new_ru/img/bull.png"
                                                                              alt="bull"></div>
-                                    <div class="match__first-team-name" id="gohockey-first">GO</div>
+                                    <div class="match__first-team-name" id="gohockey-first"><?=$GLOBALS['SITE_SETTINGS']['go']['LOGO_TEXT']?></div>
                                 </div>
                                 <div class="match__score">
                                     <div class="match__first-team-score">-</div>
@@ -566,7 +566,7 @@
                                 <div class="match__first-team">
                                     <div class="match__first-team-logo"><img src="/local/templates/new_ru/img/bull.png"
                                                                              alt="bull"></div>
-                                    <div class="match__first-team-name" id="gohockey-first">GO</div>
+                                    <div class="match__first-team-name" id="gohockey-first"><?=$GLOBALS['SITE_SETTINGS']['go']['LOGO_TEXT']?></div>
                                 </div>
                                 <div class="match__score">
                                     <div class="match__first-team-score">-</div>
@@ -596,7 +596,7 @@
                                 <div class="match__first-team">
                                     <div class="match__first-team-logo"><img src="/local/templates/new_ru/img/bull.png"
                                                                              alt="bull"></div>
-                                    <div class="match__first-team-name" id="gohockey-first">GO</div>
+                                    <div class="match__first-team-name" id="gohockey-first"><?=$GLOBALS['SITE_SETTINGS']['go']['LOGO_TEXT']?></div>
                                 </div>
                                 <div class="match__score">
                                     <div class="match__first-team-score">-</div>

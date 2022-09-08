@@ -46,7 +46,8 @@ $this->setFrameMode(true);
 	?>
 <?endforeach;?>
 <?
-//if($USER->IsAdmin()) {echo '<pre>'; print_r($arResult['ITEMS'][$LeftTop]); echo '</pre>';}
+//if($USER->IsAdmin())
+//    dump($arResult);
 ?>
             <div class="go-final-bracket">
                 <div class="go-final-bracket__stage">

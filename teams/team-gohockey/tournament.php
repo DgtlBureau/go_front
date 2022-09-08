@@ -4,15 +4,15 @@ $GAMERS = 18;//Игроки
 $SEZONS = 20;//Сезоны
 $REG_SEASON = 25;//ID рег. чемпионата
 ?>
-<div class="go-tournament">
-    <div class="blue-go-tournament__info">
+<div class="gohockey-team">
+    <div class="back-go-tournament__info">
         <div class="container">
             <div class="go-tournament__info">
                 <div class="go-tournament__about">
                     <div class="go-tournament__about-title">
                         <p>Хоккейная команда</p>
                         <p>Команда</p>
-                        <div class="go-tournament__team-name orange"><span data-text="Gohockey" id="GO">Gohockey</span>
+                        <div class="go-tournament__team-name"><span data-text="<?=$GLOBALS['SITE_SETTINGS']['gohockey']['LOGO_TEXT']?>" id="GO"><?=$GLOBALS['SITE_SETTINGS']['gohockey']['LOGO_TEXT']?></span>
                         </div>
                     </div>
                     <div class="go-tournament__about-txt"><?= $ar_header_fields["DETAIL_TEXT"]; ?></div>
@@ -106,7 +106,7 @@ $REG_SEASON = 25;//ID рег. чемпионата
                     ?>
                 </div>
                 <div class="go-tournament__progress">
-                    <div class="go-tournament__progress-background orange" id="team-background-logo"></div>
+                    <div class="go-tournament__progress-background" id="team-background-logo"></div>
                     <div class="go-tournament__progress-stats">
                         <div class="go-tournament__progress-victories">
                             <div class="go-tournament__progress-title">Побед</div>
@@ -136,7 +136,7 @@ $REG_SEASON = 25;//ID рег. чемпионата
                     <p>Состав команды</p>
                     <p>Состав</p>
                 </a>
-                <div href="/teams/team-gohockey/tournament/" class="go-tournament__nav-item orange">Турниры</div>
+                <div href="/teams/team-gohockey/tournament/" class="go-tournament__nav-item">Турниры</div>
                 <a class="go-tournament__nav-item" href="/teams/team-gohockey/news/">Новости</a>
             </div>
         </div>
@@ -295,7 +295,7 @@ $REG_SEASON = 25;//ID рег. чемпионата
                             </div>
                             <div class="go-tournament__players-staff-person-txt-block">
                                 <div class="go-tournament__players-staff-person-name"><?= str_replace(' ', '<br>', $best_player["NAME"]); ?></div>
-                                <div class="go-tournament__players-staff-person-number_orange"><span
+                                <div class="go-tournament__players-staff-person-number"><span
                                             data-text="<?= $best_player["PROPERTY_NUMBER_VALUE"]; ?>"><?= $best_player["PROPERTY_NUMBER_VALUE"]; ?></span>
                                 </div>
                             </div>

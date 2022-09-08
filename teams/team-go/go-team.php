@@ -10,7 +10,7 @@ $arrFilter=array("PROPERTY_TEAM"=>6);//ID Команды
                             <div class="go-team__about-title">
                                 <p>Хоккейная команда</p>
                                 <p>Команда</p>
-                                <div class="go-team__team-name"><span data-text="GO" id="GO">GO</span></div>
+                                <div class="go-team__team-name"><span data-text="<?=$GLOBALS['SITE_SETTINGS']['go']['LOGO_TEXT']?>" id="GO"><?=$GLOBALS['SITE_SETTINGS']['go']['LOGO_TEXT']?></span></div>
                             </div>
                             <div class="go-team__about-txt">
 								<?=$ar_header_fields["~PREVIEW_TEXT"];?>
@@ -30,7 +30,7 @@ $arrFilter=array("PROPERTY_TEAM"=>6);//ID Команды
 										<span data-text="<?=$ar_header_values["PLACE"]["VALUE"]?>" id="place"><?=$ar_header_values["PLACE"]["VALUE"]?></span>
                                     </div>
                                 </div>
-                            </div>					
+                            </div>
                             <div class="next-match">
                                 <div class="next-match__title">Ближайший матч</div>
                                 <div class="next-match__block" id="next-match__block">
@@ -99,15 +99,15 @@ $arrFilter=array("PROPERTY_TEAM"=>6);//ID Команды
                     </div>
                 </div>
             </div>
+
             
-            
-            
+
             <div class="container">
             <div class="go-team__line-up">
                 <div class="go-team__staff-block">
                    <? $APPLICATION->IncludeComponent(
-	"bitrix:news.list", 
-	"treners_list", 
+	"bitrix:news.list",
+	"treners_list",
 	array(
 		"ACTIVE_DATE_FORMAT" => "j F Y",
 		"ADD_SECTIONS_CHAIN" => "N",
@@ -178,8 +178,8 @@ $arrFilter=array("PROPERTY_TEAM"=>6);//ID Команды
                 <div class="go-team__staff-block">
                     <div class="go-team__staff-title">Игроки</div>
 					<? $APPLICATION->IncludeComponent(
-	"bitrix:news.list", 
-	"players_list", 
+	"bitrix:news.list",
+	"players_list",
 	array(
 		"ACTIVE_DATE_FORMAT" => "j F Y",
 		"ADD_SECTIONS_CHAIN" => "N",

@@ -1,7 +1,10 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php");
 $APPLICATION->SetTitle("корзина");
-?><? $APPLICATION->IncludeComponent(
+?>
+
+
+<? $APPLICATION->IncludeComponent(
 	"bitrix:sale.basket.basket", 
 	"basket", 
 	array(
@@ -58,9 +61,9 @@ $APPLICATION->SetTitle("корзина");
 		"PRODUCT_BLOCKS_ORDER" => "props,sku,columns",
 		"QUANTITY_FLOAT" => "Y",
 		"SET_TITLE" => "Y",
-		"SHOW_DISCOUNT_PERCENT" => "Y",
-		"SHOW_FILTER" => "Y",
-		"SHOW_RESTORE" => "Y",
+		"SHOW_DISCOUNT_PERCENT" => "N",
+		"SHOW_FILTER" => "N",
+		"SHOW_RESTORE" => "N",
 		"TEMPLATE_THEME" => "",
 		"TOTAL_BLOCK_DISPLAY" => array(
 			0 => "top",

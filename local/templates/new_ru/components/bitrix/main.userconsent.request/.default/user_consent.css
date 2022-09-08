@@ -216,3 +216,11 @@
 		height: 100%;
 	}
 }
+
+/* custom */
+.data-processing-block label{
+	display: inline-flex;
+}
+.data-processing-block input{
+	margin: 0 10px 0 0;
+}

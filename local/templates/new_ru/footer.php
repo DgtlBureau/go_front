@@ -38,6 +38,12 @@ if ($obRes = $res->GetNextElement()) {
           </div>
         </div>
         <div class="footer_right_content_item">
+          <h3 class="footer_right_content_item_h3">GOFIGHT</h3>
+          <div class="footer_link_content">
+            <a href="/go-fight/" class="footer_link">Go Fight</a>
+          </div>
+        </div>
+        <div class="footer_right_content_item">
           <h3 class="footer_right_content_item_h3">МАГАЗИН</h3>
           <div class="footer_link_content">
             <a href="/shop/catalog/odezhda/" class="footer_link">Одежда</a>
@@ -536,5 +542,6 @@ if ($obRes = $res->GetNextElement()) {
              
                 </script>
 
+        <script type="module" src="<?= SITE_TEMPLATE_PATH ?>/js/index.js?id=123"></script>
 	</body>
 </html>

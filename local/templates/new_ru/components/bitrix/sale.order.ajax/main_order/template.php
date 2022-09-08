@@ -280,7 +280,7 @@ if ($request->get('ORDER_ID') <> '') {
 //    echo '</pre>';
     ?>
     <main class="shop">
-        <div class="container"><a class="go-back-bnt" href="<?=$arParams['PATH_TO_BASKET']?>">
+        <div class="container"><a class="go-back-bnt" href="<?= $arParams['PATH_TO_BASKET'] ?>">
                 <div class="go-back-arrow">←</div>
                 <div class="go-back-txt">Оформление заказа</div>
             </a>
@@ -296,10 +296,13 @@ if ($request->get('ORDER_ID') <> '') {
                     ?>
                     <input type="hidden" name="<?= $arParams['ACTION_VARIABLE'] ?>" value="saveOrderAjax">
                     <input type="hidden" name="location_type" value="code">
-                    <input type="hidden" name="BUYER_STORE" id="BUYER_STORE" value="<?= $arResult['BUYER_STORE'] ?>">
+                    <!--                    <input type="hidden" name="BUYER_STORE" id="BUYER_STORE" value="-->
+                    <?//= $arResult['BUYER_STORE'] ?><!--">-->
 
 
-                    <div id="bx-soa-properties" class="bx-soa-section bx-active">
+                    <div class="bx-soa-section bx-active" id="bx-soa-properties"></div>
+
+                    <div>
                         <!--	BUYER PROPS BLOCK	-->
                         <div class="order__title"><?= $arParams['MESS_BUYER_BLOCK_NAME'] ?></div>
                         <div class="order__inputs person_data" id="profile-properties">
@@ -307,65 +310,75 @@ if ($request->get('ORDER_ID') <> '') {
 
 
                         <!--	DELIVERY BLOCK	-->
+                        <?
+
+                        ?>
                         <!--                        <div id="bx-soa-delivery">-->
-                        <div id="delivery-block">
-                            <div class="order__title"><?= $arParams['MESS_DELIVERY_BLOCK_NAME'] ?></div>
-                            <div class="order__radio" id="delivery-content-block">
-                                <div class="order__radio-item">
-                                    <input class="delivery radio-btn" type="radio" name="radio" value="pochta"
-                                           id="pochta"
-                                           checked="checked">
-                                    <label for="pochta"></label>
-                                    <div class="order__radio-txt">
-                                        <div class="order__radio-name">Почта России</div>
-                                        <div class="order__radio-price">200 руб., от 9 до 20 дней</div>
-                                    </div>
-                                </div>
-                                <div class="order__radio-item">
-                                    <input class="delivery radio-btn" type="radio" name="radio" value="sdek" id="sdek">
-                                    <label for="sdek"></label>
-                                    <div class="order__radio-txt">
-                                        <div class="order__radio-name">СДЭК</div>
-                                        <div class="order__radio-price">500 руб., от 15 до 35 дней</div>
-                                    </div>
-                                </div>
-                                <div class="order__radio-item">
-                                    <input class="delivery radio-btn" type="radio" name="radio" value="sdek-courier"
-                                           id="sdek-courier">
-                                    <label for="sdek-courier"></label>
-                                    <div class="order__radio-txt">
-                                        <div class="order__radio-name">СДЭК курьер</div>
-                                        <div class="order__radio-price">500 руб., от 15 до 35 дней</div>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="order__radio" id="delivery-content-block">
+                            <!--                                <div class="order__radio-item">-->
+                            <!--                                    <input class="delivery radio-btn" type="radio" name="radio" value="pochta"-->
+                            <!--                                           id="pochta"-->
+                            <!--                                           checked="checked">-->
+                            <!--                                    <label for="pochta"></label>-->
+                            <!--                                    <div class="order__radio-txt">-->
+                            <!--                                        <div class="order__radio-name">Почта России</div>-->
+                            <!--                                        <div class="order__radio-price">200 руб., от 9 до 20 дней</div>-->
+                            <!--                                    </div>-->
+                            <!--                                </div>-->
+                            <!--                                <div class="order__radio-item">-->
+                            <!--                                    <input class="delivery radio-btn" type="radio" name="radio" value="sdek" id="sdek">-->
+                            <!--                                    <label for="sdek"></label>-->
+                            <!--                                    <div class="order__radio-txt">-->
+                            <!--                                        <div class="order__radio-name">СДЭК</div>-->
+                            <!--                                        <div class="order__radio-price">500 руб., от 15 до 35 дней</div>-->
+                            <!--                                    </div>-->
+                            <!--                                </div>-->
+                            <!--                                <div class="order__radio-item">-->
+                            <!--                                    <input class="delivery radio-btn" type="radio" name="radio" value="sdek-courier"-->
+                            <!--                                           id="sdek-courier">-->
+                            <!--                                    <label for="sdek-courier"></label>-->
+                            <!--                                    <div class="order__radio-txt">-->
+                            <!--                                        <div class="order__radio-name">СДЭК курьер</div>-->
+                            <!--                                        <div class="order__radio-price">500 руб., от 15 до 35 дней</div>-->
+                            <!--                                    </div>-->
+                            <!--                                </div>-->
                         </div>
 
+                        <?
 
+                        ?>
                         <!--	DELIVERY BLOCK	-->
+                        <div class="order__title" id="title-delivery-block"><?= $arParams['MESS_DELIVERY_BLOCK_NAME'] ?></div>
+
                         <?
 
                         if ($arParams['DELIVERY_TO_PAYSYSTEM'] === 'p2d'): ?>
                             <div id="bx-soa-delivery" data-visited="false"
-                                 class="bx-soa-section bx-active" <?= ($hideDelivery ? 'style="display:none"' : '') ?>>
+                                 class="bx-soa-section bx-active order__radio">>
                             </div>
                             <!--	PICKUP BLOCK	-->
                             <div id="bx-soa-pickup" data-visited="false" class="bx-soa-section" style="display:none">
-                                <div class="bx-soa-section-content container-fluid"></div>
+                                <div class="bx-soa-section-content container-fluid order__radio"></div>
                             </div>
                         <? else: ?>
                             <div id="bx-soa-delivery" data-visited="false"
-                                 class="bx-soa-section bx-active" <?= ($hideDelivery ? 'style="display:none"' : '') ?>>
+                                 class="bx-soa-section bx-active order__radio" >
                             </div>
                             <!--	PICKUP BLOCK	-->
                             <div id="bx-soa-pickup" data-visited="false" class="bx-soa-section" style="display:none">
-                                <div class="bx-soa-section-content container-fluid"></div>
+                                <div class="bx-soa-section-content container-fluid order__radio"></div>
                             </div>
                         <? endif ?>
 
 
+                        <!--	REGION BLOCK	-->
+
                         <!--    ADRESS BLOCK    -->
                         <div class="order__title">Адрес доставки</div>
+                        <div id="bx-soa-region" data-visited="false" class="bx-soa-section bx-active">
+
+                        </div>
+
                         <div class="order__inputs address_data">
 
                             <div class="address_data_form" id="others-properties">
@@ -397,33 +410,32 @@ if ($request->get('ORDER_ID') <> '') {
                             </div>
 
 
-                            <div class="sdek_map ">
-
-                                <?
-                                $APPLICATION->IncludeComponent(
-	"ipol:ipol.sdekPickup", 
-	"order", 
-	array(
-		"COMPONENT_TEMPLATE" => "order",
-		"MODE" => "both",
-		"NOMAPS" => "N",
-		"CNT_DELIV" => "Y",
-		"CNT_BASKET" => "N",
-		"SEARCH_ADDRESS" => "N",
-		"FORBIDDEN" => array(
-		),
-		"PAYER" => "1",
-		"PAYSYSTEM" => "3",
-		"COUNTRIES" => array(
-			0 => "rus",
-		),
-		"CITIES" => array(
-		)
-	),
-	false
-);
-                                ?>
-                            </div>
+                            <!--                            <div class="sdek_map ">-->
+                            <!--                                --><?//
+                            //                                $APPLICATION->IncludeComponent(
+                            //	"ipol:ipol.sdekPickup",
+                            //	"order",
+                            //	array(
+                            //		"COMPONENT_TEMPLATE" => "order",
+                            //		"MODE" => "both",
+                            //		"NOMAPS" => "N",
+                            //		"CNT_DELIV" => "Y",
+                            //		"CNT_BASKET" => "N",
+                            //		"SEARCH_ADDRESS" => "N",
+                            //		"FORBIDDEN" => array(
+                            //		),
+                            //		"PAYER" => "1",
+                            //		"PAYSYSTEM" => "3",
+                            //		"COUNTRIES" => array(
+                            //			0 => "rus",
+                            //		),
+                            //		"CITIES" => array(
+                            //		)
+                            //	),
+                            //	false
+                            //);
+                            //                                ?>
+                            <!--                            </div>-->
                         </div>
                     </div>
 
@@ -505,8 +517,8 @@ if ($request->get('ORDER_ID') <> '') {
 
                         <!--	ORDER SAVE BLOCK	-->
                         <div id="bx-soa-orderSave">
-
                         </div>
+
 
                         <div>
                             <div id='bx-soa-basket-hidden' class="bx-soa-section"></div>
@@ -517,46 +529,10 @@ if ($request->get('ORDER_ID') <> '') {
                             <div id="bx-soa-properties-hidden" class="bx-soa-section"></div>
                         </div>
                     </div>
-
-
                 </div>
-
-
             </div>
 
-            <?
 
-            ?>
-            <form class="order__info" action="<?= POST_FORM_ACTION_URI ?>" method="POST" name="ORDER_FORM"
-                  id="bx-soa-order-form" enctype="multipart/form-data">
-                <?
-                echo bitrix_sessid_post();
-
-                if ($arResult['PREPAY_ADIT_FIELDS'] <> '') {
-                    echo $arResult['PREPAY_ADIT_FIELDS'];
-                }
-                ?>
-                <input type="hidden" name="<?= $arParams['ACTION_VARIABLE'] ?>" value="saveOrderAjax">
-                <input type="hidden" name="location_type" value="code">
-                <input type="hidden" name="BUYER_STORE" id="BUYER_STORE" value="<?= $arResult['BUYER_STORE'] ?>">
-                <div class="row bx-<?= $arParams['TEMPLATE_THEME'] ?>" style="opacity: 0">
-                    <!--	MAIN BLOCK	-->
-
-                    <!--	REGION BLOCK	-->
-                    <div id="bx-soa-region" data-visited="false" class="bx-soa-section bx-active">
-                        <div class="bx-soa-section-title-container">
-                            <h2 class="bx-soa-section-title col-sm-9">
-                                <?= $arParams['MESS_REGION_BLOCK_NAME'] ?>
-                            </h2>
-                        </div>
-                        <div class="bx-soa-section-content container-fluid"></div>
-                    </div>
-
-
-                </div>
-
-
-            </form>
             <?
 
             ?>

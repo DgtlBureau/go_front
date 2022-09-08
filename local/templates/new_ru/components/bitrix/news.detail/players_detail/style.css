@@ -128,8 +128,6 @@ span.pos_name {
 
 span.player_num {
     position: relative;
-    color: #D19FF9;
-    -webkit-text-stroke: 0.16em #fff;
     font-size: 60px;
     font-weight: 800;
 }
@@ -144,8 +142,6 @@ span.player_num:before {
 
 span.player_num_orang {
     position: relative;
-    color: #FF4C01;
-    -webkit-text-stroke: 0.16em #FF4C01;
     font-size: 60px;
     font-weight: 800;
 }
@@ -192,8 +188,6 @@ span.stat_num_orang:before {
 
 .go-banner-number_players span {
     position: relative;
-    color: #d19ff9;
-    -webkit-text-stroke: .16em #fff;
     -webkit-text-stroke-width: 10px;
     font-size: 60px;
     font-weight: 800
@@ -254,9 +248,6 @@ span.stat_num_orang:before {
     padding: 30px 0 18px 0;
 }
 
-.item.orange {
-    background-color: #FF4C01;
-}
 
 .item:last-child {
     border-right: 0;
@@ -1515,7 +1506,6 @@ span.swiper-pagination-bullet {
     width: 70%;
     max-height: 400px;
     height: 100%;
-    background: url('/local/templates/new_ru/img/bull.png') no-repeat;
     background-size: contain;
     background-position: 9% 0;
     color: #fff;
@@ -1527,7 +1517,6 @@ span.swiper-pagination-bullet {
     width: 70%;
     max-height: 400px;
     height: 100%;
-    background: url('/local/templates/new_ru/img/bull_orang.png') no-repeat;
     background-size: contain;
     background-position: 9% 0;
     color: #fff;
@@ -1537,7 +1526,6 @@ span.swiper-pagination-bullet {
 
 .go-banner {
     padding-top: 110px;
-    height: 100%;
     color: #fff;
 }
 

@@ -18,18 +18,44 @@ use Bitrix\Main\ModuleManager;
 
 ?>
 
-<? $APPLICATION->IncludeComponent(
-    "bitrix:main.include",
-    "",
-    array(
-        "AREA_FILE_SHOW" => "file",
-        "AREA_FILE_SUFFIX" => "inc",
-        "EDIT_TEMPLATE" => "standard.php",
-        "PATH" => "top_fav_and_basket.php"
-    )
-); ?>
+<div class="favorites-and-basket">
+    <? $APPLICATION->IncludeComponent(
+        "custom:favourites.widget",
+        "",
+        array(
+            "PATH_TO_FAVORITES" => SITE_DIR . "shop/catalog/favourites/",
+        )
+    ); ?>
+    <? $APPLICATION->IncludeComponent(
+        "bitrix:sale.basket.basket.line",
+        "store_v4",
+        array(
+            "COMPONENT_TEMPLATE" => "store_v4",
+            "HIDE_ON_BASKET_PAGES" => "Y",
+            "PATH_TO_AUTHORIZE" => "",
+            "PATH_TO_BASKET" => SITE_DIR . "shop/basket/",
+            "PATH_TO_ORDER" => SITE_DIR . "shop/order/",
+            "PATH_TO_PERSONAL" => SITE_DIR . "personal/",
+            "PATH_TO_PROFILE" => SITE_DIR . "personal/",
+            "PATH_TO_REGISTER" => SITE_DIR . "login/",
+            "POSITION_FIXED" => "N",
+            "SHOW_AUTHOR" => "N",
+            "SHOW_EMPTY_VALUES" => "Y",
+            "SHOW_NUM_PRODUCTS" => "Y",
+            "SHOW_PERSONAL_LINK" => "N",
+            "SHOW_PRODUCTS" => "N",
+            "SHOW_REGISTRATION" => "N",
+            "SHOW_TOTAL_PRICE" => "N"
+        )
+    ); ?>
 
-<main class="shop">
+
+
+
+</div>
+
+
+<main class="shop catalog">
     <?php
 
     $this->setFrameMode(true);
@@ -43,15 +69,11 @@ use Bitrix\Main\ModuleManager;
     $isSidebar = ($arParams['SIDEBAR_DETAIL_SHOW'] == 'Y' && !empty($arParams['SIDEBAR_PATH']));
 
     $arResult['SECTION_URL'] = CIBlock::ReplaceDetailUrl($arResult['FOLDER'] . $arResult['URL_TEMPLATES']['section'], ['CODE' => $arResult['VARIABLES']['SECTION_CODE']], false, 'S');
-    //    echo '<pre>';
-    //    print_r($arResult);
-    //    echo '</pre>';
-    //    die();
 
     ?>
     <div class='container'>
         <a class="go-back-bnt"
-           href="<?= $arResult['SECTION_URL'] ?>">
+           href="<?= $arResult['SECTION_URL'] ?>" onclick="javascript:location.href='<?= $arResult['SECTION_URL'] ?>'">
             <div class="go-back-arrow">←</div>
             <div class="go-back-txt">В каталог</div>
         </a>

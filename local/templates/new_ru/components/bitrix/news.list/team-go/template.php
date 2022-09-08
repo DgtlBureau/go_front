@@ -47,10 +47,10 @@ $this->setFrameMode(true);
                     </div>
                     <div class="next-match__versus">
                         <div class="next-match__first-team">
-                            <div class="next-match__first-team-name" id="GO-first">GO</div>
+                            <div class="next-match__first-team-name" id="GO-first"><?=$GLOBALS['SITE_SETTINGS']['go']['LOGO_TEXT']?></div>
                             <div class="next-match__first-team-logo"><img src="/local/templates/new_ru/img/bull.png"
                                     alt="bull"></div>
-                            <div class="next-match__first-team-name" id="GO-second">GO</div>
+                            <div class="next-match__first-team-name" id="GO-second"><?=$GLOBALS['SITE_SETTINGS']['go']['LOGO_TEXT']?></div>
                         </div>
                         <div class="next-match__score">
                             <div class="next-match__first-team-score">-</div>

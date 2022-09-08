@@ -5,7 +5,7 @@
             <div class="gohockey-team__about-title">
                 <p>Хоккейная команда</p>
                 <p>Команда</p>
-                <div class="gohockey-team__team-name"><span data-text="Gohockey" id="Gohockey">Gohockey</span></div>
+                <div class="gohockey-team__team-name"><span data-text="<?=$GLOBALS['SITE_SETTINGS']['gohockey']['LOGO_TEXT']?>" id="Gohockey"><?=$GLOBALS['SITE_SETTINGS']['gohockey']['LOGO_TEXT']?></span></div>
             </div>
             <div class="gohockey-team__about-txt">Несколько лет назад мы решили популяризировать любительский хоккей
                 и создать престижный дивизион с шикарным трофее</div>
@@ -34,10 +34,10 @@
                     </div>
                     <div class="next-match__versus">
                         <div class="next-match__first-team">
-                            <div class="next-match__first-team-name" id="GO-first">GO</div>
+                            <div class="next-match__first-team-name" id="GO-first"><?=$GLOBALS['SITE_SETTINGS']['go']['LOGO_TEXT']?></div>
                             <div class="next-match__first-team-logo"><img src="/local/templates/new_ru/img/bull_orang.png"
                                                                           alt="bull"></div>
-                            <div class="next-match__first-team-name" id="GO-second">GO</div>
+                            <div class="next-match__first-team-name" id="GO-second"><?=$GLOBALS['SITE_SETTINGS']['go']['LOGO_TEXT']?></div>
                         </div>
                         <div class="next-match__score">
                             <div class="next-match__first-team-score">-</div>

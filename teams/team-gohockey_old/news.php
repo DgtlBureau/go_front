@@ -4,7 +4,7 @@
             <div class="go-news__about-title">
                 <p>Хоккейная команда</p>
                 <p>Команда</p>
-                <div class="go-news__team-name"><span data-text="Gohockey" id="Gohockey">Gohockey</span></div>
+                <div class="go-news__team-name"><span data-text="<?=$GLOBALS['SITE_SETTINGS']['gohockey']['LOGO_TEXT']?>" id="Gohockey"><?=$GLOBALS['SITE_SETTINGS']['gohockey']['LOGO_TEXT']?></span></div>
             </div>
             <div class="go-news__about-txt">Несколько лет назад мы решили популяризировать любительский хоккей и
                 создать престижный дивизион с шикарным трофее</div>

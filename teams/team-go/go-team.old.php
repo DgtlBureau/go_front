@@ -10,7 +10,7 @@ $arrFilter=array("PROPERTY_TEAM"=>6);//ID Команды
                             <div class="go-team__about-title">
                                 <p>Хоккейная команда</p>
                                 <p>Команда</p>
-                                <div class="go-team__team-name"><span data-text="GO" id="GO">GO</span></div>
+                                <div class="go-team__team-name"><span data-text="<?=$GLOBALS['SITE_SETTINGS']['go']['LOGO_TEXT']?>" id="GO"><?=$GLOBALS['SITE_SETTINGS']['go']['LOGO_TEXT']?></span></div>
                             </div>
                             <div class="go-team__about-txt">
 								<?=$ar_header_fields["~PREVIEW_TEXT"];?>

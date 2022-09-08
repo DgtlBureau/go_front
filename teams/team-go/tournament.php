@@ -4,7 +4,7 @@ $GAMERS = 18;//Игроки
 $SEZONS = 20;//Сезоны
 $REG_SEASON = 24;//ID рег. чемпионата
 ?>
-<div class="go-tournament">
+<div class="go-team">
     <div class="back-go-tournament__info">
         <div class="container">
             <div class="go-tournament__info">
@@ -12,7 +12,7 @@ $REG_SEASON = 24;//ID рег. чемпионата
                     <div class="go-tournament__about-title">
                         <p>Хоккейная команда</p>
                         <p>Команда</p>
-                        <div class="go-tournament__team-name"><span data-text="GO" id="GO">GO</span></div>
+                        <div class="go-tournament__team-name"><span data-text="<?=$GLOBALS['SITE_SETTINGS']['go']['LOGO_TEXT']?>" id="GO"><?=$GLOBALS['SITE_SETTINGS']['go']['LOGO_TEXT']?></span></div>
                     </div>
                     <div class="go-tournament__about-txt"><?= $ar_header_fields["DETAIL_TEXT"]; ?></div>
                     <div class="go-tournament__progress invisible">
@@ -36,8 +36,8 @@ $REG_SEASON = 24;//ID рег. чемпионата
                     </div>
                     <? $arrFilter = array("PROPERTY_TEAM" => $PROPERTY_TEAM); ?>
                     <? $APPLICATION->IncludeComponent(
-	"bitrix:news.list", 
-	"header_team_results", 
+	"bitrix:news.list",
+	"header_team_results",
 	array(
 		"ACTIVE_DATE_FORMAT" => "j F Y",
 		"ADD_SECTIONS_CHAIN" => "N",
@@ -309,8 +309,8 @@ $REG_SEASON = 24;//ID рег. чемпионата
             <?
             $GLOBALS['math_turnit'] = array("PROPERTY_TEAM" => $PROPERTY_TEAM);
             $APPLICATION->IncludeComponent(
-	"bitrix:news.list", 
-	"match_turnir", 
+	"bitrix:news.list",
+	"match_turnir",
 	array(
 		"ACTIVE_DATE_FORMAT" => "d.m.Y",
 		"ADD_SECTIONS_CHAIN" => "N",

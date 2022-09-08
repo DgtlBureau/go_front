@@ -97,34 +97,22 @@ button.btn.btn-lg.btn-default.basket-btn-checkout:hover {
 .basket-coupon-text {
     position: relative;
     display: block;
-    padding-left: 18px;
     word-break: break-all;
     word-break: break-word;
+    width: 80%;
 }
 
-.text-muted .basket-coupon-text:after {
-    position: absolute;
-    top: 0;
-    left: 2px;
-    width: 6px;
-    height: 10px;
-    border-right: 2px solid #7ad500;
-    border-bottom: 2px solid #7ad500;
-    content: '';
-    -webkit-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    transform: rotate(45deg);
-}
+
 
 .basket-coupon-alert .close-link {
     margin-left: 10px;
-    border-bottom: 1px dotted;
-    color: #3e86de;
+    color: #8da3ad;
     text-decoration: none;
     font: 400 12px/14px "Helvetica Neue", Helvetica, Arial, sans-serif;
     opacity: 1;
     cursor: pointer;
     transition: 220ms ease all;
+    width: 20%;
 }
 
 .basket-coupon-alert .close-link:hover {
@@ -596,7 +584,7 @@ button.btn.btn-lg.btn-default.basket-btn-checkout:hover {
 }
 
 .basket-items-list-item-descriptions {
-    width: 40%;
+    width: 50%;
     vertical-align: top;
 }
 
@@ -1507,11 +1495,12 @@ button.btn.btn-lg.btn-default.basket-btn-checkout {
 .basket-item-price-difference {
     padding: 3px;
     max-width: 100%;
-    background: #d1ecf1;
-    color: #179ebb;
+    background: #232323;
+    color: rgba(255, 255, 255, 0.8);
     text-align: center;
     white-space: normal;
-    font: 400 11px/12px "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: 'TT Octosquares';
+    font-size: 0.8em;
 }
 
 @media (max-width: 767px) {
@@ -2543,7 +2532,8 @@ body.bx-theme-yellow .catalog-block-header {
     width: 29%;
     background-color: #232323;
     padding: 20px 40px 50px;
-    height: 350px;
+    /*height: 350px;*/
+    height: min-content;
     margin-left: 15px;
 }
 
@@ -2556,6 +2546,7 @@ body.bx-theme-yellow .catalog-block-header {
     display: flex;
     justify-content: space-between;
     padding: 10px 0;
+
 }
 
 input.promo {
@@ -2778,7 +2769,7 @@ button.order_btn {
     margin-top: 50px;
     display: -webkit-box;
     display: -ms-flexbox;
-    display: flex
+    display: flex;
 }
 .product-delete__btn {
     width: calc((100% - 15px)/2);

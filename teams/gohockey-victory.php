@@ -7,7 +7,7 @@ $APPLICATION->SetTitle("Gohockey-Victory");
             <div class="gohockey-victory__about-title">
                 <p>Хоккейная команда</p>
                 <p>Команда</p>
-                <div class="gohockey-victory__team-name"><span data-text="Gohockey" id="Gohockey">Gohockey</span>
+                <div class="gohockey-victory__team-name"><span data-text="<?=$GLOBALS['SITE_SETTINGS']['gohockey']['LOGO_TEXT']?>" id="Gohockey"><?=$GLOBALS['SITE_SETTINGS']['gohockey']['LOGO_TEXT']?></span>
                 </div>
             </div>
             <div class="gohockey-victory__about-txt">Несколько лет назад мы решили популяризировать любительский

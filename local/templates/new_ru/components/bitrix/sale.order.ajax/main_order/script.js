@@ -48,23 +48,23 @@ BX.saleOrderAjax = { // bad solution, actually, a singleton at the page
 		const sdek_radio_value = 'sdek';
 
 		$('document').ready(function () {
-			let delivery_type = undefined;
-
-			$('.delivery').on('change', function () {
-				const sdek_map = $('.sdek_map');
-				const address_data_form = $('.address_data_form');
-
-				delivery_type = this.value;
-
-				if (this.value == sdek_radio_value) {
-					sdek_map.removeClass('hide');
-					address_data_form.addClass('hide');
-				} else {
-					sdek_map.addClass('hide');
-					address_data_form.removeClass('hide');
-				}
-			});
-
+		// 	let delivery_type = undefined;
+		//
+		// 	$('.delivery').on('change', function () {
+		// 		const sdek_map = $('.sdek_map');
+		// 		const address_data_form = $('.address_data_form');
+		//
+		// 		delivery_type = this.value;
+		//
+		// 		if (this.value == sdek_radio_value) {
+		// 			sdek_map.removeClass('hide');
+		// 			address_data_form.addClass('hide');
+		// 		} else {
+		// 			sdek_map.addClass('hide');
+		// 			address_data_form.removeClass('hide');
+		// 		}
+		// 	});
+		//
 			$('.order__payment-btn').on('click', function () {
 				$('.required').each(function () {
 					const element = this;
@@ -202,10 +202,14 @@ BX.saleOrderAjax = { // bad solution, actually, a singleton at the page
 			if(this.properties[k].type == 'LOCATION')
 			{
 
+
 				if(typeof this.properties[k].control != 'undefined'){
 
 					control = this.properties[k].control; // reference to sale.location.selector.*
 					code = control.getSysCode();
+
+					console.log('LOCATION control', control);
+
 
 					// we have town property (alternative location)
 					if(typeof this.properties[k].altLocationPropId != 'undefined')
@@ -239,8 +243,8 @@ BX.saleOrderAjax = { // bad solution, actually, a singleton at the page
 									if(typeof controlInApater.vars.cache.nodes['other'] == 'undefined')
 									{
 										controlInApater.fillCache([{
-											CODE:		'other', 
-											DISPLAY:	ctx.options.messages.otherLocation, 
+											CODE:		'other',
+											DISPLAY:	ctx.options.messages.otherLocation,
 											IS_PARENT:	false,
 											VALUE:		'other'
 										}], {

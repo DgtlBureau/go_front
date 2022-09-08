@@ -195,7 +195,7 @@ a:hover {
 }
 
 .products__item-txt {
-    width: calc(82% - 1px);
+    width: 100%;
     border-right: 1px solid rgba(0, 0, 0, .4);
     padding: 15px 0px 15px 15px;
     display: -webkit-box;

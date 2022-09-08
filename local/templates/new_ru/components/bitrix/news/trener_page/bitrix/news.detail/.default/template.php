@@ -12,7 +12,7 @@
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
 ?>
-<div class="gohockey-trainer">
+<div class="<?= ($arResult["PROPERTIES"]["TEAM"]["VALUE"] == 6) ? 'go-trainer': 'gohockey-trainer' ?>">
     <div class="<?if($arResult["PROPERTIES"]["TEAM"]["VALUE"] == 6):?>back-go-banner<?else:?>blue-go-banner<?endif;?>">
         <div class="container">
             <div class="go-banner">

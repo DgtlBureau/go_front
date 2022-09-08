@@ -1,9 +1,6 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php");
 $APPLICATION->SetTitle("Оформление");
-
-//$APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH . '/assets/go_shop_build/ShopOrder/main.css');
-//$APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH . '/assets/go_shop_build/ShopOrder/index.js');
 ?>
 
 <? $APPLICATION->IncludeComponent(
@@ -22,7 +19,7 @@ $APPLICATION->SetTitle("Оформление");
 		"COMPATIBLE_MODE" => "N",
 		"DELIVERIES_PER_PAGE" => "50",
 		"DELIVERY_FADE_EXTRA_SERVICES" => "N",
-		"DELIVERY_NO_AJAX" => "Y",
+		"DELIVERY_NO_AJAX" => "H",
 		"DELIVERY_NO_SESSION" => "Y",
 		"DELIVERY_TO_PAYSYSTEM" => "d2p",
 		"DISABLE_BASKET_REDIRECT" => "N",
@@ -53,22 +50,22 @@ $APPLICATION->SetTitle("Оформление");
 		"SHOW_COUPONS_BASKET" => "Y",
 		"SHOW_COUPONS_DELIVERY" => "Y",
 		"SHOW_COUPONS_PAY_SYSTEM" => "Y",
-		"SHOW_DELIVERY_INFO_NAME" => "Y",
+		"SHOW_DELIVERY_INFO_NAME" => "N",
 		"SHOW_DELIVERY_LIST_NAMES" => "Y",
 		"SHOW_DELIVERY_PARENT_NAMES" => "Y",
-		"SHOW_MAP_IN_PROPS" => "Y",
+		"SHOW_MAP_IN_PROPS" => "N",
 		"SHOW_NEAREST_PICKUP" => "Y",
 		"SHOW_NOT_CALCULATED_DELIVERIES" => "L",
 		"SHOW_ORDER_BUTTON" => "always",
 		"SHOW_PAY_SYSTEM_INFO_NAME" => "Y",
 		"SHOW_PAY_SYSTEM_LIST_NAMES" => "Y",
-		"SHOW_PICKUP_MAP" => "Y",
+		"SHOW_PICKUP_MAP" => "N",
 		"SHOW_STORES_IMAGES" => "Y",
 		"SHOW_TOTAL_ORDER_BUTTON" => "N",
 		"SHOW_VAT_PRICE" => "N",
 		"SKIP_USELESS_BLOCK" => "Y",
-		"SPOT_LOCATION_BY_GEOIP" => "N",
-		"TEMPLATE_LOCATION" => ".default",
+		"SPOT_LOCATION_BY_GEOIP" => "Y",
+		"TEMPLATE_LOCATION" => "popup",
 		"TEMPLATE_THEME" => "blue",
 		"USER_CONSENT" => "Y",
 		"USER_CONSENT_ID" => "1",
@@ -150,19 +147,14 @@ $APPLICATION->SetTitle("Оформление");
 			9 => "10",
 		),
 		"SHOW_MAP_FOR_DELIVERIES" => array(
-			0 => "2",
-			1 => "29",
-			2 => "30",
-			3 => "31",
-		)
+			0 => "29",
+			1 => "30",
+			2 => "31",
+		),
+		"ADDITIONAL_PICT_PROP_31" => "-"
 	),
 	false
-); ?><br>
+); ?>
 
-    <style>
-        .header {
-            position: relative;
-        }
-    </style>
 
 <? require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/footer.php"); ?>

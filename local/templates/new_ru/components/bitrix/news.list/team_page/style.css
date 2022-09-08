@@ -121,8 +121,6 @@ span.pos_name {
 
 span.player_num {
     position: relative;
-    color: #D19FF9;
-    -webkit-text-stroke: 0.16em #fff;
     font-size: 60px;
     font-weight: 800;
 }
@@ -137,8 +135,6 @@ span.player_num:before {
 
 span.player_num_orang {
     position: relative;
-    color: #FF4C01;
-    -webkit-text-stroke: 0.16em #FF4C01;
     font-size: 60px;
     font-weight: 800;
 }

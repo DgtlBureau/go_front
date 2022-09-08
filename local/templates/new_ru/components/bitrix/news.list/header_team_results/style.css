@@ -35,7 +35,6 @@
 
 .go-news__progress-background.orange,
 .go-tournament__progress-background.orange {
-    background: url(/local/templates/new_ru/img/bull_orang.png) no-repeat;
     background-size: 278px;
     height: 278px;
     width: 100%;

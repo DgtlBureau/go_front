@@ -953,35 +953,11 @@ p.about_right_top_right_p {
 	position: relative;
 }
 
-.team>.red:before {
-	background: url(/local/templates/new_ru/img/bull_red.svg) no-repeat;
-	background-position: bottom;
-	background-size: 40%;
-	content: "";
-	display: inline-block;
-	height: 100%;
-	opacity: .2;
-	position: absolute;
-	width: 100%;
-}
-
-.team>.blue:before {
-	background: url(/local/templates/new_ru/img/bull.svg) no-repeat;
-	background-position: bottom;
-	background-size: 40%;
-	content: "";
-	display: inline-block;
-	height: 100%;
-	opacity: .2;
-	position: absolute;
-	width: 100%;
-}
 
 .team_item_logo {
 	width: 78%;
 	margin: 5% auto 2%;
 	display: inline-block;
-	/* A?A?A�A?A?a�?A?a��A?A?a�?A?a�sA�A?A?A�A?A?a�?A?a��A?A?A?A�A?A?A?A�A?-A?A?A�A�A?A?A�A�A?A?A�A?A?a�?A?a��A?A?A?A�A?A?a�?A?a��A?A?A?A�A? A?a�?A�A?A?A?A�A�A?A?A�A�A?A?A�A?A?A?A�A�A?A?A�A?A?a�?A?a��A? */
 	overflow: hidden;
 	-webkit-box-pack: center;
 	-ms-flex-pack: center;
@@ -1056,14 +1032,6 @@ p.about_right_top_right_p {
 	-o-transition: .5s opacity ease;
 }
 
-.arrow_team.blue {
-	color: #D19FF9;
-}
-
-.arrow_team.red {
-	color: #FF4C01;
-}
-
 
 .team_item:hover .arrow_team {
 	display: -webkit-box;
@@ -1125,10 +1093,10 @@ p.team_item_content_stats_items_p {
 	background: linear-gradient(178.79deg, rgba(0, 0, 0, 0.72) 3.7%, rgba(0, 0, 0, 0) 98.85%), rgba(226, 189, 232, 0.17);
 }
 
-.team_item_content_title.blue>.team_span {
-	color: #D19FF9;
-	-webkit-text-stroke: 0.16em #fff;
-}
+/*.team_item_content_title.blue>.team_span {*/
+/*	color: #D19FF9;*/
+/*	-webkit-text-stroke: 0.16em #fff;*/
+/*}*/
 
 .team_item_content_title>.team_span {
 	position: relative;
@@ -1155,33 +1123,13 @@ p.team_item_content_stats_items_p {
 	background: linear-gradient(178.79deg, rgba(0, 0, 0, 0.72) 3.7%, rgba(0, 0, 0, 0) 98.85%), rgba(234, 99, 33, 0.2);
 }
 
-.team_item_content_title.red>.team_span {
-	color: #FF4C01;
-	-webkit-text-stroke: 0.16em #FF4C01;
-}
-
-.team_item_content_stats_items_p.blue>.team_span {
-	color: #000;
-	-webkit-text-stroke: 0.38em #000;
-}
-
-.team_item_content_stats_items_p.red>.team_span {
-	color: #FF4C01;
-	-webkit-text-stroke: 0.28em #FF4C01;
-}
-
 .team_item_content_stats_items_p>.team_span {
 	position: relative;
-
 	font-size: 34px;
 	font-weight: 800;
 }
 
-.team_item_content_stats_items_p.blue>.team_span:before {
-	-webkit-text-stroke: 0.07em #fff;
-}
-
-.team_item_content_stats_items_p.red>.team_span:before {
+.team_item_content_stats_items_p>.team_span:before {
 	-webkit-text-stroke: 0.09em #020553;
 }
 

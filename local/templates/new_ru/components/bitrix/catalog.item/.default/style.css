@@ -129,7 +129,7 @@ a:hover {
 }
 
 .products__item {
-	width: calc((100% - 60px)/4);
+	/*width: calc((100% - 60px)/4);*/
 	margin-top: 20px
 }
 
@@ -169,7 +169,7 @@ a:hover {
 }
 
 .products__item-txt {
-	width: calc(82% - 1px);
+	width: 100%;
 	border-right: 1px solid rgba(0, 0, 0, .4);
 	padding: 15px 0px 15px 15px;
 	display: -webkit-box;
@@ -184,6 +184,10 @@ a:hover {
 	line-height: 22px;
 	letter-spacing: .02em;
 	text-transform: uppercase
+}
+
+.products__item-footer>a{
+	width: 100%;
 }
 
 .products__item-name {
@@ -244,19 +248,7 @@ a:hover {
 	top: 0
 }
 
-.favorites-and-basket {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	position: absolute;
-	right: 40px;
-	top: 90px;
-	z-index: 1
-}
 
-.favorites-and-basket img {
-	width: 100%
-}
 
 .favorites-image,
 .basket-image {
@@ -318,14 +310,7 @@ a:hover {
 		display: none !important
 	}
 
-	.favorites-and-basket {
-		display: -webkit-box;
-		display: -ms-flexbox;
-		display: flex;
-		position: absolute;
-		right: 20px;
-		top: 100px
-	}
+
 
 	.favorites-image,
 	.basket-image {
@@ -395,7 +380,7 @@ input {
 	width: 100%;
 	height: 100vh;
 	background: #232323;
-	z-index: 2;
+	z-index: 10;
 	position: fixed;
 	top: 0
 }
@@ -829,26 +814,7 @@ input {
 
 
 
-.card-products__gallery-image.main_image .custom_label_preview::before {
-	content: attr(text);
-	position: absolute;
-	-webkit-text-stroke: .02em #ff4c01;
-	-webkit-text-stroke-width: 0px;
-	z-index: 2;
-	width: 100%;
-	height: 100%
-}
 
-.card-products__gallery-image.main_image .custom_label_preview::after {
-	content: attr(text);
-	position: absolute;
-	-webkit-text-stroke: 2px #020553;
-	-webkit-text-stroke-width: 4px;
-	right: 0;
-	z-index: 1;
-	width: 100%;
-	height: 100%
-}
 
 .card-products__info {
 	padding: 40px 70px;
@@ -1315,9 +1281,9 @@ input {
 		overflow-x: scroll
 	}
 
-	.products__list {
-		width: 1020px
-	}
+	/*.products__list {*/
+	/*	width: 1020px*/
+	/*}*/
 }
 
 @media(max-width: 768px) {
@@ -1339,27 +1305,7 @@ input {
 	}
 }
 
-@media(max-width: 600px) {
-	.card-products__gallery-image.main_image .custom_label_preview {
-		font-size: 40px
-	}
-}
-
-@media(max-width: 550px) {
-	.card-products__gallery-image.main_image .custom_label_preview {
-		top: 20%;
-		left: 49%;
-		font-size: 32px
-	}
-}
-
 @media(max-width: 450px) {
-	.card-products__gallery-image.main_image .custom_label_preview {
-		top: 20%;
-		left: 49%;
-		font-size: 24px
-	}
-
 	.card-products__price-and-buy-block {
 		-webkit-box-pack: justify;
 		-ms-flex-pack: justify;
@@ -1367,13 +1313,7 @@ input {
 	}
 }
 
-@media(max-width: 400px) {
-	.card-products__gallery-image.main_image .custom_label_preview {
-		top: 19%;
-		left: 47%;
-		font-size: 20px
-	}
-}
+
 
 @media(max-width: 375px) {
 	.card-products__price-and-buy-block {
@@ -1396,17 +1336,6 @@ input {
 	}
 }
 
-@media(max-width: 350px) {
-	.card-products__gallery-image.main_image .custom_label_preview {
-		top: 17%;
-		left: 46%;
-		font-size: 16px
-	}
-
-	.card-products__buy-block {
-		width: 100%
-	}
-}
 
 @font-face {
 	font-family: generalFont;

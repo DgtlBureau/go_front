@@ -24,14 +24,15 @@ use \Bitrix\Main\Localization\Loc;
  * @var CatalogSectionComponent $component
  */
 
+
 $resize_image = CFile::ResizeImageGet($item["PREVIEW_PICTURE"]['ID'],
     array("width" => 465, "height" => 520),
     BX_RESIZE_IMAGE_EXACT, false);
 ?>
-    <div class="shop__swiper-item-image scale">
-        <div class="shop__swiper-item-like">
+    <div class="shop__swiper-item-image scale" data-item-id="<?= $item['ID'] ?>">
+        <div class="shop__swiper-item-like products__item-like">
             <img src="<?= SITE_TEMPLATE_PATH ?>/img/like.svg" alt="like">
-            <img class="like-active hide" src="<?= SITE_TEMPLATE_PATH ?>/img/full_like.svg" alt="full_like">
+            <img class="like-active <?= (in_array($item['ID'], $arResult['FAVORITES']) ? '' : 'hide')?>" src="<?= SITE_TEMPLATE_PATH ?>/img/full_like.svg" alt="full_like">
         </div>
         <a href="<?= $item['DETAIL_PAGE_URL'] ?>">
             <img src="<?= $resize_image["src"] ?>" alt="<?= $imgTitle ?>">

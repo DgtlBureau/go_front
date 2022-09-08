@@ -371,53 +371,10 @@
 /* End */
 
 
-/* Start:/local/templates/new_ru/assets/HOCKEY/GoNews/main.91bc24e41b6003253085.css?165880684425197*/
 @import url(https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap);
-
-* {
-    padding: 0;
-    margin: 0;
-    font-family: generalFont
-}
-
-body {
-    background-color: #000;
-    color: #fff;
-    overflow-x: hidden
-}
-
-pre {
-    color: #fff
-}
-
-a {
-    text-decoration: none;
-    color: #fff
-}
-
-a:hover {
-    text-decoration: none;
-    color: #fff
-}
 
 .go-news {
     width: 100%
-}
-
-.go-news__info {
-    background: -webkit-gradient(linear, left top, left bottom, from(#000000), color-stop(143.87%, rgba(0, 0, 0, 0))), url(/local/templates/new_ru/img/back.png) repeat-x;
-    background: -o-linear-gradient(top, #000000 0%, rgba(0, 0, 0, 0) 143.87%), url(/local/templates/new_ru/img/back.png) repeat-x;
-    background: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 143.87%), url(/local/templates/new_ru/img/back.png) repeat-x;
-    background-size: cover;
-    height: -webkit-fit-content;
-    height: -moz-fit-content;
-    height: fit-content;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    padding: 110px 40px 70px 40px;
-    -ms-flex-pack: distribute;
-    justify-content: space-around
 }
 
 .go-news__team-name {
@@ -457,8 +414,6 @@ a:hover {
 
 .go-news__about-title span {
     position: relative;
-    color: #d19ff9;
-    -webkit-text-stroke: .16em #fff;
     -webkit-text-stroke-width: 10px;
     font-size: 60px;
     font-weight: 800
@@ -467,7 +422,6 @@ a:hover {
 .go-news__about-title span::before {
     content: attr(data-text);
     position: absolute;
-    -webkit-text-stroke: .02em #d19ff9;
     -webkit-text-stroke-width: 0px;
     z-index: 2
 }
@@ -500,7 +454,6 @@ a:hover {
 }
 
 .go-news__progress-background {
-    background: url(/local/templates/new_ru/img/bull.png) no-repeat;
     background-size: 278px;
     height: 278px;
     width: 100%;
@@ -647,37 +600,6 @@ a:hover {
     z-index: 1
 }
 
-.results {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    max-width: 595px;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
-    justify-content: space-between
-}
-
-.results__title {
-    display: none
-}
-
-.results__block {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    width: 50%
-}
-
-.results__image {
-    margin-right: 15px;
-    height: 34px;
-    padding-top: 5px
-}
-
-.results__image img {
-    height: 100%
-}
-
 .results__txt {
     font-weight: 400;
     font-size: 16px;
@@ -728,8 +650,6 @@ a:hover {
 }
 
 .go-news__nav-item:nth-child(3) {
-    border-bottom: 4px solid #d19ff9;
-    color: #fff;
     height: 76px;
     font-weight: 600
 }
@@ -742,11 +662,7 @@ a:hover {
     border-right: none
 }
 
-.go-news__content {
-    max-width: 1360px;
-    margin: 0 auto;
-    padding: 80px 40px 0px 40px
-}
+
 
 .go-news__news-items {
     width: 100%;
@@ -837,9 +753,7 @@ a:hover {
     content-visibility: auto
 }
 
-.championship-course {
-    max-width: 1360px
-}
+
 
 .championship-course__content {
     padding: 80px 40px;
@@ -919,10 +833,7 @@ a:hover {
     background: #141414
 }
 
-.social-content-block {
-    margin-top: 84px;
-    max-width: 1360px
-}
+
 
 .social-content-block__title-block {
     -webkit-box-pack: justify;
@@ -946,7 +857,6 @@ a:hover {
 }
 
 .social-content-block__content {
-    max-width: 1360px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1206,13 +1116,6 @@ a:hover {
     overflow: hidden
 }
 
-.show {
-    display: block
-}
-
-.invisible {
-    display: none
-}
 
 .max-height {
     height: 100% !important
@@ -1464,7 +1367,7 @@ a:hover {
     }
 
     .go-news__content {
-        padding: 40px 20px 0px 20px
+        padding: 40px 20px 40px 20px
     }
 
     .go-news__modal {

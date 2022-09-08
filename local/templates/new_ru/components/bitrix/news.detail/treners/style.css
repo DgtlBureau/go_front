@@ -22,7 +22,6 @@ div.news-detail img.detail_picture {
     width: 70%;
     max-height: 440px;
     height: 100%;
-    background: url(/local/templates/new_ru/img/bull.png) no-repeat;
     background-size: contain;
     background-position: 9% 0;
     color: #fff;
@@ -34,7 +33,6 @@ div.news-detail img.detail_picture {
     width: 70%;
     max-height: 400px;
     height: 100%;
-    background: url('/local/templates/new_ru/img/bull_orang.png') no-repeat;
     background-size: contain;
     background-position: 9% 0;
     color: #fff;
@@ -44,7 +42,6 @@ div.news-detail img.detail_picture {
 
 .go-banner {
     padding-top: 110px;
-    height: 100%;
     color: #fff;
 }
 

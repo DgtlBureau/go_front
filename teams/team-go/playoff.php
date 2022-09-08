@@ -3,7 +3,7 @@ $PROPERTY_TEAM = 6;//ID Команды
 $SEZONS = 20;//Сезоны
 $REG_SEASON = 24;//ID рег. чемпионата
 ?>
-<div class="go-final">
+<div class="go-team">
     <div class="back-go-final__info">
         <div class="container">
             <div class="go-final__info">
@@ -11,7 +11,7 @@ $REG_SEASON = 24;//ID рег. чемпионата
                     <div class="go-final__about-title">
                         <p>Хоккейная команда</p>
                         <p>Команда</p>
-                        <div class="go-final__team-name"><span data-text="GO" id="GO">GO</span></div>
+                        <div class="go-team__team-name"><span data-text="<?=$GLOBALS['SITE_SETTINGS']['go']['LOGO_TEXT']?>" id="GO"><?=$GLOBALS['SITE_SETTINGS']['go']['LOGO_TEXT']?></span></div>
                     </div>
                     <div class="go-final__about-txt"><?= $ar_header_fields["DETAIL_TEXT"]; ?></div>
                     <div class="go-final__progress invisible">
@@ -35,8 +35,8 @@ $REG_SEASON = 24;//ID рег. чемпионата
                     </div>
                     <? $arrFilter = array("PROPERTY_TEAM" => $PROPERTY_TEAM); ?>
                     <? $APPLICATION->IncludeComponent(
-	"bitrix:news.list", 
-	"header_team_results", 
+	"bitrix:news.list",
+	"header_team_results",
 	array(
 		"ACTIVE_DATE_FORMAT" => "j F Y",
 		"ADD_SECTIONS_CHAIN" => "N",
@@ -133,7 +133,7 @@ $REG_SEASON = 24;//ID рег. чемпионата
                     <p>Состав команды</p>
                     <p>Состав</p>
                 </a>
-                <a class="go-final__nav-item" href="/teams/team-go/tournament/">Турниры</a>
+                <div class="go-final__nav-item" href="/teams/team-go/tournament/">Турниры</div>
                 <a class="go-final__nav-item" href="/teams/team-go/news/">Новости</a>
             </div>
         </div>
@@ -353,6 +353,6 @@ $REG_SEASON = 24;//ID рег. чемпионата
 
 <style>
     .go-final-bracket__score_winner {
-        background: #d19ff9
+        background: <?=$GLOBALS['SITE_SETTINGS']['go']['COLOR_MAIN']?> !important;
     }
 </style>

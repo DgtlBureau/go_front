@@ -7,58 +7,59 @@ use Bitrix\Main\Localization\Loc;
  */
 ?>
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        var quantityAll = document.querySelectorAll('.basket-item-amount-filed');
-        var length = quantityAll.length;
-        //console.log(length);
-        var quantity = 0;
-        for (var i = 1; i <= length; i++) {
-            var quantityNum = Number(quantityAll[i - 1].value);
-            //console.log(quantityNum);
-            quantity = quantity + quantityNum;
-        }
-        var quantityValue = document.querySelectorAll('.info_num.quantity');
-        // console.log(quantityValue);
-        quantityValue[0].innerHTML = quantity;
-
-        var plus_btn = document.querySelectorAll('.basket-item-amount-btn-plus');
-
-        for (var j = 1; j <= plus_btn.length; j++) {
-            console.log(plus_btn[j - 1]);
-            plus_btn[j - 1].addEventListener("click", function () {
-                var all_quantity_elem = document.querySelector('.info_num.quantity');
-                var all_quantity = Number(all_quantity_elem.innerHTML) + 1;
-                setTimeout(() => all_quantity_elem.innerHTML = all_quantity, 500);
-            });
-        }
-
-        var minus_btn = document.querySelectorAll('.basket-item-amount-btn-minus');
-        for (var m = 1; m <= minus_btn.length; m++) {
-            minus_btn[m - 1].addEventListener("click", function () {
-                var all_quantity_elem = document.querySelector('.info_num.quantity');
-                var all_quantity = Number(all_quantity_elem.innerHTML) - 1;
-                setTimeout(() => all_quantity_elem.innerHTML = all_quantity, 500);
-            });
-        }
-
-    });
+    // document.addEventListener('DOMContentLoaded', function () {
+    //     var quantityAll = document.querySelectorAll('.basket-item-amount-filed');
+    //     var length = quantityAll.length;
+    //     //console.log(length);
+    //     var quantity = 0;
+    //     for (var i = 1; i <= length; i++) {
+    //         var quantityNum = Number(quantityAll[i - 1].value);
+    //         //console.log(quantityNum);
+    //         quantity = quantity + quantityNum;
+    //     }
+    //     var quantityValue = document.querySelectorAll('.info_num.quantity');
+    //     // console.log(quantityValue);
+    //     quantityValue[0].innerHTML = quantity;
+    //
+    //     var plus_btn = document.querySelectorAll('.basket-item-amount-btn-plus');
+    //
+    //     for (var j = 0; j <= plus_btn.length; j++) {
+    //         // console.log(plus_btn[j - 1]);
+    //         plus_btn[j].addEventListener("click", function () {
+    //             var all_quantity_elem = document.querySelector('.info_num.quantity');
+    //             var all_quantity = Number(all_quantity_elem.innerHTML) + 1;
+    //             setTimeout(() => all_quantity_elem.innerHTML = all_quantity, 500);
+    //         });
+    //     }
+    //
+    //     var minus_btn = document.querySelectorAll('.basket-item-amount-btn-minus');
+    //     for (var m = 0; m <= minus_btn.length; m++) {
+    //         minus_btn[m].addEventListener("click", function () {
+    //             var all_quantity_elem = document.querySelector('.info_num.quantity');
+    //             var all_quantity = Number(all_quantity_elem.innerHTML) - 1;
+    //             setTimeout(() => all_quantity_elem.innerHTML = all_quantity, 500);
+    //         });
+    //     }
+    //
+    // });
 </script>
 
 <script id="basket-total-template" type="text/html">
     <div class="basket-checkout-container" data-entity="basket-checkout-aligner">
-        <?
-        if ($arParams['HIDE_COUPON'] !== 'Y') {
-            ?>
-            <div class="basket-coupon-section">
-                <div class="info_name">Информация о заказе</div>
-                <div class="count_block">
-                    <div class="count_name">Сумма заказа</div>
-                    <div class="info_num">{{{PRICE_FORMATED}}}</div>
-                </div>
-                <div class="count_block">
-                    <div class="count_name">Количество товаров</div>
-                    <div class="info_num quantity">{{{COUNT_ITEMS}}}</div>
-                </div>
+
+        <div class="basket-coupon-section">
+            <div class="info_name">Информация о заказе</div>
+            <div class="count_block">
+                <div class="count_name">Сумма заказа</div>
+                <div class="info_num">{{{PRICE_WITHOUT_DISCOUNT_FORMATED}}}</div>
+            </div>
+            <div class="count_block">
+                <div class="count_name">Количество товаров</div>
+                <div class="info_num quantity">{{{COUNT_ITEMS}}}</div>
+            </div>
+            <?
+            if ($arParams['HIDE_COUPON'] !== 'Y') {
+                ?>
                 <div class="basket-coupon-block-field">
                     <!-- <div class="basket-coupon-block-field-description">
 						<?= Loc::getMessage('SBB_COUPON_ENTER') ?>:
@@ -71,11 +72,54 @@ use Bitrix\Main\Localization\Loc;
                         </div>
                     </div>
                 </div>
+                <?
+            }
+            ?>
+        </div>
+
+
+        <?
+        if ($arParams['HIDE_COUPON'] !== 'Y') {
+            ?>
+            <div class="basket-coupon-alert-section">
+                <div class="basket-coupon-alert-inner">
+                    {{#COUPON_LIST}}
+
+                    <div class="basket-coupon-alert text-{{CLASS}}">
+						<span class="basket-coupon-text">
+							<?= Loc::getMessage('SBB_COUPON') ?> {{JS_CHECK_CODE}}
+						</span>
+
+                        <span class="close-link" data-entity="basket-coupon-delete" data-coupon="{{COUPON}}">
+							<?= Loc::getMessage('SBB_DELETE') ?>
+						</span>
+                    </div>
+                    {{/COUPON_LIST}}
+                </div>
             </div>
             <?
         }
         ?>
+
         <div class="basket-checkout-section">
+            {{#COUPON_LIST}}
+
+            {{#DISCOUNT_PRICE_FORMATED}}
+            <div class="basket-checkout-section-inner">
+                <div class="basket-checkout-block">
+                    <div class="count_name">
+                        Промокод: {{COUPON}}
+                    </div>
+                </div>
+                <div class="basket-checkout-block">
+                    <div class="info_num">- {{{DISCOUNT_PRICE_FORMATED}}}</div>
+                </div>
+            </div>
+            {{/DISCOUNT_PRICE_FORMATED}}
+
+            {{/COUPON_LIST}}
+
+
             <div class="basket-checkout-section-inner">
                 <div class="basket-checkout-block basket-checkout-block-total">
                     <div class="basket-checkout-block-total-inner">
@@ -94,22 +138,9 @@ use Bitrix\Main\Localization\Loc;
 
                 <div class="basket-checkout-block basket-checkout-block-total-price">
                     <div class="basket-checkout-block-total-price-inner">
-                        {{#DISCOUNT_PRICE_FORMATED}}
-                        <div class="basket-coupon-block-total-price-old">
-                            {{{PRICE_WITHOUT_DISCOUNT_FORMATED}}}
-                        </div>
-                        {{/DISCOUNT_PRICE_FORMATED}}
-
                         <div class="total_num" data-entity="basket-total-price">
                             {{{PRICE_FORMATED}}}
                         </div>
-
-                        {{#DISCOUNT_PRICE_FORMATED}}
-                        <div class="basket-coupon-block-total-price-difference">
-                            <?= Loc::getMessage('SBB_BASKET_ITEM_ECONOMY') ?>
-                            <span style="white-space: nowrap;">{{{DISCOUNT_PRICE_FORMATED}}}</span>
-                        </div>
-                        {{/DISCOUNT_PRICE_FORMATED}}
                     </div>
                 </div>
 
@@ -123,27 +154,7 @@ use Bitrix\Main\Localization\Loc;
             </div>
         </div>
 
-        <?
-        if ($arParams['HIDE_COUPON'] !== 'Y') {
-            ?>
-            <div class="basket-coupon-alert-section">
-                <div class="basket-coupon-alert-inner">
-                    {{#COUPON_LIST}}
-                    <div class="basket-coupon-alert text-{{CLASS}}">
-						<span class="basket-coupon-text">
-							<strong>{{COUPON}}</strong> - <?= Loc::getMessage('SBB_COUPON') ?> {{JS_CHECK_CODE}}
-							{{#DISCOUNT_NAME}}({{DISCOUNT_NAME}}){{/DISCOUNT_NAME}}
-						</span>
-                        <span class="close-link" data-entity="basket-coupon-delete" data-coupon="{{COUPON}}">
-							<?= Loc::getMessage('SBB_DELETE') ?>
-						</span>
-                    </div>
-                    {{/COUPON_LIST}}
-                </div>
-            </div>
-            <?
-        }
-        ?>
+
     </div>
 </script>
 

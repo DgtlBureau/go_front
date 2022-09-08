@@ -7,7 +7,7 @@ $APPLICATION->SetTitle("GO-News");
 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="go-news__about-title"&gt;<br>
 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;p&gt;Хоккейная команда&lt;/p&gt;<br>
 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;p&gt;Команда&lt;/p&gt;<br>
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="go-news__team-name"&gt;&lt;span data-text="GO" id="GO"&gt;GO&lt;/span&gt;&lt;/div&gt;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="go-news__team-name"&gt;&lt;span data-text="<?=$GLOBALS['SITE_SETTINGS']['go']['LOGO_TEXT']?>" id="GO"&gt;GO&lt;/span&gt;&lt;/div&gt;<br>
 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;<br>
 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="go-news__about-txt"&gt;Несколько лет назад мы решили популяризировать любительский хоккей и<br>
 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; создать престижный дивизион с шикарным трофее&lt;/div&gt;<br>

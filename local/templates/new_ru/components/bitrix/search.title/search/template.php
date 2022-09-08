@@ -23,33 +23,38 @@ if ($CONTAINER_ID == '')
 $CONTAINER_ID = CUtil::JSEscape($CONTAINER_ID);
 
 if ($arParams["SHOW_INPUT"] !== "N"):?>
-
     <div id="<? echo $CONTAINER_ID ?>" class="catalog__mobile-elements-block">
         <form action="<? echo $arResult["FORM_ACTION"] ?>" class="catalog__serch-form">
             <div class="input-block">
 
-                <input class="modal-search-input" id="<? echo $INPUT_ID ?>" type="text" placeholder="Поиск"
+                <input class="modal-search-input" id="<?= $INPUT_ID ?>" type="text" placeholder="Поиск"
                        class="search" name="q" value="" size="40" maxlength="50" autocomplete="off"/>&nbsp;
                 <div class="input-clear modal-search-input-clear">x</div>
             </div>
         </form>
+        <div class="catalog__serch-mobail">
+            <img src="<?= SITE_TEMPLATE_PATH ?>/assets/go_shop_build/ShopCard/assets/serch-mobail.svg" alt="serch-mobail">
+        </div>
+        <div class="catalog__filters-mobail">
+            <img src="<?= SITE_TEMPLATE_PATH ?>/assets/go_shop_build/ShopCard/assets/mobail-filters.svg"
+                 alt="mobail-filters">
+        </div>
     </div>
-    <div class="catalog__serch-mobail">
-        <img src="assets/serch-mobail.svg" alt="serch-mobail">
-    </div>
-    <div class="catalog__filters-mobail">
-        <img src="assets/mobail-filters.svg" alt="mobail-filters">
-    </div>
+
 <? endif; ?>
 
 
 <script>
     BX.ready(function () {
         new JCTitleSearch({
-            'AJAX_PAGE': '<?echo CUtil::JSEscape(POST_FORM_ACTION_URI)?>',
-            'CONTAINER_ID': '<?echo $CONTAINER_ID?>',
-            'INPUT_ID': '<?echo $INPUT_ID?>',
+            'AJAX_PAGE': '<?= CUtil::JSEscape(POST_FORM_ACTION_URI)?>',
+            'CONTAINER_ID': '<?= $CONTAINER_ID?>',
+            'INPUT_ID': '<?= $INPUT_ID?>',
             'MIN_QUERY_LEN': 2
         });
+        $("#<?= $CONTAINER_ID ?>").on('submit', function (e) {
+            return false;
+        });
     });
+
 </script>

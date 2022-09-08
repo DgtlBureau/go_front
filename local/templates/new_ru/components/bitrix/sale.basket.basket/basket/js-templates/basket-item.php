@@ -40,6 +40,8 @@ if (!empty($arParams['LABEL_PROP_POSITION']))
 		$labelPositionClass .= isset($positionClassMap[$pos]) ? ' '.$positionClassMap[$pos] : '';
 	}
 }
+
+//dump($arResult);
 ?>
 <script id="basket-item-template" type="text/html">
 	<tr class="basket-items-list-item-container{{#SHOW_RESTORE}} basket-items-list-item-container-expend{{/SHOW_RESTORE}}"
@@ -405,13 +407,13 @@ if (!empty($arParams['LABEL_PROP_POSITION']))
 				?>
 				<td class="basket-items-list-item-price<?=(!isset($mobileColumns['SUM']) ? ' hidden-xs' : '')?>">
 					<div class="basket-item-block-price">
-						{{#SHOW_DISCOUNT_PRICE}}
-							<div class="basket-item-price-old">
-								<span class="basket-item-price-old-text" id="basket-item-sum-price-old-{{ID}}">
-									{{{SUM_FULL_PRICE_FORMATED}}}
-								</span>
-							</div>
-						{{/SHOW_DISCOUNT_PRICE}}
+<!--						{{#SHOW_DISCOUNT_PRICE}}-->
+<!--							<div class="basket-item-price-old">-->
+<!--								<span class="basket-item-price-old-text" id="basket-item-sum-price-old-{{ID}}">-->
+<!--									{{{SUM_FULL_PRICE_FORMATED}}}-->
+<!--								</span>-->
+<!--							</div>-->
+<!--						{{/SHOW_DISCOUNT_PRICE}}-->
 
 						<div class="basket-item-price-current">
 							<span class="basket-item-price-current-text" id="basket-item-sum-price-{{ID}}">

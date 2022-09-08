@@ -17,7 +17,6 @@ $cartId = 'bx_basket'.$this->randString();
 $arParams['cartId'] = $cartId;
 
 ?>
-<div id="<?=$cartId?>">
 	<?php
 	/** @var \Bitrix\Main\Page\FrameBuffered $frame */
 	$frame = $this->createFrame($cartId, false)->begin();
@@ -28,7 +27,6 @@ $arParams['cartId'] = $cartId;
 	unset($arResult['COMPOSITE_STUB']);
 	$frame->end();
 	?>
-</div>
 <script>
 	var <?=$cartId?> = new BitrixSmallCart;
 	<?=$cartId?>.siteId = '<?=SITE_ID?>';

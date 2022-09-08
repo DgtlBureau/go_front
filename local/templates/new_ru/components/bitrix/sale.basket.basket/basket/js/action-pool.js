@@ -1,286 +1,268 @@
-;(function(){
-	'use strict';
+;(function () {
+    'use strict';
 
-	BX.namespace('BX.Sale.BasketActionPool');
+    BX.namespace('BX.Sale.BasketActionPool');
 
-	BX.Sale.BasketActionPool = function(component)
-	{
-		this.component = component;
+    BX.Sale.BasketActionPool = function (component) {
+        this.component = component;
 
-		this.requestProcessing = false;
-		this.updateTimer = null;
+        this.requestProcessing = false;
+        this.updateTimer = null;
 
-		this.isBasketRefreshed = this.component.params.DEFERRED_REFRESH !== 'Y';
-		this.needFullRecalculation = this.component.params.DEFERRED_REFRESH === 'Y';
+        this.isBasketRefreshed = this.component.params.DEFERRED_REFRESH !== 'Y';
+        this.needFullRecalculation = this.component.params.DEFERRED_REFRESH === 'Y';
 
-		this.pool = {};
-		this.lastActualPool = {};
+        this.pool = {};
+        this.lastActualPool = {};
 
-		this.approvedAction = ['QUANTITY', 'DELETE', 'RESTORE', 'DELAY', 'OFFER', 'MERGE_OFFER'];
+        this.approvedAction = ['QUANTITY', 'DELETE', 'RESTORE', 'DELAY', 'OFFER', 'MERGE_OFFER'];
 
-		this.switchTimer();
-	};
+        this.switchTimer();
+    };
 
-	BX.Sale.BasketActionPool.prototype.setRefreshStatus = function(status)
-	{
-		this.isBasketRefreshed = !!status;
-	};
+    BX.Sale.BasketActionPool.prototype.setRefreshStatus = function (status) {
+        this.isBasketRefreshed = !!status;
+    };
 
-	BX.Sale.BasketActionPool.prototype.getRefreshStatus = function()
-	{
-		return this.isBasketRefreshed;
-	};
+    BX.Sale.BasketActionPool.prototype.getRefreshStatus = function () {
+        return this.isBasketRefreshed;
+    };
 
-	BX.Sale.BasketActionPool.prototype.isItemInPool = function(itemId)
-	{
-		return !!this.pool[itemId];
-	};
+    BX.Sale.BasketActionPool.prototype.isItemInPool = function (itemId) {
+        return !!this.pool[itemId];
+    };
 
-	BX.Sale.BasketActionPool.prototype.clearLastActualQuantityPool = function(itemId)
-	{
-		this.lastActualPool[itemId] && delete this.lastActualPool[itemId].QUANTITY;
-	};
+    BX.Sale.BasketActionPool.prototype.clearLastActualQuantityPool = function (itemId) {
+        this.lastActualPool[itemId] && delete this.lastActualPool[itemId].QUANTITY;
+    };
 
-	BX.Sale.BasketActionPool.prototype.checkItemPoolBefore = function(itemId)
-	{
-		if (!itemId)
-			return;
+    BX.Sale.BasketActionPool.prototype.checkItemPoolBefore = function (itemId) {
+        if (!itemId)
+            return;
 
-		this.pool[itemId] = this.pool[itemId] || {};
-	};
+        this.pool[itemId] = this.pool[itemId] || {};
+    };
 
-	BX.Sale.BasketActionPool.prototype.checkItemPoolAfter = function(itemId)
-	{
-		if (!itemId || !this.pool[itemId])
-			return;
+    BX.Sale.BasketActionPool.prototype.checkItemPoolAfter = function (itemId) {
+        if (!itemId || !this.pool[itemId])
+            return;
 
-		if (Object.keys(this.pool[itemId]).length === 0)
-		{
-			delete this.pool[itemId];
-		}
-	};
+        if (Object.keys(this.pool[itemId]).length === 0) {
+            delete this.pool[itemId];
+        }
+    };
 
-	BX.Sale.BasketActionPool.prototype.addCoupon = function(coupon)
-	{
-		this.pool.COUPON = coupon;
+    BX.Sale.BasketActionPool.prototype.addCoupon = function (coupon) {
 
-		this.switchTimer();
-	};
+        console.log(this.component.coupons)
 
-	BX.Sale.BasketActionPool.prototype.removeCoupon = function(coupon)
-	{
-		this.checkItemPoolBefore('REMOVE_COUPON');
+        // console.log(this.result.COUPON_LIST)
+        // console.log(this.coupons)
+        //
+        // for (var i = 0, l = this.component.coupons.length; i < l; i++) {
+        // 	let deleteCoupon = this.component.coupons[i].COUPON;
+        // 	console.log(deleteCoupon);
+        //
+        //
+        // 	this.checkItemPoolBefore('REMOVE_COUPON');
+        //
+        //
+        // 	this.pool.REMOVE_COUPON[deleteCoupon] = deleteCoupon;
+        //
+        //
+        // 	// if (target.value != this.result.COUPON_LIST[i].COUPON)
+        // 	// 	this.actionPool.removeCoupon(this.result.COUPON_LIST[i].COUPON);
+        // }
+        // // this.coupons = this.result.COUPON_LIST = [];
+        // // console.log(target.value)
+        //
+        // console.log(this.result.COUPON_LIST)
+        // console.log(this.coupons)
 
-		this.pool.REMOVE_COUPON[coupon] = coupon;
 
-		this.switchTimer();
-	};
+        this.pool.COUPON = coupon;
+        this.switchTimer();
+    };
 
-	BX.Sale.BasketActionPool.prototype.changeQuantity = function(itemId, quantity, oldQuantity)
-	{
-		this.checkItemPoolBefore(itemId);
+    BX.Sale.BasketActionPool.prototype.removeCoupon = function (coupon) {
+        this.checkItemPoolBefore('REMOVE_COUPON');
 
-		if (
-			(this.lastActualPool[itemId] && this.lastActualPool[itemId].QUANTITY !== quantity)
-			|| (!this.lastActualPool[itemId] && quantity !== oldQuantity)
-		)
-		{
-			this.pool[itemId].QUANTITY = quantity;
-		}
-		else
-		{
-			this.pool[itemId] && delete this.pool[itemId].QUANTITY;
-		}
+        this.pool.REMOVE_COUPON[coupon] = coupon;
 
-		this.checkItemPoolAfter(itemId);
-		this.switchTimer();
-	};
+        this.switchTimer();
+    };
 
-	BX.Sale.BasketActionPool.prototype.deleteItem = function(itemId)
-	{
-		this.checkItemPoolBefore(itemId);
+    BX.Sale.BasketActionPool.prototype.changeQuantity = function (itemId, quantity, oldQuantity) {
+        this.checkItemPoolBefore(itemId);
 
-		if (this.pool[itemId].RESTORE)
-		{
-			delete this.pool[itemId].RESTORE;
-		}
-		else
-		{
-			this.pool[itemId].DELETE = 'Y';
-		}
+        if (
+            (this.lastActualPool[itemId] && this.lastActualPool[itemId].QUANTITY !== quantity)
+            || (!this.lastActualPool[itemId] && quantity !== oldQuantity)
+        ) {
+            this.pool[itemId].QUANTITY = quantity;
+        } else {
+            this.pool[itemId] && delete this.pool[itemId].QUANTITY;
+        }
 
-		this.checkItemPoolAfter(itemId);
-		this.switchTimer();
-	};
+        this.checkItemPoolAfter(itemId);
+        this.switchTimer();
+    };
 
-	BX.Sale.BasketActionPool.prototype.restoreItem = function(itemId, itemData)
-	{
-		this.checkItemPoolBefore(itemId);
+    BX.Sale.BasketActionPool.prototype.deleteItem = function (itemId) {
+        this.checkItemPoolBefore(itemId);
 
-		if (this.pool[itemId].DELETE === 'Y')
-		{
-			delete this.pool[itemId].DELETE;
-		}
-		else
-		{
-			this.pool[itemId].RESTORE = itemData;
-		}
+        if (this.pool[itemId].RESTORE) {
+            delete this.pool[itemId].RESTORE;
+        } else {
+            this.pool[itemId].DELETE = 'Y';
+        }
 
-		this.checkItemPoolAfter(itemId);
-		this.switchTimer();
-	};
+        this.checkItemPoolAfter(itemId);
+        this.switchTimer();
+    };
 
-	BX.Sale.BasketActionPool.prototype.addDelayed = function(itemId)
-	{
-		this.checkItemPoolBefore(itemId);
+    BX.Sale.BasketActionPool.prototype.restoreItem = function (itemId, itemData) {
+        this.checkItemPoolBefore(itemId);
 
-		this.pool[itemId].DELAY = 'Y';
+        if (this.pool[itemId].DELETE === 'Y') {
+            delete this.pool[itemId].DELETE;
+        } else {
+            this.pool[itemId].RESTORE = itemData;
+        }
 
-		this.checkItemPoolAfter(itemId);
-		this.switchTimer();
-	};
+        this.checkItemPoolAfter(itemId);
+        this.switchTimer();
+    };
 
-	BX.Sale.BasketActionPool.prototype.removeDelayed = function(itemId)
-	{
-		this.checkItemPoolBefore(itemId);
+    BX.Sale.BasketActionPool.prototype.addDelayed = function (itemId) {
+        this.checkItemPoolBefore(itemId);
 
-		this.pool[itemId].DELAY = 'N';
+        this.pool[itemId].DELAY = 'Y';
 
-		this.checkItemPoolAfter(itemId);
-		this.switchTimer();
-	};
+        this.checkItemPoolAfter(itemId);
+        this.switchTimer();
+    };
 
-	BX.Sale.BasketActionPool.prototype.changeSku = function(itemId, props, oldProps)
-	{
-		if (JSON.stringify(props) !== JSON.stringify(oldProps))
-		{
-			this.checkItemPoolBefore(itemId);
-			this.pool[itemId].OFFER = props;
-		}
-		else
-		{
-			this.pool[itemId] && delete this.pool[itemId].OFFER;
-			this.checkItemPoolAfter(itemId);
-		}
+    BX.Sale.BasketActionPool.prototype.removeDelayed = function (itemId) {
+        this.checkItemPoolBefore(itemId);
 
-		this.switchTimer();
-	};
+        this.pool[itemId].DELAY = 'N';
 
-	BX.Sale.BasketActionPool.prototype.mergeSku = function(itemId)
-	{
-		this.checkItemPoolBefore(itemId);
-		this.pool[itemId].MERGE_OFFER = 'Y';
+        this.checkItemPoolAfter(itemId);
+        this.switchTimer();
+    };
 
-		this.switchTimer();
-	};
+    BX.Sale.BasketActionPool.prototype.changeSku = function (itemId, props, oldProps) {
+        if (JSON.stringify(props) !== JSON.stringify(oldProps)) {
+            this.checkItemPoolBefore(itemId);
+            this.pool[itemId].OFFER = props;
+        } else {
+            this.pool[itemId] && delete this.pool[itemId].OFFER;
+            this.checkItemPoolAfter(itemId);
+        }
 
-	BX.Sale.BasketActionPool.prototype.switchTimer = function()
-	{
-		clearTimeout(this.updateTimer);
+        this.switchTimer();
+    };
 
-		if (this.isProcessing())
-		{
-			return;
-		}
+    BX.Sale.BasketActionPool.prototype.mergeSku = function (itemId) {
+        this.checkItemPoolBefore(itemId);
+        this.pool[itemId].MERGE_OFFER = 'Y';
 
-		if (this.isPoolEmpty())
-		{
-			this.component.editPostponedBasketItems();
-			this.component.fireCustomEvents();
-		}
+        this.switchTimer();
+    };
 
-		if (!this.isPoolEmpty())
-		{
-			this.updateTimer = setTimeout(BX.proxy(this.trySendPool, this), 300);
-		}
-		else if (!this.getRefreshStatus())
-		{
-			this.trySendPool();
-		}
-	};
+    BX.Sale.BasketActionPool.prototype.switchTimer = function () {
+        clearTimeout(this.updateTimer);
 
-	BX.Sale.BasketActionPool.prototype.trySendPool = function()
-	{
-		if (this.isPoolEmpty() && this.getRefreshStatus())
-		{
-			return;
-		}
+        if (this.isProcessing()) {
+            return;
+        }
 
-		this.doProcessing(true);
+        if (this.isPoolEmpty()) {
+            this.component.editPostponedBasketItems();
+            this.component.fireCustomEvents();
+        }
 
-		if (!this.isPoolEmpty())
-		{
-			this.component.sendRequest('recalculateAjax', {
-				basket: this.getPoolData()
-			});
+        if (!this.isPoolEmpty()) {
+            this.updateTimer = setTimeout(BX.proxy(this.trySendPool, this), 300);
+        } else if (!this.getRefreshStatus()) {
+            this.trySendPool();
+        }
+    };
 
-			this.lastActualPool = this.pool;
-			this.pool = {};
-		}
-		else if (!this.getRefreshStatus())
-		{
-			this.component.sendRequest('refreshAjax', {
-				fullRecalculation: this.needFullRecalculation ? 'Y' : 'N'
-			});
-			this.needFullRecalculation = false;
-		}
-	};
+    BX.Sale.BasketActionPool.prototype.trySendPool = function () {
+        if (this.isPoolEmpty() && this.getRefreshStatus()) {
+            return;
+        }
 
-	BX.Sale.BasketActionPool.prototype.getPoolData = function()
-	{
-		var poolData = {},
-			currentPool = this.pool;
+        this.doProcessing(true);
 
-		if (currentPool.COUPON)
-		{
-			poolData.coupon = currentPool.COUPON;
-			delete currentPool.COUPON;
-		}
+        if (!this.isPoolEmpty()) {
+            let poolData = this.getPoolData();
+            let basket;
+            for (let key in poolData) {
+                basket = {};
+                basket[key] = poolData[key];
 
-		if (currentPool.REMOVE_COUPON)
-		{
-			poolData.delete_coupon = currentPool.REMOVE_COUPON;
-			delete currentPool.REMOVE_COUPON;
-		}
+                this.component.sendRequest('recalculateAjax', {
+                    basket: basket
+                });
+            }
 
-		for (var id in currentPool)
-		{
-			if (currentPool.hasOwnProperty(id))
-			{
-				for (var action in currentPool[id])
-				{
-					if (currentPool[id].hasOwnProperty(action) && BX.util.in_array(action, this.approvedAction))
-					{
-						poolData[action + '_' + id] = currentPool[id][action];
-					}
-				}
-			}
-		}
+            this.lastActualPool = this.pool;
+            this.pool = {};
+        } else if (!this.getRefreshStatus()) {
+            this.component.sendRequest('refreshAjax', {
+                fullRecalculation: this.needFullRecalculation ? 'Y' : 'N'
+            });
+            this.needFullRecalculation = false;
+        }
+    };
 
-		return poolData;
-	};
+    BX.Sale.BasketActionPool.prototype.getPoolData = function () {
+        var poolData = {},
+            currentPool = this.pool;
 
-	BX.Sale.BasketActionPool.prototype.isPoolEmpty = function()
-	{
-		return Object.keys(this.pool).length === 0;
-	};
+        if (currentPool.REMOVE_COUPON) {
+            poolData.delete_coupon = currentPool.REMOVE_COUPON;
+            delete currentPool.REMOVE_COUPON;
+        }
 
-	BX.Sale.BasketActionPool.prototype.doProcessing = function(state)
-	{
-		this.requestProcessing = state === true;
+        if (currentPool.COUPON) {
+            poolData.coupon = currentPool.COUPON;
+            delete currentPool.COUPON;
+        }
 
-		if (this.requestProcessing)
-		{
-			this.component.startLoader();
-		}
-		else
-		{
-			this.component.endLoader();
-		}
-	};
+        for (var id in currentPool) {
+            if (currentPool.hasOwnProperty(id)) {
+                for (var action in currentPool[id]) {
+                    if (currentPool[id].hasOwnProperty(action) && BX.util.in_array(action, this.approvedAction)) {
+                        poolData[action + '_' + id] = currentPool[id][action];
+                    }
+                }
+            }
+        }
 
-	BX.Sale.BasketActionPool.prototype.isProcessing = function()
-	{
-		return this.requestProcessing === true;
-	};
+        console.log('poolData', poolData)
+
+        return poolData;
+    };
+
+    BX.Sale.BasketActionPool.prototype.isPoolEmpty = function () {
+        return Object.keys(this.pool).length === 0;
+    };
+
+    BX.Sale.BasketActionPool.prototype.doProcessing = function (state) {
+        this.requestProcessing = state === true;
+
+        if (this.requestProcessing) {
+            this.component.startLoader();
+        } else {
+            this.component.endLoader();
+        }
+    };
+
+    BX.Sale.BasketActionPool.prototype.isProcessing = function () {
+        return this.requestProcessing === true;
+    };
 })();

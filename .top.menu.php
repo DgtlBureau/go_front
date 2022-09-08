@@ -15,7 +15,7 @@ $aMenuLinks = Array(
 		"" 
 	),
 	Array(
-		"Бокс", 
+		"FIGHT", 
 		"/go-fight/", 
 		Array(), 
 		Array(), 

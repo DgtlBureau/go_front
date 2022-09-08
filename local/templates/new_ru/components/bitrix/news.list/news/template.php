@@ -17,34 +17,6 @@ if (!empty($_GET['modalnews'])) {
 
 $url = 'https://go-family.ru/'
 ?>
-<!--
-
-<div class="go-final__swiper-block">
-    <div class="go-final__swiper">
-
-<? foreach ($arResult['ITEMS'] as $arItem):
-    /*
-    ?>
-
-            <div class="swiper-slide" data-slide="">
-                <div class="news-item popup-open">
-                    <img alt="<?=$arItem["NAME"];?>" src="<?=$arItem["DETAIL_PICTURE"]["SRC"];?>">
-                    <div class="news-item__info">
-                        <h4>
-                            <?=$arItem["NAME"];?>
-                        </h4>
-                        <p>
-                            <?=strtolower(FormatDate("d F Y", MakeTimeStamp($arItem["DATE_CREATE"])));?>
-                        </p>
-                    </div>
-                </div>
-            </div>
-    <?
-    */
-endforeach; ?>
-    </div>
-</div>
--->
 
 <div class="main-news__swiper-block">
     <div class="main-news__swiper">
@@ -125,9 +97,4 @@ endforeach; ?>
             </div>
         </div>
     <? endforeach; ?>
-
 </div>
-
-<? //echo '<pre>'; //print_r($arResult); echo 'pre;'; ?>
-
-

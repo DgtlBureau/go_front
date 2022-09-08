@@ -11,12 +11,44 @@ use Bitrix\Main\Localization\Loc;
 if ($arParams["SET_TITLE"] == "Y") {
     $APPLICATION->SetTitle(Loc::getMessage("SOA_ORDER_COMPLETE"));
 }
+
+//dump($arResult);
 ?>
 <main class="shop">
     <div class="order__confirm">
-
+        <?
+        ?>
+        <div class="product-confirm__modal " id="product-confirm__modal">
+            <div class="product-confirm__content">
+                <div class="product-confirm__title-block">
+                    <div class="product-confirm__title">Спсибо за заказ!</div>
+                </div>
+                <div class="product-confirm__info">
+                    Номер вашего заказа # <?= $arResult["ORDER"]["ACCOUNT_NUMBER"] ?>
+                </div>
+                <div class="product-confirm__info">
+                    Все данные по заказу мы отправили на почту <?= $arResult['USER']['EMAIL'] ?>
+                </div>
+                <div class="product-confirm__btn-block">
+                    <a href="/shop/catalog/odezhda/" class="product-confirm__btn confirm-confirm <?= ($arResult['IS_PAID'] ) ? 'margin-left' : ''?>">
+                        <div class="product-confirm__btn-txt">В каталог</div>
+                    </a>
+                    <?
+                    if (!$arResult['IS_PAID'] && !empty($arResult['URL_TO_PAY'])):
+                        ?>
+                        <a href="<?=$arResult['URL_TO_PAY']?>" class="product-confirm__btn confirm-confirm">
+                            <div class="product-confirm__btn-txt">Оплатить</div>
+                        </a>
+                    <?
+                    endif;
+                    ?>
+                </div>
+            </div>
+        </div>
     </div>
-    <? if (!empty($arResult["ORDER"])): ?>
+    <?
+/*
+    if (!empty($arResult["ORDER"])): ?>
 
         <table class="sale_order_full_table">
             <tr>
@@ -62,14 +94,27 @@ if ($arParams["SET_TITLE"] == "Y") {
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>
+                                        <td class="wwwww">
+
+
                                             <? if ($arPaySystem["ACTION_FILE"] <> '' && $arPaySystem["NEW_WINDOW"] == "Y" && $arPaySystem["IS_CASH"] != "Y"): ?>
                                                 <?
                                                 $orderAccountNumber = urlencode(urlencode($arResult["ORDER"]["ACCOUNT_NUMBER"]));
                                                 $paymentAccountNumber = $payment["ACCOUNT_NUMBER"];
                                                 ?>
+                                                <?
+//                                                dump([$arParams["PATH_TO_PAYMENT"],$orderAccountNumber,$paymentAccountNumber]);
+                                                ?>
+
                                                 <script>
-                                                    window.open('<?=$arParams["PATH_TO_PAYMENT"]?>?ORDER_ID=<?=$orderAccountNumber?>&PAYMENT_ID=<?=$paymentAccountNumber?>');
+                                                    //window.open('<?//=$arParams["PATH_TO_PAYMENT"]?>//?ORDER_ID=<?//=$orderAccountNumber?>//&PAYMENT_ID=<?//=$paymentAccountNumber?>//');
+
+                                                    BX.ready(function () {
+                                                        console.log($('.btn.btn-lg.btn-success')[0]);
+
+                                                        $('.btn.btn-lg.btn-success')[0].click();
+                                                    });
+
                                                 </script>
                                             <?= Loc::getMessage("SOA_PAY_LINK", array("#LINK#" => $arParams["PATH_TO_PAYMENT"] . "?ORDER_ID=" . $orderAccountNumber . "&PAYMENT_ID=" . $paymentAccountNumber)) ?>
                                             <? if (CSalePdf::isPdfAvailable() && $arPaySystem['IS_AFFORD_PDF']): ?>
@@ -118,6 +163,8 @@ if ($arParams["SET_TITLE"] == "Y") {
             </tr>
         </table>
 
-    <? endif ?>
+    <? endif
+    */
+    ?>
 </main>
 

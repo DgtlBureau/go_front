@@ -20,8 +20,7 @@ $templateData = array(
 if (isset($templateData['TEMPLATE_THEME'])) {
     $this->addExternalCss($templateData['TEMPLATE_THEME']);
 }
-$this->addExternalCss("/bitrix/css/main/bootstrap.css");
-$this->addExternalCss("/bitrix/css/main/font-awesome.css");
+
 ?>
 <div class="bx-filter">
     <form name="<? echo $arResult["FILTER_NAME"] . "_form" ?>" action="<? echo $arResult["FORM_ACTION"] ?>" method="get"
@@ -53,7 +52,7 @@ $this->addExternalCss("/bitrix/css/main/font-awesome.css");
                                     type="text"
                                     name="<? echo $arItem["VALUES"]["MIN"]["CONTROL_NAME"] ?>"
                                     id="<? echo $arItem["VALUES"]["MIN"]["CONTROL_ID"] ?>"
-                                    value="<? echo $arItem["VALUES"]["MIN"]["HTML_VALUE"] ?>"
+                                    value="<?= empty($arItem["VALUES"]["MIN"]["HTML_VALUE"]) ? $arItem["VALUES"]["MIN"]["VALUE"] : $arItem["VALUES"]["MIN"]["HTML_VALUE"] ?>"
                                     size="5"
                                     onkeyup="smartFilter.keyup(this)"
                             />
@@ -67,7 +66,7 @@ $this->addExternalCss("/bitrix/css/main/font-awesome.css");
                                     type="text"
                                     name="<? echo $arItem["VALUES"]["MAX"]["CONTROL_NAME"] ?>"
                                     id="<? echo $arItem["VALUES"]["MAX"]["CONTROL_ID"] ?>"
-                                    value="<? echo $arItem["VALUES"]["MAX"]["HTML_VALUE"] ?>"
+                                    value="<?= empty($arItem["VALUES"]["MAX"]["HTML_VALUE"]) ? $arItem["VALUES"]["MAX"]["VALUE"] : $arItem["VALUES"]["MAX"]["HTML_VALUE"] ?>"
                                     size="5"
                                     onkeyup="smartFilter.keyup(this)"
                             />
@@ -143,7 +142,7 @@ $this->addExternalCss("/bitrix/css/main/font-awesome.css");
                                     type="text"
                                     name="<? echo $arItem["VALUES"]["MIN"]["CONTROL_NAME"] ?>"
                                     id="<? echo $arItem["VALUES"]["MIN"]["CONTROL_ID"] ?>"
-                                    value="<? echo $arItem["VALUES"]["MIN"]["HTML_VALUE"] ?>"
+                                    value="<?= empty($arItem["VALUES"]["MIN"]["HTML_VALUE"]) ? $arItem["VALUES"]["MIN"]["VALUE"] : $arItem["VALUES"]["MIN"]["HTML_VALUE"] ?>"
                                     size="5"
                                     onkeyup="smartFilter.keyup(this)"
                             />
@@ -157,7 +156,7 @@ $this->addExternalCss("/bitrix/css/main/font-awesome.css");
                                     type="text"
                                     name="<? echo $arItem["VALUES"]["MAX"]["CONTROL_NAME"] ?>"
                                     id="<? echo $arItem["VALUES"]["MAX"]["CONTROL_ID"] ?>"
-                                    value="<? echo $arItem["VALUES"]["MAX"]["HTML_VALUE"] ?>"
+                                    value="<?= empty($arItem["VALUES"]["MAX"]["HTML_VALUE"]) ? $arItem["VALUES"]["MAX"]["VALUE"] : $arItem["VALUES"]["MAX"]["HTML_VALUE"] ?>"
                                     size="5"
                                     onkeyup="smartFilter.keyup(this)"
                             />
@@ -552,7 +551,7 @@ $this->addExternalCss("/bitrix/css/main/font-awesome.css");
                                             type="text"
                                             name="<? echo $arItem["VALUES"]["MIN"]["CONTROL_NAME"] ?>"
                                             id="<? echo $arItem["VALUES"]["MIN"]["CONTROL_ID"] ?>"
-                                            value="<? echo $arItem["VALUES"]["MIN"]["HTML_VALUE"] ?>"
+                                            value="<?= empty($arItem["VALUES"]["MIN"]["HTML_VALUE"]) ? $arItem["VALUES"]["MIN"]["VALUE"] : $arItem["VALUES"]["MIN"]["HTML_VALUE"] ?>"
                                             size="5"
                                             onkeyup="smartFilter.keyup(this)"
                                     />
@@ -565,7 +564,7 @@ $this->addExternalCss("/bitrix/css/main/font-awesome.css");
                                             type="text"
                                             name="<? echo $arItem["VALUES"]["MAX"]["CONTROL_NAME"] ?>"
                                             id="<? echo $arItem["VALUES"]["MAX"]["CONTROL_ID"] ?>"
-                                            value="<? echo $arItem["VALUES"]["MAX"]["HTML_VALUE"] ?>"
+                                            value="<?= empty($arItem["VALUES"]["MAX"]["HTML_VALUE"]) ? $arItem["VALUES"]["MAX"]["VALUE"] : $arItem["VALUES"]["MAX"]["HTML_VALUE"] ?>"
                                             size="5"
                                             onkeyup="smartFilter.keyup(this)"
                                     />
@@ -680,7 +679,7 @@ $this->addExternalCss("/bitrix/css/main/font-awesome.css");
                                     type="text"
                                     name="<? echo $arItem["VALUES"]["MIN"]["CONTROL_NAME"] ?>"
                                     id="<? echo $arItem["VALUES"]["MIN"]["CONTROL_ID"] ?>"
-                                    value="<? echo $arItem["VALUES"]["MIN"]["HTML_VALUE"] ?>"
+                                    value="<?= empty($arItem["VALUES"]["MIN"]["HTML_VALUE"]) ? $arItem["VALUES"]["MIN"]["VALUE"] : $arItem["VALUES"]["MIN"]["HTML_VALUE"] ?>"
                                     size="5"
                                     onkeyup="smartFilter.keyup(this)"
                             />
@@ -694,7 +693,7 @@ $this->addExternalCss("/bitrix/css/main/font-awesome.css");
                                     type="text"
                                     name="<? echo $arItem["VALUES"]["MAX"]["CONTROL_NAME"] ?>"
                                     id="<? echo $arItem["VALUES"]["MAX"]["CONTROL_ID"] ?>"
-                                    value="<? echo $arItem["VALUES"]["MAX"]["HTML_VALUE"] ?>"
+                                    value="<?= empty($arItem["VALUES"]["MAX"]["HTML_VALUE"]) ? $arItem["VALUES"]["MAX"]["VALUE"] : $arItem["VALUES"]["MAX"]["HTML_VALUE"] ?>"
                                     size="5"
                                     onkeyup="smartFilter.keyup(this)"
                             />
@@ -770,7 +769,7 @@ $this->addExternalCss("/bitrix/css/main/font-awesome.css");
                                     type="text"
                                     name="<? echo $arItem["VALUES"]["MIN"]["CONTROL_NAME"] ?>"
                                     id="<? echo $arItem["VALUES"]["MIN"]["CONTROL_ID"] ?>"
-                                    value="<? echo $arItem["VALUES"]["MIN"]["HTML_VALUE"] ?>"
+                                    value="<?= empty($arItem["VALUES"]["MIN"]["HTML_VALUE"]) ? $arItem["VALUES"]["MIN"]["VALUE"] : $arItem["VALUES"]["MIN"]["HTML_VALUE"] ?>"
                                     size="5"
                                     onkeyup="smartFilter.keyup(this)"
                             />
@@ -784,7 +783,7 @@ $this->addExternalCss("/bitrix/css/main/font-awesome.css");
                                     type="text"
                                     name="<? echo $arItem["VALUES"]["MAX"]["CONTROL_NAME"] ?>"
                                     id="<? echo $arItem["VALUES"]["MAX"]["CONTROL_ID"] ?>"
-                                    value="<? echo $arItem["VALUES"]["MAX"]["HTML_VALUE"] ?>"
+                                    value="<?= empty($arItem["VALUES"]["MAX"]["HTML_VALUE"]) ? $arItem["VALUES"]["MAX"]["VALUE"] : $arItem["VALUES"]["MAX"]["HTML_VALUE"] ?>"
                                     size="5"
                                     onkeyup="smartFilter.keyup(this)"
                             />

@@ -485,11 +485,22 @@
             },
 
             checkOutAction: function () {
+                this.startLoader();
                 document.location.href = this.params.PATH_TO_ORDER;
             },
 
             addCouponAction: function (event) {
+
+
+
+                for (var i = 0, l = this.result.COUPON_LIST.length; i < l; i++) {
+
+                    console.log(this.result.COUPON_LIST[i])
+                    this.actionPool.removeCoupon(this.result.COUPON_LIST[i].COUPON);
+                }
+
                 var target = BX.getEventTarget(event);
+
                 if (target && target.value) {
                     this.actionPool.addCoupon(target.value);
                     target.disabled = true;
@@ -784,6 +795,7 @@
 
                         this.addPriceAnimationData(this.ids.sumPrice + itemId, itemData.SUM_PRICE, itemData.SUM_PRICE_NEW, itemData.CURRENCY);
                     }
+
                 }
 
                 return itemData;
@@ -804,6 +816,9 @@
             },
 
             startLoader: function () {
+                $('bode').addClass('no-overflow');
+
+
                 // if (!this.loadingScreen)
                 // {
                 // 	this.loadingScreen = new BX.PopupWindow('loading_screen', null, {
@@ -829,6 +844,9 @@
              * Hiding loader image with overlay.
              */
             endLoader: function () {
+                $('body').removeClass('no-overflow');
+
+
                 // if (this.loadingScreen && this.loadingScreen.isShown())
                 // {
                 // 	this.loadingScreen.close();
@@ -1390,7 +1408,7 @@
                 let that = this;
 
                 // удаляем товар
-                        that.deleteBasketItem(productId, false, true)
+                that.deleteBasketItem(productId, false, true)
 
                 this.actionPool.deleteItem(productId);
 

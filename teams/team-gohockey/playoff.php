@@ -2,15 +2,15 @@
 $PROPERTY_TEAM = 7;//ID Команды
 $SEZONS = 20;//Сезоны
 ?>
-<div class="go-final">
-    <div class="blue-go-final__info">
+<div class="gohockey-team">
+    <div class="back-go-final__info">
         <div class="container">
             <div class="go-final__info">
                 <div class="go-final__about">
                     <div class="go-final__about-title">
                         <p>Хоккейная команда</p>
                         <p>Команда</p>
-                        <div class="go-team__team-name orange"><span data-text="Gohockey" id="GO">Gohockey</span></div>
+                        <div class="go-team__team-name"><span data-text="<?=$GLOBALS['SITE_SETTINGS']['gohockey']['LOGO_TEXT']?>" id="GO"><?=$GLOBALS['SITE_SETTINGS']['gohockey']['LOGO_TEXT']?></span></div>
                     </div>
                     <div class="go-final__about-txt"><?=$ar_header_fields["DETAIL_TEXT"];?></div>
                     <div class="go-final__progress invisible">
@@ -100,7 +100,7 @@ $SEZONS = 20;//Сезоны
                     ?>
                 </div>
                 <div class="go-final__progress">
-                    <div class="go-final__progress-background orange" id="team-background-logo"></div>
+                    <div class="go-final__progress-background" id="team-background-logo"></div>
                     <div class="go-final__progress-stats">
                         <div class="go-final__progress-victories">
                             <div class="go-final__progress-title">Побед</div>
@@ -126,7 +126,7 @@ $SEZONS = 20;//Сезоны
                     <p>Состав команды</p>
                     <p>Состав</p>
                 </a>
-                <a class="go-final__nav-item orange" href="/teams/team-gohockey/tournament/">Турниры</a>
+                <div class="go-final__nav-item" href="/teams/team-gohockey/tournament/">Турниры</div>
                 <a class="go-final__nav-item" href="/teams/team-gohockey/news/">Новости</a>
             </div>
         </div>
@@ -345,6 +345,6 @@ $SEZONS = 20;//Сезоны
 
 <style>
     .go-final-bracket__score_winner {
-        background: #FF4C01
+        background: <?=$GLOBALS['SITE_SETTINGS']['gohockey']['COLOR_MAIN']?> !important;
     }
 </style>

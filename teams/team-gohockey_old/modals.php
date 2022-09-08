@@ -424,7 +424,7 @@
                 </div>
                 <div class="preview__versus">
                     <div class="preview__team" style="justify-content: flex-end;">
-                        <div class="preview__team-name">GO</div>
+                        <div class="preview__team-name"><?=$GLOBALS['SITE_SETTINGS']['go']['LOGO_TEXT']?></div>
                         <div class="preview__team-logo"><img src="/local/templates/new_ru/img/bul.png" alt="bull"></div>
                     </div>
                     <div class="preview__score-block">
@@ -447,7 +447,7 @@
                         </div>
                         <div class="matchs-history__versus-block">
                             <div class="matchs-history__team">
-                                <div class="matchs-history__team-name">GO</div>
+                                <div class="matchs-history__team-name"><?=$GLOBALS['SITE_SETTINGS']['go']['LOGO_TEXT']?></div>
                                 <div class="matchs-history__team-logo"><img src="/local/templates/new_ru/img/bul.png"
                                                                             alt="bull"></div>
                             </div>
@@ -472,7 +472,7 @@
                         </div>
                         <div class="matchs-history__versus-block">
                             <div class="matchs-history__team">
-                                <div class="matchs-history__team-name">GO</div>
+                                <div class="matchs-history__team-name"><?=$GLOBALS['SITE_SETTINGS']['go']['LOGO_TEXT']?></div>
                                 <div class="matchs-history__team-logo"><img src="/local/templates/new_ru/img/bul.png"
                                                                             alt="bull"></div>
                             </div>
@@ -497,7 +497,7 @@
                         </div>
                         <div class="matchs-history__versus-block">
                             <div class="matchs-history__team">
-                                <div class="matchs-history__team-name">GO</div>
+                                <div class="matchs-history__team-name"><?=$GLOBALS['SITE_SETTINGS']['go']['LOGO_TEXT']?></div>
                                 <div class="matchs-history__team-logo"><img src="/local/templates/new_ru/img/bul.png"
                                                                             alt="bull"></div>
                             </div>
@@ -522,7 +522,7 @@
                         </div>
                         <div class="matchs-history__versus-block">
                             <div class="matchs-history__team">
-                                <div class="matchs-history__team-name">GO</div>
+                                <div class="matchs-history__team-name"><?=$GLOBALS['SITE_SETTINGS']['go']['LOGO_TEXT']?></div>
                                 <div class="matchs-history__team-logo"><img src="/local/templates/new_ru/img/bul.png"
                                                                             alt="bull"></div>
                             </div>
@@ -547,7 +547,7 @@
                         </div>
                         <div class="matchs-history__versus-block">
                             <div class="matchs-history__team">
-                                <div class="matchs-history__team-name">GO</div>
+                                <div class="matchs-history__team-name"><?=$GLOBALS['SITE_SETTINGS']['go']['LOGO_TEXT']?></div>
                                 <div class="matchs-history__team-logo"><img src="/local/templates/new_ru/img/bul.png"
                                                                             alt="bull"></div>
                             </div>

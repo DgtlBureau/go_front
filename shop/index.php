@@ -14,45 +14,39 @@ $asset->addJs(SITE_TEMPLATE_PATH . '/assets/go_shop_build/ShopMain/index.js');
 //$asset->addCss(SITE_TEMPLATE_PATH . '/assets/slider/slider-styles.css');
 //$asset->addJs(SITE_TEMPLATE_PATH . '/assets/slider/index.js');
 //$asset->addJs(SITE_TEMPLATE_PATH . '/assets/slider/slider_touch.js');
-
 ?>
-<?$APPLICATION->IncludeComponent(
-    "bitrix:sale.basket.basket.line",
-    "store_v4",
-    Array(
-        "COMPONENT_TEMPLATE" => "store_v4",
-        "HIDE_ON_BASKET_PAGES" => "Y",
-        "PATH_TO_AUTHORIZE" => "",
-        "PATH_TO_BASKET" => SITE_DIR . "shop/basket/",
-        "PATH_TO_ORDER" => SITE_DIR . "shop/order/",
-        "PATH_TO_PERSONAL" => SITE_DIR."personal/",
-        "PATH_TO_PROFILE" => SITE_DIR."personal/",
-        "PATH_TO_REGISTER" => SITE_DIR."login/",
-        "POSITION_FIXED" => "N",
-        "SHOW_AUTHOR" => "N",
-        "SHOW_EMPTY_VALUES" => "Y",
-        "SHOW_NUM_PRODUCTS" => "Y",
-        "SHOW_PERSONAL_LINK" => "N",
-        "SHOW_PRODUCTS" => "N",
-        "SHOW_REGISTRATION" => "N",
-        "SHOW_TOTAL_PRICE" => "N"
-    )
-);?>
+    <div class="favorites-and-basket">
+        <? $APPLICATION->IncludeComponent(
+            "custom:favourites.widget",
+            "",
+            array(
+                "PATH_TO_FAVORITES" => SITE_DIR . "shop/catalog/favourites/",
+            )
+        ); ?>
+        <? $APPLICATION->IncludeComponent(
+            "bitrix:sale.basket.basket.line",
+            "store_v4",
+            array(
+                "COMPONENT_TEMPLATE" => "store_v4",
+                "HIDE_ON_BASKET_PAGES" => "Y",
+                "PATH_TO_AUTHORIZE" => "",
+                "PATH_TO_BASKET" => SITE_DIR . "shop/basket/",
+                "PATH_TO_ORDER" => SITE_DIR . "shop/order/",
+                "PATH_TO_PERSONAL" => SITE_DIR . "personal/",
+                "PATH_TO_PROFILE" => SITE_DIR . "personal/",
+                "PATH_TO_REGISTER" => SITE_DIR . "login/",
+                "POSITION_FIXED" => "N",
+                "SHOW_AUTHOR" => "N",
+                "SHOW_EMPTY_VALUES" => "Y",
+                "SHOW_NUM_PRODUCTS" => "Y",
+                "SHOW_PERSONAL_LINK" => "N",
+                "SHOW_PRODUCTS" => "N",
+                "SHOW_REGISTRATION" => "N",
+                "SHOW_TOTAL_PRICE" => "N"
+            )
+        ); ?>
+    </div>
 
-<?
-$APPLICATION->IncludeComponent(
-    'bitrix:main.include',
-    '',
-    array(
-        'AREA_FILE_SHOW' => 'file',
-        'PATH' => '/shop/includes/top_fav_and_basket.php',
-        'AREA_FILE_RECURSIVE' => 'N',
-        'EDIT_MODE' => 'html',
-    ),
-    false,
-    array('HIDE_ICONS' => 'Y')
-);
-?>
 <?
 $APPLICATION->IncludeComponent(
     "bitrix:news.list",

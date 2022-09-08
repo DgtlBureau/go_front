@@ -11,13 +11,10 @@
 /** @var string $componentPath */
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
-//echo '<pre>'; print_r($arResult); echo '</pre>';
 
-//$this->addExternalCss("/teams/team-go/players/style.css");
 $TEAM = $arParams['ADD_PROPERTY_TEAM'];
 ?>
-<div class="<? if ($TEAM == 6): ?>back-go-banner<? else: ?>blue-go-banner<? endif; ?>">
-
+<div class="back-go-banner">
     <div class="container">
         <div class="go-banner">
             <div class="back-logo <?= ($TEAM == 7) ? 'orange' : '' ?>"></div>

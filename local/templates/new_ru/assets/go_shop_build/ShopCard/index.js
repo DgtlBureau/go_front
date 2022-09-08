@@ -29,12 +29,7 @@ $('document').ready(function () {
     );
     $(this).addClass('card-products__size-selection-item-active');
   });
-  // ПОЯВЛЕНИЕ И ИСЧЕЗАНИЕ ПОЛНОГО СЕРДЕЧКА
-  $('.products__item-like').on('click', function () {
-    var childrens = $(this).children();
-    $(childrens[1]).toggleClass('hide');
-    return false;
-  });
+
   // ИНИЦИАЛИЗАЦИЯ ДВУХ СИНХРОННЫХ СЛАЙДЕРОВ
   $('.slider-for').slick({
     slidesToShow: 1,

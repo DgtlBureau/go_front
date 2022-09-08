@@ -22,8 +22,6 @@ div.news-detail img.detail_picture {
 	font-family: 'TT Octosquares';
 	padding-top: 110px;
 	max-height: 584px;
-	height: 100%;
-	background: url('/local/templates/new_ru/img/bull.png') no-repeat;
 	background-size: contain;
 	background-position: 9% 0;
 	color: #fff
@@ -232,7 +230,6 @@ a.all_team {
 	justify-content: center;
 	height: 80px;
 	text-transform: uppercase;
-	color: #D19FF9;
 	font-weight: 500;
 	transition: .3s;
 	text-align: center;

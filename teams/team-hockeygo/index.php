@@ -2,7 +2,7 @@
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Title");
 ?>
-    <div class="go-team">
+    <div class="gohockey-team">
 	 <?$APPLICATION->IncludeComponent(
         "bitrix:news.list",
         "team-go",

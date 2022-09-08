@@ -331,13 +331,6 @@ if (!empty($arParams['LABEL_PROP_POSITION'])) {
                                         </dl>
                                         <?php
                                     }
-
-                                    if ($arResult['SHOW_OFFERS_PROPS']) {
-                                        ?>
-                                        <dl class="product-item-detail-properties"
-                                            id="<?= $itemIds['DISPLAY_MAIN_PROP_DIV'] ?>"></dl>
-                                        <?php
-                                    }
                                     ?>
                                 </div>
                                 <?php
@@ -809,6 +802,7 @@ if (!empty($arParams['LABEL_PROP_POSITION'])) {
                                         <dl class="product-item-detail-properties">
                                             <?php
                                             foreach ($arResult['DISPLAY_PROPERTIES'] as $property) {
+                                                /*
                                                 ?>
                                                 <dt><?= $property['NAME'] ?></dt>
                                                 <dd><?= (
@@ -818,17 +812,11 @@ if (!empty($arParams['LABEL_PROP_POSITION'])) {
                                                     ) ?>
                                                 </dd>
                                                 <?php
+                                                */
                                             }
                                             unset($property);
                                             ?>
                                         </dl>
-                                        <?php
-                                    }
-
-                                    if ($arResult['SHOW_OFFERS_PROPS']) {
-                                        ?>
-                                        <dl class="product-item-detail-properties"
-                                            id="<?= $itemIds['DISPLAY_PROP_DIV'] ?>"></dl>
                                         <?php
                                     }
                                     ?>

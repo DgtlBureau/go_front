@@ -1,7 +1,192 @@
-.go-news__modal-banner-hash.orange {
-    background-color: #ff4c01;
+
+
+.containerModal .closeIconContainer {
+    display: block;
 }
 
-.go-news__modal-banner-hash {
-    background-color: #d19ff9;
+.containerModal {
+    max-width: 528px;
+    width: 100%;
+    padding: 36px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background: var(--background-141414-color);
+}
+
+.modalHeader {
+    width: 100%;
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.modalContent {
+    width: 100%;
+    display: grid;
+    gap: 24px;
+    grid-template-columns: 1fr auto 1fr;
+    margin-bottom: 40px;
+}
+
+.modalControls {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 12px;
+}
+
+.modalForm input,
+.modalForm textarea {
+    width: 80%;
+    height: 56px;
+    padding: 16px 18px;
+    margin-top: 12px;
+    border: none;
+    outline: none;
+    background: #232323;
+    color: white;
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0.02em;
+}
+
+.modalForm textarea {
+    height: 123px;
+    resize: none;
+}
+
+.modalForm {
+    width: 100%;
+    max-width: 525px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--background-141414-color);
+}
+
+
+.products__item-sale,
+.products__item-new,
+.products__item-hit {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    background: #000;
+    text-align: center;
+    color: #fff;
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 100%;
+    padding: 6px 10px;
+    z-index: 1;
+    text-transform: uppercase
+}
+
+.products__item-hit {
+    background: #fff;
+    color: #000;
+    padding: 6px 14px
+}
+
+.products__item-hit-twice {
+    top: 55px
+}
+
+.products__item-hit-thrice {
+    top: 90px
+}
+
+.products__item-sale,
+.products__item-new,
+.products__item-hit {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    background: #000;
+    text-align: center;
+    color: #fff;
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 100%;
+    padding: 6px 10px;
+    z-index: 1;
+    text-transform: uppercase
+}
+
+.products__item-hit {
+    background: #fff;
+    color: #000;
+    padding: 6px 14px
+}
+
+@media (max-width: 768px) {
+    .products__item-sale,
+    .products__item-new,
+    .products__item-hit {
+        left: 12px;
+        top: 12px;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 100%;
+        padding: 6px 10px
+    }
+
+    .products__item-hit {
+        left: 12px;
+        top: 12px;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 100%;
+        padding: 6px 13px
+    }
+
+    .products__item-hit-twice {
+        top: 40px
+    }
+
+    .products__item-hit-thrice {
+        top: 70px
+    }
+}
+
+.products__item-new {
+    background: grey;
+}
+
+
+.favorites-and-basket {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    position: absolute;
+    right: 40px;
+    top: 80px;
+    z-index: 8
+}
+
+.favorites-and-basket img {
+    width: 100%
+}
+
+@media (max-width: 768px) {
+
+    .favorites-and-basket {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        position: absolute;
+        right: 10px;
+        top: 10px
+    }
 }

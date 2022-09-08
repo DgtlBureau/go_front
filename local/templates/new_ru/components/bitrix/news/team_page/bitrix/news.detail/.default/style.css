@@ -128,8 +128,7 @@ span.pos_name {
 
 span.player_num {
 	position: relative;
-	color: #D19FF9;
-	-webkit-text-stroke: 0.16em #fff;
+
 	font-size: 60px;
 	font-weight: 800;
 }
@@ -144,8 +143,6 @@ span.player_num:before {
 
 span.player_num_orang {
 	position: relative;
-	color: #FF4C01;
-	-webkit-text-stroke: 0.16em #FF4C01;
 	font-size: 60px;
 	font-weight: 800;
 }
@@ -442,9 +439,7 @@ span.swiper-pagination-bullet {
 	opacity: 1;
 }
 
-.popup_pag .swiper-pagination-bullet-active {
-	background: #D19FF9;
-}
+
 
 .popup_pag .swiper-pagination-bullet {
 	border-radius: 0;
@@ -1476,7 +1471,6 @@ span.swiper-pagination-bullet {
 	width: 70%;
 	max-height: 500px;
 	height: 100%;
-	background: url('/local/templates/new_ru/img/bull.png') no-repeat;
 	background-size: contain;
 	background-position: 9% 0;
 	color: #fff;
@@ -1487,7 +1481,6 @@ span.swiper-pagination-bullet {
 .go-banner {
 	margin-top: 110px;
 	max-height: 584px;
-	height: 100%;
 	color: #fff;
 }
 

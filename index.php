@@ -104,7 +104,7 @@ $APPLICATION->SetTitle("GO");
                             <div class="about-us__swiper">
                                 <? $APPLICATION->IncludeComponent(
                                     "bitrix:news.list",
-                                    "about",
+                                    "about_news",
                                     array(
                                         "ACTIVE_DATE_FORMAT" => "d.m.Y",
                                         "ADD_SECTIONS_CHAIN" => "Y",
@@ -118,7 +118,7 @@ $APPLICATION->SetTitle("GO");
                                         "CACHE_TIME" => "0",
                                         "CACHE_TYPE" => "A",
                                         "CHECK_DATES" => "Y",
-                                        "COMPONENT_TEMPLATE" => "about",
+                                        "COMPONENT_TEMPLATE" => "about_news",
                                         "DETAIL_URL" => "",
                                         "DISPLAY_BOTTOM_PAGER" => "Y",
                                         "DISPLAY_TOP_PAGER" => "N",
@@ -159,31 +159,60 @@ $APPLICATION->SetTitle("GO");
                             </div>
                         </div>
                         <div class="about-us__info">
+                            <? $APPLICATION->IncludeComponent(
+                                "bitrix:news.list",
+                                "about_numbers",
+                                array(
+                                    "ACTIVE_DATE_FORMAT" => "d.m.Y",
+                                    "ADD_SECTIONS_CHAIN" => "Y",
+                                    "AJAX_MODE" => "N",
+                                    "AJAX_OPTION_ADDITIONAL" => "",
+                                    "AJAX_OPTION_HISTORY" => "N",
+                                    "AJAX_OPTION_JUMP" => "N",
+                                    "AJAX_OPTION_STYLE" => "Y",
+                                    "CACHE_FILTER" => "N",
+                                    "CACHE_GROUPS" => "Y",
+                                    "CACHE_TIME" => "0",
+                                    "CACHE_TYPE" => "A",
+                                    "CHECK_DATES" => "Y",
+                                    "COMPONENT_TEMPLATE" => "about_numbers",
+                                    "DETAIL_URL" => "",
+                                    "DISPLAY_BOTTOM_PAGER" => "Y",
+                                    "DISPLAY_TOP_PAGER" => "N",
+                                    "FIELD_CODE" => array(0 => "NAME", 1 => "PREVIEW_TEXT"),
+                                    "FILTER_NAME" => "",
+                                    "HIDE_LINK_WHEN_NO_DETAIL" => "N",
+                                    "IBLOCK_ID" => "33",
+                                    "IBLOCK_TYPE" => "content",
+                                    "INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
+                                    "INCLUDE_SUBSECTIONS" => "Y",
+                                    "MESSAGE_404" => "",
+                                    "NEWS_COUNT" => "999",
+                                    "PAGER_BASE_LINK_ENABLE" => "N",
+                                    "PAGER_DESC_NUMBERING" => "N",
+                                    "PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
+                                    "PAGER_SHOW_ALL" => "N",
+                                    "PAGER_SHOW_ALWAYS" => "N",
+                                    "PAGER_TEMPLATE" => ".default",
+                                    "PAGER_TITLE" => "Новости",
+                                    "PARENT_SECTION" => "",
+                                    "PARENT_SECTION_CODE" => "",
+                                    "PREVIEW_TRUNCATE_LEN" => "",
+                                    "SET_BROWSER_TITLE" => "N",
+                                    "SET_LAST_MODIFIED" => "N",
+                                    "SET_META_DESCRIPTION" => "Y",
+                                    "SET_META_KEYWORDS" => "Y",
+                                    "SET_STATUS_404" => "N",
+                                    "SET_TITLE" => "N",
+                                    "SHOW_404" => "N",
+                                    "SORT_BY1" => "SORT",
+                                    "SORT_ORDER1" => "ASC",
+                                    "STRICT_SECTION_CHECK" => "N"
+                                )
+                            ); ?>
+
+
                             <div class="about-us__info-item">
-                                <div class="about-us__info-item-txt-block">
-                                    <span class="about-us__info-item-title" data-text="100">100</span>
-                                    <div class="about-us__info-item-txt">
-                                        Спортсменов
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="about-us__info-item">
-                                <div class="about-us__info-item-txt-block">
-                                    <span class="about-us__info-item-title" data-text="20">20</span>
-                                    <div class="about-us__info-item-txt">
-                                        Проектов
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="about-us__info-item">
-                                <div class="about-us__info-item-txt-block">
-                                    <span class="about-us__info-item-title" data-text="10">10</span>
-                                    <div class="about-us__info-item-txt">
-                                        Мероприятий
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="about-us__info-item about-us__info-item-social">
                                 <?
                                 $res = CIBlockElement::GetList(array("ID" => "DESC"), array("IBLOCK_ID" => 8));
                                 while ($ob = $res->GetNextElement()) {

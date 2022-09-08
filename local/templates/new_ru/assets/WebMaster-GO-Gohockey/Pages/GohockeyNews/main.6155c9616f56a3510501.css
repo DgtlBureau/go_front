@@ -353,8 +353,6 @@ a:hover {
 }
 
 .go-news__nav-item:nth-child(3) {
-    border-bottom: 4px solid #ff4c01;
-    color: #fff;
     height: 76px;
     font-weight: 600
 }
